@@ -65,7 +65,7 @@ model = genai.GenerativeModel(
   generation_config=generation_config,
 )
 
-def upload_to_github(json_data, filename):
+def upload_to_github(json_data, filename,year):
     try:
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
@@ -78,7 +78,7 @@ def upload_to_github(json_data, filename):
         
         #content = base64.b64encode(json.dumps(json_data).encode()).decode()
         content = json.dumps(json_data, indent=2)
-        file_path = f"reports/{filename}.json"
+        file_path = f"reports/{filename} {year}.json"
         
         try:
             file = repo.get_contents(file_path, ref=GITHUB_BRANCH)
@@ -105,7 +105,7 @@ def upload_to_github(json_data, filename):
     except Exception as e:
         return False, f"Upload failed: {str(e)}"
 
-def get_json_files_from_github():
+def get_json_files_from_github(exclude_versions=True):
     try:
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
@@ -113,7 +113,7 @@ def get_json_files_from_github():
         
         json_files = []
         for content in contents:
-            if content.name.endswith('.json'):
+            if content.name.endswith('.json') and (not exclude_versions or not content.name.endswith(('_v', '_vb'))):
                 json_files.append({
                     'name': content.name.replace('.json', ''),
                     'path': content.path,
@@ -124,6 +124,108 @@ def get_json_files_from_github():
         st.error(f"Error fetching JSON files: {str(e)}")
         return []
 
+def update_json_file(repo, file_path, content, branch=GITHUB_BRANCH):
+    try:
+        file = repo.get_contents(file_path, ref=branch)
+        repo.update_file(
+            file_path,
+            f"Update {os.path.basename(file_path)}",
+            content,
+            file.sha,
+            branch=branch
+        )
+        return True, "File updated successfully"
+    except Exception as e:
+        if "404" in str(e):
+            repo.create_file(
+                file_path,
+                f"Add {os.path.basename(file_path)}",
+                content,
+                branch=branch
+            )
+            return True, "File created successfully"
+        else:
+            raise e
+
+def verify_page():
+    st.title("Verify Extracted Information")
+    st.write("Please verify the info scraped.")
+
+    json_files = get_json_files_from_github(exclude_versions=True)
+
+    if not json_files:
+        st.info("No JSON files found in the repository")
+        return
+
+    # Collect unique shareholder names and GLIC associations
+    shareholder_data = {}
+    for file in json_files:
+        try:
+            g = Github(GITHUB_TOKEN)
+            repo = g.get_repo(GITHUB_REPO)
+            file_content = repo.get_contents(file['path'], ref=GITHUB_BRANCH)
+            json_content = base64.b64decode(file_content.content).decode()
+            data = json.loads(json_content)
+
+            for shareholder in data['topShareholders']:
+                shareholder_name = shareholder['shareholderName']
+                if shareholder_name not in shareholder_data:
+                    shareholder_data[shareholder_name] = {
+                        'glicAssociation': shareholder['glicAssociation']
+                    }
+                else:
+                    shareholder_data[shareholder_name]['glicAssociation'] = shareholder['glicAssociation']
+        except Exception as e:
+            st.error(f"Error loading JSON: {str(e)}")
+
+    # Create the table
+    shareholder_table = [["Shareholder Name", "GLIC Association"]]
+    for shareholder_name, shareholder_info in shareholder_data.items():
+        shareholder_table.append([
+            shareholder_name,
+            st.selectbox(f"GLIC Association for {shareholder_name}", [
+                "Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT", "None"
+            ], key=f"{shareholder_name}_glic")
+        ])
+
+    st.table(shareholder_table)
+
+    if st.button("Verify"):
+        g = Github(GITHUB_TOKEN)
+        repo = g.get_repo(GITHUB_REPO)
+
+        for file in json_files:
+            try:
+                file_content = repo.get_contents(file['path'], ref=GITHUB_BRANCH)
+                json_content = base64.b64decode(file_content.content).decode()
+                data = json.loads(json_content)
+
+                for shareholder in data['topShareholders']:
+                    shareholder_name = shareholder['shareholderName']
+                    new_glic_association = shareholder_table[shareholder_table.index([shareholder_name, _])+1][1]
+                    if new_glic_association != shareholder['glicAssociation']:
+                        shareholder['glicAssociation'] = new_glic_association
+
+                # Calculate the sum of percentages held by non-None GLICs
+                non_none_glic_total = sum(
+                    shareholder['percentageHeld']
+                    for shareholder in data['topShareholders']
+                    if shareholder['glicAssociation'] != 'None'
+                )
+
+                # Update the file name if the non-None GLIC total exceeds 20
+                if non_none_glic_total > 20:
+                    new_file_name = f"{file['name']}_v_{non_none_glic_total:.1f}.json"
+                else:
+                    new_file_name = f"{file['name']}_v.json"
+
+                new_file_path = os.path.join("reports", new_file_name)
+                update_json_file(repo, new_file_path, json.dumps(data, indent=2))
+            except Exception as e:
+                st.error(f"Error updating file: {str(e)}")
+
+        st.success("JSON files updated and verified.")            
+            
 def view_json_file(file_content):
     data = json.loads(file_content)
 
@@ -133,9 +235,12 @@ def view_json_file(file_content):
     st.write(f"Company Description: {data['companyDescription']}")
 
     st.subheader("Top Shareholders")
-    shareholder_data = []
-    for shareholder in data['topShareholders']:
+    shareholder_data = [["#", "Shareholder Name", "GLIC Association", "Percentage Held"]]
+
+    # Populate the data, starting the row counter from 1
+    for idx, shareholder in enumerate(data['topShareholders'], start=1):
         shareholder_data.append([
+            idx,
             shareholder['shareholderName'],
             shareholder['glicAssociation'],
             f"{shareholder['percentageHeld']}%"
@@ -175,7 +280,8 @@ def upload_page():
                 
                 # Upload the JSON to GitHub
                 file_name = output_json["companyName"]
-                upload_to_github(output_json, file_name)
+                year = output_json["reportYear"]
+                upload_to_github(output_json, file_name, year)
                 
                 st.success("Information extracted and uploaded to GitHub!")
 
@@ -212,12 +318,15 @@ def view_page():
 
 def main():
     st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Go to", ["Upload PDF", "View Extracted Information"])
+    page = st.sidebar.radio("Go to", ["Upload PDF", "View Extracted Information", "Verify Extracted Information"])
     
     if page == "Upload PDF":
         upload_page()
-    else:
+    elif page == "View Extracted Information":
         view_page()
+    else:
+        verify_page()
+
 
 if __name__ == "__main__":
     main()
