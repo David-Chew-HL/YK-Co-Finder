@@ -81,7 +81,7 @@ def main():
         st.error(f"Failed to connect to GitHub: {str(e)}")
         return
     
-    up_file = st.file_uploader("Choose a PDF file", type="pdf")
+    uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
     
     if uploaded_file is not None:
         # Read the original file bytes
