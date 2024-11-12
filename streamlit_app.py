@@ -166,7 +166,7 @@ def verify_page():
     st.title("Verify Extracted Information")
     st.write("Please verify the info scraped.")
 
-    json_files = get_json_files_from_github(exclude_verified=True)
+    json_files = get_json_files_from_github(exclude_versioned=True)
 
     if not json_files:
         st.info("No JSON files found in the repository")
@@ -193,18 +193,18 @@ def verify_page():
         except Exception as e:
             st.error(f"Error loading JSON: {str(e)}")
 
-    # Create the table
-    shareholder_table = [["Shareholder Name", "GLIC Association"]]
+    # Create form for editing GLIC associations
+    edited_shareholders = {}
     for shareholder_name, shareholder_info in shareholder_data.items():
-        shareholder_table.append([
-            shareholder_name,
-            st.selectbox(f"GLIC Association for {shareholder_name}", [
-                "Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT", "None"
-            ], key=f"{shareholder_name}_glic", index=["Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT", "None"].index(shareholder_info['glicAssociation']))
-        ])
+        glic_selection = st.selectbox(
+            f"GLIC Association for {shareholder_name}",
+            ["Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT", "None"],
+            key=f"{shareholder_name}_glic",
+            index=["Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT", "None"].index(shareholder_info['glicAssociation'])
+        )
+        edited_shareholders[shareholder_name] = glic_selection
 
-    st.table(shareholder_table)
-
+    # Update JSON files if "Verify" button is clicked
     if st.button("Verify"):
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
@@ -215,22 +215,23 @@ def verify_page():
                 json_content = base64.b64decode(file_content.content).decode()
                 data = json.loads(json_content)
 
+                # Update GLIC associations in the file based on selections
                 for shareholder in data['topShareholders']:
                     shareholder_name = shareholder['shareholderName']
-                    new_glic_association = shareholder_table[shareholder_table.index([shareholder_name, _])+1][1]
-                    if new_glic_association != shareholder['glicAssociation']:
+                    new_glic_association = edited_shareholders.get(shareholder_name)
+                    if new_glic_association and new_glic_association != shareholder['glicAssociation']:
                         shareholder['glicAssociation'] = new_glic_association
 
                 # Calculate the sum of percentages held by non-None GLICs
-                non_none_glic_total = sum(
+                glic_total = sum(
                     shareholder['percentageHeld']
                     for shareholder in data['topShareholders']
                     if shareholder['glicAssociation'] != 'None'
                 )
 
                 # Update the file name if the non-None GLIC total exceeds 20
-                if non_none_glic_total > 20:
-                    new_file_name = f"{file['name']}_v_{non_none_glic_total:.1f}.json"
+                if glic_total > 20:
+                    new_file_name = f"{file['name']}_v_{glic_total:.1f}.json"
                 else:
                     new_file_name = f"{file['name']}_v.json"
 
@@ -239,7 +240,7 @@ def verify_page():
             except Exception as e:
                 st.error(f"Error updating file: {str(e)}")
 
-        st.success("JSON files updated and verified.")         
+        st.success("JSON files updated and verified.") 
             
 def view_json_file(file_content):
     data = json.loads(file_content)
