@@ -166,7 +166,7 @@ def verify_page():
     st.title("Verify Extracted Information")
     st.write("Please verify the info scraped.")
 
-    json_files = get_json_files_from_github(exclude_versioned=True)
+    json_files = get_json_files_from_github(exclude_verified=True)
 
     if not json_files:
         st.info("No JSON files found in the repository")
