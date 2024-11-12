@@ -7,7 +7,7 @@ import io
 # GitHub configuration from Streamlit secrets
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
-GITHUB_BRANCH = st.secrets.get("GITHUB_BRANCH", "main")  # Default to 'main' if not specified
+GITHUB_BRANCH = st.secrets.get("GITHUB_BRANCH", "main")
 
 def extract_text_from_pdf(pdf_bytes):
     """Extract text from PDF bytes."""
@@ -21,9 +21,12 @@ def extract_text_from_pdf(pdf_bytes):
 def upload_to_github(file_bytes, filename):
     """Upload file to GitHub repository."""
     try:
-        # Initialize GitHub instance
+        # Initialize GitHub instance with authentication
         g = Github(GITHUB_TOKEN)
-        repo = g.get_user().get_repo(GITHUB_REPO)
+        
+        # Get authenticated user and repository
+        user = g.get_user()
+        repo = user.get_repo(GITHUB_REPO.split('/')[-1])  # Get repo name without owner
         
         # Encode content
         content = base64.b64encode(file_bytes).decode()
@@ -39,23 +42,32 @@ def upload_to_github(file_bytes, filename):
                 branch=GITHUB_BRANCH
             )
             return True, "File updated successfully"
-        except:
-            # File doesn't exist, create it
-            repo.create_file(
-                filename,
-                f"Add {filename}",
-                content,
-                branch=GITHUB_BRANCH
-            )
-            return True, "File uploaded successfully"
+        except Exception as e:
+            if "404" in str(e):  # File doesn't exist
+                # Create new file
+                repo.create_file(
+                    filename,
+                    f"Add {filename}",
+                    content,
+                    branch=GITHUB_BRANCH
+                )
+                return True, "File uploaded successfully"
+            else:
+                raise e
     except Exception as e:
-        return False, str(e)
+        return False, f"Error: {str(e)}"
 
 def main():
     st.title("PDF Upload and Text Extraction")
     
-    # Show configuration status
-    st.info(f"Connected to repository: {GITHUB_REPO} ({GITHUB_BRANCH} branch)")
+    try:
+        # Test GitHub connection
+        g = Github(GITHUB_TOKEN)
+        repo = g.get_repo(GITHUB_REPO)
+        st.info(f"Connected to repository: {GITHUB_REPO} ({GITHUB_BRANCH} branch)")
+    except Exception as e:
+        st.error(f"Failed to connect to GitHub: {str(e)}")
+        return
     
     # File uploader
     uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
@@ -78,7 +90,7 @@ def main():
                     if success:
                         st.success(message)
                     else:
-                        st.error(f"Upload failed: {message}")
+                        st.error(message)
         
         with col2:
             st.subheader("Extract Text")
