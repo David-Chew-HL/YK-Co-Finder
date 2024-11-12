@@ -14,72 +14,49 @@ def extract_text_from_pdf(pdf_bytes):
     reader = PdfReader(pdf_io)
     text = ""
     for page in reader.pages:
-        text += page.extract_text()
+        page_text = page.extract_text()
+        if page_text:
+            text += page_text
     return text
 
 def remove_images_from_pdf(pdf_bytes):
-    try:
-        input_stream = io.BytesIO(pdf_bytes)
-        output_stream = io.BytesIO()
-        
-        reader = PdfReader(input_stream)
-        writer = PdfWriter()
-
-        for page in reader.pages:
-            clean_page = page
-            
-            if '/Resources' in clean_page:
-                resources = clean_page['/Resources']
-   
-                if '/XObject' in resources:
-                    del resources['/XObject']
-
-                if hasattr(clean_page, '/Contents'):
-                    content = clean_page['/Contents']
-                    if isinstance(content, list):
-                        for obj in content:
-                            if hasattr(obj, 'get_object'):
-                                obj = obj.get_object()
-                    elif hasattr(content, 'get_object'):
-                        content = content.get_object()
-  
-                for key in list(resources.keys()):
-                    if key.startswith('/Im'):
-                        del resources[key]
-
-                if '/Forms' in resources:
-                    del resources['/Forms']
-            
-            writer.add_page(clean_page)
-
-            writer.add_compression(compress_streams=True)
-
-        writer.write(output_stream)
+    input_stream = io.BytesIO(pdf_bytes)
+    output_stream = io.BytesIO()
     
-        processed_pdf_bytes = output_stream.getvalue()
-        input_stream.close()
-        output_stream.close()
-        
-        return processed_pdf_bytes
-        
-    except Exception as e:
-        raise Exception(f"Error processing PDF: {str(e)}")
+    reader = PdfReader(input_stream)
+    writer = PdfWriter()
 
+    for page_num, page in enumerate(reader.pages):
+        try:
+            # Add the page to the writer
+            writer.add_page(page)
+            resources = page.get("/Resources", {})
+            xobjects = resources.get("/XObject", {})
+
+            # Remove images if any are present in the XObject dictionary
+            if xobjects:
+                xobjects_obj = xobjects.get_object()
+                for obj_key in list(xobjects_obj.keys()):
+                    obj = xobjects_obj[obj_key]
+                    if obj.get("/Subtype") == "/Image":
+                        del xobjects_obj[obj_key]
+
+        except Exception as e:
+            st.warning(f"Error processing page {page_num}: {e}")
+
+    writer.write(output_stream)
+    return output_stream.getvalue()
 
 def upload_to_github(file_bytes, filename):
-
     try:
         g = Github(GITHUB_TOKEN)
+        repo = g.get_repo(GITHUB_REPO.split('/')[-1])
         
-        # Get authenticated user and repository
-        user = g.get_user()
-        repo = user.get_repo(GITHUB_REPO.split('/')[-1])  # Get repo name without owner
-        
-        # Encode content
+        # Encode the file content
         content = base64.b64encode(file_bytes).decode()
         
+        # Check if the file exists in the repository
         try:
-            # Try to get the file first
             file = repo.get_contents(filename, ref=GITHUB_BRANCH)
             repo.update_file(
                 filename,
@@ -90,8 +67,7 @@ def upload_to_github(file_bytes, filename):
             )
             return True, "File updated successfully"
         except Exception as e:
-            if "404" in str(e):  # File doesn't exist
-                # Create new file
+            if "404" in str(e):
                 repo.create_file(
                     filename,
                     f"Add {filename}",
@@ -108,7 +84,6 @@ def main():
     st.title("PDF Upload and Text Extraction")
     
     try:
-        # Test GitHub connection
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
         st.info(f"Connected to repository: {GITHUB_REPO} ({GITHUB_BRANCH} branch)")
