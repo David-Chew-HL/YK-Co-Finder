@@ -4,6 +4,8 @@ from github import Github
 from PyPDF2 import PdfReader
 import io
 from pypdf import PdfWriter
+import tempfile
+import os
 
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
@@ -27,18 +29,24 @@ def remove_images_from_pdf(pdf_bytes):
         reader = PdfReader(input_stream)
         writer = PdfWriter()
 
-        # Process each page
         for page in reader.pages:
-            writer.add_page(page)
-            if '/Resources' in page and '/XObject' in page['/Resources']:
-                resources = page['/Resources']
+            # Create a deep copy of the page to avoid reference issues
+            page_copy = writer.add_page(page)
+            if hasattr(page_copy, '/Resources') and '/XObject' in page_copy['/Resources']:
+                resources = page_copy['/Resources']
                 if '/XObject' in resources:
-                    resources['/XObject'].clear()
+                    try:
+                        xobject_dict = resources['/XObject'].get_object()
+                        # Clear only image XObjects
+                        for key, obj in list(xobject_dict.items()):
+                            if isinstance(obj, dict) and obj.get('/Subtype') == '/Image':
+                                del xobject_dict[key]
+                    except:
+                        continue
 
         writer.write(output_stream)
         processed_bytes = output_stream.getvalue()
         
-        # Clean up
         input_stream.close()
         output_stream.close()
         
@@ -49,29 +57,19 @@ def remove_images_from_pdf(pdf_bytes):
 
 def upload_to_github(file_bytes, filename):
     try:
-        # Initialize Github
         g = Github(GITHUB_TOKEN)
-        
-        # Get repository (full name including owner)
         repo = g.get_repo(GITHUB_REPO)
         
-        # Ensure pdfs directory exists
         try:
             repo.get_contents("pdfs", ref=GITHUB_BRANCH)
         except:
-            # Create pdfs directory if it doesn't exist
             repo.create_file("pdfs/.gitkeep", "Create pdfs directory", "", branch=GITHUB_BRANCH)
         
-        # Encode content
         content = base64.b64encode(file_bytes).decode()
-        
-        # Full path to file
         file_path = filename
         
         try:
-            # Try to get existing file
             file = repo.get_contents(file_path, ref=GITHUB_BRANCH)
-            # Update existing file
             repo.update_file(
                 file_path,
                 f"Update {filename}",
@@ -82,7 +80,6 @@ def upload_to_github(file_bytes, filename):
             return True, "File updated successfully"
         except Exception as e:
             if "404" in str(e):
-                # Create new file
                 repo.create_file(
                     file_path,
                     f"Add {filename}",
@@ -97,10 +94,44 @@ def upload_to_github(file_bytes, filename):
         st.error(f"GitHub error details: {str(e)}")
         return False, f"Upload failed: {str(e)}"
 
-def main():
+def get_pdf_files_from_github():
+    try:
+        g = Github(GITHUB_TOKEN)
+        repo = g.get_repo(GITHUB_REPO)
+        contents = repo.get_contents("pdfs", ref=GITHUB_BRANCH)
+        
+        pdf_files = []
+        for content in contents:
+            if content.name.endswith('.pdf'):
+                pdf_files.append({
+                    'name': content.name,
+                    'path': content.path,
+                    'download_url': content.download_url,
+                    'sha': content.sha
+                })
+        return pdf_files
+    except Exception as e:
+        st.error(f"Error fetching PDF files: {str(e)}")
+        return []
+
+def view_pdf_file(file_content):
+    # Create a temporary file to display the PDF
+    with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
+        tmp_file.write(file_content)
+        tmp_file.flush()
+        with open(tmp_file.name, 'rb') as f:
+            base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+    
+    # Display PDF using HTML
+    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="800" type="application/pdf"></iframe>'
+    st.markdown(pdf_display, unsafe_allow_html=True)
+    
+    # Clean up the temporary file
+    os.unlink(tmp_file.name)
+
+def upload_page():
     st.title("PDF Upload and Text Extraction")
     
-    # Test GitHub connection
     try:
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
@@ -121,11 +152,9 @@ def main():
             if st.button("Upload to GitHub"):
                 try:
                     with st.spinner("Processing PDF..."):
-                        # Remove images
                         processed_file_bytes = remove_images_from_pdf(file_bytes)
                         
                     with st.spinner("Uploading to GitHub..."):
-                        # Upload to GitHub
                         success, message = upload_to_github(
                             processed_file_bytes,
                             f"pdfs/{uploaded_file.name}"
@@ -145,6 +174,58 @@ def main():
                 with st.spinner("Extracting text..."):
                     text = extract_text_from_pdf(file_bytes)
                     st.text_area("Extracted Text", text, height=300)
+
+def view_page():
+    st.title("View PDFs from Repository")
+    
+    pdf_files = get_pdf_files_from_github()
+    
+    if not pdf_files:
+        st.info("No PDF files found in the repository")
+        return
+    
+    selected_pdf = st.selectbox(
+        "Select a PDF to view",
+        options=[file['name'] for file in pdf_files],
+        format_func=lambda x: x
+    )
+    
+    if selected_pdf:
+        selected_file = next(file for file in pdf_files if file['name'] == selected_pdf)
+        
+        try:
+            g = Github(GITHUB_TOKEN)
+            repo = g.get_repo(GITHUB_REPO)
+            file_content = repo.get_contents(selected_file['path'], ref=GITHUB_BRANCH)
+            
+            # Decode content
+            pdf_content = base64.b64decode(file_content.content)
+            
+            # Display file info
+            st.write(f"File: {selected_pdf}")
+            
+            # Add download button
+            st.download_button(
+                label="Download PDF",
+                data=pdf_content,
+                file_name=selected_pdf,
+                mime="application/pdf"
+            )
+            
+            # Display PDF
+            view_pdf_file(pdf_content)
+            
+        except Exception as e:
+            st.error(f"Error loading PDF: {str(e)}")
+
+def main():
+    st.sidebar.title("Navigation")
+    page = st.sidebar.radio("Go to", ["Upload PDF", "View PDFs"])
+    
+    if page == "Upload PDF":
+        upload_page()
+    else:
+        view_page()
 
 if __name__ == "__main__":
     main()
