@@ -2,3 +2,5 @@ streamlit
 PyGithub
 PyPDF2
 pypdf
+PyMuPDF
+python-dotenv
