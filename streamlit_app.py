@@ -18,19 +18,53 @@ def extract_text_from_pdf(pdf_bytes):
     return text
 
 def remove_images_from_pdf(pdf_bytes):
-    pdf_input = io.BytesIO(pdf_bytes)
-    reader = PdfReader(pdf_input)
-    pdf_output = io.BytesIO()
-    writer = PdfWriter()
+    try:
+        input_stream = io.BytesIO(pdf_bytes)
+        output_stream = io.BytesIO()
+        
+        reader = PdfReader(input_stream)
+        writer = PdfWriter()
+
+        for page in reader.pages:
+            clean_page = page
+            
+            if '/Resources' in clean_page:
+                resources = clean_page['/Resources']
+   
+                if '/XObject' in resources:
+                    del resources['/XObject']
+
+                if hasattr(clean_page, '/Contents'):
+                    content = clean_page['/Contents']
+                    if isinstance(content, list):
+                        for obj in content:
+                            if hasattr(obj, 'get_object'):
+                                obj = obj.get_object()
+                    elif hasattr(content, 'get_object'):
+                        content = content.get_object()
+  
+                for key in list(resources.keys()):
+                    if key.startswith('/Im'):
+                        del resources[key]
+
+                if '/Forms' in resources:
+                    del resources['/Forms']
+            
+            writer.add_page(clean_page)
+
+            writer.add_compression(compress_streams=True)
+
+        writer.write(output_stream)
     
-    for page in reader.pages:
-        writer.add_page(page)
-    
-    writer.remove_images()
-    writer.write(pdf_output)
-    
-    pdf_output.seek(0)
-    return pdf_output.getvalue()
+        processed_pdf_bytes = output_stream.getvalue()
+        input_stream.close()
+        output_stream.close()
+        
+        return processed_pdf_bytes
+        
+    except Exception as e:
+        raise Exception(f"Error processing PDF: {str(e)}")
+
 
 def upload_to_github(file_bytes, filename):
 
@@ -86,22 +120,16 @@ def main():
     
     if uploaded_file is not None:
         # Read the original file bytes
-        original_file_bytes = uploaded_file.getvalue()
         
-        st.write("PDF Processing Options:")
-        remove_images = st.checkbox("Remove images from PDF", value=True)
         
-        if remove_images:
-            with st.spinner("Removing images from PDF..."):
-                try:
-                    processed_file_bytes = remove_images_from_pdf(original_file_bytes)
-                    st.success("Images removed successfully")
-                except Exception as e:
-                    st.error(f"Error removing images: {str(e)}")
-                    processed_file_bytes = original_file_bytes
-        else:
-            processed_file_bytes = original_file_bytes
-        
+        try:
+            processed_file = remove_images_from_pdf(uploaded_file)
+            processed_file_bytes = uploaded_file.getvalue()
+            st.success("Images removed successfully")
+        except Exception as e:
+            st.error(f"Error removing images: {str(e)}")
+            processed_file_bytes = uploaded_file.getvalue()
+
         #two columns
         col1, col2 = st.columns(2)
         
