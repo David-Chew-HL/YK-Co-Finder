@@ -1,66 +1,124 @@
 import streamlit as st
 import base64
 from github import Github
-from PyPDF2 import PdfReader
-import io
-from pypdf import PdfWriter
+import json
 import tempfile
 import os
+import google.generativeai as genai
+from google.ai.generativelanguage_v1beta.types import content
 
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
 GITHUB_BRANCH = st.secrets.get("GITHUB_BRANCH", "main")
 
-def extract_text_from_pdf(pdf_bytes):
-    text = ""
-    with fitz.open(stream=pdf_bytes, filetype="pdf") as doc:
-        for page in doc:
-            text += page.get_text()
-    return text
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
-def remove_images_from_pdf(pdf_bytes):
-    try:
-        # Open PDF with PyMuPDF
-        doc = fitz.open(stream=pdf_bytes, filetype="pdf")
-        
-        for page_num in range(len(doc)):
-            page = doc[page_num]
-            # Remove all images from the page
-            page.clean_contents()
-            # Remove any image blocks
-            for img in page.get_images(full=True):
-                xref = img[0]
-                doc._deleteObject(xref)
-        
-        # Save to bytes
-        output_buffer = io.BytesIO()
-        doc.save(output_buffer)
-        doc.close()
-        
-        return output_buffer.getvalue()
-    except Exception as e:
-        st.error(f"Image removal error: {str(e)}")
-        return pdf_bytes
+generation_config = {
+  "temperature": 1,
+  "top_p": 0.95,
+  "top_k": 40,
+  "max_output_tokens": 8192,
+  "response_schema": content.Schema(
+    type = content.Type.OBJECT,
+    enum = "[]",
+    required = "["companyName", "reportYear", "industry", "companyDescription", "topShareholders"]",
+    properties = {
+      "companyName": content.Schema(
+        type = content.Type.STRING,
+      ),
+      "reportYear": content.Schema(
+        type = content.Type.INTEGER,
+      ),
+      "industry": content.Schema(
+        type = content.Type.STRING,
+        enum = [
+          "Automobiles",
+          "Banks",
+          "Capital Goods",
+          "Commercial Services",
+          "Consumer Durables",
+          "Consumer Retailing",
+          "Consumer Services",
+          "Diversified Financials",
+          "Energy",
+          "Food, Beverage, Tobacco",
+          "Healthcare",
+          "Household",
+          "Insurance",
+          "Materials",
+          "Media",
+          "Pharmaceuticals, Biotech",
+          "Real Estate",
+          "Real Estate Management and Development",
+          "Retail",
+          "Semiconductors",
+          "Software",
+          "Tech",
+          "Telecom",
+          "Transportation",
+          "Utilities"
+        ]
+      ),
+      "companyDescription": content.Schema(
+        type = content.Type.STRING,
+      ),
+      "topShareholders": content.Schema(
+        type = content.Type.ARRAY,
+        items = content.Schema(
+          type = content.Type.OBJECT,
+          enum = "[]",
+          required = "["shareholderName", "glicAssociation", "percentageHeld"]",
+          properties = {
+            "shareholderName": content.Schema(
+              type = content.Type.STRING,
+            ),
+            "glicAssociation": content.Schema(
+              type = content.Type.STRING,
+              enum = [
+                "Khazanah",
+                "EPF",
+                "KWAP",
+                "PNB",
+                "Tabung Haji",
+                "LTAT",
+                "None"
+              ]
+            ),
+            "percentageHeld": content.Schema(
+              type = content.Type.NUMBER,
+            ),
+          },
+        ),
+      ),
+    },
+  ),
+  "response_mime_type": "application/json",
+}
 
-def upload_to_github(file_bytes, filename):
+model = genai.GenerativeModel(
+  model_name="gemini-1.5-pro-002",
+  generation_config=generation_config,
+)
+
+def upload_to_github(json_data, filename):
     try:
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
         
         # Ensure pdfs directory exists
         try:
-            repo.get_contents("pdfs", ref=GITHUB_BRANCH)
+            repo.get_contents("reports", ref=GITHUB_BRANCH)
         except:
-            repo.create_file("pdfs/.gitkeep", "Create pdfs directory", "", branch=GITHUB_BRANCH)
+            repo.create_file("reports/.gitkeep", "Create reports directory", "", branch=GITHUB_BRANCH)
         
-        content = base64.b64encode(file_bytes).decode()
-        file_path = f"pdfs/{filename}"
+        content = base64.b64encode(json.dumps(json_data).encode()).decode()
+        file_path = f"reports/{filename}.json"
         
         try:
             file = repo.get_contents(file_path, ref=GITHUB_BRANCH)
             repo.update_file(
                 file_path,
-                f"Update {filename}",
+                f"Update {filename}.json",
                 content,
                 file.sha,
                 branch=GITHUB_BRANCH
@@ -70,7 +128,7 @@ def upload_to_github(file_bytes, filename):
             if "404" in str(e):
                 repo.create_file(
                     file_path,
-                    f"Add {filename}",
+                    f"Add {filename}.json",
                     content,
                     branch=GITHUB_BRANCH
                 )
@@ -81,51 +139,46 @@ def upload_to_github(file_bytes, filename):
     except Exception as e:
         return False, f"Upload failed: {str(e)}"
 
-def get_pdf_files_from_github():
+def get_json_files_from_github():
     try:
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
-        contents = repo.get_contents("pdfs", ref=GITHUB_BRANCH)
+        contents = repo.get_contents("reports", ref=GITHUB_BRANCH)
         
-        pdf_files = []
+        json_files = []
         for content in contents:
-            if content.name.endswith('.pdf'):
-                pdf_files.append({
-                    'name': content.name,
+            if content.name.endswith('.json'):
+                json_files.append({
+                    'name': content.name.replace('.json', ''),
                     'path': content.path,
                     'sha': content.sha
                 })
-        return pdf_files
+        return json_files
     except Exception as e:
-        st.error(f"Error fetching PDF files: {str(e)}")
+        st.error(f"Error fetching JSON files: {str(e)}")
         return []
 
-def view_pdf_file(file_content):
-    # Create a temporary file
-    with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
-        tmp_file.write(file_content)
-        tmp_file.flush()
-        
-        # Read PDF file as bytes
-        with open(tmp_file.name, "rb") as f:
-            base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-    
-    # Display PDF using HTML with Content-Disposition header
-    pdf_display = f'''
-        <embed
-            src="data:application/pdf;base64,{base64_pdf}"
-            width="100%"
-            height="800px"
-            type="application/pdf"
-        >
-    '''
-    st.markdown(pdf_display, unsafe_allow_html=True)
-    
-    # Clean up
-    os.unlink(tmp_file.name)
+def view_json_file(file_content):
+    data = json.loads(file_content)
+
+    st.subheader(data["companyName"])
+    st.write(f"Report Year: {data['reportYear']}")
+    st.write(f"Industry: {data['industry']}")
+    st.write(f"Company Description: {data['companyDescription']}")
+
+    st.subheader("Top Shareholders")
+    shareholder_data = []
+    for shareholder in data['topShareholders']:
+        shareholder_data.append([
+            shareholder['shareholderName'],
+            shareholder['glicAssociation'],
+            f"{shareholder['percentageHeld']}%"
+        ])
+
+    st.table(shareholder_data)
 
 def upload_page():
-    st.title("PDF Upload and Text Extraction")
+    st.title("Annual Report Information Extraction")
     
     try:
         g = Github(GITHUB_TOKEN)
@@ -140,53 +193,36 @@ def upload_page():
     if uploaded_file is not None:
         file_bytes = uploaded_file.getvalue()
         
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            st.subheader("Upload to GitHub")
-            if st.button("Upload to GitHub"):
-                try:
-                    with st.spinner("Processing PDF..."):
-                        processed_file_bytes = remove_images_from_pdf(file_bytes)
-                        
-                    with st.spinner("Uploading to GitHub..."):
-                        success, message = upload_to_github(
-                            processed_file_bytes,
-                            f"pdfs/{uploaded_file.name}"
-                        )
-                        
-                    if success:
-                        st.success(message)
-                    else:
-                        st.error(message)
-                        
-                except Exception as e:
-                    st.error(f"Error: {str(e)}")
-        
-        with col2:
-            st.subheader("Extract Text")
-            if st.button("Extract Text"):
-                with st.spinner("Extracting text..."):
-                    text = extract_text_from_pdf(file_bytes)
-                    st.text_area("Extracted Text", text, height=300)
+        st.subheader("Extract Information")
+        if st.button("Extract Information"):
+            with st.spinner("Extracting Information..."):    
+                chat_session = model.start_chat()
+                response = chat_session.send_message("Extract the following information from the provided text of the annual report and format it in JSON:\n\n\nCompany full name.\nYear of the report.\nIndustry of the company (choose one from the following: Automobiles, Banks, Capital Goods, Commercial Services, Consumer Durables, Consumer Retailing, Consumer Services, Diversified Financials, Energy, Food, Beverage, Tobacco, Healthcare, Household, Insurance, Materials, Media, Pharmaceuticals, Biotech, Real Estate, Real Estate Management and Development, Retail, Semiconductors, Software, Tech, Telecom, Transportation, Utilities).\nA brief description of the company's business.\nTop Shareholders:\nFor each of the top 30 shareholders, include:\nFull name of the shareholder.\nIf the shareholder is associated with any of the following six Malaysian Government-Linked Investment Companies (GLICs), specify which one: Khazanah Nasional Berhad (Khazanah), Employees Provident Fund (EPF), Kumpulan Wang Persaraan (Diperbadankan) [KWAP], Permodalan Nasional Berhad (PNB), Lembaga Tabung Haji, or Lembaga Tabung Angkatan Tentera (LTAT). \nReturn this information in the JSON format:\n\njson\nCopy code\n{\n  \"companyName\": \"Company full name\",\n  \"reportYear\": Year,\n  \"industry\": \"Industry name from the provided list\",\n  \"companyDescription\": \"Brief description of company\",\n  \"topShareholders\": [\n    {\n      \"shareholderName\": \"Shareholder's name\",\n      \"glicAssociation\": \"GLIC name if applicable, otherwise None\",\n      \"percentageHeld\": Percentage of shares held\n    },\n    ...\n  ]\n}\nIf a shareholder is not associated with any of the specified GLICs, set the \"glicAssociation\" field to None in the JSON output. If the shareholder is a subsidiary or affiliate of a GLIC (e.g., \"Amanah Trustees\" under \"PNB\"), note the primary GLIC association in the \"glicAssociation\" field.\"  Annual Report: \"" + file_bytes.decode())
+                output_json = json.loads(response.text)
+                
+                # Upload the JSON to GitHub
+                file_name = output_json["companyName"]
+                upload_to_github(output_json, file_name)
+                
+                st.success("Information extracted and uploaded to GitHub!")
 
 def view_page():
-    st.title("View PDFs from Repository")
+    st.title("View Extracted Information")
     
-    pdf_files = get_pdf_files_from_github()
+    json_files = get_json_files_from_github()
     
-    if not pdf_files:
-        st.info("No PDF files found in the repository")
+    if not json_files:
+        st.info("No JSON files found in the repository")
         return
     
-    selected_pdf = st.selectbox(
-        "Select a PDF to view",
-        options=[file['name'] for file in pdf_files],
+    selected_json = st.selectbox(
+        "Select a file to view",
+        options=[file['name'] for file in json_files],
         format_func=lambda x: x
     )
     
-    if selected_pdf:
-        selected_file = next(file for file in pdf_files if file['name'] == selected_pdf)
+    if selected_json:
+        selected_file = next(file for file in json_files if file['name'] == selected_json)
         
         try:
             g = Github(GITHUB_TOKEN)
@@ -194,28 +230,16 @@ def view_page():
             file_content = repo.get_contents(selected_file['path'], ref=GITHUB_BRANCH)
             
             # Decode content
-            pdf_content = base64.b64decode(file_content.content)
+            json_content = base64.b64decode(file_content.content).decode()
             
-            # Display file info
-            st.write(f"File: {selected_pdf}")
-            
-            # Add download button
-            st.download_button(
-                label="Download PDF",
-                data=pdf_content,
-                file_name=selected_pdf,
-                mime="application/pdf"
-            )
-            
-            # Display PDF
-            view_pdf_file(pdf_content)
+            view_json_file(json_content)
             
         except Exception as e:
-            st.error(f"Error loading PDF: {str(e)}")
+            st.error(f"Error loading JSON: {str(e)}")
 
 def main():
     st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Go to", ["Upload PDF", "View PDFs"])
+    page = st.sidebar.radio("Go to", ["Upload PDF", "View Extracted Information"])
     
     if page == "Upload PDF":
         upload_page()
