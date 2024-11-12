@@ -3,14 +3,13 @@ import base64
 from github import Github
 from PyPDF2 import PdfReader
 import io
+from pypdf import PdfWriter
 
-# GitHub configuration from Streamlit secrets
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
 GITHUB_BRANCH = st.secrets.get("GITHUB_BRANCH", "main")
 
 def extract_text_from_pdf(pdf_bytes):
-    """Extract text from PDF bytes."""
     pdf_io = io.BytesIO(pdf_bytes)
     reader = PdfReader(pdf_io)
     text = ""
@@ -19,7 +18,7 @@ def extract_text_from_pdf(pdf_bytes):
     return text
 
 def upload_to_github(file_bytes, filename):
-    """Upload file to GitHub repository."""
+
     try:
         # Initialize GitHub instance with authentication
         g = Github(GITHUB_TOKEN)
@@ -69,11 +68,14 @@ def main():
         st.error(f"Failed to connect to GitHub: {str(e)}")
         return
     
-    # File uploader
-    uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
+    up_file = st.file_uploader("Choose a PDF file", type="pdf")
     
-    if uploaded_file is not None:
-        # Read file bytes
+    if up_file is not None:
+        
+        uploaded_file = PdfWriter(up_file)
+ 
+        uploaded_file.remove_images() #remove img to save storage space
+
         file_bytes = uploaded_file.getvalue()
         
         # Create two columns
