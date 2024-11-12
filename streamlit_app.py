@@ -21,7 +21,7 @@ generation_config = {
   "max_output_tokens": 8192,
   "response_schema": content.Schema(
     type = content.Type.OBJECT,
-    enum = "[]",
+    enum = [],
     required = ["companyName", "reportYear", "industry", "companyDescription", "topShareholders"],
     properties = {
       "companyName": content.Schema(
@@ -40,7 +40,7 @@ generation_config = {
         type = content.Type.ARRAY,
         items = content.Schema(
           type = content.Type.OBJECT,
-          enum = "[]",
+          enum = [],
           required = ["shareholderName", "glicAssociation", "percentageHeld"],
           properties = {
             "shareholderName": content.Schema(
