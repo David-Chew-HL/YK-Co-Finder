@@ -185,7 +185,7 @@ def verify_page():
             shareholder_name,
             st.selectbox(f"GLIC Association for {shareholder_name}", [
                 "Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT", "None"
-            ], key=f"{shareholder_name}_glic")
+            ], key=f"{shareholder_name}_glic", index=["Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT", "None"].index(shareholder_info['glicAssociation']))
         ])
 
     st.table(shareholder_table)
@@ -224,7 +224,7 @@ def verify_page():
             except Exception as e:
                 st.error(f"Error updating file: {str(e)}")
 
-        st.success("JSON files updated and verified.")            
+        st.success("JSON files updated and verified.")         
             
 def view_json_file(file_content):
     data = json.loads(file_content)
