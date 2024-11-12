@@ -19,13 +19,16 @@ def extract_text_from_pdf(pdf_bytes):
 
 def remove_images_from_pdf(pdf_bytes):
     pdf_input = io.BytesIO(pdf_bytes)
+    reader = PdfReader(pdf_input)
     pdf_output = io.BytesIO()
-    writer = PdfWriter(pdf_output)
-    writer.clone_document_from_reader(PdfReader(pdf_input))
-  
+    writer = PdfWriter()
+    
+    for page in reader.pages:
+        writer.add_page(page)
+    
     writer.remove_images()
     writer.write(pdf_output)
-
+    
     pdf_output.seek(0)
     return pdf_output.getvalue()
 
