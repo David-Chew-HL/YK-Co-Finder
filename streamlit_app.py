@@ -76,7 +76,8 @@ def upload_to_github(json_data, filename):
         except:
             repo.create_file("reports/.gitkeep", "Create reports directory", "", branch=GITHUB_BRANCH)
         
-        content = base64.b64encode(json.dumps(json_data).encode()).decode()
+        #content = base64.b64encode(json.dumps(json_data).encode()).decode()
+        content = json.dumps(json_data, indent=2)
         file_path = f"reports/{filename}.json"
         
         try:
