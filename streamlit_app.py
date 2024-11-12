@@ -107,19 +107,33 @@ def upload_to_github(json_data, filename,year):
     except Exception as e:
         return False, f"Upload failed: {str(e)}"
 
-def get_json_files_from_github(exclude_versions=True):
+def get_json_files_from_github(exclude_verified=True):
+    """
+    Fetches JSON files from the GitHub repo. If `exclude_verified` is True, 
+    only includes JSON files without '_v_' in the filename (for unverified files).
+    If `exclude_verified` is False, only includes JSON files with '_v_' in the filename.
+    """
     try:
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
         contents = repo.get_contents("reports", ref=GITHUB_BRANCH)
+
         json_files = []
         for content in contents:
-            if re.search(r"_v_(\d+\.\d+)", content.name):  # Match filenames with `v_{non_none_glic_total:.1f}`
-                json_files.append(content)
+            if content.name.endswith('.json'):
+                is_verified = "_v_" in content.name
+                # Include based on whether we are excluding verified files or not
+                if (exclude_verified and not is_verified) or (not exclude_verified and is_verified):
+                    json_files.append({
+                        'name': content.name.replace('.json', ''),
+                        'path': content.path,
+                        'sha': content.sha
+                    })
         return json_files
     except Exception as e:
         st.error(f"Error fetching JSON files: {str(e)}")
         return []
+
 
 def extract_glic_total(filename):
     match = re.search(r"_v_(\d+\.\d+)", filename)
@@ -152,7 +166,7 @@ def verify_page():
     st.title("Verify Extracted Information")
     st.write("Please verify the info scraped.")
 
-    json_files = get_json_files_from_github(exclude_versions=True)
+    json_files = get_json_files_from_github(exclude_verified=True)
 
     if not json_files:
         st.info("No JSON files found in the repository")
@@ -289,7 +303,7 @@ def upload_page():
 def view_page():
     st.title("View Extracted Information")
     
-    json_files = get_json_files_from_github()
+    json_files = get_json_files_from_github(exclude_verified=True)
     
     if not json_files:
         st.info("No JSON files found in the repository")
@@ -327,7 +341,7 @@ def get_file_content(file_path):
 def dashboard_page(): #only show those which are verified and is bondserving
     st.title("Dashboard")
 
-    json_files = get_json_files_from_github()
+    json_files = get_json_files_from_github(exclude_verified=False)
     if not json_files:
         st.info("No JSON files found with GLIC totals.")
         return
@@ -338,7 +352,7 @@ def dashboard_page(): #only show those which are verified and is bondserving
         glic_total = extract_glic_total(file.name)
         file_content = get_file_content(file.path)
         industry = file_content.get("industry", "Unknown")
-
+        
         file_data.append({
             "Filename": file.name,
             "Company": file_content.get("companyName", "Unknown"),
@@ -346,6 +360,7 @@ def dashboard_page(): #only show those which are verified and is bondserving
             "GLIC Total": glic_total
         })
 
+        # Update industry counts for the chart
         industry_counts[industry] = industry_counts.get(industry, 0) + 1
 
     # Display file data in a table
