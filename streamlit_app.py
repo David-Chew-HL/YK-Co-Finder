@@ -21,7 +21,7 @@ generation_config = {
   "response_schema": content.Schema(
     type = content.Type.OBJECT,
     enum = "[]",
-    required = "["companyName", "reportYear", "industry", "companyDescription", "topShareholders"]",
+    required = ["companyName", "reportYear", "industry", "companyDescription", "topShareholders"],
     properties = {
       "companyName": content.Schema(
         type = content.Type.STRING,
@@ -31,33 +31,6 @@ generation_config = {
       ),
       "industry": content.Schema(
         type = content.Type.STRING,
-        enum = [
-          "Automobiles",
-          "Banks",
-          "Capital Goods",
-          "Commercial Services",
-          "Consumer Durables",
-          "Consumer Retailing",
-          "Consumer Services",
-          "Diversified Financials",
-          "Energy",
-          "Food, Beverage, Tobacco",
-          "Healthcare",
-          "Household",
-          "Insurance",
-          "Materials",
-          "Media",
-          "Pharmaceuticals, Biotech",
-          "Real Estate",
-          "Real Estate Management and Development",
-          "Retail",
-          "Semiconductors",
-          "Software",
-          "Tech",
-          "Telecom",
-          "Transportation",
-          "Utilities"
-        ]
       ),
       "companyDescription": content.Schema(
         type = content.Type.STRING,
@@ -67,22 +40,13 @@ generation_config = {
         items = content.Schema(
           type = content.Type.OBJECT,
           enum = "[]",
-          required = "["shareholderName", "glicAssociation", "percentageHeld"]",
+          required = ["shareholderName", "glicAssociation", "percentageHeld"],
           properties = {
             "shareholderName": content.Schema(
               type = content.Type.STRING,
             ),
             "glicAssociation": content.Schema(
               type = content.Type.STRING,
-              enum = [
-                "Khazanah",
-                "EPF",
-                "KWAP",
-                "PNB",
-                "Tabung Haji",
-                "LTAT",
-                "None"
-              ]
             ),
             "percentageHeld": content.Schema(
               type = content.Type.NUMBER,
