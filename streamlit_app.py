@@ -119,18 +119,15 @@ def main():
     uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
     
     if uploaded_file is not None:
-        # Read the original file bytes
-        
+        file_bytes = uploaded_file.getvalue()
         
         try:
-            processed_file = remove_images_from_pdf(uploaded_file)
-            processed_file_bytes = uploaded_file.getvalue()
+            processed_file_bytes = remove_images_from_pdf(file_bytes)
             st.success("Images removed successfully")
         except Exception as e:
             st.error(f"Error removing images: {str(e)}")
-            processed_file_bytes = uploaded_file.getvalue()
+            processed_file_bytes = file_bytes
 
-        #two columns
         col1, col2 = st.columns(2)
         
         with col1:
