@@ -18,22 +18,20 @@ def extract_text_from_pdf(pdf_bytes):
     return text
 
 def remove_images_from_pdf(pdf_bytes):
-    pdf_io = io.BytesIO(pdf_bytes)
-    reader = PdfReader(pdf_io)
-    writer = PdfWriter()
+    pdf_input = io.BytesIO(pdf_bytes)
+    pdf_output = io.BytesIO()
+    writer = PdfWriter(pdf_output)
+    writer.clone_document_from_reader(PdfReader(pdf_input))
+  
+    writer.remove_images()
+    writer.write(pdf_output)
 
-    for page in reader.pages:
-        page.clean_contents() 
-        writer.add_page(page)
-
-    output_io = io.BytesIO()
-    writer.write(output_io)
-    return output_io.getvalue()
+    pdf_output.seek(0)
+    return pdf_output.getvalue()
 
 def upload_to_github(file_bytes, filename):
 
     try:
-        # Initialize GitHub instance with authentication
         g = Github(GITHUB_TOKEN)
         
         # Get authenticated user and repository
@@ -86,11 +84,22 @@ def main():
     if uploaded_file is not None:
         # Read the original file bytes
         original_file_bytes = uploaded_file.getvalue()
-
-        # Remove images from the PDF
-        processed_file_bytes = remove_images_from_pdf(original_file_bytes)
         
-        # Create two columns for actions
+        st.write("PDF Processing Options:")
+        remove_images = st.checkbox("Remove images from PDF", value=True)
+        
+        if remove_images:
+            with st.spinner("Removing images from PDF..."):
+                try:
+                    processed_file_bytes = remove_images_from_pdf(original_file_bytes)
+                    st.success("Images removed successfully")
+                except Exception as e:
+                    st.error(f"Error removing images: {str(e)}")
+                    processed_file_bytes = original_file_bytes
+        else:
+            processed_file_bytes = original_file_bytes
+        
+        #two columns
         col1, col2 = st.columns(2)
         
         with col1:
