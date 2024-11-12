@@ -3,16 +3,11 @@ import base64
 from github import Github
 from PyPDF2 import PdfReader
 import io
-import os
-from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
-
-# GitHub configuration from environment variables
-GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
-GITHUB_REPO = os.getenv('GITHUB_REPO')
-GITHUB_BRANCH = os.getenv('GITHUB_BRANCH', 'main')  # Default to 'main' if not specified
+# GitHub configuration from Streamlit secrets
+GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
+GITHUB_REPO = st.secrets["GITHUB_REPO"]
+GITHUB_BRANCH = st.secrets.get("GITHUB_BRANCH", "main")  # Default to 'main' if not specified
 
 def extract_text_from_pdf(pdf_bytes):
     """Extract text from PDF bytes."""
@@ -60,10 +55,6 @@ def main():
     st.title("PDF Upload and Text Extraction")
     
     # Show configuration status
-    if not GITHUB_TOKEN or not GITHUB_REPO:
-        st.error("GitHub configuration is missing. Please check your environment variables.")
-        return
-    
     st.info(f"Connected to repository: {GITHUB_REPO} ({GITHUB_BRANCH} branch)")
     
     # File uploader
