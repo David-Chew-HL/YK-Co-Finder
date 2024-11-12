@@ -17,6 +17,19 @@ def extract_text_from_pdf(pdf_bytes):
         text += page.extract_text()
     return text
 
+def remove_images_from_pdf(pdf_bytes):
+    pdf_io = io.BytesIO(pdf_bytes)
+    reader = PdfReader(pdf_io)
+    writer = PdfWriter()
+
+    for page in reader.pages:
+        page.clean_contents() 
+        writer.add_page(page)
+
+    output_io = io.BytesIO()
+    writer.write(output_io)
+    return output_io.getvalue()
+
 def upload_to_github(file_bytes, filename):
 
     try:
@@ -70,15 +83,14 @@ def main():
     
     up_file = st.file_uploader("Choose a PDF file", type="pdf")
     
-    if up_file is not None:
-        
-        uploaded_file = PdfWriter(up_file)
- 
-        uploaded_file.remove_images() #remove img to save storage space
+    if uploaded_file is not None:
+        # Read the original file bytes
+        original_file_bytes = uploaded_file.getvalue()
 
-        file_bytes = uploaded_file.getvalue()
+        # Remove images from the PDF
+        processed_file_bytes = remove_images_from_pdf(original_file_bytes)
         
-        # Create two columns
+        # Create two columns for actions
         col1, col2 = st.columns(2)
         
         with col1:
@@ -86,7 +98,7 @@ def main():
             if st.button("Upload to GitHub"):
                 with st.spinner("Uploading to GitHub..."):
                     success, message = upload_to_github(
-                        file_bytes,
+                        processed_file_bytes,
                         f"pdfs/{uploaded_file.name}"
                     )
                     if success:
@@ -98,7 +110,7 @@ def main():
             st.subheader("Extract Text")
             if st.button("Extract Text"):
                 with st.spinner("Extracting text..."):
-                    text = extract_text_from_pdf(file_bytes)
+                    text = extract_text_from_pdf(processed_file_bytes)
                     st.text_area("Extracted Text", text, height=300)
 
 if __name__ == "__main__":
