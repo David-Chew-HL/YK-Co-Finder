@@ -1,3 +1,4 @@
 streamlit
 PyGithub
 PyPDF2
+pypdf
