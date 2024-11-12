@@ -12,45 +12,32 @@ GITHUB_REPO = st.secrets["GITHUB_REPO"]
 GITHUB_BRANCH = st.secrets.get("GITHUB_BRANCH", "main")
 
 def extract_text_from_pdf(pdf_bytes):
-    pdf_io = io.BytesIO(pdf_bytes)
-    reader = PdfReader(pdf_io)
     text = ""
-    for page in reader.pages:
-        page_text = page.extract_text()
-        if page_text:
-            text += page_text
+    with fitz.open(stream=pdf_bytes, filetype="pdf") as doc:
+        for page in doc:
+            text += page.get_text()
     return text
 
 def remove_images_from_pdf(pdf_bytes):
     try:
-        input_stream = io.BytesIO(pdf_bytes)
-        output_stream = io.BytesIO()
+        # Open PDF with PyMuPDF
+        doc = fitz.open(stream=pdf_bytes, filetype="pdf")
         
-        reader = PdfReader(input_stream)
-        writer = PdfWriter()
-
-        for page in reader.pages:
-            # Create a deep copy of the page to avoid reference issues
-            page_copy = writer.add_page(page)
-            if hasattr(page_copy, '/Resources') and '/XObject' in page_copy['/Resources']:
-                resources = page_copy['/Resources']
-                if '/XObject' in resources:
-                    try:
-                        xobject_dict = resources['/XObject'].get_object()
-                        # Clear only image XObjects
-                        for key, obj in list(xobject_dict.items()):
-                            if isinstance(obj, dict) and obj.get('/Subtype') == '/Image':
-                                del xobject_dict[key]
-                    except:
-                        continue
-
-        writer.write(output_stream)
-        processed_bytes = output_stream.getvalue()
+        for page_num in range(len(doc)):
+            page = doc[page_num]
+            # Remove all images from the page
+            page.clean_contents()
+            # Remove any image blocks
+            for img in page.get_images(full=True):
+                xref = img[0]
+                doc._deleteObject(xref)
         
-        input_stream.close()
-        output_stream.close()
+        # Save to bytes
+        output_buffer = io.BytesIO()
+        doc.save(output_buffer)
+        doc.close()
         
-        return processed_bytes
+        return output_buffer.getvalue()
     except Exception as e:
         st.error(f"Image removal error: {str(e)}")
         return pdf_bytes
@@ -60,13 +47,14 @@ def upload_to_github(file_bytes, filename):
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
         
+        # Ensure pdfs directory exists
         try:
             repo.get_contents("pdfs", ref=GITHUB_BRANCH)
         except:
             repo.create_file("pdfs/.gitkeep", "Create pdfs directory", "", branch=GITHUB_BRANCH)
         
         content = base64.b64encode(file_bytes).decode()
-        file_path = filename
+        file_path = f"pdfs/{filename}"
         
         try:
             file = repo.get_contents(file_path, ref=GITHUB_BRANCH)
@@ -91,7 +79,6 @@ def upload_to_github(file_bytes, filename):
                 raise e
                 
     except Exception as e:
-        st.error(f"GitHub error details: {str(e)}")
         return False, f"Upload failed: {str(e)}"
 
 def get_pdf_files_from_github():
@@ -106,7 +93,6 @@ def get_pdf_files_from_github():
                 pdf_files.append({
                     'name': content.name,
                     'path': content.path,
-                    'download_url': content.download_url,
                     'sha': content.sha
                 })
         return pdf_files
@@ -115,18 +101,27 @@ def get_pdf_files_from_github():
         return []
 
 def view_pdf_file(file_content):
-    # Create a temporary file to display the PDF
+    # Create a temporary file
     with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
         tmp_file.write(file_content)
         tmp_file.flush()
-        with open(tmp_file.name, 'rb') as f:
+        
+        # Read PDF file as bytes
+        with open(tmp_file.name, "rb") as f:
             base64_pdf = base64.b64encode(f.read()).decode('utf-8')
     
-    # Display PDF using HTML
-    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="800" type="application/pdf"></iframe>'
+    # Display PDF using HTML with Content-Disposition header
+    pdf_display = f'''
+        <embed
+            src="data:application/pdf;base64,{base64_pdf}"
+            width="100%"
+            height="800px"
+            type="application/pdf"
+        >
+    '''
     st.markdown(pdf_display, unsafe_allow_html=True)
     
-    # Clean up the temporary file
+    # Clean up
     os.unlink(tmp_file.name)
 
 def upload_page():
