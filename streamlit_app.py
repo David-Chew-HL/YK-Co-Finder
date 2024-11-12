@@ -7,6 +7,8 @@ import os
 import google.generativeai as genai
 from google.ai.generativelanguage_v1beta.types import content
 from PyPDF2 import PdfReader
+import pandas as pd
+import re
 
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
@@ -110,19 +112,18 @@ def get_json_files_from_github(exclude_versions=True):
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
         contents = repo.get_contents("reports", ref=GITHUB_BRANCH)
-        
         json_files = []
         for content in contents:
-            if content.name.endswith('.json') and (not exclude_versions or not content.name.endswith(('_v', '_vb'))):
-                json_files.append({
-                    'name': content.name.replace('.json', ''),
-                    'path': content.path,
-                    'sha': content.sha
-                })
+            if re.search(r"_v_(\d+\.\d+)", content.name):  # Match filenames with `v_{non_none_glic_total:.1f}`
+                json_files.append(content)
         return json_files
     except Exception as e:
         st.error(f"Error fetching JSON files: {str(e)}")
         return []
+
+def extract_glic_total(filename):
+    match = re.search(r"_v_(\d+\.\d+)", filename)
+    return float(match.group(1)) if match else None
 
 def update_json_file(repo, file_path, content, branch=GITHUB_BRANCH):
     try:
@@ -316,11 +317,57 @@ def view_page():
         except Exception as e:
             st.error(f"Error loading JSON: {str(e)}")
 
+def get_file_content(file_path):
+    g = Github(GITHUB_TOKEN)
+    repo = g.get_repo(GITHUB_REPO)
+    content = repo.get_contents(file_path, ref=GITHUB_BRANCH)
+    data = json.loads(base64.b64decode(content.content).decode())
+    return data
+
+def dashboard_page(): #only show those which are verified and is bondserving
+    st.title("Dashboard")
+
+    json_files = get_json_files_from_github()
+    if not json_files:
+        st.info("No JSON files found with GLIC totals.")
+        return
+
+    file_data = []
+    industry_counts = {}
+    for file in json_files:
+        glic_total = extract_glic_total(file.name)
+        file_content = get_file_content(file.path)
+        industry = file_content.get("industry", "Unknown")
+
+        file_data.append({
+            "Filename": file.name,
+            "Company": file_content.get("companyName", "Unknown"),
+            "Industry": industry,
+            "GLIC Total": glic_total
+        })
+
+        industry_counts[industry] = industry_counts.get(industry, 0) + 1
+
+    # Display file data in a table
+    st.subheader("Files with GLIC Totals")
+    file_df = pd.DataFrame(file_data)
+    selected_industry = st.selectbox("Filter by industry:", ["All"] + list(industry_counts.keys()))
+    if selected_industry != "All":
+        file_df = file_df[file_df["Industry"] == selected_industry]
+    st.write(file_df)
+
+    # Display industry distribution bar chart
+    st.subheader("Industry Distribution")
+    industry_df = pd.DataFrame.from_dict(industry_counts, orient='index', columns=["Count"])
+    st.bar_chart(industry_df)
+
 def main():
     st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Go to", ["Upload PDF", "View Extracted Information", "Verify Extracted Information"])
+    page = st.sidebar.radio("Go to", ["Dashboard", "Upload PDF", "View Extracted Information", "Verify Extracted Information"])
     
-    if page == "Upload PDF":
+    if page == "Dashboard":
+        dashboard_page()
+    elif page == "Upload PDF":
         upload_page()
     elif page == "View Extracted Information":
         view_page()
