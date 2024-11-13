@@ -479,14 +479,14 @@ def upload_page():
         st.error(f"GitHub connection failed: {str(e)}")
         return
     
-    # Modified to accept multiple files
     uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
     
     if uploaded_file:
         status_container = st.empty()
+        unique_id = str(hash(uploaded_file.name))  # Generate a unique identifier
         
         def update_status(status=None):
-            status_container.text_area("Processing Status:", value=status, height=150, key=f"status_{uploaded_file.name}")
+            status_container.text_area("Processing Status:", value=status, height=150, key=f"status_{uploaded_file.name}_{unique_id}")
         
         if st.button("Process File"):
             try:
