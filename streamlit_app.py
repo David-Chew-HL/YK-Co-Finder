@@ -501,48 +501,82 @@ def upload_page():
     tab1, tab2 = st.tabs(["Search Company", "Select from List"])
     
     with tab1:
+        # Store search results in session state
+        if 'search_results' not in st.session_state:
+            st.session_state.search_results = []
+            
         search_query = st.text_input("Search for company annual reports:")
-        if search_query:
+        search_button = st.button("Search")
+        
+        if search_button and search_query:
             with st.spinner("Searching..."):
-                search_results = search_annual_report(search_query)
+                st.session_state.search_results = search_annual_report(search_query)
                 
-                if search_results:
-                    st.write("Search Results:")
-                    for idx, result in enumerate(search_results):
-                        with st.expander(f"{result['title']}"):
-                            st.write(result['snippet'])
-                            st.write(f"URL: {result['url']}")
-                            if st.button("Process this report", key=f"process_{idx}"):
-                                with st.spinner("Processing report..."):
-                                    # Download and process PDF
+        # Display search results if they exist
+        if st.session_state.search_results:
+            st.write("Search Results:")
+            for idx, result in enumerate(st.session_state.search_results):
+                with st.expander(f"{result['title']}", expanded=True):
+                    st.write(result['snippet'])
+                    st.write(f"URL: {result['url']}")
+                    
+                    # Create columns for status and button
+                    col1, col2 = st.columns([3, 1])
+                    
+                    # Store processing status in session state
+                    status_key = f"processing_status_{idx}"
+                    if status_key not in st.session_state:
+                        st.session_state[status_key] = ""
+                    
+                    with col1:
+                        if st.session_state[status_key]:
+                            st.info(st.session_state[status_key])
+                    
+                    with col2:
+                        if st.button("Process Report", key=f"process_{idx}"):
+                            st.session_state[status_key] = "Processing..."
+                            try:
+                                with st.spinner("Downloading and processing PDF..."):
                                     pdf_text = download_and_process_pdf(result['url'])
                                     if pdf_text:
                                         # Process with Gemini
                                         chat_session = model.start_chat()
+                                        st.session_state[status_key] = "Extracting information..."
                                         response = chat_session.send_message(
                                             "Extract the following information from the provided text of the annual report and format it in JSON:\n\n\n"
                                             "Company full name.\n"
                                             "Year of the report.\n"
-                                            "Industry of the company...\n"  # Rest of the prompt
-                                            + pdf_text
+                                            "Industry of the company (choose one from the following: Automobiles, Banks, Capital Goods, Commercial Services, "
+                                            "Consumer Durables, Consumer Retailing, Consumer Services, Diversified Financials, Energy, Food, Beverage, "
+                                            "Tobacco, Healthcare, Household, Insurance, Materials, Media, Pharmaceuticals, Biotech, Real Estate, "
+                                            "Real Estate Management and Development, Retail, Semiconductors, Software, Tech, Telecom, Transportation, Utilities).\n"
+                                            "A brief description of the company's business.\n"
+                                            "Top Shareholders information...\n" + pdf_text
                                         )
+                                        
                                         try:
                                             json_data = json.loads(response.text)
+                                            st.session_state[status_key] = "Uploading to repository..."
                                             success, message = upload_to_github(
                                                 json_data,
                                                 json_data["companyName"],
                                                 json_data["reportYear"]
                                             )
                                             if success:
-                                                st.success(f"Successfully processed report")
+                                                st.session_state[status_key] = "✅ Successfully processed"
                                                 # Update not_yet.txt if company was in the list
-                                                update_not_yet_companies(repo, [search_query])
+                                                if search_query:
+                                                    update_not_yet_companies(repo, [search_query])
                                             else:
-                                                st.error(f"Failed to upload: {message}")
+                                                st.session_state[status_key] = f"❌ Failed: {message}"
                                         except json.JSONDecodeError:
-                                            st.error("Failed to parse Gemini response")
-                else:
-                    st.info("No PDF reports found for this company")
+                                            st.session_state[status_key] = "❌ Failed to parse response"
+                                    else:
+                                        st.session_state[status_key] = "❌ Failed to download PDF"
+                            except Exception as e:
+                                st.session_state[status_key] = f"❌ Error: {str(e)}"
+        elif search_query and search_button:
+            st.info("No PDF reports found for this company")
     
     with tab2:
         not_yet_companies = get_not_yet_companies(repo)
