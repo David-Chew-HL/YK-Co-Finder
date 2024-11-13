@@ -151,29 +151,7 @@ def extract_glic_total(filename): #extract from filename
     except Exception:
         return 0.0
 
-"""def update_json_file(repo, file_path, content, branch=GITHUB_BRANCH):
-    try:
-        file = repo.get_contents(file_path, ref=branch)
-        repo.update_file(
-            file_path,
-            f"Update {os.path.basename(file_path)}",
-            content,
-            file.sha,
-            branch=branch
-        )
-        return True, "File updated successfully"
-    except Exception as e:
-        if "404" in str(e):
-            repo.create_file(
-                file_path,
-                f"Add {os.path.basename(file_path)}",
-                content,
-                branch=branch
-            )
-            return True, "File created successfully"
-        else:
-            raise e
-"""
+
 def verify_page():
     st.title("Verify Extracted Information")
     st.write("Please verify the info scraped.")
