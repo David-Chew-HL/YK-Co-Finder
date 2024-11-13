@@ -14,6 +14,7 @@ from io import StringIO
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
 GITHUB_BRANCH = st.secrets.get("GITHUB_BRANCH", "main")
+GLIC_LIST = ["Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT"]
 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
@@ -143,9 +144,12 @@ def get_json_files_from_github(exclude_verified=True):
         return []
 
 
-def extract_glic_total(filename):
-    match = re.search(r"_v_(\d+\.\d+)", filename)
-    return float(match.group(1)) if match else None
+def extract_glic_total(filename): #extract from filename
+    try:
+        match = re.search(r"_v_(\d+\.\d+)", filename)
+        return float(match.group(1)) if match else 0.0
+    except Exception:
+        return 0.0
 
 def update_json_file(repo, file_path, content, branch=GITHUB_BRANCH):
     try:
@@ -253,9 +257,9 @@ def verify_page():
             if modified or not unverified_shareholders:
                 # Calculate GLIC total
                 glic_total = sum(
-                    s['percentageHeld'] 
-                    for s in shareholders 
-                    if s['glicAssociation'] != 'None'
+                    s['percentageHeld']
+                    for s in shareholders
+                    if s['glicAssociation'] in GLIC_LIST
                 )
                 
                 # Create verified filename
@@ -436,32 +440,64 @@ def dashboard_page(): #only show those which are verified and is bondserving
     file_data = []
     industry_counts = {}
     for file in json_files:
-        glic_total = extract_glic_total(file.name)
-        file_content = get_file_content(file.path)
+        glic_total = extract_glic_total(file['name'])
+        file_content = get_file_content(file['path'])
         industry = file_content.get("industry", "Unknown")
         
         file_data.append({
-            "Filename": file.name,
+            "Filename": file['name'],
             "Company": file_content.get("companyName", "Unknown"),
             "Industry": industry,
             "GLIC Total": glic_total
         })
 
         # Update industry counts for the chart
-        industry_counts[industry] = industry_counts.get(industry, 0) + 1
+        if industry and industry != "Unknown":
+            industry_counts[industry] = industry_counts.get(industry, 0) + 1
 
     # Display file data in a table
     st.subheader("Files with GLIC Totals")
     file_df = pd.DataFrame(file_data)
-    selected_industry = st.selectbox("Filter by industry:", ["All"] + list(industry_counts.keys()))
+    
+    # Add filter for GLIC total threshold
+    glic_threshold = st.slider("Filter by minimum GLIC total %", 0, 100, 0)
+    if glic_threshold > 0:
+        file_df = file_df[file_df["GLIC Total"] >= glic_threshold]
+
+    # Industry filter
+    all_industries = ["All"] + sorted(list(industry_counts.keys()))
+    selected_industry = st.selectbox("Filter by industry:", all_industries)
+    
     if selected_industry != "All":
         file_df = file_df[file_df["Industry"] == selected_industry]
+    
+    # Sort options
+    sort_by = st.selectbox("Sort by:", ["GLIC Total", "Company", "Industry"])
+    ascending = st.checkbox("Ascending order", value=False)
+    file_df = file_df.sort_values(by=sort_by, ascending=ascending)
+    
     st.write(file_df)
 
     # Display industry distribution bar chart
-    st.subheader("Industry Distribution")
-    industry_df = pd.DataFrame.from_dict(industry_counts, orient='index', columns=["Count"])
-    st.bar_chart(industry_df)
+    if industry_counts:  # Only show if we have data
+        st.subheader("Industry Distribution")
+        industry_df = pd.DataFrame.from_dict(
+            industry_counts, 
+            orient='index', 
+            columns=["Count"]
+        ).sort_values("Count", ascending=False)
+        st.bar_chart(industry_df)
+        
+        # Add some statistics
+        st.subheader("Summary Statistics")
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Total Companies", len(file_df))
+        with col2:
+            st.metric("Total Industries", len(industry_counts))
+        with col3:
+            avg_glic = file_df["GLIC Total"].mean()
+            st.metric("Average GLIC Total", f"{avg_glic:.1f}%")
 
 def main():
     st.sidebar.title("Navigation")
