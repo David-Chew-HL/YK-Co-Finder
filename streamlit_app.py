@@ -575,7 +575,7 @@ def upload_page():
                             "If the shareholder is a subsidiary or affiliate of a GLIC (e.g., \"Amanah Trustees\" under \"PNB\"), "
                             "note the primary GLIC association in the \"glicAssociation\" field.\"  Annual Report: \"" + text
                         )
-                        
+                        print(text)
                         try:
                             output_json = json.loads(response.text)
                             
@@ -648,6 +648,7 @@ def upload_page():
                     
                     with col2:
                         if st.button("Process Report", key=f"process_tab1_{idx}"):
+                            
                             def update_status(msg):
                                 st.session_state.status_messages[status_key] = msg
                             process_annual_report(result['url'], search_query, update_status)
