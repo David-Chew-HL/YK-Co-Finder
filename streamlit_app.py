@@ -252,36 +252,38 @@ def verify_page():
                 )
                 if not new_verified.empty:
                     add_verified_shareholders(repo, new_verified)
-
-            # Update the file if any changes were made
-            if modified or not unverified_shareholders:
-                # Calculate GLIC total
-                glic_total = sum(
-                    s['percentageHeld']
-                    for s in shareholders
-                    if s['glicAssociation'] in GLIC_LIST
-                )
+                    
+            if st.button("Approve Verification"):
                 
-                # Create verified filename
-                new_file_name = (
-                    f"{file['name']}_v_{glic_total:.1f}.json" 
-                    if glic_total > 20 
-                    else f"{file['name']}_v.json"
-                )
-                new_file_path = os.path.join("reports", new_file_name)
-                
-                # Update/create verified file and delete unverified
-                try:
-                    update_json_file(repo, new_file_path, json.dumps(data, indent=2))
-                    repo.delete_file(
-                        file['path'], 
-                        f"Delete unverified file {file['name']}", 
-                        file['sha'], 
-                        branch=GITHUB_BRANCH
+                # Update the file if any changes were made
+                if modified or not unverified_shareholders:
+                    # Calculate GLIC total
+                    glic_total = sum(
+                        s['percentageHeld']
+                        for s in shareholders
+                        if s['glicAssociation'] in GLIC_LIST
                     )
-                    st.success(f"Updated and verified {data['companyName']}")
-                except Exception as e:
-                    st.error(f"Error updating files: {str(e)}")
+                    
+                    # Create verified filename
+                    new_file_name = (
+                        f"{file['name']}_v_{glic_total:.1f}.json" 
+                        if glic_total > 20 
+                        else f"{file['name']}_v.json"
+                    )
+                    new_file_path = os.path.join("reports", new_file_name)
+                    
+                    # Update/create verified file and delete unverified
+                    try:
+                        update_json_file(repo, new_file_path, json.dumps(data, indent=2))
+                        repo.delete_file(
+                            file['path'], 
+                            f"Delete unverified file {file['name']}", 
+                            file['sha'], 
+                            branch=GITHUB_BRANCH
+                        )
+                        st.success(f"Updated and verified {data['companyName']}")
+                    except Exception as e:
+                        st.error(f"Error updating files: {str(e)}")
                     
         except Exception as e:
             st.error(f"Error processing file: {str(e)}")
