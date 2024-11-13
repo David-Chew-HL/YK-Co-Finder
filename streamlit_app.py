@@ -577,6 +577,7 @@ def upload_page():
             # Final status update
             success_count = sum(1 for status in file_statuses.values() if "Completed" in status)
             st.success(f"Processing completed! {success_count} out of {len(uploaded_files)} files processed successfully.")
+
     # New section for search and company selection
     st.markdown("---")
     st.subheader("Process New Companies")
@@ -585,11 +586,11 @@ def upload_page():
     tab1, tab2 = st.tabs(["Search Company", "Select from List"])
     
     with tab1:
-        # Store search results in session state
+        # Initialize session state for search results and status messages
         if 'search_results' not in st.session_state:
             st.session_state.search_results = []
-        if 'processing_statuses' not in st.session_state:
-            st.session_state.processing_statuses = {}
+        if 'status_messages' not in st.session_state:
+            st.session_state.status_messages = {}
             
         search_query = st.text_input("Search for company annual reports:")
         search_button = st.button("Search")
@@ -606,23 +607,20 @@ def upload_page():
                     st.write(result['snippet'])
                     st.write(f"URL: {result['url']}")
                     
+                    status_key = f"status_tab1_{idx}"
+                    
+                    # Create columns for status and button
                     col1, col2 = st.columns([3, 1])
                     
-                    status_key = f"status_tab1_{idx}"
-                    if status_key not in st.session_state.processing_statuses:
-                        st.session_state.processing_statuses[status_key] = ""
-                    
                     with col1:
-                        if st.session_state.processing_statuses[status_key]:
-                            st.info(st.session_state.processing_statuses[status_key])
+                        if status_key in st.session_state.status_messages:
+                            st.info(st.session_state.status_messages[status_key])
                     
                     with col2:
                         if st.button("Process Report", key=f"process_tab1_{idx}"):
-                            process_annual_report(
-                                result['url'],
-                                search_query,
-                                lambda msg: setattr(st.session_state.processing_statuses, status_key, msg)
-                            )
+                            def update_status(msg):
+                                st.session_state.status_messages[status_key] = msg
+                            process_annual_report(result['url'], search_query, update_status)
     
     with tab2:
         g = Github(GITHUB_TOKEN)
@@ -650,24 +648,21 @@ def upload_page():
                         st.write(result['snippet'])
                         st.write(f"URL: {result['url']}")
                         
+                        status_key = f"status_tab2_{idx}"
+                        
                         # Create columns for status and button
                         col1, col2 = st.columns([3, 1])
                         
-                        status_key = f"status_tab2_{idx}"
-                        if status_key not in st.session_state.processing_statuses:
-                            st.session_state.processing_statuses[status_key] = ""
-                        
                         with col1:
-                            if st.session_state.processing_statuses[status_key]:
-                                st.info(st.session_state.processing_statuses[status_key])
+                            if status_key in st.session_state.status_messages:
+                                st.info(st.session_state.status_messages[status_key])
                         
                         with col2:
                             if st.button("Process Report", key=f"process_tab2_{idx}"):
-                                process_annual_report(
-                                    result['url'],
-                                    selected_company,
-                                    lambda msg: setattr(st.session_state.processing_statuses, status_key, msg)
-                                )
+                                def update_status(msg):
+                                    st.session_state.status_messages[status_key] = msg
+                                process_annual_report(result['url'], selected_company, update_status)
+                                
             elif selected_company and 'tab2_results' in st.session_state:
                 st.error("No PDF reports found for this company")
         else:
