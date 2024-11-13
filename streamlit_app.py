@@ -379,24 +379,20 @@ def view_json_file(file_content):
 
     st.table(shareholder_data)
 
-def process_annual_report(url, company_name=None, status_callback=None):
-    """Common function to process annual reports regardless of source."""
+def process_annual_report(pdf_content, company_name=None, status_callback=None):
     try:
         if status_callback:
-            status_callback("Downloading and processing PDF...")
-            
-        pdf_text = download_and_process_pdf(url)
-        if not pdf_text:
-            if status_callback:
-                status_callback("❌ Failed to download PDF")
-            return False
-            
+            status_callback("Uploading PDF to Gemini...")
+
+        # Upload the PDF file using the File API
+        pdf_content = genai.upload_file(pdf_content)
+
         if status_callback:
             status_callback("Extracting information...")
-            
-        chat_session = model.start_chat()
-        response = chat_session.send_message(
-            "Extract the following information from the provided text of the annual report and format it in JSON:\n\n\n"
+
+    
+        response = model.generate_content([
+            "Extract the following information from the provided PDF file and format it in JSON:\n\n\n"
             "Company full name.\n"
             "Year of the report.\n"
             "Industry of the company (choose one from the following: Automobiles, Banks, Capital Goods, Commercial Services, "
@@ -405,7 +401,7 @@ def process_annual_report(url, company_name=None, status_callback=None):
             "Real Estate Management and Development, Retail, Semiconductors, Software, Tech, Telecom, Transportation, Utilities).\n"
             "A brief description of the company's business.\n"
             "Top Shareholders:\n"
-            "For each shareholder in the list of the top 30 largest shareholders, include:\n"
+            "For each of the top 30 shareholders, include:\n"
             "Full name of the shareholder.\n"
             "If the shareholder is associated with any of the following six Malaysian Government-Linked Investment Companies (GLICs), "
             "specify which one: Khazanah Nasional Berhad (Khazanah), Employees Provident Fund (EPF), "
@@ -425,20 +421,20 @@ def process_annual_report(url, company_name=None, status_callback=None):
             "    },\n"
             "    ...\n"
             "  ]\n"
-            "}\n" + pdf_text
+            "}\n"
+            "If a shareholder is not associated with any of the specified GLICs, set the \"glicAssociation\" field to None in the JSON output. "
+            "If the shareholder is a subsidiary or affiliate of a GLIC (e.g., \"Amanah Trustees\" under \"PNB\"), "
+            "note the primary GLIC association in the \"glicAssociation\" field.\" PDF: ", pdf_content ]
         )
-        
+
         try:
-            json_data = json.loads(response.text)
-            if status_callback:
-                status_callback("Uploading to repository...")
-                
-            success, message = upload_to_github(
-                json_data,
-                json_data["companyName"],
-                json_data["reportYear"]
-            )
-            
+            output_json = json.loads(response.text)
+
+            # Upload the JSON to GitHub
+            file_name = output_json["companyName"]
+            year = output_json["reportYear"]
+            success, message = upload_to_github(output_json, file_name, year)
+
             if success:
                 if status_callback:
                     status_callback("✅ Successfully processed")
@@ -452,46 +448,24 @@ def process_annual_report(url, company_name=None, status_callback=None):
                 if status_callback:
                     status_callback(f"❌ Failed: {message}")
                 return False
-                
+
         except json.JSONDecodeError:
             if status_callback:
                 status_callback("❌ Failed to parse response")
             return False
-            
+
     except Exception as e:
         if status_callback:
             status_callback(f"❌ Error: {str(e)}")
         return False
 
-def extract_relevant_sections(pdf_text):
-   
-    #Extract relevant sections from PDF text:
-    #1. The shareholders list section (the page with "sharehold" and the next page)
-    #2. The first 30% of the document for company context
-    
-    #Returns a tuple of (shareholders_text, context_text)
-   
-    # Split text into pages
-    pages = pdf_text.split('\f')
-    
-    # Find the page with "sharehold" and the next page
-    shareholders_pages = []
-    for i, page in enumerate(pages):
-        if "sharehold" in page:
-            shareholders_pages.append(page)
-            if i + 1 < len(pages):
-                shareholders_pages.append(pages[i+1])
-            break
-    
-    shareholders_text = "\n\n".join(shareholders_pages)
-    
-    # Get first 30% of document for context
-    total_pages = len(pages)
-    context_end = int(total_pages * 0.3)
-    context_text = "\n\n".join(pages[:context_end])
-    
-    return shareholders_text.strip(), context_text.strip()
-
+def download_and_process_pdf(url):
+    try:
+        response = requests.get(url)
+        return response.content
+    except Exception as e:
+        st.error(f"Error downloading PDF: {str(e)}")
+        return None
 
 def upload_page():
     st.title("Annual Report Information Extraction")
@@ -529,70 +503,14 @@ def upload_page():
                     file_statuses[uploaded_file.name] = "Processing..."
                     update_status()
                     
-                    with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
-                        tmp_file.write(uploaded_file.getvalue())
-                        tmp_file.flush()
+                    # Process the PDF file
+                    success = process_annual_report(uploaded_file, company_name=None, status_callback=update_status)
+                    
+                    if success:
+                        file_statuses[uploaded_file.name] = "Completed ✓"
+                    else:
+                        file_statuses[uploaded_file.name] = "Failed ✗"
                         
-                        reader = PdfReader(tmp_file.name)
-                        text = ""
-                        for page in reader.pages:
-                            text += page.extract_text()
-                        st.write("### Content of Uploaded File")
-                        st.text(text)
-                    with st.spinner(f"Extracting Information from {uploaded_file.name}..."):    
-                        chat_session = model.start_chat()
-                        response = chat_session.send_message(
-                            "Extract the following information from the provided text of the annual report and format it in JSON:\n\n\n"
-                            "Company full name.\n"
-                            "Year of the report.\n"
-                            "Industry of the company (choose one from the following: Automobiles, Banks, Capital Goods, Commercial Services, "
-                            "Consumer Durables, Consumer Retailing, Consumer Services, Diversified Financials, Energy, Food, Beverage, "
-                            "Tobacco, Healthcare, Household, Insurance, Materials, Media, Pharmaceuticals, Biotech, Real Estate, "
-                            "Real Estate Management and Development, Retail, Semiconductors, Software, Tech, Telecom, Transportation, Utilities).\n"
-                            "A brief description of the company's business.\n"
-                            "Top Shareholders:\n"
-                            "For each of the top 30 shareholders, include:\n"
-                            "Full name of the shareholder.\n"
-                            "If the shareholder is associated with any of the following six Malaysian Government-Linked Investment Companies (GLICs), "
-                            "specify which one: Khazanah Nasional Berhad (Khazanah), Employees Provident Fund (EPF), "
-                            "Kumpulan Wang Persaraan (Diperbadankan) [KWAP], Permodalan Nasional Berhad (PNB), "
-                            "Lembaga Tabung Haji, or Lembaga Tabung Angkatan Tentera (LTAT). \n"
-                            "Return this information in the JSON format:\n\n"
-                            "{\n"
-                            "  \"companyName\": \"Company full name\",\n"
-                            "  \"reportYear\": Year,\n"
-                            "  \"industry\": \"Industry name from the provided list\",\n"
-                            "  \"companyDescription\": \"Brief description of company\",\n"
-                            "  \"topShareholders\": [\n"
-                            "    {\n"
-                            "      \"shareholderName\": \"Shareholder's name\",\n"
-                            "      \"glicAssociation\": \"GLIC name if applicable, otherwise None\",\n"
-                            "      \"percentageHeld\": Percentage of shares held\n"
-                            "    },\n"
-                            "    ...\n"
-                            "  ]\n"
-                            "}\n"
-                            "If a shareholder is not associated with any of the specified GLICs, set the \"glicAssociation\" field to None in the JSON output. "
-                            "If the shareholder is a subsidiary or affiliate of a GLIC (e.g., \"Amanah Trustees\" under \"PNB\"), "
-                            "note the primary GLIC association in the \"glicAssociation\" field.\"  Annual Report: \"" + text
-                        )
-                        
-                        try:
-                            output_json = json.loads(response.text)
-                            
-                            # Upload the JSON to GitHub
-                            file_name = output_json["companyName"]
-                            year = output_json["reportYear"]
-                            success, message = upload_to_github(output_json, file_name, year)
-                            
-                            if success:
-                                file_statuses[uploaded_file.name] = "Completed ✓"
-                            else:
-                                file_statuses[uploaded_file.name] = f"Failed: {message} ✗"
-                                
-                        except json.JSONDecodeError:
-                            file_statuses[uploaded_file.name] = "Failed: Invalid JSON response ✗"
-                            
                 except Exception as e:
                     file_statuses[uploaded_file.name] = f"Failed: {str(e)} ✗"
                 
@@ -600,10 +518,6 @@ def upload_page():
                     # Update progress bar
                     overall_progress.progress((idx + 1) / len(uploaded_files))
                     update_status()
-                    
-                    # Clean up temp file if it exists
-                    if 'tmp_file' in locals():
-                        os.unlink(tmp_file.name)
             
             # Final status update
             success_count = sum(1 for status in file_statuses.values() if "Completed" in status)
@@ -652,7 +566,10 @@ def upload_page():
                             
                             def update_status(msg):
                                 st.session_state.status_messages[status_key] = msg
-                            process_annual_report(result['url'], search_query, update_status)
+                            
+                            # Download the PDF and pass it to process_annual_report()
+                            pdf_content = download_and_process_pdf(result['url'])
+                            process_annual_report(pdf_content, search_query, update_status)
     
     with tab2:
         g = Github(GITHUB_TOKEN)
@@ -693,13 +610,15 @@ def upload_page():
                             if st.button("Process Report", key=f"process_tab2_{idx}"):
                                 def update_status(msg):
                                     st.session_state.status_messages[status_key] = msg
-                                process_annual_report(result['url'], selected_company, update_status)
+                                
+                                # Download the PDF and pass it to process_annual_report()
+                                pdf_content = download_and_process_pdf(result['url'])
+                                process_annual_report(pdf_content, selected_company, update_status)
                                 
             elif selected_company and 'tab2_results' in st.session_state:
                 st.error("No PDF reports found for this company")
         else:
             st.info("No companies left to process in the list")
-
 
 def view_page():
     st.title("View Extracted Information")
@@ -865,34 +784,6 @@ def search_annual_report(company_name):
     except Exception as e:
         st.error(f"Error searching for annual reports: {str(e)}")
         return []
-
-def download_and_process_pdf(url):
-    #Enhanced version of the PDF download and processing function.
-    try:
-        response = requests.get(url)
-        with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
-            tmp_file.write(response.content)
-            tmp_file.flush()
-            
-            reader = PdfReader(tmp_file.name)
-            full_text = ""
-            for page in reader.pages:
-                full_text += page.extract_text() + "\f"
-                
-        os.unlink(tmp_file.name)  # Clean up temp file
-        
-        # Extract relevant sections
-        shareholders_text, context_text = extract_relevant_sections(full_text)
-        
-        # Combine sections in a way that prioritizes shareholder information
-        if shareholders_text:
-            return f"SHAREHOLDERS SECTION:\n{shareholders_text}\n\nCONTEXT SECTION:\n{context_text}"
-        else:
-            return context_text
-            
-    except Exception as e:
-        st.error(f"Error downloading/processing PDF: {str(e)}")
-        return None
 
     
 def main():
