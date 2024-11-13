@@ -15,6 +15,7 @@ GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
 GITHUB_BRANCH = st.secrets.get("GITHUB_BRANCH", "main")
 GLIC_LIST = ["Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT"]
+correct_password = st.secrets["VERIFY_PASSWORD"]
 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
@@ -154,7 +155,7 @@ def extract_glic_total(filename): #extract from filename
 
 def verify_page():
     st.title("Verify Extracted Information")
-    correct_password = st.secrets["VERIFY_PASSWORD"]  
+      
     password_input = st.text_input("Enter password to access verification page:", type="password")
     
     if not password_input:
