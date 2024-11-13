@@ -240,26 +240,28 @@ def verify_page():
                         index=default_index
                     )
                     
-                    if shareholder['glicAssociation'] != glic_selection:
-                        # Find the shareholder in the original list and update it
-                        for s in shareholders:
-                            if s['shareholderName'] == shareholder_name:
+                    # Find the shareholder in the original list and update it
+                    for s in shareholders:
+                        if s['shareholderName'] == shareholder_name:
+                            if s['glicAssociation'] != glic_selection:
                                 s['glicAssociation'] = glic_selection
                                 modified = True
                                 new_verifications.append({
                                     "shareholderName": shareholder_name,
                                     "glicAssociation": glic_selection
                                 })
-                                break
+                            break
 
             if st.button("Approve Verification"):
-                # Only save verified shareholders when approved
+                success = True
+                # First, save verified shareholders
                 if new_verifications:
                     new_verified = pd.DataFrame(new_verifications)
-                    add_verified_shareholders(repo, new_verified)
-                    
-                # Update the file if any changes were made or all shareholders are verified
-                if modified or not unverified_shareholders:
+                    if not add_verified_shareholders(repo, new_verified):
+                        st.error("Failed to update verified shareholders CSV")
+                        success = False
+                
+                if success:
                     # Calculate GLIC total
                     glic_total = sum(
                         s['percentageHeld']
@@ -267,27 +269,37 @@ def verify_page():
                         if s['glicAssociation'] in GLIC_LIST
                     )
                     
-                    # Always include GLIC total in filename after verification
-                    new_file_name = f"{file['name']}_v_{glic_total:.1f}.json"
-                    new_file_path = os.path.join("reports", new_file_name)
-                    
                     # Update data with complete shareholders list
                     data['topShareholders'] = shareholders
                     
-                    # Update/create verified file and delete unverified
+                    # Create new verified filename with GLIC total
+                    new_file_name = f"{file['name']}_v_{glic_total:.1f}.json"
+                    new_file_path = f"reports/{new_file_name}"
+                    
                     try:
-                        update_json_file(repo, new_file_path, json.dumps(data, indent=2))
-                        repo.delete_file(
-                            file['path'], 
-                            f"Delete unverified file {file['name']}", 
-                            file['sha'], 
+                        # Create the new verified file
+                        repo.create_file(
+                            new_file_path,
+                            f"Add verified file {new_file_name}",
+                            json.dumps(data, indent=2),
                             branch=GITHUB_BRANCH
                         )
-                        st.success(f"Updated and verified {data['companyName']}")
+                        
+                        # Delete the old unverified file
+                        repo.delete_file(
+                            file['path'],
+                            f"Delete unverified file {file['name']}",
+                            file['sha'],
+                            branch=GITHUB_BRANCH
+                        )
+                        
+                        st.success(f"Successfully verified {data['companyName']} and updated files")
                         verification_completed = True
+                        # Force a page refresh to show updated files
+                        st.experimental_rerun()
                     except Exception as e:
                         st.error(f"Error updating files: {str(e)}")
-                    
+                        
         except Exception as e:
             st.error(f"Error processing file: {str(e)}")
     
@@ -311,12 +323,16 @@ def get_verified_shareholders(repo):
 def add_verified_shareholders(repo, new_entries):
     """Add new verified shareholders to the CSV file."""
     try:
-        file_content = repo.get_contents("verified_shareholders.csv", ref=GITHUB_BRANCH)
-        csv_data = base64.b64decode(file_content.content).decode()
-        verified_shareholders = pd.read_csv(StringIO(csv_data))
+        try:
+            file_content = repo.get_contents("verified_shareholders.csv", ref=GITHUB_BRANCH)
+            csv_data = base64.b64decode(file_content.content).decode()
+            verified_shareholders = pd.read_csv(StringIO(csv_data))
+        except:
+            # If file doesn't exist, create new DataFrame
+            verified_shareholders = pd.DataFrame(columns=["shareholderName", "glicAssociation"])
         
         # Add new verified entries and avoid duplicates
-        updated_shareholders = pd.concat([verified_shareholders, new_entries])
+        updated_shareholders = pd.concat([verified_shareholders, new_entries], ignore_index=True)
         # Drop duplicates, keeping the most recent entry
         updated_shareholders = updated_shareholders.drop_duplicates(
             subset="shareholderName", 
@@ -325,14 +341,24 @@ def add_verified_shareholders(repo, new_entries):
         
         csv_content = updated_shareholders.to_csv(index=False)
         
-        # Update the CSV file on GitHub
-        repo.update_file(
-            "verified_shareholders.csv",
-            "Update verified shareholders list",
-            csv_content,
-            file_content.sha,
-            branch=GITHUB_BRANCH
-        )
+        try:
+            # Try to update existing file
+            file_content = repo.get_contents("verified_shareholders.csv", ref=GITHUB_BRANCH)
+            repo.update_file(
+                "verified_shareholders.csv",
+                "Update verified shareholders list",
+                csv_content,
+                file_content.sha,
+                branch=GITHUB_BRANCH
+            )
+        except:
+            # If file doesn't exist, create it
+            repo.create_file(
+                "verified_shareholders.csv",
+                "Initialize verified shareholders list",
+                csv_content,
+                branch=GITHUB_BRANCH
+            )
         return True
     except Exception as e:
         st.error(f"Error updating verified shareholders: {str(e)}")
