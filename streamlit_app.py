@@ -489,7 +489,7 @@ def upload_page():
         # Create a placeholder for status updates
         status_container = st.empty()
         
-        def update_status(status=None):
+        def update_status(uploaded_file, status=None):
             if status:
                 file_statuses[uploaded_file.name] = status
             status_text = "\n".join([f"{fname}: {status}" for fname, status in file_statuses.items()])
@@ -504,7 +504,7 @@ def upload_page():
                 try:
                     # Update status to processing
                     file_statuses[uploaded_file.name] = "Processing..."
-                    update_status()
+                    update_status(uploaded_file, "Processing...")
                     
                     # Process the PDF file
                     success = process_annual_report(uploaded_file, company_name=None, status_callback=update_status)
@@ -513,11 +513,11 @@ def upload_page():
                         file_statuses[uploaded_file.name] = "Completed ✓"
                     else:
                         file_statuses[uploaded_file.name] = "Failed ✗"
-                    update_status()
+                   
                     
                 except Exception as e:
                     file_statuses[uploaded_file.name] = f"Failed: {str(e)} ✗"
-                    update_status()
+                    update_status(uploaded_file, file_statuses[uploaded_file.name])
                     
                 finally:
                     # Update progress bar
