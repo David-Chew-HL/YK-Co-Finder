@@ -10,6 +10,9 @@ from PyPDF2 import PdfReader
 import pandas as pd
 import re
 from io import StringIO
+import requests
+from bs4 import BeautifulSoup
+import time
 
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
@@ -116,6 +119,7 @@ def upload_to_github(json_data, filename,year):
                 
     except Exception as e:
         return False, f"Upload failed: {str(e)}"
+    
 
 def get_json_files_from_github(exclude_verified=True):
     """
@@ -489,6 +493,106 @@ def upload_page():
             # Final status update
             success_count = sum(1 for status in file_statuses.values() if "Completed" in status)
             st.success(f"Processing completed! {success_count} out of {len(uploaded_files)} files processed successfully.")
+    # New section for search and company selection
+    st.markdown("---")
+    st.subheader("Process New Companies")
+    
+    # Tab selection for search or dropdown
+    tab1, tab2 = st.tabs(["Search Company", "Select from List"])
+    
+    with tab1:
+        search_query = st.text_input("Search for company annual reports:")
+        if search_query:
+            with st.spinner("Searching..."):
+                search_results = search_annual_report(search_query)
+                
+                if search_results:
+                    st.write("Search Results:")
+                    for idx, result in enumerate(search_results):
+                        with st.expander(f"{result['title']}"):
+                            st.write(result['snippet'])
+                            st.write(f"URL: {result['url']}")
+                            if st.button("Process this report", key=f"process_{idx}"):
+                                with st.spinner("Processing report..."):
+                                    # Download and process PDF
+                                    pdf_text = download_and_process_pdf(result['url'])
+                                    if pdf_text:
+                                        # Process with Gemini
+                                        chat_session = model.start_chat()
+                                        response = chat_session.send_message(
+                                            "Extract the following information from the provided text of the annual report and format it in JSON:\n\n\n"
+                                            "Company full name.\n"
+                                            "Year of the report.\n"
+                                            "Industry of the company...\n"  # Rest of the prompt
+                                            + pdf_text
+                                        )
+                                        try:
+                                            json_data = json.loads(response.text)
+                                            success, message = upload_to_github(
+                                                json_data,
+                                                json_data["companyName"],
+                                                json_data["reportYear"]
+                                            )
+                                            if success:
+                                                st.success(f"Successfully processed report")
+                                                # Update not_yet.txt if company was in the list
+                                                update_not_yet_companies(repo, [search_query])
+                                            else:
+                                                st.error(f"Failed to upload: {message}")
+                                        except json.JSONDecodeError:
+                                            st.error("Failed to parse Gemini response")
+                else:
+                    st.info("No PDF reports found for this company")
+    
+    with tab2:
+        not_yet_companies = get_not_yet_companies(repo)
+        if not_yet_companies:
+            selected_company = st.selectbox(
+                "Select a company to process:",
+                options=not_yet_companies
+            )
+            
+            if selected_company and st.button("Process Selected Company"):
+                with st.spinner(f"Searching for {selected_company}'s annual report..."):
+                    search_results = search_annual_report(selected_company)
+                    
+                    if search_results:
+                        st.write("Found the following reports:")
+                        for idx, result in enumerate(search_results):
+                            with st.expander(f"{result['title']}"):
+                                st.write(result['snippet'])
+                                st.write(f"URL: {result['url']}")
+                                if st.button("Process this report", key=f"process_list_{idx}"):
+                                    with st.spinner("Processing report..."):
+                                        pdf_text = download_and_process_pdf(result['url'])
+                                        if pdf_text:
+                                            chat_session = model.start_chat()
+                                            response = chat_session.send_message(
+                                                "Extract the following information from the provided text of the annual report and format it in JSON:\n\n\n"
+                                                "Company full name.\n"
+                                                "Year of the report.\n"
+                                                "Industry of the company...\n"  # Rest of the prompt
+                                                + pdf_text
+                                            )
+                                            try:
+                                                json_data = json.loads(response.text)
+                                                success, message = upload_to_github(
+                                                    json_data,
+                                                    json_data["companyName"],
+                                                    json_data["reportYear"]
+                                                )
+                                                if success:
+                                                    st.success(f"Successfully processed report")
+                                                    update_not_yet_companies(repo, [selected_company])
+                                                else:
+                                                    st.error(f"Failed to upload: {message}")
+                                            except json.JSONDecodeError:
+                                                st.error("Failed to parse Gemini response")
+                    else:
+                        st.error("No PDF reports found for this company")
+        else:
+            st.info("No companies left to process in the list")
+
 
 def view_page():
     st.title("View Extracted Information")
@@ -598,6 +702,82 @@ def dashboard_page(): #only show those which are verified and is bondserving
             avg_glic = file_df["GLIC Total"].mean()
             st.metric("Average GLIC Total", f"{avg_glic:.1f}%")
 
+def get_not_yet_companies(repo):
+    """Get list of companies that haven't been processed yet."""
+    try:
+        file_content = repo.get_contents("not_yet.txt", ref=GITHUB_BRANCH)
+        companies = base64.b64decode(file_content.content).decode().splitlines()
+        return [company.strip() for company in companies if company.strip()]
+    except Exception as e:
+        st.error(f"Error loading not_yet.txt: {str(e)}")
+        return []
+
+def update_not_yet_companies(repo, companies_to_remove):
+    """Update not_yet.txt by removing processed companies."""
+    try:
+        # Get current list
+        file_content = repo.get_contents("not_yet.txt", ref=GITHUB_BRANCH)
+        current_companies = base64.b64decode(file_content.content).decode().splitlines()
+        
+        # Remove processed companies
+        updated_companies = [company for company in current_companies 
+                           if company.strip() and company.strip() not in companies_to_remove]
+        
+        # Update file
+        new_content = "\n".join(updated_companies)
+        repo.update_file(
+            "not_yet.txt",
+            "Update companies list",
+            new_content,
+            file_content.sha,
+            branch=GITHUB_BRANCH
+        )
+    except Exception as e:
+        st.error(f"Error updating not_yet.txt: {str(e)}")
+
+def search_annual_report(company_name):
+    """Search for company's annual report PDF using Google Custom Search."""
+    query = f"{company_name} annual report pdf filetype:pdf"
+    url = f"https://www.googleapis.com/customsearch/v1?q={query}&key={st.secrets['GOOGLE_API_KEY']}&cx={st.secrets['GOOGLE_CSE_ID']}"
+    
+    try:
+        response = requests.get(url)
+        data = response.json()
+        
+        results = []
+        if "items" in data:
+            for item in data["items"]:
+                link = item.get("link")
+                if link and link.endswith(".pdf"):
+                    results.append({
+                        "title": item.get("title", "Untitled"),
+                        "url": link,
+                        "snippet": item.get("snippet", "No description available")
+                    })
+        return results
+    except Exception as e:
+        st.error(f"Error searching for annual reports: {str(e)}")
+        return []
+
+def download_and_process_pdf(url):
+    """Download PDF and extract text."""
+    try:
+        response = requests.get(url)
+        with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
+            tmp_file.write(response.content)
+            tmp_file.flush()
+            
+            reader = PdfReader(tmp_file.name)
+            text = ""
+            for page in reader.pages:
+                text += page.extract_text()
+                
+        os.unlink(tmp_file.name)  # Clean up temp file
+        return text
+    except Exception as e:
+        st.error(f"Error downloading/processing PDF: {str(e)}")
+        return None
+    
 def main():
     st.sidebar.title("Navigation")
     page = st.sidebar.radio("Go to", ["Dashboard", "Upload PDF", "View Extracted Information", "Verify Extracted Information"])
