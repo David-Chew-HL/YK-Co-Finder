@@ -7,3 +7,7 @@ python-dotenv
 google-generativeai
 google.ai.generativelanguage
 pandas
+requests
+beautifulsoup4
+base64
+time
