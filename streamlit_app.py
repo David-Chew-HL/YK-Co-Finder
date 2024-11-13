@@ -427,7 +427,7 @@ def process_annual_report(pdf_content, company_name=None, status_callback=None):
             If the shareholder is a subsidiary or affiliate of a GLIC (e.g., \"Amanah Trustees\" under \"PNB\"), 
             note the primary GLIC association in the \"glicAssociation\" field.\" PDF: """ ]
         )
-
+        pdf_content.delete()
         try:
             output_json = json.loads(response.text)
 
