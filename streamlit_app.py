@@ -405,7 +405,7 @@ def process_annual_report(url, company_name=None, status_callback=None):
             "Real Estate Management and Development, Retail, Semiconductors, Software, Tech, Telecom, Transportation, Utilities).\n"
             "A brief description of the company's business.\n"
             "Top Shareholders:\n"
-            "For each of the top 30 shareholders, include:\n"
+            "For each shareholder in the list of the top 30 largest shareholders, include:\n"
             "Full name of the shareholder.\n"
             "If the shareholder is associated with any of the following six Malaysian Government-Linked Investment Companies (GLICs), "
             "specify which one: Khazanah Nasional Berhad (Khazanah), Employees Provident Fund (EPF), "
@@ -462,6 +462,36 @@ def process_annual_report(url, company_name=None, status_callback=None):
         if status_callback:
             status_callback(f"❌ Error: {str(e)}")
         return False
+
+def extract_relevant_sections(pdf_text):
+   
+    #Extract relevant sections from PDF text:
+    #1. The shareholders list section (the page with "sharehold" and the next page)
+    #2. The first 30% of the document for company context
+    
+    #Returns a tuple of (shareholders_text, context_text)
+   
+    # Split text into pages
+    pages = pdf_text.split('\f')
+    
+    # Find the page with "sharehold" and the next page
+    shareholders_pages = []
+    for i, page in enumerate(pages):
+        if "sharehold" in page:
+            shareholders_pages.append(page)
+            if i + 1 < len(pages):
+                shareholders_pages.append(pages[i+1])
+            break
+    
+    shareholders_text = "\n\n".join(shareholders_pages)
+    
+    # Get first 30% of document for context
+    total_pages = len(pages)
+    context_end = int(total_pages * 0.3)
+    context_text = "\n\n".join(pages[:context_end])
+    
+    return shareholders_text.strip(), context_text.strip()
+
 
 def upload_page():
     st.title("Annual Report Information Extraction")
@@ -835,7 +865,7 @@ def search_annual_report(company_name):
         return []
 
 def download_and_process_pdf(url):
-    """Download PDF and extract text."""
+    #Enhanced version of the PDF download and processing function.
     try:
         response = requests.get(url)
         with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
@@ -843,15 +873,25 @@ def download_and_process_pdf(url):
             tmp_file.flush()
             
             reader = PdfReader(tmp_file.name)
-            text = ""
+            full_text = ""
             for page in reader.pages:
-                text += page.extract_text()
+                full_text += page.extract_text() + "\f"
                 
         os.unlink(tmp_file.name)  # Clean up temp file
-        return text
+        
+        # Extract relevant sections
+        shareholders_text, context_text = extract_relevant_sections(full_text)
+        
+        # Combine sections in a way that prioritizes shareholder information
+        if shareholders_text:
+            return f"SHAREHOLDERS SECTION:\n{shareholders_text}\n\nCONTEXT SECTION:\n{context_text}"
+        else:
+            return context_text
+            
     except Exception as e:
         st.error(f"Error downloading/processing PDF: {str(e)}")
         return None
+
     
 def main():
     st.sidebar.title("Navigation")
