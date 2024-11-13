@@ -480,54 +480,28 @@ def upload_page():
         return
     
     # Modified to accept multiple files
-    uploaded_files = st.file_uploader("Choose PDF files", type="pdf", accept_multiple_files=True)
+    uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
     
-    if uploaded_files:
-        st.write(f"Number of files selected: {len(uploaded_files)}")
-        file_statuses = {file.name: "Pending" for file in uploaded_files}
-        
-        # Create a placeholder for status updates
+    if uploaded_file:
         status_container = st.empty()
         
-        def update_status(uploaded_file, status=None):
-            if status:
-                file_statuses[uploaded_file.name] = status
-            status_text = "\n".join([f"{fname}: {status}" for fname, status in file_statuses.items()])
-            status_container.text_area("Processing Status:", value=status_text, height=150, key=f"status_{uploaded_file.name}")
+        def update_status(status=None):
+            status_container.text_area("Processing Status:", value=status, height=150, key=f"status_{uploaded_file.name}")
         
-     
-        
-        if st.button("Process All Files"):
-            overall_progress = st.progress(0)
-            
-            for idx, uploaded_file in enumerate(uploaded_files):
-                try:
-                    # Update status to processing
-                    file_statuses[uploaded_file.name] = "Processing..."
-                    update_status(uploaded_file, "Processing...")
-                    
-                    # Process the PDF file
-                    success = process_annual_report(uploaded_file, company_name=None, status_callback=update_status)
-                    
-                    if success:
-                        file_statuses[uploaded_file.name] = "Completed ✓"
-                    else:
-                        file_statuses[uploaded_file.name] = "Failed ✗"
-                   
-                    
-                except Exception as e:
-                    file_statuses[uploaded_file.name] = f"Failed: {str(e)} ✗"
-                    update_status(uploaded_file, file_statuses[uploaded_file.name])
-                    
-                finally:
-                    # Update progress bar
-                    overall_progress.progress((idx + 1) / len(uploaded_files))
-                   
-            
-            # Final status update
-            success_count = sum(1 for status in file_statuses.values() if "Completed" in status)
-            st.success(f"Processing completed! {success_count} out of {len(uploaded_files)} files processed successfully.")
-
+        if st.button("Process File"):
+            try:
+                # Update status to processing
+                update_status("Processing...")
+                
+                # Process the PDF file
+                success = process_annual_report(uploaded_file, company_name=None, status_callback=update_status)
+                
+                if success:
+                    update_status("Completed ✓")
+                else:
+                    update_status("Failed ✗")
+            except Exception as e:
+                update_status(f"Failed: {str(e)} ✗")
     # New section for search and company selection
     st.markdown("---")
     st.subheader("Process New Companies")
