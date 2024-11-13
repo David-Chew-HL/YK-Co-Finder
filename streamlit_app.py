@@ -495,7 +495,7 @@ def upload_page():
             status_text = "\n".join([f"{fname}: {status}" for fname, status in file_statuses.items()])
             status_container.text_area("Processing Status:", value=status_text, height=150, key=f"status_{uploaded_file.name}")
         
-        update_status()
+     
         
         if st.button("Process All Files"):
             overall_progress = st.progress(0)
