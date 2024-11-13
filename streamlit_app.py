@@ -497,86 +497,111 @@ def upload_page():
     st.markdown("---")
     st.subheader("Process New Companies")
     
+    if 'search_results' not in st.session_state:
+        st.session_state.search_results = []
+    if 'processing_status' not in st.session_state:
+        st.session_state.processing_status = {}
+    if 'current_process' not in st.session_state:
+        st.session_state.current_process = None
     # Tab selection for search or dropdown
     tab1, tab2 = st.tabs(["Search Company", "Select from List"])
     
     with tab1:
-        # Store search results in session state
-        if 'search_results' not in st.session_state:
-            st.session_state.search_results = []
             
         search_query = st.text_input("Search for company annual reports:")
         search_button = st.button("Search")
         
-        if search_button and search_query:
+        if st.button("Search"):
             with st.spinner("Searching..."):
-                st.session_state.search_results = search_annual_report(search_query)
+                results = search_annual_report(search_query)
+                if results:
+                    st.session_state.search_results = results
+                    st.session_state.processing_status = {idx: None for idx in range(len(results))}
+                else:
+                    st.info("No PDF reports found for this company")
+                    st.session_state.search_results = []
                 
-        # Display search results if they exist
         if st.session_state.search_results:
             st.write("Search Results:")
+            
             for idx, result in enumerate(st.session_state.search_results):
                 with st.expander(f"{result['title']}", expanded=True):
                     st.write(result['snippet'])
                     st.write(f"URL: {result['url']}")
                     
-                    # Create columns for status and button
-                    col1, col2 = st.columns([3, 1])
+                    # Display current status if any
+                    if st.session_state.processing_status.get(idx):
+                        st.info(st.session_state.processing_status[idx])
                     
-                    # Store processing status in session state
-                    status_key = f"processing_status_{idx}"
-                    if status_key not in st.session_state:
-                        st.session_state[status_key] = ""
-                    
-                    with col1:
-                        if st.session_state[status_key]:
-                            st.info(st.session_state[status_key])
-                    
-                    with col2:
-                        if st.button("Process Report", key=f"process_{idx}"):
-                            st.session_state[status_key] = "Processing..."
-                            try:
-                                with st.spinner("Downloading and processing PDF..."):
-                                    pdf_text = download_and_process_pdf(result['url'])
-                                    if pdf_text:
-                                        # Process with Gemini
-                                        chat_session = model.start_chat()
-                                        st.session_state[status_key] = "Extracting information..."
-                                        response = chat_session.send_message(
-                                            "Extract the following information from the provided text of the annual report and format it in JSON:\n\n\n"
-                                            "Company full name.\n"
-                                            "Year of the report.\n"
-                                            "Industry of the company (choose one from the following: Automobiles, Banks, Capital Goods, Commercial Services, "
-                                            "Consumer Durables, Consumer Retailing, Consumer Services, Diversified Financials, Energy, Food, Beverage, "
-                                            "Tobacco, Healthcare, Household, Insurance, Materials, Media, Pharmaceuticals, Biotech, Real Estate, "
-                                            "Real Estate Management and Development, Retail, Semiconductors, Software, Tech, Telecom, Transportation, Utilities).\n"
-                                            "A brief description of the company's business.\n"
-                                            "Top Shareholders information...\n" + pdf_text
-                                        )
-                                        
-                                        try:
-                                            json_data = json.loads(response.text)
-                                            st.session_state[status_key] = "Uploading to repository..."
-                                            success, message = upload_to_github(
-                                                json_data,
-                                                json_data["companyName"],
-                                                json_data["reportYear"]
-                                            )
-                                            if success:
-                                                st.session_state[status_key] = "✅ Successfully processed"
-                                                # Update not_yet.txt if company was in the list
-                                                if search_query:
-                                                    update_not_yet_companies(repo, [search_query])
-                                            else:
-                                                st.session_state[status_key] = f"❌ Failed: {message}"
-                                        except json.JSONDecodeError:
-                                            st.session_state[status_key] = "❌ Failed to parse response"
+                    # Process button
+                    if st.button(f"Process Report {idx}", key=f"process_{idx}"):
+                        st.session_state.current_process = idx
+                        
+                        # Create a placeholder for status updates
+                        status_placeholder = st.empty()
+                        
+                        try:
+                            # Update status
+                            status_placeholder.info("Downloading PDF...")
+                            pdf_text = download_and_process_pdf(result['url'])
+                            
+                            if pdf_text:
+                                # Update status for Gemini processing
+                                status_placeholder.info("Extracting information using Gemini...")
+                                
+                                chat_session = model.start_chat()
+                                response = chat_session.send_message(
+                                    "Extract the following information from the provided text of the annual report and format it in JSON:\n\n\n"
+                                    "Company full name.\n"
+                                    "Year of the report.\n"
+                                    "Industry of the company (choose one from the following: Automobiles, Banks, Capital Goods, Commercial Services, "
+                                    "Consumer Durables, Consumer Retailing, Consumer Services, Diversified Financials, Energy, Food, Beverage, "
+                                    "Tobacco, Healthcare, Household, Insurance, Materials, Media, Pharmaceuticals, Biotech, Real Estate, "
+                                    "Real Estate Management and Development, Retail, Semiconductors, Software, Tech, Telecom, Transportation, Utilities).\n"
+                                    "A brief description of the company's business.\n"
+                                    "Top Shareholders:\n"
+                                    "For each of the top 30 shareholders, include:\n"
+                                    "Full name of the shareholder.\n"
+                                    "If the shareholder is associated with any of the following six Malaysian Government-Linked Investment Companies (GLICs), "
+                                    "specify which one: Khazanah Nasional Berhad (Khazanah), Employees Provident Fund (EPF), "
+                                    "Kumpulan Wang Persaraan (Diperbadankan) [KWAP], Permodalan Nasional Berhad (PNB), "
+                                    "Lembaga Tabung Haji, or Lembaga Tabung Angkatan Tentera (LTAT). \n"
+                                    "Return this information in the JSON format... Annual Report: " + pdf_text
+                                )
+                                
+                                try:
+                                    # Update status for JSON parsing
+                                    status_placeholder.info("Parsing response...")
+                                    json_data = json.loads(response.text)
+                                    
+                                    # Update status for GitHub upload
+                                    status_placeholder.info("Uploading to GitHub...")
+                                    success, message = upload_to_github(
+                                        json_data,
+                                        json_data["companyName"],
+                                        json_data["reportYear"]
+                                    )
+                                    
+                                    if success:
+                                        status_placeholder.success("Successfully processed and uploaded!")
+                                        # Update not_yet.txt if needed
+                                        if search_query:
+                                            update_not_yet_companies(repo, [search_query])
                                     else:
-                                        st.session_state[status_key] = "❌ Failed to download PDF"
-                            except Exception as e:
-                                st.session_state[status_key] = f"❌ Error: {str(e)}"
-        elif search_query and search_button:
-            st.info("No PDF reports found for this company")
+                                        status_placeholder.error(f"Upload failed: {message}")
+                                    
+                                except json.JSONDecodeError as e:
+                                    st.error(f"Failed to parse JSON response: {str(e)}")
+                                    status_placeholder.error("Failed to parse response from Gemini")
+                            else:
+                                status_placeholder.error("Failed to download or process PDF")
+                                
+                        except Exception as e:
+                            st.error(f"Error during processing: {str(e)}")
+                            status_placeholder.error(f"Processing failed: {str(e)}")
+                            
+                        # Clear current process
+                        st.session_state.current_process = None
     
     with tab2:
         not_yet_companies = get_not_yet_companies(repo)
