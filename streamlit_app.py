@@ -493,7 +493,7 @@ def upload_page():
             if status:
                 file_statuses[uploaded_file.name] = status
             status_text = "\n".join([f"{fname}: {status}" for fname, status in file_statuses.items()])
-            status_container.text_area("Processing Status:", value=status_text, height=150)
+            status_container.text_area("Processing Status:", value=status_text, height=150, key=f"status_{uploaded_file.name}")
         
         update_status()
         
