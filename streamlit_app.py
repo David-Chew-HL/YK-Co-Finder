@@ -178,7 +178,6 @@ def verify_page():
     st.title("Verify Extracted Information")
     st.write("Please verify the info scraped.")
 
-    # Connect to GitHub and load verified shareholders
     g = Github(GITHUB_TOKEN)
     repo = g.get_repo(GITHUB_REPO)
     verified_shareholders = get_verified_shareholders(repo)
@@ -188,9 +187,8 @@ def verify_page():
         st.info("No JSON files found in the repository")
         return
 
-    verification_completed = False  # Add a flag to track verification completion
+    verification_completed = False
 
-    # Check each file's shareholders for verification status
     for file_index, file in enumerate(json_files):
         try:
             file_content = repo.get_contents(file['path'], ref=GITHUB_BRANCH)
@@ -199,20 +197,18 @@ def verify_page():
 
             st.subheader(f"Verifying: {data['companyName']} ({data['reportYear']})")
 
-            # Create a deep copy of shareholders to track modifications
-            shareholders = data['topShareholders']
+            # Create a deep copy to ensure we don't lose any shareholders
+            shareholders = data['topShareholders'].copy()
             modified = False
 
             # First, auto-fill verification for known shareholders
             for shareholder in shareholders:
                 shareholder_name = shareholder['shareholderName']
                 if shareholder_name in verified_shareholders['shareholderName'].values:
-                    # Get the verified GLIC association
                     verified_glic = verified_shareholders[
                         verified_shareholders['shareholderName'] == shareholder_name
                     ]['glicAssociation'].iloc[0]
                     
-                    # Update only if different
                     if shareholder['glicAssociation'] != verified_glic:
                         shareholder['glicAssociation'] = verified_glic
                         modified = True
@@ -224,19 +220,17 @@ def verify_page():
                 if s['shareholderName'] not in verified_shareholders['shareholderName'].values
             ]
             
-            new_verifications = []  # Store new verifications here
+            new_verifications = []
             
             if unverified_shareholders:
                 st.write("Please verify the following shareholders:")
                 for idx, shareholder in enumerate(unverified_shareholders):
                     shareholder_name = shareholder['shareholderName']
-                    # Create a unique key using file index and shareholder index
                     unique_key = f"file_{file_index}_shareholder_{idx}_{shareholder_name}"
                     
                     current_glic = shareholder.get('glicAssociation', "None")
                     glic_options = ["None", "Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT"]
                     
-                    # Set the default index based on the current GLIC association
                     default_index = glic_options.index(current_glic) if current_glic in glic_options else 0
                     
                     glic_selection = st.selectbox(
@@ -247,12 +241,16 @@ def verify_page():
                     )
                     
                     if shareholder['glicAssociation'] != glic_selection:
-                        shareholder['glicAssociation'] = glic_selection
-                        modified = True
-                        new_verifications.append({
-                            "shareholderName": shareholder_name,
-                            "glicAssociation": glic_selection
-                        })
+                        # Find the shareholder in the original list and update it
+                        for s in shareholders:
+                            if s['shareholderName'] == shareholder_name:
+                                s['glicAssociation'] = glic_selection
+                                modified = True
+                                new_verifications.append({
+                                    "shareholderName": shareholder_name,
+                                    "glicAssociation": glic_selection
+                                })
+                                break
 
             if st.button("Approve Verification"):
                 # Only save verified shareholders when approved
@@ -260,7 +258,7 @@ def verify_page():
                     new_verified = pd.DataFrame(new_verifications)
                     add_verified_shareholders(repo, new_verified)
                     
-                # Update the file if any changes were made
+                # Update the file if any changes were made or all shareholders are verified
                 if modified or not unverified_shareholders:
                     # Calculate GLIC total
                     glic_total = sum(
@@ -269,13 +267,12 @@ def verify_page():
                         if s['glicAssociation'] in GLIC_LIST
                     )
                     
-                    # Create verified filename
-                    new_file_name = (
-                        f"{file['name']}_v_{glic_total:.1f}.json" 
-                        if glic_total > 20 
-                        else f"{file['name']}_v.json"
-                    )
+                    # Always include GLIC total in filename after verification
+                    new_file_name = f"{file['name']}_v_{glic_total:.1f}.json"
                     new_file_path = os.path.join("reports", new_file_name)
+                    
+                    # Update data with complete shareholders list
+                    data['topShareholders'] = shareholders
                     
                     # Update/create verified file and delete unverified
                     try:
@@ -287,14 +284,13 @@ def verify_page():
                             branch=GITHUB_BRANCH
                         )
                         st.success(f"Updated and verified {data['companyName']}")
-                        verification_completed = True  # Set the flag when verification is successful
+                        verification_completed = True
                     except Exception as e:
                         st.error(f"Error updating files: {str(e)}")
                     
         except Exception as e:
             st.error(f"Error processing file: {str(e)}")
     
-    # Only show completion message if verification was actually done
     if verification_completed:
         st.success("Verification completed!")
 
