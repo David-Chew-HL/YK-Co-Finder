@@ -537,7 +537,8 @@ def upload_page():
                         text = ""
                         for page in reader.pages:
                             text += page.extract_text()
-                    
+                        st.write("### Content of Uploaded File")
+                        st.text(text)
                     with st.spinner(f"Extracting Information from {uploaded_file.name}..."):    
                         chat_session = model.start_chat()
                         response = chat_session.send_message(
@@ -575,7 +576,7 @@ def upload_page():
                             "If the shareholder is a subsidiary or affiliate of a GLIC (e.g., \"Amanah Trustees\" under \"PNB\"), "
                             "note the primary GLIC association in the \"glicAssociation\" field.\"  Annual Report: \"" + text
                         )
-                        print(text)
+                        
                         try:
                             output_json = json.loads(response.text)
                             
