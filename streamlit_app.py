@@ -130,7 +130,7 @@ def get_json_files_from_github(exclude_verified=True):
         json_files = []
         for content in contents:
             if content.name.endswith('.json'):
-                is_verified = "_v_" in content.name
+                is_verified = "_v" in content.name
                 # Include based on whether we are excluding verified files or not
                 if (exclude_verified and not is_verified) or (not exclude_verified and is_verified):
                     json_files.append({
@@ -154,6 +154,18 @@ def extract_glic_total(filename): #extract from filename
 
 def verify_page():
     st.title("Verify Extracted Information")
+    correct_password = st.secrets["VERIFY_PASSWORD"]  
+    password_input = st.text_input("Enter password to access verification page:", type="password")
+    
+    if not password_input:
+        st.warning("Please enter the password to continue.")
+        return
+    
+    if password_input != correct_password:
+        st.error("Incorrect password. Please try again.")
+        return
+    
+    
     st.write("Please verify the info scraped.")
 
     g = Github(GITHUB_TOKEN)
@@ -373,31 +385,109 @@ def upload_page():
         st.error(f"GitHub connection failed: {str(e)}")
         return
     
-    uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
+    # Modified to accept multiple files
+    uploaded_files = st.file_uploader("Choose PDF files", type="pdf", accept_multiple_files=True)
     
-    if uploaded_file is not None:
-        with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
-            tmp_file.write(uploaded_file.getvalue())
-            tmp_file.flush()
-            
-            reader = PdfReader(tmp_file.name)
-            text = ""
-            for page in reader.pages:
-                text += page.extract_text()
+    if uploaded_files:
+        st.write(f"Number of files selected: {len(uploaded_files)}")
+        file_statuses = {file.name: "Pending" for file in uploaded_files}
         
-        st.subheader("Extract Information")
-        if st.button("Extract Information"):
-            with st.spinner("Extracting Information..."):    
-                chat_session = model.start_chat()
-                response = chat_session.send_message("Extract the following information from the provided text of the annual report and format it in JSON:\n\n\nCompany full name.\nYear of the report.\nIndustry of the company (choose one from the following: Automobiles, Banks, Capital Goods, Commercial Services, Consumer Durables, Consumer Retailing, Consumer Services, Diversified Financials, Energy, Food, Beverage, Tobacco, Healthcare, Household, Insurance, Materials, Media, Pharmaceuticals, Biotech, Real Estate, Real Estate Management and Development, Retail, Semiconductors, Software, Tech, Telecom, Transportation, Utilities).\nA brief description of the company's business.\nTop Shareholders:\nFor each of the top 30 shareholders, include:\nFull name of the shareholder.\nIf the shareholder is associated with any of the following six Malaysian Government-Linked Investment Companies (GLICs), specify which one: Khazanah Nasional Berhad (Khazanah), Employees Provident Fund (EPF), Kumpulan Wang Persaraan (Diperbadankan) [KWAP], Permodalan Nasional Berhad (PNB), Lembaga Tabung Haji, or Lembaga Tabung Angkatan Tentera (LTAT). \nReturn this information in the JSON format:\n\njson\nCopy code\n{\n  \"companyName\": \"Company full name\",\n  \"reportYear\": Year,\n  \"industry\": \"Industry name from the provided list\",\n  \"companyDescription\": \"Brief description of company\",\n  \"topShareholders\": [\n    {\n      \"shareholderName\": \"Shareholder's name\",\n      \"glicAssociation\": \"GLIC name if applicable, otherwise None\",\n      \"percentageHeld\": Percentage of shares held\n    },\n    ...\n  ]\n}\nIf a shareholder is not associated with any of the specified GLICs, set the \"glicAssociation\" field to None in the JSON output. If the shareholder is a subsidiary or affiliate of a GLIC (e.g., \"Amanah Trustees\" under \"PNB\"), note the primary GLIC association in the \"glicAssociation\" field.\"  Annual Report: \"" + text)
-                output_json = json.loads(response.text)
+        # Create a placeholder for status updates
+        status_container = st.empty()
+        
+        def update_status():
+            status_text = "\n".join([f"{fname}: {status}" for fname, status in file_statuses.items()])
+            status_container.text_area("Processing Status:", value=status_text, height=150)
+        
+        update_status()
+        
+        if st.button("Process All Files"):
+            overall_progress = st.progress(0)
+            
+            for idx, uploaded_file in enumerate(uploaded_files):
+                try:
+                    # Update status to processing
+                    file_statuses[uploaded_file.name] = "Processing..."
+                    update_status()
+                    
+                    with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_file:
+                        tmp_file.write(uploaded_file.getvalue())
+                        tmp_file.flush()
+                        
+                        reader = PdfReader(tmp_file.name)
+                        text = ""
+                        for page in reader.pages:
+                            text += page.extract_text()
+                    
+                    with st.spinner(f"Extracting Information from {uploaded_file.name}..."):    
+                        chat_session = model.start_chat()
+                        response = chat_session.send_message(
+                            "Extract the following information from the provided text of the annual report and format it in JSON:\n\n\n"
+                            "Company full name.\n"
+                            "Year of the report.\n"
+                            "Industry of the company (choose one from the following: Automobiles, Banks, Capital Goods, Commercial Services, "
+                            "Consumer Durables, Consumer Retailing, Consumer Services, Diversified Financials, Energy, Food, Beverage, "
+                            "Tobacco, Healthcare, Household, Insurance, Materials, Media, Pharmaceuticals, Biotech, Real Estate, "
+                            "Real Estate Management and Development, Retail, Semiconductors, Software, Tech, Telecom, Transportation, Utilities).\n"
+                            "A brief description of the company's business.\n"
+                            "Top Shareholders:\n"
+                            "For each of the top 30 shareholders, include:\n"
+                            "Full name of the shareholder.\n"
+                            "If the shareholder is associated with any of the following six Malaysian Government-Linked Investment Companies (GLICs), "
+                            "specify which one: Khazanah Nasional Berhad (Khazanah), Employees Provident Fund (EPF), "
+                            "Kumpulan Wang Persaraan (Diperbadankan) [KWAP], Permodalan Nasional Berhad (PNB), "
+                            "Lembaga Tabung Haji, or Lembaga Tabung Angkatan Tentera (LTAT). \n"
+                            "Return this information in the JSON format:\n\n"
+                            "{\n"
+                            "  \"companyName\": \"Company full name\",\n"
+                            "  \"reportYear\": Year,\n"
+                            "  \"industry\": \"Industry name from the provided list\",\n"
+                            "  \"companyDescription\": \"Brief description of company\",\n"
+                            "  \"topShareholders\": [\n"
+                            "    {\n"
+                            "      \"shareholderName\": \"Shareholder's name\",\n"
+                            "      \"glicAssociation\": \"GLIC name if applicable, otherwise None\",\n"
+                            "      \"percentageHeld\": Percentage of shares held\n"
+                            "    },\n"
+                            "    ...\n"
+                            "  ]\n"
+                            "}\n"
+                            "If a shareholder is not associated with any of the specified GLICs, set the \"glicAssociation\" field to None in the JSON output. "
+                            "If the shareholder is a subsidiary or affiliate of a GLIC (e.g., \"Amanah Trustees\" under \"PNB\"), "
+                            "note the primary GLIC association in the \"glicAssociation\" field.\"  Annual Report: \"" + text
+                        )
+                        
+                        try:
+                            output_json = json.loads(response.text)
+                            
+                            # Upload the JSON to GitHub
+                            file_name = output_json["companyName"]
+                            year = output_json["reportYear"]
+                            success, message = upload_to_github(output_json, file_name, year)
+                            
+                            if success:
+                                file_statuses[uploaded_file.name] = "Completed ✓"
+                            else:
+                                file_statuses[uploaded_file.name] = f"Failed: {message} ✗"
+                                
+                        except json.JSONDecodeError:
+                            file_statuses[uploaded_file.name] = "Failed: Invalid JSON response ✗"
+                            
+                except Exception as e:
+                    file_statuses[uploaded_file.name] = f"Failed: {str(e)} ✗"
                 
-                # Upload the JSON to GitHub
-                file_name = output_json["companyName"]
-                year = output_json["reportYear"]
-                upload_to_github(output_json, file_name, year)
-                
-                st.success("Information extracted and uploaded to GitHub!")
+                finally:
+                    # Update progress bar
+                    overall_progress.progress((idx + 1) / len(uploaded_files))
+                    update_status()
+                    
+                    # Clean up temp file if it exists
+                    if 'tmp_file' in locals():
+                        os.unlink(tmp_file.name)
+            
+            # Final status update
+            success_count = sum(1 for status in file_statuses.values() if "Completed" in status)
+            st.success(f"Processing completed! {success_count} out of {len(uploaded_files)} files processed successfully.")
 
 def view_page():
     st.title("View Extracted Information")
