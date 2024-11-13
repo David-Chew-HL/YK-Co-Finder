@@ -489,7 +489,9 @@ def upload_page():
         # Create a placeholder for status updates
         status_container = st.empty()
         
-        def update_status():
+        def update_status(status=None):
+            if status:
+                file_statuses[uploaded_file.name] = status
             status_text = "\n".join([f"{fname}: {status}" for fname, status in file_statuses.items()])
             status_container.text_area("Processing Status:", value=status_text, height=150)
         
@@ -511,10 +513,12 @@ def upload_page():
                         file_statuses[uploaded_file.name] = "Completed ✓"
                     else:
                         file_statuses[uploaded_file.name] = "Failed ✗"
-                        
+                    update_status()
+                    
                 except Exception as e:
                     file_statuses[uploaded_file.name] = f"Failed: {str(e)} ✗"
-                
+                    update_status()
+                    
                 finally:
                     # Update progress bar
                     overall_progress.progress((idx + 1) / len(uploaded_files))
