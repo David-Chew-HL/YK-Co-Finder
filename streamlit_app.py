@@ -522,7 +522,7 @@ def upload_page():
                 finally:
                     # Update progress bar
                     overall_progress.progress((idx + 1) / len(uploaded_files))
-                    update_status()
+                   
             
             # Final status update
             success_count = sum(1 for status in file_statuses.values() if "Completed" in status)
