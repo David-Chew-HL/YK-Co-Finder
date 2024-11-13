@@ -151,7 +151,7 @@ def extract_glic_total(filename): #extract from filename
     except Exception:
         return 0.0
 
-def update_json_file(repo, file_path, content, branch=GITHUB_BRANCH):
+"""def update_json_file(repo, file_path, content, branch=GITHUB_BRANCH):
     try:
         file = repo.get_contents(file_path, ref=branch)
         repo.update_file(
@@ -173,7 +173,7 @@ def update_json_file(repo, file_path, content, branch=GITHUB_BRANCH):
             return True, "File created successfully"
         else:
             raise e
-
+"""
 def verify_page():
     st.title("Verify Extracted Information")
     st.write("Please verify the info scraped.")
@@ -240,17 +240,13 @@ def verify_page():
                         index=default_index
                     )
                     
-                    # Find the shareholder in the original list and update it
-                    for s in shareholders:
-                        if s['shareholderName'] == shareholder_name:
-                            if s['glicAssociation'] != glic_selection:
-                                s['glicAssociation'] = glic_selection
-                                modified = True
-                                new_verifications.append({
-                                    "shareholderName": shareholder_name,
-                                    "glicAssociation": glic_selection
-                                })
-                            break
+                    if shareholder['glicAssociation'] != glic_selection:
+                        shareholder['glicAssociation'] = glic_selection
+                        modified = True
+                        new_verifications.append({
+                            "shareholderName": shareholder_name,
+                            "glicAssociation": glic_selection
+                        })
 
             if st.button("Approve Verification"):
                 success = True
@@ -295,8 +291,7 @@ def verify_page():
                         
                         st.success(f"Successfully verified {data['companyName']} and updated files")
                         verification_completed = True
-                        # Force a page refresh to show updated files
-                        st.experimental_rerun()
+                     
                     except Exception as e:
                         st.error(f"Error updating files: {str(e)}")
                         
@@ -346,7 +341,7 @@ def add_verified_shareholders(repo, new_entries):
         
         try:
             # Try to update existing file
-            file_content = repo.get_contents("verified_shareholders.csv", ref=GITHUB_BRANCH)
+
             repo.update_file(
                 "verified_shareholders.csv",
                 "Update verified shareholders list",
