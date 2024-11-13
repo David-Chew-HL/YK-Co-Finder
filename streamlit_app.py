@@ -483,10 +483,9 @@ def upload_page():
     
     if uploaded_file:
         status_container = st.empty()
-        unique_id = str(hash(uploaded_file.name))  # Generate a unique identifier
         
         def update_status(status=None):
-            status_container.text_area("Processing Status:", value=status, height=150, key=f"status_{uploaded_file.name}_{unique_id}")
+            status_container.text_area("Processing Status:", value=status, height=150)
         
         if st.button("Process File"):
             try:
