@@ -188,6 +188,8 @@ def verify_page():
         st.info("No JSON files found in the repository")
         return
 
+    verification_completed = False  # Add a flag to track verification completion
+
     # Check each file's shareholders for verification status
     for file_index, file in enumerate(json_files):
         try:
@@ -238,7 +240,7 @@ def verify_page():
                     default_index = glic_options.index(current_glic) if current_glic in glic_options else 0
                     
                     glic_selection = st.selectbox(
-                        f"GLIC Association for {shareholder_name} (Current: {current_glic})",
+                        f"{shareholder_name}",
                         glic_options,
                         key=unique_key,
                         index=default_index
@@ -285,13 +287,16 @@ def verify_page():
                             branch=GITHUB_BRANCH
                         )
                         st.success(f"Updated and verified {data['companyName']}")
+                        verification_completed = True  # Set the flag when verification is successful
                     except Exception as e:
                         st.error(f"Error updating files: {str(e)}")
                     
         except Exception as e:
             st.error(f"Error processing file: {str(e)}")
     
-    st.success("Verification completed!")
+    # Only show completion message if verification was actually done
+    if verification_completed:
+        st.success("Verification completed!")
 
 def get_verified_shareholders(repo):
     # Check for existence of verified_shareholders.csv
