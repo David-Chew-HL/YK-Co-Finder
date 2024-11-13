@@ -69,10 +69,7 @@ generation_config = {
   "response_mime_type": "application/json",
 }
 
-model = genai.GenerativeModel(
-  model_name="gemini-1.5-flash",
-  generation_config=generation_config,
-)
+
 
 def upload_to_github(json_data, filename,year):
     try:
@@ -386,48 +383,62 @@ def process_annual_report(pdf_content, company_name=None, status_callback=None):
             status_callback("Uploading PDF to Gemini...")
 
         # Upload the PDF file using the File API
-        pdf_content = genai.upload_file(pdf_content)
+        pdf_file= genai.upload_file(pdf_content)
 
         if status_callback:
             status_callback("Extracting information...")
+            
+        prompt = """
+        Extract the following information from the provided PDF file and format it in JSON:
 
+        Company full name.
+        Year of the report.
+        Industry of the company (choose one from the following: Automobiles, Banks, Capital Goods, Commercial Services, 
+        Consumer Durables, Consumer Retailing, Consumer Services, Diversified Financials, Energy, Food, Beverage, 
+        Tobacco, Healthcare, Household, Insurance, Materials, Media, Pharmaceuticals, Biotech, Real Estate, 
+        Real Estate Management and Development, Retail, Semiconductors, Software, Tech, Telecom, Transportation, Utilities).
+        A brief description of the company's business.
+        Top Shareholders:
+        For each of the top 30 shareholders, include:
+        Full name of the shareholder.
+        If the shareholder is associated with any of the following six Malaysian Government-Linked Investment Companies (GLICs), 
+        specify which one: Khazanah Nasional Berhad (Khazanah), Employees Provident Fund (EPF), 
+        Kumpulan Wang Persaraan (Diperbadankan) [KWAP], Permodalan Nasional Berhad (PNB), 
+        Lembaga Tabung Haji, or Lembaga Tabung Angkatan Tentera (LTAT). 
+        Return this information in the JSON format:
+
+        {
+        "companyName": "Company full name",
+        "reportYear": Year,
+        "industry": "Industry name from the provided list",
+        "companyDescription": "Brief description of company",
+        "topShareholders": [
+            {
+            "shareholderName": "Shareholder's name",
+            "glicAssociation": "GLIC name if applicable, otherwise None",
+            "percentageHeld": Percentage of shares held
+            },
+            ...
+        ]
+        }
+
+        If a shareholder is not associated with any of the specified GLICs, set the "glicAssociation" field to None in the JSON output. 
+        If the shareholder is a subsidiary or affiliate of a GLIC (e.g., "Amanah Trustees" under "PNB"), 
+        note the primary GLIC association in the "glicAssociation" field.
+        """
     
-        response = model.generate_content([ pdf_content,
-            """Extract the following information from the provided PDF file and format it in JSON:\n\n\n
-            Company full name.\n
-            Year of the report.\n
-            Industry of the company (choose one from the following: Automobiles, Banks, Capital Goods, Commercial Services, 
-            Consumer Durables, Consumer Retailing, Consumer Services, Diversified Financials, Energy, Food, Beverage, 
-            Tobacco, Healthcare, Household, Insurance, Materials, Media, Pharmaceuticals, Biotech, Real Estate, 
-            Real Estate Management and Development, Retail, Semiconductors, Software, Tech, Telecom, Transportation, Utilities).\n
-            A brief description of the company's business.\n
-            Top Shareholders:\n
-            For each of the top 30 shareholders, include:\n
-            Full name of the shareholder.\n
-            If the shareholder is associated with any of the following six Malaysian Government-Linked Investment Companies (GLICs), 
-            specify which one: Khazanah Nasional Berhad (Khazanah), Employees Provident Fund (EPF), 
-            Kumpulan Wang Persaraan (Diperbadankan) [KWAP], Permodalan Nasional Berhad (PNB), 
-            Lembaga Tabung Haji, or Lembaga Tabung Angkatan Tentera (LTAT). \n
-            Return this information in the JSON format:\n\n
-            {\n
-              \"companyName\": \"Company full name\",\n
-              \"reportYear\": Year,\n"
-              \"industry\": \"Industry name from the provided list\",\n
-              \"companyDescription\": \"Brief description of company\",\n
-              \"topShareholders\": [\n
-                {\n
-                  \"shareholderName\": \"Shareholder's name\",\n
-                  \"glicAssociation\": \"GLIC name if applicable, otherwise None\",\n
-                  \"percentageHeld\": Percentage of shares held\n
-                },\n
-                ...\n
-              ]\n
-            }\n
-            If a shareholder is not associated with any of the specified GLICs, set the \"glicAssociation\" field to None in the JSON output. 
-            If the shareholder is a subsidiary or affiliate of a GLIC (e.g., \"Amanah Trustees\" under \"PNB\"), 
-            note the primary GLIC association in the \"glicAssociation\" field.\" PDF: """ ]
-        )
-        pdf_content.delete()
+        #model = genai.GenerativeModel(model_name="gemini-1.5-flash")
+        model = genai.GenerativeModel(
+            model_name="gemini-1.5-flash",
+            generation_config=generation_config,
+            )
+
+        # Generate content using the uploaded file and the prompt
+        response = model.generate_content([prompt, pdf_file])
+
+        # Delete the uploaded file after processing
+        pdf_file.delete()
+
         try:
             output_json = json.loads(response.text)
 
