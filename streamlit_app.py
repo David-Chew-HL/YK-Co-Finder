@@ -9,6 +9,7 @@ from google.ai.generativelanguage_v1beta.types import content
 from PyPDF2 import PdfReader
 import pandas as pd
 import re
+from io import StringIO
 
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
@@ -93,7 +94,14 @@ def upload_to_github(json_data, filename,year):
             )
             return True, "File updated successfully"
         except Exception as e:
+
+            
             if "404" in str(e):
+
+                # Get the latest commit SHA
+                ref = repo.get_git_ref(f"heads/{GITHUB_BRANCH}")
+                latest_commit = repo.get_git_commit(ref.object.sha)
+
                 repo.create_file(
                     file_path,
                     f"Add {filename}.json",
@@ -230,7 +238,7 @@ def get_verified_shareholders(repo):
     try:
         file_content = repo.get_contents("verified_shareholders.csv", ref=GITHUB_BRANCH)
         csv_data = base64.b64decode(file_content.content).decode()
-        verified_shareholders = pd.read_csv(pd.compat.StringIO(csv_data))
+        verified_shareholders = pd.read_csv(StringIO(csv_data))
     except:
         # Create a new verified shareholders CSV if it doesn't exist
         csv_content = "shareholderName,glicAssociation\n"
@@ -240,23 +248,26 @@ def get_verified_shareholders(repo):
     return verified_shareholders
 
 def add_verified_shareholders(repo, new_entries):
-    # Append new verified entries to CSV
-    file_content = repo.get_contents("verified_shareholders.csv", ref=GITHUB_BRANCH)
-    csv_data = base64.b64decode(file_content.content).decode()
-    verified_shareholders = pd.read_csv(pd.compat.StringIO(csv_data))
+    try:
+        file_content = repo.get_contents("verified_shareholders.csv", ref=GITHUB_BRANCH)
+        csv_data = base64.b64decode(file_content.content).decode()
+        # Replace pd.compat.StringIO with StringIO
+        verified_shareholders = pd.read_csv(StringIO(csv_data))
 
-    # Add new verified entries and avoid duplicates
-    updated_shareholders = pd.concat([verified_shareholders, new_entries]).drop_duplicates(subset="shareholderName")
-    csv_content = updated_shareholders.to_csv(index=False)
-    
-    # Update the CSV file on GitHub
-    repo.update_file(
-        "verified_shareholders.csv",
-        "Update verified shareholders list",
-        csv_content,
-        file_content.sha,
-        branch=GITHUB_BRANCH
-    )
+        # Add new verified entries and avoid duplicates
+        updated_shareholders = pd.concat([verified_shareholders, new_entries]).drop_duplicates(subset="shareholderName")
+        csv_content = updated_shareholders.to_csv(index=False)
+        
+        # Update the CSV file on GitHub
+        repo.update_file(
+            "verified_shareholders.csv",
+            "Update verified shareholders list",
+            csv_content,
+            file_content.sha,
+            branch=GITHUB_BRANCH
+        )
+    except Exception as e:
+        st.error(f"Error updating verified shareholders: {str(e)}")
 
 
 def view_json_file(file_content):
