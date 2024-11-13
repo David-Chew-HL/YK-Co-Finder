@@ -1,0 +1,153 @@
+{
+  "companyDescription": "A globally recognised engineering, property and infrastructure conglomerate renowned for innovative solutions and steadfast commitment to sustainable development.",
+  "companyName": "Gamuda Berhad",
+  "industry": "Capital Goods",
+  "reportYear": 2023,
+  "topShareholders": [
+    {
+      "glicAssociation": "EPF",
+      "percentageHeld": 11.83,
+      "shareholderName": "Employees Provident Fund Board"
+    },
+    {
+      "glicAssociation": "PNB",
+      "percentageHeld": 3.85,
+      "shareholderName": "Amanahraya Trustees Berhad - Amanah Saham Bumiputera"
+    },
+    {
+      "glicAssociation": "KWAP",
+      "percentageHeld": 3.66,
+      "shareholderName": "Kumpulan Wang Persaraan (Diperbadankan)"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 3.78,
+      "shareholderName": "Generasi Setia (M) Sdn Bhd"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 2.89,
+      "shareholderName": "Dato' Lin Yun Ling"
+    },
+    {
+      "glicAssociation": "PNB",
+      "percentageHeld": 2.75,
+      "shareholderName": "Amanahraya Trustees Berhad - Amanah Saham Malaysia 2 - Wawasan"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 2.59,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd - Urusharta Jamaah Sdn Bhd (1)"
+    },
+    {
+      "glicAssociation": "PNB",
+      "percentageHeld": 2.29,
+      "shareholderName": "Amanahraya Trustees Berhad - Amanah Saham Malaysia 3"
+    },
+    {
+      "glicAssociation": "PNB",
+      "percentageHeld": 2.08,
+      "shareholderName": "Amanahraya Trustees Berhad - Amanah Saham Malaysia"
+    },
+    {
+      "glicAssociation": "Tabung Haji",
+      "percentageHeld": 1.9,
+      "shareholderName": "Lembaga Tabung Haji"
+    },
+    {
+      "glicAssociation": "PNB",
+      "percentageHeld": 1.84,
+      "shareholderName": "Permodalan Nasional Berhad"
+    },
+    {
+      "glicAssociation": "PNB",
+      "percentageHeld": 1.82,
+      "shareholderName": "Amanahraya Trustees Berhad - Amanah Saham Bumiputera 3 - Didik"
+    },
+    {
+      "glicAssociation": "EPF",
+      "percentageHeld": 1.39,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd - Employees Provident Fund Board (NOMURA)"
+    },
+    {
+      "glicAssociation": "PNB",
+      "percentageHeld": 1.26,
+      "shareholderName": "Amanahraya Trustees Berhad - Amanah Saham Bumiputera"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 1.21,
+      "shareholderName": "HSBC Nominees (Asing) Sdn Bhd - JPMCB NA for Vanguard Emerging Markets Stock Index Fund"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 1.19,
+      "shareholderName": "Cartaban Nominees (Asing) Sdn Bhd - Exempt An for State Street Bank & Trust Company (WEST CLT OD67 )"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 1.18,
+      "shareholderName": "HSBC Nominees (Asing) Sdn Bhd - JPMCB NA for Vanguard Total International Stock Index Fund"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 1.09,
+      "shareholderName": "Ng Kee Leen"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 1.04,
+      "shareholderName": "Maybank Nominees (Tempatan) Sdn Bhd - Maybank Trustees Berhad for Public Ittikal Fund (N14011970240)"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.99,
+      "shareholderName": "Citigroup Nominees (Asing) Sdn Bhd - Exempt An for Citibank New York (Norges Bank 19)"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.98,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd - Great Eastern Life Assurance (Malaysia) Berhad (PAR 1)"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.95,
+      "shareholderName": "Dato' Ir. Ha Tiing Tai"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.76,
+      "shareholderName": "Cartaban Nominees (Tempatan) Sdn Bhd - PAMB for Prulink Equity Fund"
+    },
+    {
+      "glicAssociation": "PNB",
+      "percentageHeld": 0.7,
+      "shareholderName": "Amanahraya Trustees Berhad - Public Ittikal Sequel Fund"
+    },
+    {
+      "glicAssociation": "PNB",
+      "percentageHeld": 0.64,
+      "shareholderName": "Amanahraya Trustees Berhad - Public Islamic Dividend Fund"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.61,
+      "shareholderName": "Goon Heng Wah"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.56,
+      "shareholderName": "HSBC Nominees (Asing) Sdn Bhd - JPMCB NA for Vanguard Fiduciary Trust Company Institutional Total International Stock Market Index Trust II"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.56,
+      "shareholderName": "Citigroup Nominees (Asing) Sdn Bhd - CB Spore GW for Government of Singapore (GIC C)"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.52,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd - Great Eastern Life Assurance (Malaysia) Berhad (PAR 3)"
+    }
+  ]
+}
