@@ -222,6 +222,8 @@ def verify_page():
                 if s['shareholderName'] not in verified_shareholders['shareholderName'].values
             ]
             
+            new_verifications = []  # Store new verifications here
+            
             if unverified_shareholders:
                 st.write("Please verify the following shareholders:")
                 for idx, shareholder in enumerate(unverified_shareholders):
@@ -230,31 +232,32 @@ def verify_page():
                     unique_key = f"file_{file_index}_shareholder_{idx}_{shareholder_name}"
                     
                     current_glic = shareholder.get('glicAssociation', "None")
-                    glic_options = ["Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT", "None"]
-                    current_index = glic_options.index(current_glic) if current_glic in glic_options else -1
+                    glic_options = ["None", "Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT"]
+                    
+                    # Set the default index based on the current GLIC association
+                    default_index = glic_options.index(current_glic) if current_glic in glic_options else 0
                     
                     glic_selection = st.selectbox(
-                        f"GLIC Association for {shareholder_name}",
+                        f"GLIC Association for {shareholder_name} (Current: {current_glic})",
                         glic_options,
                         key=unique_key,
-                        index=max(current_index, 0)
+                        index=default_index
                     )
                     
                     if shareholder['glicAssociation'] != glic_selection:
                         shareholder['glicAssociation'] = glic_selection
                         modified = True
+                        new_verifications.append({
+                            "shareholderName": shareholder_name,
+                            "glicAssociation": glic_selection
+                        })
 
-                # Collect and save newly verified shareholders to CSV
-                new_verified = pd.DataFrame(
-                    [{"shareholderName": s['shareholderName'], 
-                      "glicAssociation": s['glicAssociation']} 
-                     for s in unverified_shareholders]
-                )
-                if not new_verified.empty:
+            if st.button("Approve Verification"):
+                # Only save verified shareholders when approved
+                if new_verifications:
+                    new_verified = pd.DataFrame(new_verifications)
                     add_verified_shareholders(repo, new_verified)
                     
-            if st.button("Approve Verification"):
-                
                 # Update the file if any changes were made
                 if modified or not unverified_shareholders:
                     # Calculate GLIC total
