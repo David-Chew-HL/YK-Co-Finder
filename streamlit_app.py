@@ -323,6 +323,9 @@ def get_verified_shareholders(repo):
 def add_verified_shareholders(repo, new_entries):
     """Add new verified shareholders to the CSV file."""
     try:
+        g = Github(GITHUB_TOKEN)
+        repo = g.get_repo(GITHUB_REPO)
+        
         try:
             file_content = repo.get_contents("verified_shareholders.csv", ref=GITHUB_BRANCH)
             csv_data = base64.b64decode(file_content.content).decode()
