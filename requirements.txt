@@ -9,4 +9,5 @@ google.ai.generativelanguage
 pandas
 requests
 beautifulsoup4
-docling
+llama-parse
+nest-asyncio

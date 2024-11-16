@@ -14,15 +14,25 @@ from io import StringIO
 import requests
 from bs4 import BeautifulSoup
 import time
-from docling.document_converter import DocumentConverter
+import nest_asyncio
+nest_asyncio.apply()
+
+from llama_parse import LlamaParse
 
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
 GITHUB_BRANCH = st.secrets.get("GITHUB_BRANCH", "main")
 GLIC_LIST = ["Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT"]
-correct_password = st.secrets["VERIFY_PASSWORD"]
+DOC = st.secrets["DOC"]
 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+
+parser = LlamaParse(
+    api_key = DOC, 
+    result_type = "markdown", 
+    verbose = True,
+)
+
 
 generation_config = {
   "temperature": 1,
@@ -386,11 +396,8 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
             temp_pdf.write(pdf_content)
             temp_pdf_path = temp_pdf.name
 
-        # Initialize DocumentConverter and convert PDF to text
-        converter = DocumentConverter()
         try:
-            result = converter.convert(temp_pdf_path)
-            extracted_text = result.document.export_to_markdown()
+            extracted_text = parser.load_data(temp_pdf_path)
         finally:
             # Clean up temporary file
             os.unlink(temp_pdf_path)
