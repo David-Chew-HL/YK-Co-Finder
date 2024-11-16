@@ -14,6 +14,7 @@ from io import StringIO
 import requests
 from bs4 import BeautifulSoup
 import time
+from docling.document_converter import DocumentConverter
 
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
@@ -75,14 +76,12 @@ def upload_to_github(json_data, filename,year):
     try:
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
-        
-        # Ensure pdfs directory exists
+   
         try:
             repo.get_contents("reports", ref=GITHUB_BRANCH)
         except:
             repo.create_file("reports/.gitkeep", "Create reports directory", "", branch=GITHUB_BRANCH)
         
-        #content = base64.b64encode(json.dumps(json_data).encode()).decode()
         content = json.dumps(json_data, indent=2)
         file_path = f"reports/{filename} {year}.json"
         
@@ -101,7 +100,6 @@ def upload_to_github(json_data, filename,year):
             
             if "404" in str(e):
 
-                # Get the latest commit SHA
                 ref = repo.get_git_ref(f"heads/{GITHUB_BRANCH}")
                 latest_commit = repo.get_git_commit(ref.object.sha)
 
@@ -377,16 +375,35 @@ def view_json_file(file_content):
 
     st.table(shareholder_data)
 
-def process_annual_report(pdf_content, company_name=None, status_callback=None):
+def process_pdf_content(pdf_content, company_name=None, status_callback=None):
+    """Unified PDF processing function for all upload methods."""
     try:
         if status_callback:
-            status_callback("Uploading PDF to Gemini...")
+            status_callback("Converting PDF to text...")
 
-        # Upload the PDF file using the File API
-        pdf_file= genai.upload_file(pdf_content)
+        # Create a temporary file to save the PDF content
+        with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as temp_pdf:
+            temp_pdf.write(pdf_content)
+            temp_pdf_path = temp_pdf.name
+
+        # Initialize DocumentConverter and convert PDF to text
+        converter = DocumentConverter()
+        try:
+            result = converter.convert(temp_pdf_path)
+            extracted_text = result.document.export_to_markdown()
+        finally:
+            # Clean up temporary file
+            os.unlink(temp_pdf_path)
 
         if status_callback:
-            status_callback("Extracting information...")
+            status_callback("Sending text to Gemini for analysis...")
+
+        # Initialize Gemini model with chat session
+        model = genai.GenerativeModel(
+            model_name="gemini-1.5-flash-002",
+            generation_config=generation_config
+        )
+        chat_session = model.start_chat()
             
         prompt = """
         Extract the following information from the provided PDF file and format it in JSON:
@@ -425,22 +442,19 @@ def process_annual_report(pdf_content, company_name=None, status_callback=None):
         If a shareholder is not associated with any of the specified GLICs, set the "glicAssociation" field to None in the JSON output. 
         If the shareholder is a subsidiary or affiliate of a GLIC (e.g., "Amanah Trustees" under "PNB"), 
         note the primary GLIC association in the "glicAssociation" field.
+        Here is the text from the annual report:
         """
+     
     
-        #model = genai.GenerativeModel(model_name="gemini-1.5-flash")
-        model = genai.GenerativeModel(
-            model_name="gemini-1.5-flash",
-            generation_config=generation_config,
-            )
-
-        # Generate content using the uploaded file and the prompt
-        response = model.generate_content([prompt, pdf_file])
-
-        # Delete the uploaded file after processing
-        pdf_file.delete()
+        response = chat_session.send_message(prompt+extracted_text)
 
         try:
             output_json = json.loads(response.text)
+            
+            # Save extracted text to GitHub
+            g = Github(GITHUB_TOKEN)
+            repo = g.get_repo(GITHUB_REPO)
+            save_extracted_text_to_github(repo, output_json["companyName"], extracted_text, output_json["reportYear"])
 
             # Upload the JSON to GitHub
             file_name = output_json["companyName"]
@@ -452,8 +466,6 @@ def process_annual_report(pdf_content, company_name=None, status_callback=None):
                     status_callback("✅ Successfully processed")
                 # Update not_yet.txt if company was in the list and provided
                 if company_name:
-                    g = Github(GITHUB_TOKEN)
-                    repo = g.get_repo(GITHUB_REPO)
                     update_not_yet_companies(repo, [company_name])
                 return True
             else:
@@ -470,6 +482,15 @@ def process_annual_report(pdf_content, company_name=None, status_callback=None):
         if status_callback:
             status_callback(f"❌ Error: {str(e)}")
         return False
+def handle_pdf_upload(uploaded_file):
+    if uploaded_file is not None:
+        try:
+            return uploaded_file.read()
+        except Exception as e:
+            st.error(f"Error reading PDF file: {str(e)}")
+            return None
+    return None
+
 
 def download_and_process_pdf(url):
     try:
@@ -478,6 +499,40 @@ def download_and_process_pdf(url):
     except Exception as e:
         st.error(f"Error downloading PDF: {str(e)}")
         return None
+    
+def save_extracted_text_to_github(repo, company_name, extracted_text, year):
+    """Save extracted text to GitHub in the extracted folder."""
+    try:
+        # Ensure extracted directory exists
+        try:
+            repo.get_contents("extracted", ref=GITHUB_BRANCH)
+        except:
+            repo.create_file("extracted/.gitkeep", "Create extracted directory", "", branch=GITHUB_BRANCH)
+        
+        file_path = f"extracted/{company_name} {year}.txt"
+        
+        try:
+            # Try to update existing file
+            file = repo.get_contents(file_path, ref=GITHUB_BRANCH)
+            repo.update_file(
+                file_path,
+                f"Update extracted text for {company_name}",
+                extracted_text,
+                file.sha,
+                branch=GITHUB_BRANCH
+            )
+        except:
+            # Create new file if it doesn't exist
+            repo.create_file(
+                file_path,
+                f"Add extracted text for {company_name}",
+                extracted_text,
+                branch=GITHUB_BRANCH
+            )
+        return True
+    except Exception as e:
+        st.error(f"Error saving extracted text: {str(e)}")
+        return False    
 
 def upload_page():
     st.title("Annual Report Information Extraction")
@@ -500,11 +555,14 @@ def upload_page():
         
         if st.button("Process File"):
             try:
-                # Update status to processing
+                pdf_content = handle_pdf_upload(uploaded_file)
+                if pdf_content is None:
+                    return
+        
                 update_status("Processing...")
                 
-                # Process the PDF file
-                success = process_annual_report(uploaded_file, company_name=None, status_callback=update_status)
+                # Use the unified processing function
+                success = process_pdf_content(pdf_content, company_name=None, status_callback=update_status)
                 
                 if success:
                     update_status("Completed ✓")
@@ -556,9 +614,9 @@ def upload_page():
                             def update_status(msg):
                                 st.session_state.status_messages[status_key] = msg
                             
-                            # Download the PDF and pass it to process_annual_report()
+                            # Download the PDF and process
                             pdf_content = download_and_process_pdf(result['url'])
-                            process_annual_report(pdf_content, search_query, update_status)
+                            process_pdf_content(pdf_content, search_query, update_status)
     
     with tab2:
         g = Github(GITHUB_TOKEN)
@@ -600,9 +658,9 @@ def upload_page():
                                 def update_status(msg):
                                     st.session_state.status_messages[status_key] = msg
                                 
-                                # Download the PDF and pass it to process_annual_report()
+                                # Download the PDF and pass it to process
                                 pdf_content = download_and_process_pdf(result['url'])
-                                process_annual_report(pdf_content, selected_company, update_status)
+                                process_pdf_content(pdf_content, selected_company, update_status)
                                 
             elif selected_company and 'tab2_results' in st.session_state:
                 st.error("No PDF reports found for this company")
