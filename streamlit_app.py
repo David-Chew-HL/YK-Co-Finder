@@ -24,6 +24,7 @@ GITHUB_REPO = st.secrets["GITHUB_REPO"]
 GITHUB_BRANCH = st.secrets.get("GITHUB_BRANCH", "main")
 GLIC_LIST = ["Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT"]
 DOC = st.secrets["DOC"]
+correct_password = st.secrets["VERIFY_PASSWORD"]
 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
@@ -79,7 +80,6 @@ generation_config = {
   ),
   "response_mime_type": "application/json",
 }
-
 
 
 def upload_to_github(json_data, filename,year):
@@ -385,6 +385,40 @@ def view_json_file(file_content):
 
     st.table(shareholder_data)
 
+def save_extracted_text_to_github(repo, company_name, extracted_text, year):
+    """Save extracted text to GitHub in the extracted folder."""
+    try:
+        # Ensure extracted directory exists
+        try:
+            repo.get_contents("extracted", ref=GITHUB_BRANCH)
+        except:
+            repo.create_file("extracted/.gitkeep", "Create extracted directory", "", branch=GITHUB_BRANCH)
+        
+        file_path = f"extracted/{company_name} {year}.txt"
+        
+        try:
+            # Try to update existing file
+            file = repo.get_contents(file_path, ref=GITHUB_BRANCH)
+            repo.update_file(
+                file_path,
+                f"Update extracted text for {company_name}",
+                extracted_text,
+                file.sha,
+                branch=GITHUB_BRANCH
+            )
+        except:
+            # Create new file if it doesn't exist
+            repo.create_file(
+                file_path,
+                f"Add extracted text for {company_name}",
+                extracted_text,
+                branch=GITHUB_BRANCH
+            )
+        return True
+    except Exception as e:
+        st.error(f"Error saving extracted text: {str(e)}")
+        return False
+
 def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     """Unified PDF processing function for all upload methods."""
     try:
@@ -397,6 +431,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
             temp_pdf_path = temp_pdf.name
 
         try:
+    
             extracted_text = parser.load_data(temp_pdf_path)
         finally:
             # Clean up temporary file
@@ -407,7 +442,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
 
         # Initialize Gemini model with chat session
         model = genai.GenerativeModel(
-            model_name="gemini-1.5-flash-002",
+            model_name="gemini-1.5-flash-002", #gemini-1.5-flash-002  gemini-2.0-flash-exp
             generation_config=generation_config
         )
         chat_session = model.start_chat()
@@ -451,9 +486,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         note the primary GLIC association in the "glicAssociation" field.
         Here is the text from the annual report:
         """
-     
-    
-        response = chat_session.send_message(prompt+extracted_text)
+        response = chat_session.send_message(prompt)
 
         try:
             output_json = json.loads(response.text)
@@ -489,6 +522,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         if status_callback:
             status_callback(f"❌ Error: {str(e)}")
         return False
+    
 def handle_pdf_upload(uploaded_file):
     if uploaded_file is not None:
         try:
@@ -497,7 +531,6 @@ def handle_pdf_upload(uploaded_file):
             st.error(f"Error reading PDF file: {str(e)}")
             return None
     return None
-
 
 def download_and_process_pdf(url):
     try:
@@ -554,6 +587,12 @@ def upload_page():
     
     uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
     
+    if uploaded_file:
+        status_container = st.empty()
+        
+        def update_status(status=None):
+            status_container.text_area("Processing Status:", value=status, height=150)
+        
     if uploaded_file:
         status_container = st.empty()
         
