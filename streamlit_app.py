@@ -445,7 +445,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
 
         # Initialize Gemini model with chat session
         model = genai.GenerativeModel(
-            model_name="gemini-1.5-flash-002", #gemini-1.5-flash-002  gemini-2.0-flash-exp
+            model_name="gemini-2.0-flash-exp", #gemini-1.5-flash-002  gemini-2.0-flash-exp
             generation_config=generation_config
         )
         """chat_session = model.start_chat()"""
