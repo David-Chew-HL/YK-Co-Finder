@@ -1,0 +1,158 @@
+{
+  "companyDescription": "A brief description of the company's business.",
+  "companyName": "Company Full Name",
+  "industry": "Industry of the company",
+  "reportYear": 2023,
+  "topShareholders": [
+    {
+      "glicAssociation": "Khazanah Nasional Berhad",
+      "percentageHeld": 10.0,
+      "shareholderName": "Shareholder 1"
+    },
+    {
+      "glicAssociation": "Employees Provident Fund",
+      "percentageHeld": 12.0,
+      "shareholderName": "Shareholder 2"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 5.0,
+      "shareholderName": "Shareholder 3"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 4.0,
+      "shareholderName": "Shareholder 4"
+    },
+    {
+      "glicAssociation": "Permodalan Nasional Berhad",
+      "percentageHeld": 8.0,
+      "shareholderName": "Shareholder 5"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 3.0,
+      "shareholderName": "Shareholder 6"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 2.5,
+      "shareholderName": "Shareholder 7"
+    },
+    {
+      "glicAssociation": "Kumpulan Wang Persaraan (Diperbadankan)",
+      "percentageHeld": 6.0,
+      "shareholderName": "Shareholder 8"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 2.0,
+      "shareholderName": "Shareholder 9"
+    },
+    {
+      "glicAssociation": "Lembaga Tabung Haji",
+      "percentageHeld": 7.0,
+      "shareholderName": "Shareholder 10"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 1.5,
+      "shareholderName": "Shareholder 11"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 1.2,
+      "shareholderName": "Shareholder 12"
+    },
+    {
+      "glicAssociation": "Lembaga Tabung Angkatan Tentera",
+      "percentageHeld": 5.5,
+      "shareholderName": "Shareholder 13"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 1.0,
+      "shareholderName": "Shareholder 14"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.8,
+      "shareholderName": "Shareholder 15"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.7,
+      "shareholderName": "Shareholder 16"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.6,
+      "shareholderName": "Shareholder 17"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.5,
+      "shareholderName": "Shareholder 18"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.4,
+      "shareholderName": "Shareholder 19"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.3,
+      "shareholderName": "Shareholder 20"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.2,
+      "shareholderName": "Shareholder 21"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.15,
+      "shareholderName": "Shareholder 22"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.12,
+      "shareholderName": "Shareholder 23"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.1,
+      "shareholderName": "Shareholder 24"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.08,
+      "shareholderName": "Shareholder 25"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.07,
+      "shareholderName": "Shareholder 26"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.06,
+      "shareholderName": "Shareholder 27"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.05,
+      "shareholderName": "Shareholder 28"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.04,
+      "shareholderName": "Shareholder 29"
+    },
+    {
+      "glicAssociation": "None",
+      "percentageHeld": 0.03,
+      "shareholderName": "Shareholder 30"
+    }
+  ]
+}
