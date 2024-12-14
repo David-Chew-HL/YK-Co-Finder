@@ -421,16 +421,19 @@ def save_extracted_text_to_github(repo, company_name, extracted_text, year):
 
 def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     """Unified PDF processing function for all upload methods."""
+    st.write(" enterred process pdf func")
     try:
 
         # Create a temporary file to save the PDF content
         with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as temp_pdf:
             temp_pdf.write(pdf_content)
             temp_pdf_path = temp_pdf.name
+            st.write(f"Temporary PDF path: {temp_pdf_path} Temporary PDF: {temp_pdf}")
 
         try:
     
             extracted_text = parser.load_data(temp_pdf_path)
+            st.write(" extracted text")
             #pdf = genai.upload_file(temp_pdf_path)
         except Exception as upload_error:
             st.error(f"Error uploading PDF: {upload_error}")
@@ -448,7 +451,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
             generation_config=generation_config
         )
         chat_session = model.start_chat()
-            
+        st.write("sending to gemini ")
         prompt = """
         Extract the following information from the provided PDF file and format it in JSON:
 
