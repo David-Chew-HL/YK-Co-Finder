@@ -422,6 +422,8 @@ def save_extracted_text_to_github(repo, company_name, extracted_text, year):
 def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     """Unified PDF processing function for all upload methods."""
     st.write(" enterred process pdf func")
+    st.write(f"PDF content type: {type(pdf_content)}, length: {len(pdf_content) if pdf_content else 'None'}")
+
     try:
 
         # Create a temporary file to save the PDF content
@@ -575,13 +577,7 @@ def upload_page():
         
         def update_status(status=None):
             status_container.text_area("Processing Status:", value=status, height=150)
-        
-    if uploaded_file:
-        status_container = st.empty()
-        
-        def update_status(status=None):
-            status_container.text_area("Processing Status:", value=status, height=150)
-        
+                
         if st.button("Process File"):
             try:
                 pdf_content = handle_pdf_upload(uploaded_file)
