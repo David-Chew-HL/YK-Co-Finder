@@ -422,15 +422,22 @@ def save_extracted_text_to_github(repo, company_name, extracted_text, year):
 def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     """Unified PDF processing function for all upload methods."""
     st.write(" enterred process pdf func")
-    st.write(f"PDF content type: {type(pdf_content)}, length: {len(pdf_content) if pdf_content else 'None'}")
+
 
     try:
+        # Ensure we have the PDF content as bytes
+        if isinstance(pdf_content, bytes):
+            pdf_bytes = pdf_content
+        else:
+            pdf_bytes = pdf_content.read()  # Read the content from UploadedFile
 
+        st.write(f"PDF content type: {type(pdf_bytes)}, length: {len(pdf_bytes)}")
+        
         # Create a temporary file to save the PDF content
         with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as temp_pdf:
             temp_pdf.write(pdf_content)
             temp_pdf_path = temp_pdf.name
-            st.write(f"Temporary PDF path: {temp_pdf_path} Temporary PDF: {temp_pdf}")
+            st.write(f"Temporary PDF path: {temp_pdf_path} ")
 
         try:
     
