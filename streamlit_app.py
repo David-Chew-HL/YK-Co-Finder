@@ -18,7 +18,7 @@ import nest_asyncio
 nest_asyncio.apply()
 
 
-#from llama_parse import LlamaParse
+from llama_parse import LlamaParse
 
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
@@ -29,11 +29,11 @@ correct_password = st.secrets["VERIFY_PASSWORD"]
 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
-"""parser = LlamaParse(
+parser = LlamaParse(
     api_key = DOC, 
     result_type = "markdown", 
     verbose = True,
-)"""
+)
 
 
 generation_config = {
@@ -363,7 +363,6 @@ def add_verified_shareholders(repo, new_entries):
         st.error(f"Error updating verified shareholders: {str(e)}")
         return False
 
-
 def view_json_file(file_content):
     data = json.loads(file_content)
 
@@ -431,8 +430,8 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
 
         try:
     
-            """extracted_text = parser.load_data(temp_pdf_path)"""
-            pdf = genai.upload_file(temp_pdf_path)
+            extracted_text = parser.load_data(temp_pdf_path)
+            #pdf = genai.upload_file(temp_pdf_path)
         except Exception as upload_error:
             st.error(f"Error uploading PDF: {upload_error}")
             return False
@@ -445,10 +444,10 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
 
         # Initialize Gemini model with chat session
         model = genai.GenerativeModel(
-            model_name="gemini-2.0-flash-exp", #gemini-1.5-flash-002  gemini-2.0-flash-exp
+            model_name="gemini-1.5-flash-002", #gemini-1.5-flash-002  gemini-2.0-flash-exp
             generation_config=generation_config
         )
-        """chat_session = model.start_chat()"""
+        chat_session = model.start_chat()
             
         prompt = """
         Extract the following information from the provided PDF file and format it in JSON:
@@ -489,38 +488,47 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         note the primary GLIC association in the "glicAssociation" field.
         Here is the text from the annual report:
         """
-        #response = chat_session.send_message(prompt)
-        response =  model.generate_content([prompt, pdf])
-        
-        pdf.delete() #delete from File API
         try:
-            output_json = json.loads(response.text)
+            # Generate content using the uploaded PDF file
+            #response = model.generate_content([prompt, pdf])
+            response = chat_session.send_message(prompt, extracted_text)
+            # Delete the uploaded file
             
-            # Save extracted text to GitHub
-            g = Github(GITHUB_TOKEN)
-            repo = g.get_repo(GITHUB_REPO)
-            save_extracted_text_to_github(repo, output_json["companyName"], output_json["reportYear"])
+            
+            try:
+                # Parse the JSON response
+                output_json = json.loads(response.text)
+                
+                # Save extracted text to GitHub
+                g = Github(GITHUB_TOKEN)
+                repo = g.get_repo(GITHUB_REPO)
+                save_extracted_text_to_github(repo, output_json["companyName"], extracted_text, output_json["reportYear"])
 
-            # Upload the JSON to GitHub
-            file_name = output_json["companyName"]
-            year = output_json["reportYear"]
-            success, message = upload_to_github(output_json, file_name, year)
+                # Upload the JSON to GitHub
+                file_name = output_json["companyName"]
+                year = output_json["reportYear"]
+                success, message = upload_to_github(output_json, file_name, year)
 
-            if success:
+                if success:
+                    if status_callback:
+                        status_callback("✅ Successfully processed")
+                    # Update not_yet.txt if company was in the list and provided
+                    if company_name:
+                        update_not_yet_companies(repo, [company_name])
+                    return True
+                else:
+                    if status_callback:
+                        status_callback(f"❌ Failed: {message}")
+                    return False
+
+            except json.JSONDecodeError:
                 if status_callback:
-                    status_callback("✅ Successfully processed")
-                # Update not_yet.txt if company was in the list and provided
-                if company_name:
-                    update_not_yet_companies(repo, [company_name])
-                return True
-            else:
-                if status_callback:
-                    status_callback(f"❌ Failed: {message}")
+                    status_callback("❌ Failed to parse response")
                 return False
 
-        except json.JSONDecodeError:
+        except Exception as generation_error:
             if status_callback:
-                status_callback("❌ Failed to parse response")
+                status_callback(f"❌ Generation Error: {str(generation_error)}")
             return False
 
     except Exception as e:
