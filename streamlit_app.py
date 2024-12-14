@@ -17,7 +17,8 @@ import time
 import nest_asyncio
 nest_asyncio.apply()
 
-from llama_parse import LlamaParse
+
+#from llama_parse import LlamaParse
 
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
@@ -28,11 +29,11 @@ correct_password = st.secrets["VERIFY_PASSWORD"]
 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
-parser = LlamaParse(
+"""parser = LlamaParse(
     api_key = DOC, 
     result_type = "markdown", 
     verbose = True,
-)
+)"""
 
 
 generation_config = {
@@ -422,8 +423,6 @@ def save_extracted_text_to_github(repo, company_name, extracted_text, year):
 def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     """Unified PDF processing function for all upload methods."""
     try:
-        if status_callback:
-            status_callback("Converting PDF to text...")
 
         # Create a temporary file to save the PDF content
         with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as temp_pdf:
@@ -432,7 +431,11 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
 
         try:
     
-            extracted_text = parser.load_data(temp_pdf_path)
+            """extracted_text = parser.load_data(temp_pdf_path)"""
+            pdf = genai.upload_file(temp_pdf_path)
+        except Exception as upload_error:
+            st.error(f"Error uploading PDF: {upload_error}")
+            return False
         finally:
             # Clean up temporary file
             os.unlink(temp_pdf_path)
@@ -445,7 +448,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
             model_name="gemini-1.5-flash-002", #gemini-1.5-flash-002  gemini-2.0-flash-exp
             generation_config=generation_config
         )
-        chat_session = model.start_chat()
+        """chat_session = model.start_chat()"""
             
         prompt = """
         Extract the following information from the provided PDF file and format it in JSON:
@@ -486,15 +489,17 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         note the primary GLIC association in the "glicAssociation" field.
         Here is the text from the annual report:
         """
-        response = chat_session.send_message(prompt)
-
+        #response = chat_session.send_message(prompt)
+        response =  model.generate_content([prompt, pdf])
+        
+        pdf.delete() #delete from File API
         try:
             output_json = json.loads(response.text)
             
             # Save extracted text to GitHub
             g = Github(GITHUB_TOKEN)
             repo = g.get_repo(GITHUB_REPO)
-            save_extracted_text_to_github(repo, output_json["companyName"], extracted_text, output_json["reportYear"])
+            save_extracted_text_to_github(repo, output_json["companyName"], output_json["reportYear"])
 
             # Upload the JSON to GitHub
             file_name = output_json["companyName"]
@@ -526,7 +531,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
 def handle_pdf_upload(uploaded_file):
     if uploaded_file is not None:
         try:
-            return uploaded_file.read()
+            return uploaded_file
         except Exception as e:
             st.error(f"Error reading PDF file: {str(e)}")
             return None
@@ -539,40 +544,7 @@ def download_and_process_pdf(url):
     except Exception as e:
         st.error(f"Error downloading PDF: {str(e)}")
         return None
-    
-def save_extracted_text_to_github(repo, company_name, extracted_text, year):
-    """Save extracted text to GitHub in the extracted folder."""
-    try:
-        # Ensure extracted directory exists
-        try:
-            repo.get_contents("extracted", ref=GITHUB_BRANCH)
-        except:
-            repo.create_file("extracted/.gitkeep", "Create extracted directory", "", branch=GITHUB_BRANCH)
-        
-        file_path = f"extracted/{company_name} {year}.txt"
-        
-        try:
-            # Try to update existing file
-            file = repo.get_contents(file_path, ref=GITHUB_BRANCH)
-            repo.update_file(
-                file_path,
-                f"Update extracted text for {company_name}",
-                extracted_text,
-                file.sha,
-                branch=GITHUB_BRANCH
-            )
-        except:
-            # Create new file if it doesn't exist
-            repo.create_file(
-                file_path,
-                f"Add extracted text for {company_name}",
-                extracted_text,
-                branch=GITHUB_BRANCH
-            )
-        return True
-    except Exception as e:
-        st.error(f"Error saving extracted text: {str(e)}")
-        return False    
+
 
 def upload_page():
     st.title("Annual Report Information Extraction")
