@@ -507,10 +507,13 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         try:
             # Generate content using the uploaded PDF file
             #response = model.generate_content([prompt, pdf])
-            st.write(" before send to gemini")
-            response = chat_session.send_message(prompt, extracted_text)
-            st.write("received response from gemini ")
-            # Delete the uploaded file
+            try:
+                st.write("before send to gemini")
+                response = chat_session.send_message(prompt, extracted_text)
+                st.write("received response from gemini")
+            except Exception as e:
+                st.error(f"Error while sending message to Gemini: {str(e)}")
+                        # Delete the uploaded file
             
             
             try:
