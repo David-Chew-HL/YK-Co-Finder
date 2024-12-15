@@ -508,23 +508,26 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
             # Generate content using the uploaded PDF file
             #response = model.generate_content([prompt, pdf])
             response = chat_session.send_message(prompt, extracted_text)
+            st.write("received response from gemini ")
             # Delete the uploaded file
             
             
             try:
                 # Parse the JSON response
                 output_json = json.loads(response.text)
-                
+                st.write("loaded json")
                 # Save extracted text to GitHub
                 g = Github(GITHUB_TOKEN)
                 repo = g.get_repo(GITHUB_REPO)
+                st.write(" before save extracted text")
                 save_extracted_text_to_github(repo, output_json["companyName"], extracted_text, output_json["reportYear"])
-
+                st.write(" saved extracted text")
                 # Upload the JSON to GitHub
                 file_name = output_json["companyName"]
                 year = output_json["reportYear"]
+                st.write(" before upload to gh")
                 success, message = upload_to_github(output_json, file_name, year)
-
+                st.write(" uploaded to gh")
                 if success:
                     if status_callback:
                         status_callback("✅ Successfully processed")
