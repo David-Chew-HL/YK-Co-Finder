@@ -508,8 +508,10 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
             # Generate content using the uploaded PDF file
             #response = model.generate_content([prompt, pdf])
             try:
+                
+                in_message = prompt + extracted_text
                 st.write("before send to gemini")
-                response = chat_session.send_message(prompt + extracted_text)
+                response = chat_session.send_message(in_message)
                 st.write("received response from gemini")
             except Exception as e:
                 st.error(f"Error while sending message to Gemini: {str(e)}")
