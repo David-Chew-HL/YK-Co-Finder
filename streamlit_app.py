@@ -508,15 +508,22 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
             # Generate content using the uploaded PDF file
             #response = model.generate_content([prompt, pdf])
             try:
+  
+                # Ensure extracted_text is a list of `Document` objects
                 if isinstance(extracted_text, list):
-                    extracted_text = "\n".join(extracted_text)
+                    # Extract the text from each Document and join them into a single string
+                    extracted_text = "\n".join(doc.get_text() for doc in extracted_text)
+                elif hasattr(extracted_text, "get_text"):  # Single Document case
+                    extracted_text = extracted_text.get_text()
+                else:
+                    raise ValueError("Unexpected format for extracted_text")
+
                 in_message = prompt + extracted_text
                 st.write("before send to gemini")
                 response = chat_session.send_message(in_message)
                 st.write("received response from gemini")
             except Exception as e:
-                st.error(f"Error while sending message to Gemini: {str(e)}")
-                        # Delete the uploaded file
+                st.error(f"Error while processing or sending message to Gemini: {str(e)}")
             
             
             try:
