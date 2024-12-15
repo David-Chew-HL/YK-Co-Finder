@@ -434,13 +434,17 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         st.write(f"PDF content type: {type(pdf_bytes)}, length: {len(pdf_bytes)}")
         
         # Create a temporary file to save the PDF content
-        with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as temp_pdf:
-            temp_pdf.write(pdf_content)
-            temp_pdf_path = temp_pdf.name
-            st.write(f"Temporary PDF path: {temp_pdf_path} ")
+        try:
+            with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as temp_pdf:
+                temp_pdf.write(pdf_bytes)
+                temp_pdf_path = temp_pdf.name
+                st.write(f"Temporary PDF path: {temp_pdf_path}")
+        except Exception as temp_file_error:
+            st.error(f"Error creating temporary file: {temp_file_error}")
+            return False
 
         try:
-    
+            st.write("Passing temporary file to LlamaParse")
             extracted_text = parser.load_data(temp_pdf_path)
             st.write(" extracted text")
             #pdf = genai.upload_file(temp_pdf_path)
