@@ -508,7 +508,8 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
             # Generate content using the uploaded PDF file
             #response = model.generate_content([prompt, pdf])
             try:
-                
+                if isinstance(extracted_text, list):
+                    extracted_text = "\n".join(extracted_text)
                 in_message = prompt + extracted_text
                 st.write("before send to gemini")
                 response = chat_session.send_message(in_message)
