@@ -17,6 +17,7 @@ import time
 import nest_asyncio
 from markitdown import MarkItDown
 nest_asyncio.apply()
+import concurrent.futures
 
 
 from llama_parse import LlamaParse
@@ -422,167 +423,172 @@ def save_extracted_text_to_github(repo, company_name, extracted_text, year):
 
 def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     """Unified PDF processing function for all upload methods."""
-    st.write(" enterred process pdf func")
+    st.write(" entered process pdf func")
 
-
+    # Create temporary file
     try:
-        # Ensure we have the PDF content as bytes
-        if isinstance(pdf_content, bytes):
-            pdf_bytes = pdf_content
-        else:
-            pdf_bytes = pdf_content.read()  # Read the content from UploadedFile
+        with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as temp_pdf:
+            temp_pdf.write(pdf_content)
+            temp_pdf_path = temp_pdf.name
+            st.write(f"Temporary PDF path: {temp_pdf_path}")
+    except Exception as temp_file_error:
+        st.error(f"Error creating temporary file: {temp_file_error}")
+        return False
 
-        st.write(f"PDF content type: {type(pdf_bytes)}, length: {len(pdf_bytes)}")
-        
-        # Create a temporary file to save the PDF content
+    # Define extraction functions
+    def extract_llama():
         try:
-            with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as temp_pdf:
-                temp_pdf.write(pdf_bytes)
-                temp_pdf_path = temp_pdf.name
-                st.write(f"Temporary PDF path: {temp_pdf_path}")
-        except Exception as temp_file_error:
-            st.error(f"Error creating temporary file: {temp_file_error}")
+            result = parser.load_data(temp_pdf_path)
+            st.write("LlamaParse extraction successful")
+            return result, None
+        except Exception as e:
+            return None, str(e)
+
+    def extract_md():
+        try:
+            md = MarkItDown()
+            result = md.convert(temp_pdf)
+            st.write("MarkItDown extraction successful")
+            return result, None
+        except Exception as e:
+            return None, str(e)
+
+    # Run extractors concurrently
+    try:
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            llama_future = executor.submit(extract_llama)
+            md_future = executor.submit(extract_md)
+            
+            extracted_text, llama_error = llama_future.result()
+            md_result, md_error = md_future.result()
+
+        if llama_error and md_error:
+            st.error("Both extractors failed")
+            st.error(f"LlamaParse error: {llama_error}")
+            st.error(f"MarkItDown error: {md_error}")
             return False
 
-        try:
-            st.write("Passing temporary file to LlamaParse")
-            extracted_text = parser.load_data(temp_pdf_path) #llamaparse
-            st.write(" extracted text llama parse")
-            extracted_md = MarkItDown()
-            md_result = extracted_md.convert(temp_pdf)
-            st.write(f"Temporary PDF path: {md_result.text_content[:200]}")
-            print(md_result.text_content)
-            st.write(" extracted text md")
-            #pdf = genai.upload_file(temp_pdf_path)
-        except Exception as upload_error:
-            st.error(f"Error uploading PDF: {upload_error}")
-            return False
-        finally:
-            # Clean up temporary file
-            os.unlink(temp_pdf_path)
+        if llama_error:
+            st.warning(f"LlamaParse failed: {llama_error}")
+        if md_error:
+            st.warning(f"MarkItDown failed: {md_error}")
 
-        if status_callback:
-            status_callback("Sending text to Gemini for analysis...")
+    finally:
+        os.unlink(temp_pdf_path)
 
-        # Initialize Gemini model with chat session
-        model = genai.GenerativeModel(
-            model_name="gemini-1.5-flash-8b", #gemini-1.5-flash-002  gemini-2.0-flash-exp
-            generation_config=generation_config
-        )
-        chat_session = model.start_chat()
-        st.write("sending to gemini ")
-        prompt = """
-        Extract the following information from the provided PDF file and format it in JSON:
+    if status_callback:
+        status_callback("Sending text to Gemini for analysis...")
 
-        Company full name.
-        Year of the report.
-        Industry of the company (choose one from the following: Automobiles, Banks, Capital Goods, Commercial Services, 
-        Consumer Durables, Consumer Retailing, Consumer Services, Diversified Financials, Energy, Food, Beverage, 
-        Tobacco, Healthcare, Household, Insurance, Materials, Media, Pharmaceuticals, Biotech, Real Estate, 
-        Real Estate Management and Development, Retail, Semiconductors, Software, Tech, Telecom, Transportation, Utilities).
-        A brief description of the company's business.
-        Top Shareholders:
-        For each of the top 30 shareholders, include:
-        Full name of the shareholder.
-        If the shareholder is associated with any of the following six Malaysian Government-Linked Investment Companies (GLICs), 
-        specify which one: Khazanah Nasional Berhad (Khazanah), Employees Provident Fund (EPF), 
-        Kumpulan Wang Persaraan (KWAP), Permodalan Nasional Berhad (PNB), 
-        Lembaga Tabung Haji, or Lembaga Tabung Angkatan Tentera (LTAT). 
-        Return this information in the JSON format:
+    # Process results with Gemini
+    model = genai.GenerativeModel(
+        model_name="gemini-1.5-flash-8b",
+        generation_config=generation_config
+    )
 
+    results = []
+    
+    EXTRACTION_PROMPT = """
+    Extract the following information from the provided PDF file and format it in JSON:
+
+    Company full name.
+    Year of the report.
+    Industry of the company (choose one from the following: Automobiles, Banks, Capital Goods, Commercial Services, 
+    Consumer Durables, Consumer Retailing, Consumer Services, Diversified Financials, Energy, Food, Beverage, 
+    Tobacco, Healthcare, Household, Insurance, Materials, Media, Pharmaceuticals, Biotech, Real Estate, 
+    Real Estate Management and Development, Retail, Semiconductors, Software, Tech, Telecom, Transportation, Utilities).
+    A brief description of the company's business.
+    Top Shareholders:
+    For each of the top 30 shareholders, include:
+    Full name of the shareholder.
+    If the shareholder is associated with any of the following six Malaysian Government-Linked Investment Companies (GLICs), 
+    specify which one: Khazanah Nasional Berhad (Khazanah), Employees Provident Fund (EPF), 
+    Kumpulan Wang Persaraan (KWAP), Permodalan Nasional Berhad (PNB), 
+    Lembaga Tabung Haji, or Lembaga Tabung Angkatan Tentera (LTAT). 
+    Return this information in the JSON format:
+
+    {
+    "companyName": "Company full name",
+    "reportYear": Year,
+    "industry": "Industry name from the provided list",
+    "companyDescription": "Brief description of company",
+    "topShareholders": [
         {
-        "companyName": "Company full name",
-        "reportYear": Year,
-        "industry": "Industry name from the provided list",
-        "companyDescription": "Brief description of company",
-        "topShareholders": [
-            {
-            "shareholderName": "Shareholder's name",
-            "glicAssociation": "GLIC name if applicable, otherwise None",
-            "percentageHeld": Percentage of shares held
-            },
-            ...
-        ]
-        }
+        "shareholderName": "Shareholder's name",
+        "glicAssociation": "GLIC name if applicable, otherwise None",
+        "percentageHeld": Percentage of shares held
+        },
+        ...
+    ]
+    }
 
-        If a shareholder is not associated with any of the specified GLICs, set the "glicAssociation" field to None in the JSON output. 
-        If the shareholder is a subsidiary or affiliate of a GLIC (e.g., "Amanah Trustees" under "PNB"), 
-        note the primary GLIC association in the "glicAssociation" field.
-        Here is the text from the annual report:
-        """
+    If a shareholder is not associated with any of the specified GLICs, set the "glicAssociation" field to None in the JSON output. 
+    If the shareholder is a subsidiary or affiliate of a GLIC (e.g., "Amanah Trustees" under "PNB"), 
+    note the primary GLIC association in the "glicAssociation" field.
+    Here is the text from the annual report:
+    """
+    # Process available results
+    if extracted_text:
+        chat_session = model.start_chat()
+        llama_response = chat_session.send_message(EXTRACTION_PROMPT + str(extracted_text))
         try:
-            # Generate content using the uploaded PDF file
-            #response = model.generate_content([prompt, pdf])
-            try:
-  
-                # Ensure extracted_text is a list of `Document` objects
-                if isinstance(extracted_text, list):
-                    # Extract the text from each Document and join them into a single string
-                    extracted_text = "\n".join(doc.get_text() for doc in extracted_text)
-                elif hasattr(extracted_text, "get_text"):  # Single Document case
-                    extracted_text = extracted_text.get_text()
-                else:
-                    raise ValueError("Unexpected format for extracted_text")
+            llama_json = json.loads(llama_response.text)
+            results.append(llama_json)
+        except json.JSONDecodeError:
+            st.warning("Failed to parse LlamaParse results")
 
-                in_message = prompt + extracted_text
-                st.write("before send to gemini")
-                response = chat_session.send_message(in_message)
-                st.write("received response from gemini")
-            except Exception as e:
-                st.error(f"Error while processing or sending message to Gemini: {str(e)}")
-            
-            chat_session = model.start_chat()
-            md_in_message = prompt + md_result
-            md_response = chat_session.send_message(md_in_message)
-            
-            try:
-                # Parse the JSON response
-                llama_output_json = json.loads(response.text) #llamaparse gemini ouput
-                md_output_json = json.load(md_response.text) #markitdown gemini output
-                st.write("loaded json")
-                
-                #combine jsons
-                chat_session = model.start_chat()
-                combined_message = "Compare these JSONs and consolidate into the most accurate result." + llama_output_json + md_output_json
-                combined_json = chat_session.send_message(combined_message)
-                output_json = json.loads(combined_json.text)
-                # Save extracted text to GitHub
-                g = Github(GITHUB_TOKEN)
-                repo = g.get_repo(GITHUB_REPO)
-                st.write(" before save extracted text")
-                save_extracted_text_to_github(repo, output_json["companyName"], extracted_text, output_json["reportYear"])
-                st.write(" saved extracted text")
-                # Upload the JSON to GitHub
-                file_name = output_json["companyName"]
-                year = output_json["reportYear"]
-                st.write(" before upload to gh")
-                success, message = upload_to_github(output_json, file_name, year)
-                st.write(" uploaded to gh")
-                if success:
-                    if status_callback:
-                        status_callback("✅ Successfully processed")
-                    # Update not_yet.txt if company was in the list and provided
-                    if company_name:
-                        update_not_yet_companies(repo, [company_name])
-                    return True
-                else:
-                    if status_callback:
-                        status_callback(f"❌ Failed: {message}")
-                    return False
+    if md_result:
+        chat_session = model.start_chat()
+        md_response = chat_session.send_message(EXTRACTION_PROMPT + str(md_result.text_content))
+        try:
+            md_json = json.loads(md_response.text)
+            results.append(md_json)
+        except json.JSONDecodeError:
+            st.warning("Failed to parse MarkItDown results")
 
-            except json.JSONDecodeError:
-                if status_callback:
-                    status_callback("❌ Failed to parse response")
-                return False
+    if not results:
+        st.error("No valid results obtained")
+        return False
 
-        except Exception as generation_error:
+    # Combine results if multiple exist
+    final_json = results[0]
+    if len(results) > 1:
+        chat_session = model.start_chat()
+        combine_prompt = "Compare and consolidate these results: " + str(results)
+        combined_response = chat_session.send_message(combine_prompt)
+        try:
+            final_json = json.loads(combined_response.text)
+        except json.JSONDecodeError:
+            st.warning("Using first valid result")
+
+    # Save to GitHub
+    try:
+        g = Github(GITHUB_TOKEN)
+        repo = g.get_repo(GITHUB_REPO)
+
+        if extracted_text:
+            save_extracted_text_to_github(repo, final_json["companyName"], 
+                                        extracted_text, final_json["reportYear"])
+        if md_result:
+            save_extracted_text_to_github(repo, final_json["companyName"], 
+                                        md_result.text_content, final_json["reportYear"])
+
+        success, message = upload_to_github(final_json, final_json["companyName"], 
+                                          final_json["reportYear"])
+        
+        if success:
             if status_callback:
-                status_callback(f"❌ Generation Error: {str(generation_error)}")
+                status_callback("✅ Successfully processed")
+            if company_name:
+                update_not_yet_companies(repo, [company_name])
+            return True
+        else:
+            if status_callback:
+                status_callback(f"❌ Failed: {message}")
             return False
 
     except Exception as e:
         if status_callback:
-            status_callback(f"❌ Error: {str(e)}")
+            status_callback(f"❌ Processing Error: {str(e)}")
         return False
     
 def handle_pdf_upload(uploaded_file):
