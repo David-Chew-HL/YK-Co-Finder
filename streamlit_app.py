@@ -15,6 +15,7 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import nest_asyncio
+from markitdown import MarkItDown
 nest_asyncio.apply()
 
 
@@ -445,8 +446,13 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
 
         try:
             st.write("Passing temporary file to LlamaParse")
-            extracted_text = parser.load_data(temp_pdf_path)
-            st.write(" extracted text")
+            extracted_text = parser.load_data(temp_pdf_path) #llamaparse
+            st.write(" extracted text llama parse")
+            extracted_md = MarkItDown()
+            md_result = extracted_md.convert(temp_pdf)
+            st.write(f"Temporary PDF path: {md_result.text_content[:200]}")
+            print(md_result.text_content)
+            st.write(" extracted text md")
             #pdf = genai.upload_file(temp_pdf_path)
         except Exception as upload_error:
             st.error(f"Error uploading PDF: {upload_error}")
@@ -480,7 +486,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         Full name of the shareholder.
         If the shareholder is associated with any of the following six Malaysian Government-Linked Investment Companies (GLICs), 
         specify which one: Khazanah Nasional Berhad (Khazanah), Employees Provident Fund (EPF), 
-        Kumpulan Wang Persaraan (Diperbadankan) [KWAP], Permodalan Nasional Berhad (PNB), 
+        Kumpulan Wang Persaraan (KWAP), Permodalan Nasional Berhad (PNB), 
         Lembaga Tabung Haji, or Lembaga Tabung Angkatan Tentera (LTAT). 
         Return this information in the JSON format:
 
@@ -525,11 +531,21 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
             except Exception as e:
                 st.error(f"Error while processing or sending message to Gemini: {str(e)}")
             
+            chat_session = model.start_chat()
+            md_in_message = prompt + md_result
+            md_response = chat_session.send_message(md_in_message)
             
             try:
                 # Parse the JSON response
-                output_json = json.loads(response.text)
+                llama_output_json = json.loads(response.text) #llamaparse gemini ouput
+                md_output_json = json.load(md_response.text) #markitdown gemini output
                 st.write("loaded json")
+                
+                #combine jsons
+                chat_session = model.start_chat()
+                combined_message = "Compare these JSONs and consolidate into the most accurate result." + llama_output_json + md_output_json
+                combined_json = chat_session.send_message(combined_message)
+                output_json = json.loads(combined_json.text)
                 # Save extracted text to GitHub
                 g = Github(GITHUB_TOKEN)
                 repo = g.get_repo(GITHUB_REPO)
