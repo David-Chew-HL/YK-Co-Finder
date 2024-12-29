@@ -421,9 +421,16 @@ def save_extracted_text_to_github(repo, company_name, extracted_text, year):
         st.error(f"Error saving extracted text: {str(e)}")
         return False
 
+import tempfile
+import os
+import concurrent.futures
+import json
+import streamlit as st
+from github import Github
+
 def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     """Unified PDF processing function for all upload methods."""
-    st.write(" entered process pdf func")
+    st.write("entered process pdf func")
 
     # Create temporary file
     try:
@@ -444,7 +451,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     def extract_llama():
         try:
             result = parser.load_data(temp_pdf_path)
-            st.write("LlamaParse extraction successful")
+            st.write("LlamaParse extraction successful")  # Consider removing or logging
             return result, None
         except Exception as e:
             return None, str(e)
@@ -452,8 +459,9 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     def extract_md():
         try:
             md = MarkItDown()
-            result = md.convert(temp_pdf)
-            st.write("MarkItDown extraction successful")
+            # Assuming convert takes a file path; if not, pass the bytes
+            result = md.convert(temp_pdf_path)
+            st.write("MarkItDown extraction successful")  # Consider removing or logging
             return result, None
         except Exception as e:
             return None, str(e)
