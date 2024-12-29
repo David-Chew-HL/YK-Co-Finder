@@ -427,8 +427,13 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
 
     # Create temporary file
     try:
+        if isinstance(pdf_content, bytes):
+            content_bytes = pdf_content
+        else:
+            content_bytes = pdf_content.read()
+            
         with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as temp_pdf:
-            temp_pdf.write(pdf_content)
+            temp_pdf.write(content_bytes)
             temp_pdf_path = temp_pdf.name
             st.write(f"Temporary PDF path: {temp_pdf_path}")
     except Exception as temp_file_error:
