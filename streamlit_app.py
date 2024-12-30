@@ -18,8 +18,6 @@ import concurrent.futures
 from pypdf import PdfReader
 import ocrmypdf
 
-from llama_parse import LlamaParse
-
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
 GITHUB_BRANCH = st.secrets.get("GITHUB_BRANCH", "main")
@@ -28,13 +26,6 @@ DOC = st.secrets["DOC"]
 correct_password = st.secrets["VERIFY_PASSWORD"]
 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-
-parser = LlamaParse(
-    api_key = DOC, 
-    result_type = "markdown", 
-    verbose = True,
-)
-
 
 generation_config = {
   "temperature": 1,
@@ -422,10 +413,6 @@ def save_extracted_text_to_github(repo, company_name, extracted_text, year):
         st.error(f"Error saving extracted text: {str(e)}")
         return False
 
-
-def get_llama_parser():
-    return LlamaParse(api_key=DOC)
-
     
 def extract_text_from_pdf(reader):
     full_text = ""
@@ -469,16 +456,6 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         st.error(f"Error creating temporary file: {temp_file_error}")
         return False
 
-    # Define extraction functions
-    def extract_llama():
-        try:
-            parser = get_llama_parser()
-            result = parser.load_data(temp_pdf_path)
-            st.write("LlamaParse extraction successful")
-            return result, None
-        except Exception as e:
-            return None, str(e)
-
     def extract_pdf_text():
         try:
             return convert_pdf_to_text(temp_pdf_path), None
@@ -487,21 +464,9 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
 
     # Run extractors concurrently
     try:
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            llama_future = executor.submit(extract_llama)
-            pdf_text_future = executor.submit(extract_pdf_text)
-            
-            extracted_text, llama_error = llama_future.result()
-            pdf_text_result, pdf_text_error = pdf_text_future.result()
 
-        if llama_error and pdf_text_error:
-            st.error("Both extractors failed")
-            st.error(f"LlamaParse error: {llama_error}")
-            st.error(f"PDF text extraction error: {pdf_text_error}")
-            return False
+        pdf_text_result, pdf_text_error = extract_pdf_text()
 
-        if llama_error:
-            st.warning(f"LlamaParse failed: {llama_error}")
         if pdf_text_error:
             st.warning(f"PDF text extraction failed: {pdf_text_error}")
 
@@ -559,15 +524,6 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     note the primary GLIC association in the "glicAssociation" field. Do note that if the company name is a nominee account, you must list the full name of the shareholder in the JSON output.
     Here is the text from the annual report:
     """
-    if extracted_text:
-        chat_session = model.start_chat()
-        llama_response = chat_session.send_message(EXTRACTION_PROMPT + str(extracted_text))
-        try:
-            llama_json = json.loads(llama_response.text)
-            results.append(llama_json)
-        except json.JSONDecodeError:
-            st.warning("Failed to parse LlamaParse results")
-
     if pdf_text_result:
         chat_session = model.start_chat()
         pdf_text_response = chat_session.send_message(EXTRACTION_PROMPT + str(pdf_text_result))
@@ -581,35 +537,20 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         st.error("No valid results obtained from either extractor")
         return False
 
-    # Combine results if multiple exist
-    final_json = results[0]
-    if len(results) > 1:
-        chat_session = model.start_chat()
-        combine_prompt = "Compare these JSONs and consolidate into the most accurate result: " + str(results)
-        combined_response = chat_session.send_message(combine_prompt)
-        try:
-            final_json = json.loads(combined_response.text)
-        except json.JSONDecodeError:
-            st.warning("Failed to combine results, using first valid result")
-
     # Save to GitHub
     try:
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
 
         # Save extracted texts
-        if extracted_text:
-            save_extracted_text_to_github(repo, final_json["companyName"], 
-                                        extracted_text, "llama", 
-                                        final_json["reportYear"])
         if pdf_text_result:
-            save_extracted_text_to_github(repo, final_json["companyName"], 
-                                        pdf_text_result, "pdf_text", 
-                                        final_json["reportYear"])
-
-        # Upload final JSON
-        success, message = upload_to_github(final_json, final_json["companyName"], 
-                                          final_json["reportYear"])
+            save_extracted_text_to_github(repo, pdf_text_json["companyName"], 
+                                        pdf_text_result,
+                                        pdf_text_json["reportYear"])
+                                        
+        # Upload the JSON data
+        success, message = upload_to_github(pdf_text_json, pdf_text_json["companyName"],
+                                          pdf_text_json["reportYear"])
         
         if success:
             if status_callback:
