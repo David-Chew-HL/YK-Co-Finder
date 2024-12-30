@@ -371,10 +371,10 @@ def view_json_file(file_content, selected_file):
     if match:
         glic_percentage = float(match.group(1))  # Convert the extracted string to a float
         is_glic_above_20 = glic_percentage >= 20  # Check if the percentage is >= 20
-        st.write(f"A Bond Serving Company")
+        st.write(f"✔️ _A Bond Serving Company_")
     else:
         is_glic_above_20 = False  # Default to False if no valid percentage is found
-        st.write(f"Isn't A Bond Serving Company")
+        st.write(f"❌ _Isn't A Bond Serving Company_")
     # Display company information
     
     st.write(f"Report Year: {data['reportYear']}")
