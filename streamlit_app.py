@@ -758,6 +758,9 @@ def get_file_content(file_path):
     data = json.loads(base64.b64decode(content.content).decode())
     return data
 
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 def dashboard_page(): 
     # Only show those which are verified and bond serving
     st.title("Dashboard")
@@ -778,10 +781,11 @@ def dashboard_page():
         industry = file_content.get("industry", "Unknown")
         
         file_data.append({
+            " ": "⭐" if glic_total >= 20 else "",
             "Company": file_content.get("companyName", "Unknown"),
             "Industry": industry,
             "GLIC Total": glic_total,
-            "Star": "⭐" if glic_total >= 20 else ""
+            
         })
 
         # Update industry counts for the chart
@@ -798,12 +802,6 @@ def dashboard_page():
     high_glic_df = file_df[file_df["GLIC Total"] >= 20]
     low_glic_df = file_df[file_df["GLIC Total"] < 20]
 
-    # Sort and concatenate data frames
-    sort_by = st.selectbox("Sort by:", ["GLIC Total", "Company", "Industry"])
-    high_glic_df = high_glic_df.sort_values(by=sort_by, ascending=True)
-    low_glic_df = low_glic_df.sort_values(by=sort_by, ascending=True)
-    sorted_df = pd.concat([high_glic_df, low_glic_df])
-
     # Display statistics
     st.subheader("Statistics")
     col1, col2, col3 = st.columns(3)
@@ -818,14 +816,43 @@ def dashboard_page():
     st.subheader("Industry Distribution")
     industry_df = pd.DataFrame({
         "Industry": list(set(glic_distribution[">= 20"].keys()) | set(glic_distribution["< 20"].keys())),
-        "GLIC Total >= 20": [glic_distribution[">= 20"].get(ind, 0) for ind in set(glic_distribution[">= 20"].keys()) | set(glic_distribution["< 20"].keys())],
-        "GLIC Total < 20": [glic_distribution["< 20"].get(ind, 0) for ind in set(glic_distribution[">= 20"].keys()) | set(glic_distribution["< 20"].keys())],
+        "Bond Serving": [glic_distribution[">= 20"].get(ind, 0) for ind in set(glic_distribution[">= 20"].keys()) | set(glic_distribution["< 20"].keys())],
+        "Non" : [glic_distribution["< 20"].get(ind, 0) for ind in set(glic_distribution[">= 20"].keys()) | set(glic_distribution["< 20"].keys())],
     })
-    st.bar_chart(industry_df.set_index("Industry"), use_container_width=True)
 
-    # Display the company table
+    # Plot with Matplotlib
+    plt.figure(figsize=(10, 6))
+    industry_df = industry_df.set_index("Industry")
+    industry_df.plot(kind="bar", stacked=True, color=["#46B4A6", "#FFA07A"], edgecolor="black")
+    plt.ylabel("Count", fontsize=12)
+    plt.xlabel("Industry", fontsize=12)
+    plt.xticks(rotation=45, ha="right", fontsize=10, color="black")
+    plt.yticks(fontsize=10)
+    plt.title("Industry Distribution", fontsize=14, fontweight="bold")
+    plt.tight_layout()
+    st.pyplot(plt)
+
+    # Sorting and filtering
     st.subheader("Company Details")
+    sort_col, filter_col = st.columns(2)
+    with sort_col:
+        sort_by = st.selectbox("Sort by:", ["GLIC Total", "Company", "Industry"])
+    with filter_col:
+        all_industries = ["All"] + sorted(list(set(file_df["Industry"])))
+        selected_industry = st.selectbox("Filter by industry:", all_industries)
+
+    # Apply filters and sorting
+    if selected_industry != "All":
+        file_df = file_df[file_df["Industry"] == selected_industry]
+
+    # Separate into categories and sort
+    high_glic_df = file_df[file_df["GLIC Total"] >= 20].sort_values(by=sort_by, ascending=True)
+    low_glic_df = file_df[file_df["GLIC Total"] < 20].sort_values(by=sort_by, ascending=True)
+    sorted_df = pd.concat([high_glic_df, low_glic_df])
+
+    # Display table
     st.dataframe(sorted_df, use_container_width=True)
+
 
 
 def get_not_yet_companies(repo):
