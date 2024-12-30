@@ -538,7 +538,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     If the shareholder is associated with any of the following six Malaysian Government-Linked Investment Companies (GLICs), 
     specify which one: Khazanah Nasional Berhad (Khazanah), Employees Provident Fund (EPF), 
     Kumpulan Wang Persaraan (KWAP), Permodalan Nasional Berhad (PNB), 
-    Lembaga Tabung Haji, or Lembaga Tabung Angkatan Tentera (LTAT). 
+    Lembaga Tabung Haji, Lembaga Tabung Angkatan Tentera (LTAT), or Ministry of Finance. 
     Return this information in the JSON format:
 
     {
@@ -885,8 +885,8 @@ def dashboard_page():
         file_df = file_df[file_df["Industry"] == selected_industry]
 
     # Separate into categories and sort
-    high_glic_df = file_df[file_df["GLIC Total %"] >= 20].sort_values(by=sort_by, ascending=True)
-    low_glic_df = file_df[file_df["GLIC Total %"] < 20].sort_values(by=sort_by, ascending=True)
+    high_glic_df = file_df[file_df["GLIC Total %"] >= 20].sort_values(by=sort_by, ascending=False)
+    low_glic_df = file_df[file_df["GLIC Total %"] < 20].sort_values(by=sort_by, ascending=False)
     sorted_df = pd.concat([high_glic_df, low_glic_df])
 
     # Display table
