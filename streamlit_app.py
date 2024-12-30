@@ -801,8 +801,8 @@ def dashboard_page():
     file_df = pd.DataFrame(file_data)
 
     # Apply GLIC threshold to separate categories
-    high_glic_df = file_df[file_df["GLIC Total"] >= 20]
-    low_glic_df = file_df[file_df["GLIC Total"] < 20]
+    high_glic_df = file_df[file_df["GLIC Total %"] >= 20]
+    low_glic_df = file_df[file_df["GLIC Total %"] < 20]
 
     # Display statistics
     st.subheader("Statistics")
@@ -839,7 +839,7 @@ def dashboard_page():
     st.subheader("Company Details")
     sort_col, filter_col = st.columns(2)
     with sort_col:
-        sort_by = st.selectbox("Sort by:", ["GLIC Total", "Company", "Industry"])
+        sort_by = st.selectbox("Sort by:", ["GLIC Total %", "Company", "Industry"])
     with filter_col:
         all_industries = ["All"] + sorted(list(set(file_df["Industry"])))
         selected_industry = st.selectbox("Filter by industry:", all_industries)
@@ -849,8 +849,8 @@ def dashboard_page():
         file_df = file_df[file_df["Industry"] == selected_industry]
 
     # Separate into categories and sort
-    high_glic_df = file_df[file_df["GLIC Total"] >= 20].sort_values(by=sort_by, ascending=True)
-    low_glic_df = file_df[file_df["GLIC Total"] < 20].sort_values(by=sort_by, ascending=True)
+    high_glic_df = file_df[file_df["GLIC Total %"] >= 20].sort_values(by=sort_by, ascending=True)
+    low_glic_df = file_df[file_df["GLIC Total %"] < 20].sort_values(by=sort_by, ascending=True)
     sorted_df = pd.concat([high_glic_df, low_glic_df])
 
     # Display table
