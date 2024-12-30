@@ -10,7 +10,7 @@ from google.ai.generativelanguage_v1beta.types import content
 from PyPDF2 import PdfReader
 import pandas as pd
 import re
-from io import StringIO
+from io import StringIO, BytesIO
 import requests
 from bs4 import BeautifulSoup
 import time
@@ -428,7 +428,7 @@ def save_extracted_text_to_github(repo, company_name, extracted_text, year):
 
 def process_pdf_with_docling(uploaded_file):
     """Process PDF with Docling and return markdown output."""
-
+    pdf_bytes = BytesIO(file_content)
     
     # Configure pipeline with OCR enabled
     pipeline_options = PdfPipelineOptions(
@@ -493,7 +493,8 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     def extract_docling():
         try:
             with open(temp_pdf_path, 'rb') as f:
-                return process_pdf_with_docling(f), None
+                file_content = f.read()
+                return process_pdf_with_docling(file_content), None
         except Exception as e:
             return None, str(e)
 
