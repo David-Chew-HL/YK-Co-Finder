@@ -668,6 +668,8 @@ def upload_page():
                             
                             def update_status(msg):
                                 st.session_state.status_messages[status_key] = msg
+                                if "Successfully processed" in msg:
+                                    st.success("✅ Successfully processed")
                             
                             # Download the PDF and process
                             pdf_content = download_and_process_pdf(result['url'])
@@ -712,6 +714,8 @@ def upload_page():
                             if st.button("Process Report", key=f"process_tab2_{idx}"):
                                 def update_status(msg):
                                     st.session_state.status_messages[status_key] = msg
+                                    if "Successfully processed" in msg:
+                                        st.success("✅ Successfully processed")
                                 
                                 # Download the PDF and pass it to process
                                 pdf_content = download_and_process_pdf(result['url'])
