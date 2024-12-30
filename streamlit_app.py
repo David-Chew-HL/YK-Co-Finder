@@ -7,7 +7,6 @@ import os
 import google
 import google.generativeai as genai
 from google.ai.generativelanguage_v1beta.types import content
-from PyPDF2 import PdfReader
 import pandas as pd
 import re
 from io import StringIO, BytesIO
@@ -16,6 +15,7 @@ from bs4 import BeautifulSoup
 import time
 import nest_asyncio
 import concurrent.futures
+from pypdf import PdfReader
 import ocrmypdf
 
 from llama_parse import LlamaParse
@@ -63,7 +63,7 @@ generation_config = {
         items = content.Schema(
           type = content.Type.OBJECT,
           enum = [],
-          required = ["shareholderName", "glicAssociation", "percentageHeld"],
+          required = ["shareholderName", "glicAssociation", "percentageHeld","pageNumber"],
           properties = {
             "shareholderName": content.Schema(
               type = content.Type.STRING,
@@ -423,12 +423,8 @@ def save_extracted_text_to_github(repo, company_name, extracted_text, year):
         return False
 
 
-@st.cache_resource
 def get_llama_parser():
-    api_key = st.secrets.get("LLAMA_API_KEY")
-    if not api_key:
-        raise ValueError("LlamaParse API key is required.")
-    return LlamaParse(api_key=api_key)
+    return LlamaParse(api_key=DOC)
 
     
 def extract_text_from_pdf(reader):
