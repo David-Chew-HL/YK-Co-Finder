@@ -363,8 +363,6 @@ def add_verified_shareholders(repo, new_entries):
         return False
 
 def view_json_file(file_content):
-    import pandas as pd
-
     data = json.loads(file_content)
 
     # Display company information
@@ -391,12 +389,15 @@ def view_json_file(file_content):
     # Sort by Group first, then by Percentage Held descending within each group
     df = df.sort_values(by=["Group", "Percentage Held"], ascending=[True, False]).drop(columns=["Group"])
 
-    # Display table with bold header
+    # Adjust table display
     st.subheader("Top Shareholders")
     styled_table = df.style.set_table_styles([
-        {'selector': 'thead th', 'props': [('font-weight', 'bold')]}  # Bold header row
-    ])
-    st.dataframe(styled_table, use_container_width=True)
+        {'selector': 'thead th', 'props': [('font-weight', 'bold')]},  # Bold header row
+        {'selector': 'td', 'props': [('word-wrap', 'break-word'), ('white-space', 'pre-wrap')]}  # Text wrapping
+    ]).hide_index()  # Hide the index column
+
+    st.write(styled_table.render(), unsafe_allow_html=True)
+
 
 
 def save_extracted_text_to_github(repo, company_name, extracted_text, year):
