@@ -1,0 +1,74 @@
+{
+  "companyDescription": "Farm Fresh Berhad is involved in investment holding, rearing of dairy cows and the production, marketing, sale of cow\u2019s milk and plant-based related products.",
+  "companyName": "Farm Fresh Berhad",
+  "industry": "Food, Beverage, Tobacco",
+  "reportYear": 2024,
+  "topShareholders": [
+    {
+      "glicAssociation": "None",
+      "pageNumber": 271,
+      "percentageHeld": 29.0549,
+      "shareholderName": "Rainforest Capital Sdn. Bhd."
+    },
+    {
+      "glicAssociation": "Khazanah",
+      "pageNumber": 271,
+      "percentageHeld": 11.7068,
+      "shareholderName": "Agrifood Resources Holdings Sdn. Bhd."
+    },
+    {
+      "glicAssociation": "Khazanah",
+      "pageNumber": 271,
+      "percentageHeld": 11.7068,
+      "shareholderName": "Khazanah Nasional Berhad"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 271,
+      "percentageHeld": 11.2247,
+      "shareholderName": "Employees Provident Fund Board"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 271,
+      "percentageHeld": 11.1608,
+      "shareholderName": "Farmchoice Foods Sdn. Bhd."
+    },
+    {
+      "glicAssociation": "KWAP",
+      "pageNumber": 271,
+      "percentageHeld": 3.3953,
+      "shareholderName": "Kumpulan Wang Persaraan (Diperbadankan)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 271,
+      "percentageHeld": 40.2157,
+      "shareholderName": "Loi Tuan Ee"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 271,
+      "percentageHeld": 29.0549,
+      "shareholderName": "Loi Foon Kion"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 271,
+      "percentageHeld": 6.6271,
+      "shareholderName": "Abrdn Holdings Limited (formerly known as Aberdeen Asset Management PLC)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 271,
+      "percentageHeld": 6.6271,
+      "shareholderName": "Abrdn PLC"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 271,
+      "percentageHeld": 6.5524,
+      "shareholderName": "Abrdn Malaysia Sdn. Bhd."
+    }
+  ]
+}
