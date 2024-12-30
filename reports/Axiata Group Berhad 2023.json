@@ -1,0 +1,38 @@
+{
+  "companyDescription": "Axiata paves the way for a more connected future, championing cutting-edge innovative technology and solutions that empower progress across ASEAN and South Asia, bridging the digital divide to foster a thriving and inclusive future where communities and businesses flourish.",
+  "companyName": "Axiata Group Berhad",
+  "industry": "Telecom",
+  "reportYear": 2023,
+  "topShareholders": [
+    {
+      "glicAssociation": "Khazanah Nasional Berhad",
+      "pageNumber": 8,
+      "percentageHeld": 36.72,
+      "shareholderName": "Khazanah Nasional Berhad"
+    },
+    {
+      "glicAssociation": "Permodalan Nasional Berhad",
+      "pageNumber": 8,
+      "percentageHeld": 18.34,
+      "shareholderName": "Permodalan Nasional Berhad"
+    },
+    {
+      "glicAssociation": "Employees Provident Fund",
+      "pageNumber": 8,
+      "percentageHeld": 18.13,
+      "shareholderName": "Employees Provident Fund Board"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 8,
+      "percentageHeld": 16.09,
+      "shareholderName": "Other Malaysian Shareholders"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 8,
+      "percentageHeld": 10.72,
+      "shareholderName": "Foreign Shareholdings"
+    }
+  ]
+}
