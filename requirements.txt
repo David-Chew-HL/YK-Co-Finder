@@ -11,4 +11,5 @@ requests
 beautifulsoup4
 nest-asyncio
 llama_parse
+torch
 docling
