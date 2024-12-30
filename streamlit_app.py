@@ -770,6 +770,7 @@ def dashboard_page():
 
     file_data = []
     industry_counts = {}
+    glic_distribution = {">= 20": {}, "< 20": {}}
 
     for file in json_files:
         glic_total = extract_glic_total(file['name'])
@@ -779,53 +780,52 @@ def dashboard_page():
         file_data.append({
             "Company": file_content.get("companyName", "Unknown"),
             "Industry": industry,
-            "GLIC Total": glic_total
+            "GLIC Total": glic_total,
+            "Star": "⭐" if glic_total >= 20 else ""
         })
 
         # Update industry counts for the chart
         if industry and industry != "Unknown":
-            industry_counts[industry] = industry_counts.get(industry, 0) + 1
-            
+            if glic_total >= 20:
+                glic_distribution[">= 20"][industry] = glic_distribution[">= 20"].get(industry, 0) + 1
+            else:
+                glic_distribution["< 20"][industry] = glic_distribution["< 20"].get(industry, 0) + 1
+
+    # Create data frame from file data
     file_df = pd.DataFrame(file_data)
-    num_total_co = len(file_df)
-    
-    # Apply GLIC % threshold
-    file_df = file_df[file_df["GLIC Total"] >= 20]
-    
-    # Display industry distribution bar chart
-    if industry_counts:  # Only show if we have data
-        st.subheader("Industry Distribution")
-        industry_df = pd.DataFrame.from_dict(
-            industry_counts, 
-            orient='index', 
-            columns=["Count"]
-        ).sort_values("Count", ascending=False)
-        st.bar_chart(industry_df)
-        
-        # Add some statistics
-        st.subheader("Statistics")
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            st.metric("Bond Serving Companies", len(file_df))
-        with col2:
-            st.metric("Total Companies Processed", num_total_co)
-        with col3:
-            st.metric("Total Industries", len(industry_counts))
 
-    # Industry filter
-    all_industries = ["All"] + sorted(list(industry_counts.keys()))
-    selected_industry = st.selectbox("Filter by industry:", all_industries)
-    
-    if selected_industry != "All":
-        file_df = file_df[file_df["Industry"] == selected_industry]
-    
-    # Sort options
+    # Apply GLIC threshold to separate categories
+    high_glic_df = file_df[file_df["GLIC Total"] >= 20]
+    low_glic_df = file_df[file_df["GLIC Total"] < 20]
+
+    # Sort and concatenate data frames
     sort_by = st.selectbox("Sort by:", ["GLIC Total", "Company", "Industry"])
-    file_df = file_df.sort_values(by=sort_by, ascending=True)
-    
-    st.write(file_df)
+    high_glic_df = high_glic_df.sort_values(by=sort_by, ascending=True)
+    low_glic_df = low_glic_df.sort_values(by=sort_by, ascending=True)
+    sorted_df = pd.concat([high_glic_df, low_glic_df])
 
+    # Display statistics
+    st.subheader("Statistics")
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric("Bond Serving Companies", len(high_glic_df))
+    with col2:
+        st.metric("Total Companies Processed", len(file_df))
+    with col3:
+        st.metric("Total Industries", len(glic_distribution[">= 20"]) + len(glic_distribution["< 20"]))
 
+    # Industry distribution chart
+    st.subheader("Industry Distribution")
+    industry_df = pd.DataFrame({
+        "Industry": list(set(glic_distribution[">= 20"].keys()) | set(glic_distribution["< 20"].keys())),
+        "GLIC Total >= 20": [glic_distribution[">= 20"].get(ind, 0) for ind in set(glic_distribution[">= 20"].keys()) | set(glic_distribution["< 20"].keys())],
+        "GLIC Total < 20": [glic_distribution["< 20"].get(ind, 0) for ind in set(glic_distribution[">= 20"].keys()) | set(glic_distribution["< 20"].keys())],
+    })
+    st.bar_chart(industry_df.set_index("Industry"), use_container_width=True)
+
+    # Display the company table
+    st.subheader("Company Details")
+    st.dataframe(sorted_df, use_container_width=True)
 
 
 def get_not_yet_companies(repo):
