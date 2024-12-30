@@ -1,0 +1,26 @@
+{
+  "companyDescription": "CIMB Bank PLC is a Cambodian subsidiary of CIMB Group. It offers a wide range of banking products and services including consumer, commercial, corporate & transaction banking and financial institution group.",
+  "companyName": "CIMB Bank PLC",
+  "industry": "Banks",
+  "reportYear": 2023,
+  "topShareholders": [
+    {
+      "glicAssociation": "Khazanah Nasional Berhad",
+      "pageNumber": 8,
+      "percentageHeld": 23.0,
+      "shareholderName": "Khazanah Nasional Berhad"
+    },
+    {
+      "glicAssociation": "Employees Provident Fund",
+      "pageNumber": 8,
+      "percentageHeld": 12.3,
+      "shareholderName": "Employees Provident Fund"
+    },
+    {
+      "glicAssociation": "Kumpulan Wang Persaraan",
+      "pageNumber": 8,
+      "percentageHeld": 6.0,
+      "shareholderName": "Kumpulan Wang Persaraan (Diperbadankan)"
+    }
+  ]
+}
