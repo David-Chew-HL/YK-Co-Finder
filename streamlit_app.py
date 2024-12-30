@@ -485,7 +485,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     results = []
     
     EXTRACTION_PROMPT = """
-    Extract the following information from the financial report and format it in JSON:
+    Extract the following information from the text and format it in JSON:
 
     Company full name.
     Year of the report.
@@ -510,7 +510,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     "companyDescription": "Brief description of company",
     "topShareholders": [
         {
-        "shareholderName": "Shareholder's name. Do note that if the company name is a nominee account, you must list the full name of the shareholder in the JSON output. Sometimes the name is in 2 lines, so please include both lines. an example of a full nominees account name:  CGS International Nominees Malaysia (Tempatan) Sdn Bhd Pledged	Securities	Account	for	Vincent	Tan	Chee	Yioun	(MY3309)",
+        "shareholderName": "Shareholder's name. Sometimes the name is in 2 lines, so please include both lines to provide the full name of the shareholder",
         "glicAssociation": "GLIC name if applicable, otherwise None",
         "percentageHeld": "Percentage of shares held",
         "pageNumber": "Page number where the shareholder information is found"
@@ -584,7 +584,6 @@ def download_and_process_pdf(url):
     except Exception as e:
         st.error(f"Error downloading PDF: {str(e)}")
         return None
-
 
 def upload_page():
     st.title("Annual Report Information Extraction")
