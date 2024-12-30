@@ -363,6 +363,8 @@ def add_verified_shareholders(repo, new_entries):
         return False
 
 def view_json_file(file_content):
+    import pandas as pd
+
     data = json.loads(file_content)
 
     # Display company information
@@ -383,11 +385,11 @@ def view_json_file(file_content):
     # Create DataFrame
     df = pd.DataFrame(shareholder_data)
 
-    # Define a ranking for grouping (GLIC Association != empty/None/0 is ranked higher)
-    df['Group Rank'] = df['GLIC Association'].apply(lambda x: 0 if x and str(x).strip() != "0" else 1)
+    # Define Group 1 (Associated) and Group 2 (Unassociated)
+    df['Group'] = df['GLIC Association'].apply(lambda x: 1 if x != "None" else 2)
 
-    # Sort by Group Rank (non-zero GLIC first) and Percentage Held
-    df = df.sort_values(by=["Group Rank", "Percentage Held"], ascending=[True, True]).drop(columns=["Group Rank"])
+    # Sort by Group first, then by Percentage Held descending within each group
+    df = df.sort_values(by=["Group", "Percentage Held"], ascending=[True, False]).drop(columns=["Group"])
 
     # Display table with bold header
     st.subheader("Top Shareholders")
@@ -395,6 +397,7 @@ def view_json_file(file_content):
         {'selector': 'thead th', 'props': [('font-weight', 'bold')]}  # Bold header row
     ])
     st.dataframe(styled_table, use_container_width=True)
+
 
 def save_extracted_text_to_github(repo, company_name, extracted_text, year):
     """Save extracted text to GitHub in the extracted folder."""
