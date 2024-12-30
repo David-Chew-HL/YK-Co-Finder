@@ -227,7 +227,7 @@ def verify_page():
                     unique_key = f"file_{file_index}_shareholder_{idx}_{shareholder_name}"
                     
                     current_glic = shareholder.get('glicAssociation', "None")
-                    glic_options = ["None", "Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT"]
+                    glic_options = ["None", "Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT","Ministry of Finance"]
                     
                     default_index = glic_options.index(current_glic) if current_glic in glic_options else 0
                     
