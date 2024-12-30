@@ -11,3 +11,4 @@ beautifulsoup4
 nest-asyncio
 ocrmypdf
 matplotlib
+seaborn
