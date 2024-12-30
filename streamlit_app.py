@@ -425,7 +425,10 @@ def save_extracted_text_to_github(repo, company_name, extracted_text, year):
 
 @st.cache_resource
 def get_llama_parser():
-    return LlamaParse()
+    api_key = st.secrets.get("LLAMA_API_KEY")
+    if not api_key:
+        raise ValueError("LlamaParse API key is required.")
+    return LlamaParse(api_key=api_key)
 
     
 def extract_text_from_pdf(reader):
