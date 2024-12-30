@@ -428,7 +428,7 @@ def save_extracted_text_to_github(repo, company_name, extracted_text, year):
 
 def process_pdf_with_docling(uploaded_file):
     """Process PDF with Docling and return markdown output."""
-    pdf_bytes = BytesIO(file_content)
+    pdf_bytes = BytesIO(uploaded_file)
     
     # Configure pipeline with OCR enabled
     pipeline_options = PdfPipelineOptions(
