@@ -95,7 +95,7 @@
       "shareholderName": "HSBC Nominees (Asing) Sdn Bhd\n\u2013 JPMCB NA for Vanguard Emerging Markets Stock Index Fund"
     },
     {
-      "glicAssociation": "None",
+      "glicAssociation": NaN,
       "pageNumber": 107,
       "percentageHeld": 0.39,
       "shareholderName": "HSBC Nominees (Asing) Sdn Bhd\n\u2013 SIX SIS for Bank Sarasin CIE"
@@ -113,7 +113,7 @@
       "shareholderName": "Puan Sri Datin Seri Tan Kai Yong @ Tan Kay Neong"
     },
     {
-      "glicAssociation": "None",
+      "glicAssociation": NaN,
       "pageNumber": 108,
       "percentageHeld": 0.3,
       "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd\n\u2013 Great Eastern Life Assurance (Malaysia) Berhad (LEEF)"
