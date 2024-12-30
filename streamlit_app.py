@@ -24,7 +24,7 @@ import seaborn as sns
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
 GITHUB_BRANCH = st.secrets.get("GITHUB_BRANCH", "main")
-GLIC_LIST = ["Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT"]
+GLIC_LIST = ["Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT","Ministry of Finance"]
 DOC = st.secrets["DOC"]
 correct_password = st.secrets["VERIFY_PASSWORD"]
 
