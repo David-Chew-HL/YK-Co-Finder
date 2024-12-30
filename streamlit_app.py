@@ -362,11 +362,21 @@ def add_verified_shareholders(repo, new_entries):
         st.error(f"Error updating verified shareholders: {str(e)}")
         return False
 
-def view_json_file(file_content):
+def view_json_file(file_content, selected_file):
     data = json.loads(file_content)
-
-    # Display company information
     st.subheader(data["companyName"])
+        # Extract the percentage from the file name using a regular expression
+    match = re.search(r"(\d+\.\d+)$", selected_file)  # This captures the number after the last underscore
+
+    if match:
+        glic_percentage = float(match.group(1))  # Convert the extracted string to a float
+        is_glic_above_20 = glic_percentage >= 20  # Check if the percentage is >= 20
+        st.write(f"A Bond Serving Company")
+    else:
+        is_glic_above_20 = False  # Default to False if no valid percentage is found
+        st.write(f"Isn't A Bond Serving Company")
+    # Display company information
+    
     st.write(f"Report Year: {data['reportYear']}")
     st.write(f"Industry: {data['industry']}")
     st.write(f"Company Description: {data['companyDescription']}")
@@ -767,7 +777,7 @@ def view_page():
             # Decode content
             json_content = base64.b64decode(file_content.content).decode()
             
-            view_json_file(json_content)
+            view_json_file(json_content,selected_file['name'])
             
         except Exception as e:
             st.error(f"Error loading JSON: {str(e)}")
