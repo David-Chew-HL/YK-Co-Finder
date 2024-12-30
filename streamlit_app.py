@@ -485,7 +485,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     results = []
     
     EXTRACTION_PROMPT = """
-    Extract the following information from the provided PDF file and format it in JSON:
+    Extract the following information from the financial report and format it in JSON:
 
     Company full name.
     Year of the report.
@@ -510,10 +510,10 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     "companyDescription": "Brief description of company",
     "topShareholders": [
         {
-        "shareholderName": "Shareholder's name",
+        "shareholderName": "Shareholder's name. Do note that if the company name is a nominee account, you must list the full name of the shareholder in the JSON output. Sometimes the name is in 2 lines, so please include both lines. an example of a full nominees account name:  CGS International Nominees Malaysia (Tempatan) Sdn Bhd Pledged	Securities	Account	for	Vincent	Tan	Chee	Yioun	(MY3309)",
         "glicAssociation": "GLIC name if applicable, otherwise None",
-        "percentageHeld": Percentage of shares held
-        "pageNumber": Page number where the shareholder information is found
+        "percentageHeld": "Percentage of shares held",
+        "pageNumber": "Page number where the shareholder information is found"
         },
         ...
     ]
@@ -521,7 +521,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
 
     If a shareholder is not associated with any of the specified GLICs, set the "glicAssociation" field to None in the JSON output. 
     If the shareholder is a subsidiary or affiliate of a GLIC (e.g., "Amanah Trustees" under "PNB"), 
-    note the primary GLIC association in the "glicAssociation" field. Do note that if the company name is a nominee account, you must list the full name of the shareholder in the JSON output.
+    note the primary GLIC association in the "glicAssociation" field. 
     Here is the text from the annual report:
     """
     if pdf_text_result:
