@@ -418,8 +418,8 @@ def extract_text_from_pdf(reader):
     full_text = ""
     for idx, page in enumerate(reader.pages):
         text = page.extract_text()
-        if text:
-            full_text += f"---- Page {idx} ----\n" + text + "\n\n"
+        #if text:
+        full_text += f"---- Page {idx} ----\n" + text + "\n\n"
     return full_text.strip()
 
 def convert_pdf_to_text(pdf_file):
@@ -478,7 +478,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
 
     # Process with Gemini
     model = genai.GenerativeModel(
-        model_name="gemini-1.5-flash-8b",
+        model_name="gemini-2.0-flash-exp", # gemini-2.0-flash-exp  gemini-1.5-flash-8b
         generation_config=generation_config
     )
 
@@ -510,7 +510,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     "companyDescription": "Brief description of company",
     "topShareholders": [
         {
-        "shareholderName": "Shareholder's name. Sometimes the name is in 2 lines, so please include both lines to provide the full name of the shareholder",
+        "shareholderName": "Shareholder's name. Sometimes the name can span multiple lines, so provide the full name of the shareholder",
         "glicAssociation": "GLIC name if applicable, otherwise None",
         "percentageHeld": "Percentage of shares held",
         "pageNumber": "Page number where the shareholder information is found"
@@ -591,7 +591,7 @@ def upload_page():
     try:
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
-        st.info(f"Connected to repository: {GITHUB_REPO} ({GITHUB_BRANCH} branch)")
+        
     except Exception as e:
         st.error(f"GitHub connection failed: {str(e)}")
         return
