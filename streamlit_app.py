@@ -16,6 +16,11 @@ from bs4 import BeautifulSoup
 import time
 import nest_asyncio
 from docling.document_converter import DocumentConverter
+from docling.datamodel.pipeline_options import PdfPipelineOptions
+from docling.document_converter import DocumentConverter, PdfFormatOption
+from docling.backend.pypdfium2_backend import PyPdfiumDocumentBackend
+from docling.pipeline.standard_pdf_pipeline import StandardPdfPipeline
+from docling.datamodel.base_models import DocumentStream, InputFormat
 nest_asyncio.apply()
 import concurrent.futures
 
@@ -421,6 +426,42 @@ def save_extracted_text_to_github(repo, company_name, extracted_text, year):
         st.error(f"Error saving extracted text: {str(e)}")
         return False
 
+def process_pdf_with_docling(uploaded_file):
+    """Process PDF with Docling and return markdown output."""
+
+    
+    # Configure pipeline with OCR enabled
+    pipeline_options = PdfPipelineOptions(
+        do_ocr=True,
+        do_table_structure=False
+    )
+
+    # Initialize converter for PDF only
+    converter = DocumentConverter(
+        allowed_formats=[InputFormat.PDF],
+        format_options={
+            InputFormat.PDF: PdfFormatOption(
+                pipeline_cls=StandardPdfPipeline,
+                backend=PyPdfiumDocumentBackend,
+                pipeline_options=pipeline_options
+            )
+        }
+    )
+
+    # Create document stream from uploaded file
+    source = DocumentStream(
+        name=uploaded_file.name, 
+        stream=uploaded_file
+    )
+
+    # Convert and return markdown
+    try:
+        result = converter.convert(source)
+        return result.document.export_to_markdown()
+    except Exception as e:
+        st.error(f"Docling conversion failed: {str(e)}")
+        return None
+
 def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     """Unified PDF processing function for all upload methods."""
     st.write("entered process pdf func")
@@ -444,17 +485,15 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     def extract_llama():
         try:
             result = parser.load_data(temp_pdf_path)
-            st.write("LlamaParse extraction successful")  # Consider removing or logging
+            st.write("LlamaParse extraction successful")
             return result, None
         except Exception as e:
             return None, str(e)
 
     def extract_docling():
         try:
-            converter = DocumentConverter()
-            result = converter.convert(temp_pdf_path)
-            st.write("Docling extraction successful")  # Consider removing or logging
-            return result.document.export_to_markdown(), None
+            with open(temp_pdf_path, 'rb') as f:
+                return process_pdf_with_docling(f), None
         except Exception as e:
             return None, str(e)
 
@@ -470,19 +509,19 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         if llama_error and docling_error:
             st.error("Both extractors failed")
             st.error(f"LlamaParse error: {llama_error}")
-            st.error(f"MarkItDown error: {docling_error}")
+            st.error(f"Docling error: {docling_error}")
             return False
 
         if llama_error:
             st.warning(f"LlamaParse failed: {llama_error}")
         if docling_error:
-            st.warning(f"MarkItDown failed: {docling_error}")
+            st.warning(f"Docling failed: {docling_error}")
 
     finally:
-        os.unlink(temp_pdf_path)
-
-    if status_callback:
-        status_callback("Sending text to Gemini for analysis...")
+        try:
+            os.unlink(temp_pdf_path)
+        except:
+            pass
 
     # Process results with Gemini
     model = genai.GenerativeModel(
@@ -531,7 +570,6 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     note the primary GLIC association in the "glicAssociation" field. Do note that if the company name is a nominee account, you must list the full name of the shareholder in the JSON output.
     Here is the text from the annual report:
     """
-    # Process available results
     if extracted_text:
         chat_session = model.start_chat()
         llama_response = chat_session.send_message(EXTRACTION_PROMPT + str(extracted_text))
@@ -543,40 +581,44 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
 
     if docling_result:
         chat_session = model.start_chat()
-        docling_response = chat_session.send_message(EXTRACTION_PROMPT + str(docling_result.text_content))
+        docling_response = chat_session.send_message(EXTRACTION_PROMPT + str(docling_result))
         try:
             docling_json = json.loads(docling_response.text)
             results.append(docling_json)
         except json.JSONDecodeError:
-            st.warning("Failed to parse MarkItDown results")
+            st.warning("Failed to parse Docling results")
 
     if not results:
-        st.error("No valid results obtained")
+        st.error("No valid results obtained from either extractor")
         return False
 
     # Combine results if multiple exist
     final_json = results[0]
     if len(results) > 1:
         chat_session = model.start_chat()
-        combine_prompt = "Compare and consolidate these results: " + str(results)
+        combine_prompt = "Compare these JSONs and consolidate into the most accurate result: " + str(results)
         combined_response = chat_session.send_message(combine_prompt)
         try:
             final_json = json.loads(combined_response.text)
         except json.JSONDecodeError:
-            st.warning("Using first valid result")
+            st.warning("Failed to combine results, using first valid result")
 
     # Save to GitHub
     try:
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
 
+        # Save extracted texts
         if extracted_text:
             save_extracted_text_to_github(repo, final_json["companyName"], 
-                                        extracted_text, final_json["reportYear"])
+                                        extracted_text, "llama", 
+                                        final_json["reportYear"])
         if docling_result:
             save_extracted_text_to_github(repo, final_json["companyName"], 
-                                        docling_result.text_content, final_json["reportYear"])
+                                        docling_result, "docling", 
+                                        final_json["reportYear"])
 
+        # Upload final JSON
         success, message = upload_to_github(final_json, final_json["companyName"], 
                                           final_json["reportYear"])
         
