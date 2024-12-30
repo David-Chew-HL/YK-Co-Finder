@@ -15,7 +15,7 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import nest_asyncio
-from markitdown import MarkItDown
+from docling.document_converter import DocumentConverter
 nest_asyncio.apply()
 import concurrent.futures
 
@@ -421,13 +421,6 @@ def save_extracted_text_to_github(repo, company_name, extracted_text, year):
         st.error(f"Error saving extracted text: {str(e)}")
         return False
 
-import tempfile
-import os
-import concurrent.futures
-import json
-import streamlit as st
-from github import Github
-
 def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     """Unified PDF processing function for all upload methods."""
     st.write("entered process pdf func")
@@ -456,13 +449,12 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         except Exception as e:
             return None, str(e)
 
-    def extract_md():
+    def extract_docling():
         try:
-            md = MarkItDown()
-            # Assuming convert takes a file path; if not, pass the bytes
-            result = md.convert(temp_pdf_path)
-            st.write("MarkItDown extraction successful")  # Consider removing or logging
-            return result, None
+            converter = DocumentConverter()
+            result = converter.convert(temp_pdf_path)
+            st.write("Docling extraction successful")  # Consider removing or logging
+            return result.document.export_to_markdown(), None
         except Exception as e:
             return None, str(e)
 
@@ -470,21 +462,21 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     try:
         with concurrent.futures.ThreadPoolExecutor() as executor:
             llama_future = executor.submit(extract_llama)
-            md_future = executor.submit(extract_md)
+            docling_future = executor.submit(extract_docling)
             
             extracted_text, llama_error = llama_future.result()
-            md_result, md_error = md_future.result()
+            docling_result, docling_error = docling_future.result()
 
-        if llama_error and md_error:
+        if llama_error and docling_error:
             st.error("Both extractors failed")
             st.error(f"LlamaParse error: {llama_error}")
-            st.error(f"MarkItDown error: {md_error}")
+            st.error(f"MarkItDown error: {docling_error}")
             return False
 
         if llama_error:
             st.warning(f"LlamaParse failed: {llama_error}")
-        if md_error:
-            st.warning(f"MarkItDown failed: {md_error}")
+        if docling_error:
+            st.warning(f"MarkItDown failed: {docling_error}")
 
     finally:
         os.unlink(temp_pdf_path)
@@ -536,7 +528,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
 
     If a shareholder is not associated with any of the specified GLICs, set the "glicAssociation" field to None in the JSON output. 
     If the shareholder is a subsidiary or affiliate of a GLIC (e.g., "Amanah Trustees" under "PNB"), 
-    note the primary GLIC association in the "glicAssociation" field.
+    note the primary GLIC association in the "glicAssociation" field. Do note that if the company name is a nominee account, you must list the full name of the shareholder in the JSON output.
     Here is the text from the annual report:
     """
     # Process available results
@@ -549,12 +541,12 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         except json.JSONDecodeError:
             st.warning("Failed to parse LlamaParse results")
 
-    if md_result:
+    if docling_result:
         chat_session = model.start_chat()
-        md_response = chat_session.send_message(EXTRACTION_PROMPT + str(md_result.text_content))
+        docling_response = chat_session.send_message(EXTRACTION_PROMPT + str(docling_result.text_content))
         try:
-            md_json = json.loads(md_response.text)
-            results.append(md_json)
+            docling_json = json.loads(docling_response.text)
+            results.append(docling_json)
         except json.JSONDecodeError:
             st.warning("Failed to parse MarkItDown results")
 
@@ -581,9 +573,9 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         if extracted_text:
             save_extracted_text_to_github(repo, final_json["companyName"], 
                                         extracted_text, final_json["reportYear"])
-        if md_result:
+        if docling_result:
             save_extracted_text_to_github(repo, final_json["companyName"], 
-                                        md_result.text_content, final_json["reportYear"])
+                                        docling_result.text_content, final_json["reportYear"])
 
         success, message = upload_to_github(final_json, final_json["companyName"], 
                                           final_json["reportYear"])
