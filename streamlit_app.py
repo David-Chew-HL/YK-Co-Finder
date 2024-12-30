@@ -426,9 +426,10 @@ def save_extracted_text_to_github(repo, company_name, extracted_text, year):
         st.error(f"Error saving extracted text: {str(e)}")
         return False
 
-def process_pdf_with_docling(uploaded_file):
+def process_pdf_with_docling(file_content, filename):
     """Process PDF with Docling and return markdown output."""
-    pdf_bytes = BytesIO(uploaded_file)
+    # Convert to BytesIO
+    pdf_bytes = BytesIO(file_content)
     
     # Configure pipeline with OCR enabled
     pipeline_options = PdfPipelineOptions(
@@ -448,10 +449,10 @@ def process_pdf_with_docling(uploaded_file):
         }
     )
 
-    # Create document stream from uploaded file
+    # Create document stream using BytesIO
     source = DocumentStream(
-        name=uploaded_file.name, 
-        stream=uploaded_file
+        name=filename,
+        stream=pdf_bytes
     )
 
     # Convert and return markdown
@@ -494,7 +495,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         try:
             with open(temp_pdf_path, 'rb') as f:
                 file_content = f.read()
-                return process_pdf_with_docling(file_content), None
+                return process_pdf_with_docling(file_content, temp_pdf_path), None
         except Exception as e:
             return None, str(e)
 
