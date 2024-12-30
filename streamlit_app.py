@@ -374,9 +374,8 @@ def view_json_file(file_content):
     shareholder_data = [["Shareholder Name", "GLIC Association", "Percentage Held"]]
 
     # Populate the data, starting the row counter from 1
-    for shareholder in enumerate(data['topShareholders'], start=1):
+    for _, shareholder in enumerate(data['topShareholders'], start=1):
         shareholder_data.append([
-         
             shareholder['shareholderName'],
             shareholder['glicAssociation'],
             f"{shareholder['percentageHeld']}%"
@@ -631,7 +630,7 @@ def upload_page():
     st.subheader("Process New Companies")
     
     # Tab selection for search or dropdown
-    tab2, tab1 = st.tabs(["Search Company", "Select from List"])
+    tab2, tab1 = st.tabs([ "Select from List","Search Company"])
     
     with tab1:
         # Initialize session state for search results and status messages
@@ -815,7 +814,6 @@ def dashboard_page():
         st.metric("Total Industries", len(glic_distribution[">= 20"]) + len(glic_distribution["< 20"]))
 
     # Industry distribution chart
-    st.subheader("Industry Distribution")
     industry_df = pd.DataFrame({
         "Industry": list(set(glic_distribution[">= 20"].keys()) | set(glic_distribution["< 20"].keys())),
         "Bond Serving": [glic_distribution[">= 20"].get(ind, 0) for ind in set(glic_distribution[">= 20"].keys()) | set(glic_distribution["< 20"].keys())],
@@ -823,7 +821,7 @@ def dashboard_page():
     })
 
     # Plot with Matplotlib
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(10, 4))
     industry_df = industry_df.set_index("Industry")
     ax = industry_df.plot(kind="bar", stacked=True, color=["#46B4A6", "#FFA07A"], edgecolor="black")
     plt.ylabel("Count", fontsize=12)
