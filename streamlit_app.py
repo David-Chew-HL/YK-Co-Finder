@@ -391,12 +391,10 @@ def view_json_file(file_content):
 
     # Adjust table display
     st.subheader("Top Shareholders")
-    styled_table = df.style.set_table_styles([
-        {'selector': 'thead th', 'props': [('font-weight', 'bold')]},  # Bold header row
-        {'selector': 'td', 'props': [('word-wrap', 'break-word'), ('white-space', 'pre-wrap')]}  # Text wrapping
-    ]).hide_index()  # Hide the index column
-
-    st.write(styled_table.render(), unsafe_allow_html=True)
+    st.markdown(
+        df.to_html(index=False, escape=False, justify="left"),
+        unsafe_allow_html=True
+    )
 
 
 
@@ -738,8 +736,8 @@ def upload_page():
                                 pdf_content = download_and_process_pdf(result['url'])
                                 process_pdf_content(pdf_content, selected_company, update_status)
                                 
-            elif selected_company and 'tab2_results' in st.session_state:
-                st.error("No PDF reports found for this company")
+            #elif selected_company and 'tab2_results' in st.session_state:
+                #st.error("No PDF reports found for this company")
         else:
             st.info("No companies left to process in the list")
 
