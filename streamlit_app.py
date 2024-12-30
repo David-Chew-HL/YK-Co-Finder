@@ -187,6 +187,7 @@ def verify_page():
         return
 
     verification_completed = False
+    modified_files = []
 
     for file_index, file in enumerate(json_files):
         try:
@@ -241,7 +242,15 @@ def verify_page():
                         shareholder['glicAssociation'] = glic_selection
                         modified = True
 
-            if st.button("Approve Verification"):
+            if modified:
+                modified_files.append((file, shareholders, data))
+
+        except Exception as e:
+            st.error(f"Error processing file: {str(e)}")
+
+    if st.button("Approve Verification", key="approve_verification"):
+        for file, shareholders, data in modified_files:
+            try:
                 success = True
                 
                 # Calculate GLIC total
@@ -293,8 +302,8 @@ def verify_page():
                 except Exception as e:
                     st.error(f"Error updating files: {str(e)}")
                     
-        except Exception as e:
-            st.error(f"Error processing file: {str(e)}")
+            except Exception as e:
+                st.error(f"Error processing file: {str(e)}")
     
     if verification_completed:
         st.success("Verification completed!")
@@ -387,7 +396,7 @@ def view_json_file(file_content, selected_file):
         shareholder_data.append({
             "Shareholder Name": shareholder['shareholderName'],
             "GLIC Association": shareholder['glicAssociation'],
-            "Percentage Held": shareholder['percentageHeld']
+            "Percentage Held %": shareholder['percentageHeld']
         })
 
     # Create DataFrame
@@ -397,7 +406,7 @@ def view_json_file(file_content, selected_file):
     df['Group'] = df['GLIC Association'].apply(lambda x: 1 if x != "None" else 2)
 
     # Sort by Group first, then by Percentage Held descending within each group
-    df = df.sort_values(by=["Group", "Percentage Held"], ascending=[True, False]).drop(columns=["Group"])
+    df = df.sort_values(by=["Group", "Percentage Held %"], ascending=[True, False]).drop(columns=["Group"])
 
     # Adjust table display
     st.subheader("Top Shareholders")
@@ -811,7 +820,7 @@ def dashboard_page():
         industry = file_content.get("industry", "Unknown")
         
         file_data.append({
-            " ": "⭐" if glic_total >= 20 else "",
+            " ": "✔️" if glic_total >= 20 else "",
             "Company": file_content.get("companyName", "Unknown"),
             "Industry": industry,
             "GLIC Total %": glic_total,
