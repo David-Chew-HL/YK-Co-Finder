@@ -426,19 +426,13 @@ def save_extracted_text_to_github(repo, company_name, extracted_text, year):
         st.error(f"Error saving extracted text: {str(e)}")
         return False
 
-def process_pdf_with_docling(file_content, filename):
-    """Process PDF with Docling and return markdown output."""
-    # Convert to BytesIO
-    pdf_bytes = BytesIO(file_content)
-    
-    # Configure pipeline with OCR enabled
+@st.cache_resource
+def get_docling_converter():
     pipeline_options = PdfPipelineOptions(
         do_ocr=True,
         do_table_structure=False
     )
-
-    # Initialize converter for PDF only
-    converter = DocumentConverter(
+    return DocumentConverter(
         allowed_formats=[InputFormat.PDF],
         format_options={
             InputFormat.PDF: PdfFormatOption(
@@ -449,20 +443,22 @@ def process_pdf_with_docling(file_content, filename):
         }
     )
 
-    # Create document stream using BytesIO
-    source = DocumentStream(
-        name=filename,
-        stream=pdf_bytes
-    )
+@st.cache_resource
+def get_llama_parser():
+    return LlamaParse()
 
-    # Convert and return markdown
+def process_pdf_with_docling(file_content, filename):
+    """Process PDF with Docling and return markdown output."""
+    pdf_bytes = BytesIO(file_content)
+    converter = get_docling_converter()
+    source = DocumentStream(name=filename, stream=pdf_bytes)
     try:
         result = converter.convert(source)
         return result.document.export_to_markdown()
     except Exception as e:
         st.error(f"Docling conversion failed: {str(e)}")
         return None
-
+    
 def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     """Unified PDF processing function for all upload methods."""
     st.write("entered process pdf func")
@@ -485,6 +481,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     # Define extraction functions
     def extract_llama():
         try:
+            parser = get_llama_parser()
             result = parser.load_data(temp_pdf_path)
             st.write("LlamaParse extraction successful")
             return result, None
@@ -525,7 +522,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         except:
             pass
 
-    # Process results with Gemini
+    # Process with Gemini
     model = genai.GenerativeModel(
         model_name="gemini-1.5-flash-8b",
         generation_config=generation_config
