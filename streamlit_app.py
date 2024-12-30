@@ -365,23 +365,36 @@ def add_verified_shareholders(repo, new_entries):
 def view_json_file(file_content):
     data = json.loads(file_content)
 
+    # Display company information
     st.subheader(data["companyName"])
     st.write(f"Report Year: {data['reportYear']}")
     st.write(f"Industry: {data['industry']}")
     st.write(f"Company Description: {data['companyDescription']}")
 
+    # Prepare shareholder data
+    shareholder_data = []
+    for shareholder in data['topShareholders']:
+        shareholder_data.append({
+            "Shareholder Name": shareholder['shareholderName'],
+            "GLIC Association": shareholder['glicAssociation'],
+            "Percentage Held": shareholder['percentageHeld']
+        })
+
+    # Create DataFrame
+    df = pd.DataFrame(shareholder_data)
+
+    # Define a ranking for grouping (GLIC Association != empty/None/0 is ranked higher)
+    df['Group Rank'] = df['GLIC Association'].apply(lambda x: 0 if x and str(x).strip() != "0" else 1)
+
+    # Sort by Group Rank (non-zero GLIC first) and Percentage Held
+    df = df.sort_values(by=["Group Rank", "Percentage Held"], ascending=[True, True]).drop(columns=["Group Rank"])
+
+    # Display table with bold header
     st.subheader("Top Shareholders")
-    shareholder_data = [["Shareholder Name", "GLIC Association", "Percentage Held"]]
-
-    # Populate the data, starting the row counter from 1
-    for _, shareholder in enumerate(data['topShareholders'], start=1):
-        shareholder_data.append([
-            shareholder['shareholderName'],
-            shareholder['glicAssociation'],
-            f"{shareholder['percentageHeld']}%"
-        ])
-
-    st.table(shareholder_data)
+    styled_table = df.style.set_table_styles([
+        {'selector': 'thead th', 'props': [('font-weight', 'bold')]}  # Bold header row
+    ])
+    st.dataframe(styled_table, use_container_width=True)
 
 def save_extracted_text_to_github(repo, company_name, extracted_text, year):
     """Save extracted text to GitHub in the extracted folder."""
