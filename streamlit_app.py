@@ -122,7 +122,7 @@ def upload_to_github(json_data, filename,year):
         return False, f"Upload failed: {str(e)}"
     
 
-def get_json_files_from_github(exclude_verified=True):
+def get_json_files_from_github(exclude_verified):
     """
     Fetches JSON files from the GitHub repo. If `exclude_verified` is True, 
     only includes JSON files without '_v_' in the filename (for unverified files).
@@ -295,6 +295,8 @@ def verify_page():
     
     if verification_completed:
         st.success("Verification completed!")
+        time.sleep(2)  # Wait for 2 seconds before refreshing
+        st.rerun()  # Refresh the page
 
 def get_verified_shareholders(repo):
     # Check for existence of verified_shareholders.csv
@@ -366,12 +368,12 @@ def view_json_file(file_content):
     st.write(f"Company Description: {data['companyDescription']}")
 
     st.subheader("Top Shareholders")
-    shareholder_data = [["#", "Shareholder Name", "GLIC Association", "Percentage Held"]]
+    shareholder_data = [["Shareholder Name", "GLIC Association", "Percentage Held"]]
 
     # Populate the data, starting the row counter from 1
-    for idx, shareholder in enumerate(data['topShareholders'], start=1):
+    for shareholder in enumerate(data['topShareholders'], start=1):
         shareholder_data.append([
-            idx,
+         
             shareholder['shareholderName'],
             shareholder['glicAssociation'],
             f"{shareholder['percentageHeld']}%"
@@ -419,7 +421,7 @@ def extract_text_from_pdf(reader):
     for idx, page in enumerate(reader.pages):
         text = page.extract_text()
         #if text:
-        full_text += f"---- Page {idx} ----\n" + text + "\n\n"
+        full_text += f"---- Page {idx+1} ----\n" + text + "\n\n"
     return full_text.strip()
 
 def convert_pdf_to_text(pdf_file):
@@ -439,7 +441,7 @@ def convert_pdf_to_text(pdf_file):
 
 def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     """Unified PDF processing function for all upload methods."""
-    st.write("entered process pdf func")
+    #st.write("entered process pdf func")
 
     # Create temporary file
     try:
@@ -451,7 +453,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as temp_pdf:
             temp_pdf.write(content_bytes)
             temp_pdf_path = temp_pdf.name
-            st.write(f"Temporary PDF path: {temp_pdf_path}")
+            #st.write(f"Temporary PDF path: {temp_pdf_path}")
     except Exception as temp_file_error:
         st.error(f"Error creating temporary file: {temp_file_error}")
         return False
@@ -513,7 +515,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         "shareholderName": "Shareholder's name. Sometimes the name can span multiple lines, so provide the full name of the shareholder",
         "glicAssociation": "GLIC name if applicable, otherwise None",
         "percentageHeld": "Percentage of shares held",
-        "pageNumber": "Page number where the shareholder information is found"
+        "pageNumber": "Page number where the shareholder information is found, looks like ---- Page 236 ----"
         },
         ...
     ]
@@ -626,7 +628,7 @@ def upload_page():
     st.subheader("Process New Companies")
     
     # Tab selection for search or dropdown
-    tab1, tab2 = st.tabs(["Search Company", "Select from List"])
+    tab2, tab1 = st.tabs(["Search Company", "Select from List"])
     
     with tab1:
         # Initialize session state for search results and status messages
@@ -759,6 +761,33 @@ def get_file_content(file_path):
 def dashboard_page(): #only show those which are verified and is bondserving
     st.title("Dashboard")
 
+    file_df = pd.DataFrame(file_data)
+    num_total_co = len(file_df)
+    #GLIC % threshold
+    file_df = file_df[file_df["GLIC Total"] >= 20]
+    
+    # Display industry distribution bar chart
+    if industry_counts:  # Only show if we have data
+        st.subheader("Industry Distribution")
+        industry_df = pd.DataFrame.from_dict(
+            industry_counts, 
+            orient='index', 
+            columns=["Count"]
+        ).sort_values("Count", ascending=False)
+        st.bar_chart(industry_df)
+        
+        # Add some statistics
+        st.subheader("Statistics")
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Bond Serving Companies", len(num_total_co))
+        with col2:
+            st.metric("Total Companies Processed", len(file_df))
+        with col3:
+            st.metric("Total Industries", len(industry_counts))
+
+
+
     json_files = get_json_files_from_github(exclude_verified=False)
     if not json_files:
         st.info("No JSON files found with GLIC totals.")
@@ -772,7 +801,7 @@ def dashboard_page(): #only show those which are verified and is bondserving
         industry = file_content.get("industry", "Unknown")
         
         file_data.append({
-            "Filename": file['name'],
+           
             "Company": file_content.get("companyName", "Unknown"),
             "Industry": industry,
             "GLIC Total": glic_total
@@ -782,14 +811,6 @@ def dashboard_page(): #only show those which are verified and is bondserving
         if industry and industry != "Unknown":
             industry_counts[industry] = industry_counts.get(industry, 0) + 1
 
-    # Display file data in a table
-    st.subheader("Files with GLIC Totals")
-    file_df = pd.DataFrame(file_data)
-    
-    # Add filter for GLIC total threshold
-    glic_threshold = st.slider("Filter by minimum GLIC total %", 0, 100, 0)
-    if glic_threshold > 0:
-        file_df = file_df[file_df["GLIC Total"] >= glic_threshold]
 
     # Industry filter
     all_industries = ["All"] + sorted(list(industry_counts.keys()))
@@ -800,31 +821,11 @@ def dashboard_page(): #only show those which are verified and is bondserving
     
     # Sort options
     sort_by = st.selectbox("Sort by:", ["GLIC Total", "Company", "Industry"])
-    ascending = st.checkbox("Ascending order", value=False)
-    file_df = file_df.sort_values(by=sort_by, ascending=ascending)
+    file_df = file_df.sort_values(by=sort_by, ascending=True)
     
     st.write(file_df)
 
-    # Display industry distribution bar chart
-    if industry_counts:  # Only show if we have data
-        st.subheader("Industry Distribution")
-        industry_df = pd.DataFrame.from_dict(
-            industry_counts, 
-            orient='index', 
-            columns=["Count"]
-        ).sort_values("Count", ascending=False)
-        st.bar_chart(industry_df)
-        
-        # Add some statistics
-        st.subheader("Summary Statistics")
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            st.metric("Total Companies", len(file_df))
-        with col2:
-            st.metric("Total Industries", len(industry_counts))
-        with col3:
-            avg_glic = file_df["GLIC Total"].mean()
-            st.metric("Average GLIC Total", f"{avg_glic:.1f}%")
+
 
 def get_not_yet_companies(repo):
     """Get list of companies that haven't been processed yet."""
