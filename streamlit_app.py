@@ -761,6 +761,24 @@ def get_file_content(file_path):
 def dashboard_page(): #only show those which are verified and is bondserving
     st.title("Dashboard")
 
+    file_data = []
+    industry_counts = {}
+    for file in json_files:
+        glic_total = extract_glic_total(file['name'])
+        file_content = get_file_content(file['path'])
+        industry = file_content.get("industry", "Unknown")
+        
+        file_data.append({
+           
+            "Company": file_content.get("companyName", "Unknown"),
+            "Industry": industry,
+            "GLIC Total": glic_total
+        })
+
+        # Update industry counts for the chart
+        if industry and industry != "Unknown":
+            industry_counts[industry] = industry_counts.get(industry, 0) + 1
+            
     file_df = pd.DataFrame(file_data)
     num_total_co = len(file_df)
     #GLIC % threshold
@@ -787,30 +805,10 @@ def dashboard_page(): #only show those which are verified and is bondserving
             st.metric("Total Industries", len(industry_counts))
 
 
-
     json_files = get_json_files_from_github(exclude_verified=False)
     if not json_files:
         st.info("No JSON files found with GLIC totals.")
         return
-
-    file_data = []
-    industry_counts = {}
-    for file in json_files:
-        glic_total = extract_glic_total(file['name'])
-        file_content = get_file_content(file['path'])
-        industry = file_content.get("industry", "Unknown")
-        
-        file_data.append({
-           
-            "Company": file_content.get("companyName", "Unknown"),
-            "Industry": industry,
-            "GLIC Total": glic_total
-        })
-
-        # Update industry counts for the chart
-        if industry and industry != "Unknown":
-            industry_counts[industry] = industry_counts.get(industry, 0) + 1
-
 
     # Industry filter
     all_industries = ["All"] + sorted(list(industry_counts.keys()))
