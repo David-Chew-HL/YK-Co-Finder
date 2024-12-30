@@ -758,18 +758,25 @@ def get_file_content(file_path):
     data = json.loads(base64.b64decode(content.content).decode())
     return data
 
-def dashboard_page(): #only show those which are verified and is bondserving
+def dashboard_page(): 
+    # Only show those which are verified and bond serving
     st.title("Dashboard")
+
+    # Fetch JSON files at the beginning
+    json_files = get_json_files_from_github(exclude_verified=False)
+    if not json_files:
+        st.info("No JSON files found with GLIC totals.")
+        return
 
     file_data = []
     industry_counts = {}
+
     for file in json_files:
         glic_total = extract_glic_total(file['name'])
         file_content = get_file_content(file['path'])
         industry = file_content.get("industry", "Unknown")
         
         file_data.append({
-           
             "Company": file_content.get("companyName", "Unknown"),
             "Industry": industry,
             "GLIC Total": glic_total
@@ -781,7 +788,8 @@ def dashboard_page(): #only show those which are verified and is bondserving
             
     file_df = pd.DataFrame(file_data)
     num_total_co = len(file_df)
-    #GLIC % threshold
+    
+    # Apply GLIC % threshold
     file_df = file_df[file_df["GLIC Total"] >= 20]
     
     # Display industry distribution bar chart
@@ -798,17 +806,11 @@ def dashboard_page(): #only show those which are verified and is bondserving
         st.subheader("Statistics")
         col1, col2, col3 = st.columns(3)
         with col1:
-            st.metric("Bond Serving Companies", len(num_total_co))
+            st.metric("Bond Serving Companies", len(file_df))
         with col2:
-            st.metric("Total Companies Processed", len(file_df))
+            st.metric("Total Companies Processed", num_total_co)
         with col3:
             st.metric("Total Industries", len(industry_counts))
-
-
-    json_files = get_json_files_from_github(exclude_verified=False)
-    if not json_files:
-        st.info("No JSON files found with GLIC totals.")
-        return
 
     # Industry filter
     all_industries = ["All"] + sorted(list(industry_counts.keys()))
@@ -822,6 +824,7 @@ def dashboard_page(): #only show those which are verified and is bondserving
     file_df = file_df.sort_values(by=sort_by, ascending=True)
     
     st.write(file_df)
+
 
 
 
