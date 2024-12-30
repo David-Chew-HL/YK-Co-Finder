@@ -17,6 +17,9 @@ import nest_asyncio
 import concurrent.futures
 from pypdf import PdfReader
 import ocrmypdf
+from matplotlib.ticker import MaxNLocator
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
@@ -758,8 +761,7 @@ def get_file_content(file_path):
     data = json.loads(base64.b64decode(content.content).decode())
     return data
 
-import matplotlib.pyplot as plt
-import seaborn as sns
+
 
 def dashboard_page(): 
     # Only show those which are verified and bond serving
@@ -784,7 +786,7 @@ def dashboard_page():
             " ": "⭐" if glic_total >= 20 else "",
             "Company": file_content.get("companyName", "Unknown"),
             "Industry": industry,
-            "GLIC Total": glic_total,
+            "GLIC Total %": glic_total,
             
         })
 
@@ -823,11 +825,12 @@ def dashboard_page():
     # Plot with Matplotlib
     plt.figure(figsize=(10, 6))
     industry_df = industry_df.set_index("Industry")
-    industry_df.plot(kind="bar", stacked=True, color=["#46B4A6", "#FFA07A"], edgecolor="black")
+    ax = industry_df.plot(kind="bar", stacked=True, color=["#46B4A6", "#FFA07A"], edgecolor="black")
     plt.ylabel("Count", fontsize=12)
     plt.xlabel("Industry", fontsize=12)
     plt.xticks(rotation=45, ha="right", fontsize=10, color="black")
     plt.yticks(fontsize=10)
+    ax.yaxis.set_major_locator(MaxNLocator(integer=True))
     plt.title("Industry Distribution", fontsize=14, fontweight="bold")
     plt.tight_layout()
     st.pyplot(plt)
@@ -851,7 +854,7 @@ def dashboard_page():
     sorted_df = pd.concat([high_glic_df, low_glic_df])
 
     # Display table
-    st.dataframe(sorted_df, use_container_width=True)
+    st.dataframe(sorted_df.reset_index(drop=True), use_container_width=True)
 
 
 
