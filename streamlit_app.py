@@ -15,15 +15,8 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import nest_asyncio
-from docling.document_converter import DocumentConverter
-from docling.datamodel.pipeline_options import PdfPipelineOptions
-from docling.document_converter import DocumentConverter, PdfFormatOption
-from docling.backend.pypdfium2_backend import PyPdfiumDocumentBackend
-from docling.pipeline.standard_pdf_pipeline import StandardPdfPipeline
-from docling.datamodel.base_models import DocumentStream, InputFormat
-nest_asyncio.apply()
 import concurrent.futures
-
+import ocrmypdf
 
 from llama_parse import LlamaParse
 
@@ -79,6 +72,9 @@ generation_config = {
               type = content.Type.STRING,
             ),
             "percentageHeld": content.Schema(
+              type = content.Type.NUMBER,
+            ),
+            "pageNumber": content.Schema(
               type = content.Type.NUMBER,
             ),
           },
@@ -426,39 +422,35 @@ def save_extracted_text_to_github(repo, company_name, extracted_text, year):
         st.error(f"Error saving extracted text: {str(e)}")
         return False
 
-@st.cache_resource
-def get_docling_converter():
-    pipeline_options = PdfPipelineOptions(
-        do_ocr=True,
-        do_table_structure=False
-    )
-    return DocumentConverter(
-        allowed_formats=[InputFormat.PDF],
-        format_options={
-            InputFormat.PDF: PdfFormatOption(
-                pipeline_cls=StandardPdfPipeline,
-                backend=PyPdfiumDocumentBackend,
-                pipeline_options=pipeline_options
-            )
-        }
-    )
 
 @st.cache_resource
 def get_llama_parser():
     return LlamaParse()
 
-def process_pdf_with_docling(file_content, filename):
-    """Process PDF with Docling and return markdown output."""
-    pdf_bytes = BytesIO(file_content)
-    converter = get_docling_converter()
-    source = DocumentStream(name=filename, stream=pdf_bytes)
-    try:
-        result = converter.convert(source)
-        return result.document.export_to_markdown()
-    except Exception as e:
-        st.error(f"Docling conversion failed: {str(e)}")
-        return None
     
+def extract_text_from_pdf(reader):
+    full_text = ""
+    for idx, page in enumerate(reader.pages):
+        text = page.extract_text()
+        if text:
+            full_text += f"---- Page {idx} ----\n" + text + "\n\n"
+    return full_text.strip()
+
+def convert_pdf_to_text(pdf_file):
+    reader = PdfReader(pdf_file)
+    full_text = extract_text_from_pdf(reader)
+
+    # Check if there are any images and perform OCR if necessary
+    image_count = sum(len(page.images) for page in reader.pages)
+    if image_count > 0 and len(full_text) < 1000:
+        with tempfile.NamedTemporaryFile(delete=False, suffix='_ocr.pdf') as temp_ocr_pdf:
+            ocrmypdf.ocr(pdf_file, temp_ocr_pdf.name, force_ocr=True)
+            reader = PdfReader(temp_ocr_pdf.name)
+            full_text = extract_text_from_pdf(reader)
+        os.unlink(temp_ocr_pdf.name)
+
+    return full_text
+
 def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     """Unified PDF processing function for all upload methods."""
     st.write("entered process pdf func")
@@ -488,11 +480,9 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         except Exception as e:
             return None, str(e)
 
-    def extract_docling():
+    def extract_pdf_text():
         try:
-            with open(temp_pdf_path, 'rb') as f:
-                file_content = f.read()
-                return process_pdf_with_docling(file_content, temp_pdf_path), None
+            return convert_pdf_to_text(temp_pdf_path), None
         except Exception as e:
             return None, str(e)
 
@@ -500,21 +490,21 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     try:
         with concurrent.futures.ThreadPoolExecutor() as executor:
             llama_future = executor.submit(extract_llama)
-            docling_future = executor.submit(extract_docling)
+            pdf_text_future = executor.submit(extract_pdf_text)
             
             extracted_text, llama_error = llama_future.result()
-            docling_result, docling_error = docling_future.result()
+            pdf_text_result, pdf_text_error = pdf_text_future.result()
 
-        if llama_error and docling_error:
+        if llama_error and pdf_text_error:
             st.error("Both extractors failed")
             st.error(f"LlamaParse error: {llama_error}")
-            st.error(f"Docling error: {docling_error}")
+            st.error(f"PDF text extraction error: {pdf_text_error}")
             return False
 
         if llama_error:
             st.warning(f"LlamaParse failed: {llama_error}")
-        if docling_error:
-            st.warning(f"Docling failed: {docling_error}")
+        if pdf_text_error:
+            st.warning(f"PDF text extraction failed: {pdf_text_error}")
 
     finally:
         try:
@@ -559,6 +549,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         "shareholderName": "Shareholder's name",
         "glicAssociation": "GLIC name if applicable, otherwise None",
         "percentageHeld": Percentage of shares held
+        "pageNumber": Page number where the shareholder information is found
         },
         ...
     ]
@@ -578,14 +569,14 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
         except json.JSONDecodeError:
             st.warning("Failed to parse LlamaParse results")
 
-    if docling_result:
+    if pdf_text_result:
         chat_session = model.start_chat()
-        docling_response = chat_session.send_message(EXTRACTION_PROMPT + str(docling_result))
+        pdf_text_response = chat_session.send_message(EXTRACTION_PROMPT + str(pdf_text_result))
         try:
-            docling_json = json.loads(docling_response.text)
-            results.append(docling_json)
+            pdf_text_json = json.loads(pdf_text_response.text)
+            results.append(pdf_text_json)
         except json.JSONDecodeError:
-            st.warning("Failed to parse Docling results")
+            st.warning("Failed to parse PDF text results")
 
     if not results:
         st.error("No valid results obtained from either extractor")
@@ -612,9 +603,9 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
             save_extracted_text_to_github(repo, final_json["companyName"], 
                                         extracted_text, "llama", 
                                         final_json["reportYear"])
-        if docling_result:
+        if pdf_text_result:
             save_extracted_text_to_github(repo, final_json["companyName"], 
-                                        docling_result, "docling", 
+                                        pdf_text_result, "pdf_text", 
                                         final_json["reportYear"])
 
         # Upload final JSON
