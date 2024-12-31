@@ -81,7 +81,7 @@ Amanah Saham Malaysia 3",PNB
 "Amanahraya Trustees Berhad
 Public Islamic Dividend Fund",PNB
 "Amanahraya Trustees Berhad
-Public Ittikal Sequel Fund",None
+Public Ittikal Sequel Fund",
 "Amanahraya Trustees Berhad
 – Amanah Saham Bumiputera",PNB
 "Amanahraya Trustees Berhad
@@ -141,9 +141,9 @@ CHOONG KEAN LEANG,
 CIMB GROUP NOMINEES (TEMPATAN) SDN BHD CIMB Commerce Trustee Berhad For Kenanga Shariah Growth Opportunities Fund (50156 TR01),
 CIMB GROUP NOMINEES (TEMPATAN) SDN BHD EXEMPT AN FOR PETROLIAM NASIONAL BERHAD (ACF-KENANGA-EQ),
 "CIMB Group Nominees (Tempatan) Sdn Bhd
-CIMB Bank Berhad (EDP 2)",None
+CIMB Bank Berhad (EDP 2)",
 "CIMB Group Nominees (Tempatan) Sdn Bhd
-CIMB Commerce Trustee Berhad for Kenanga Shariah Growth Opportunities Fund (50156 TR01)",None
+CIMB Commerce Trustee Berhad for Kenanga Shariah Growth Opportunities Fund (50156 TR01)",
 "CIMB Group Nominees (Tempatan) Sdn Bhd
 – CIMB Bank Berhad (EDP 2)",
 "CIMB Group Nominees (Tempatan) Sdn Bhd
@@ -219,7 +219,7 @@ Exempt AN For State Street Bank & Trust Company (West CLT OD67)",
 Exempt AN for State Street Bank & Trust Company
 (WEST CLT OD67)",
 "Cartaban Nominees (Asing) Sdn Bhd
-Exempt AN for State Street Bank & Trust Company (WEST CLT OD67)",None
+Exempt AN for State Street Bank & Trust Company (WEST CLT OD67)",
 "Cartaban Nominees (Asing) Sdn Bhd
 State Street London Fund OQ78 For Ishares IV Public Limited Company",
 "Cartaban Nominees (Asing) Sdn Bhd
@@ -254,7 +254,7 @@ Casi Management Sdn Bhd,
 Cimsec Nominees (Tempatan) Sdn Bhd CIMB For Lim Wee Chai (PB),
 Cimsec Nominees (Tempatan) Sdn Bhd CIMB for Vincent Tan Chee Yioun (PB),
 "Citigroup Group Nominees (Tempatan) Sdn Bhd
-Great Eastern Life Assurance (Malaysia) Berhad (LSF)",None
+Great Eastern Life Assurance (Malaysia) Berhad (LSF)",
 "Citigroup Nominees (Asing) Sdn Bhd
 CB Spore GW For Government Of Singapore (GIC C)",
 "Citigroup Nominees (Asing) Sdn Bhd
@@ -289,9 +289,9 @@ Employees Provident Fund Board (RHB Inv)",EPF
 "Citigroup Nominees (Tempatan) Sdn Bhd
 Exempt AN for AIA Bhd",
 "Citigroup Nominees (Tempatan) Sdn Bhd
-Exempt AN for AIA Public Takaful Bhd",None
+Exempt AN for AIA Public Takaful Bhd",
 "Citigroup Nominees (Tempatan) Sdn Bhd
-Great Eastern Life Assurance (Malaysia) Berhad (LBF)",None
+Great Eastern Life Assurance (Malaysia) Berhad (LBF)",
 "Citigroup Nominees (Tempatan) Sdn Bhd
 Great Eastern Life Assurance (Malaysia) Berhad (PAR 1)",
 "Citigroup Nominees (Tempatan) Sdn Bhd
@@ -366,7 +366,7 @@ Foreign Shareholdings,
 Generasi Setia (M) Sdn Bhd,
 Goh Hian Tim,
 Goon Heng Wah,
-Guoline (Singapore) Pte Ltd,None
+Guoline (Singapore) Pte Ltd,
 HONG LEONG ASSURANCE BERHAD As Beneficial Owner (LIFE PAR),
 HONG LEONG ASSURANCE BERHAD As Beneficial Owner (UNITLINKED OP),
 HONG LEONG MSIG TAKAFUL BERHAD As Beneficial Owner (Family Fund),
@@ -438,11 +438,11 @@ HSBC Nominees (Asing) Sdn Bhd JPMSE LUX for Andra AP-Fonden,
 HSBC Nominees (Asing) Sdn Bhd Morgan Stanley & Co. International Plc (Firm A/C),
 "HSBC Nominees (Asing) Sdn. Bhd. Exempt An For JPMorgan Chase Bank, National Association (SingaporeJPMPB)",
 "HSBC Nominees (Tempatan) Sdn Bhd
-HSBC (M) Trustee Bhd For Allianz Life Insurance Malaysia Berhad (MEF)",None
+HSBC (M) Trustee Bhd For Allianz Life Insurance Malaysia Berhad (MEF)",
 "HSBC Nominees (Tempatan) Sdn Bhd
-HSBC (M) Trustee Bhd For Manulife Insurance Berhad (Equity Fund)",None
+HSBC (M) Trustee Bhd For Manulife Insurance Berhad (Equity Fund)",
 "HSBC Nominees (Tempatan) Sdn Bhd
-HSBC (M) Trustee Bhd For Manulife Investment Al-Fauzan (5170)",None
+HSBC (M) Trustee Bhd For Manulife Investment Al-Fauzan (5170)",
 "HSBC Nominees (Tempatan) Sdn Bhd
 – HSBC (M) Trustee Bhd for Allianz Life Insurance
 Malaysia Berhad (MEF)",
@@ -504,6 +504,7 @@ MUTHUKUMAR A/L AYARPADDE,
 Magna Mahsuri Sdn Bhd,
 "Malaysia Nominees (Tempatan) Sendirian Berhad
 – Lee Foundation, States of Malaya (00-00197-000)",
+Malaysian Employee Provident Fund,EPF
 "Maybank Nominees (Tempatan) Sdn Bhd
 Maybank Trustees Berhad For Public Ittikal Fund (N14011970240)",
 "Maybank Nominees (Tempatan) Sdn Bhd
