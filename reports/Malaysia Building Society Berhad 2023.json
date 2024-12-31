@@ -1,0 +1,20 @@
+{
+  "companyDescription": "MBSB is the financial holding company of MBSB Bank, a progressive Islamic Bank that offers Shariah-compliant banking facilities to retail, commercial and corporate customers, and also Malaysian Industrial Development Finance Berhad (MIDF), a financial service provider focusing on development finance, investment banking and asset management which includes Shariah-compliant financing and wealth products.",
+  "companyName": "Malaysia Building Society Berhad",
+  "industry": "Banks",
+  "reportYear": 2023,
+  "topShareholders": [
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 8,
+      "percentageHeld": 57.45,
+      "shareholderName": "Employees Provident Fund (EPF)"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 9,
+      "percentageHeld": 12.78,
+      "shareholderName": "Permodalan Nasional Berhad (PNB)"
+    }
+  ]
+}
