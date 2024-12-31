@@ -1,0 +1,188 @@
+{
+  "companyDescription": "MNRB Holdings Berhad is an investment holding company. Its subsidiaries are leading wholesale providers of reinsurance and retakaful as well as two takaful operators.",
+  "companyName": "MNRB Holdings Berhad",
+  "industry": "Insurance",
+  "reportYear": 2024,
+  "topShareholders": [
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 379,
+      "percentageHeld": 41.88,
+      "shareholderName": "Amanahraya Trustees Berhad\nAmanah Saham Bumiputera"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 379,
+      "percentageHeld": 12.03,
+      "shareholderName": "Permodalan Nasional Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 4.99,
+      "shareholderName": "KONG GOON KHING"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 1.4,
+      "shareholderName": "KONG GOON SIONG"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.86,
+      "shareholderName": "CHEN CHIN PENG"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.83,
+      "shareholderName": "PROMSERV SDN. BHD"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.78,
+      "shareholderName": "OLIVE LIM SWEE LIAN"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.75,
+      "shareholderName": "NG LONG TIANG"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.73,
+      "shareholderName": "ALLIANCEGROUP NOMINEES (TEMPATAN) SDN BHD\nPLEDGED SECURITIES ACCOUNT FOR CHONG YIEW ON (6000006)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.68,
+      "shareholderName": "NEOH CHOO EE & COMPANY, SDN. BERHAD"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.67,
+      "shareholderName": "CITIGROUP NOMINEES (ASING) SDN BHD\nEXEMPT AN FOR CITIBANK NEW YORK (NORGES BANK 19)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.64,
+      "shareholderName": "LIM PEI TIAM @ LIAM AHAT KIAT"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.55,
+      "shareholderName": "CITIGROUP NOMINEES (ASING) SDN BHD\nUBS AG"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.51,
+      "shareholderName": "MARK SIA ENG JOO"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.46,
+      "shareholderName": "CITIGROUP NOMINEES (ASING) SDN BHD\nCBNY FOR EMERGING MARKET CORE EQUITY PORTFOLIO DFA INVESTMENT \nDIMENSIONS GROUP INC"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.46,
+      "shareholderName": "AMSEC NOMINEES (TEMPATAN) SDN BHD\nAMBANK (M) BERHAD (HEDGING)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.43,
+      "shareholderName": "LIEW SWEE MIO @ LIEW HOI FOO"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.39,
+      "shareholderName": "KENANGA NOMINEES (ASING) SDN BHD\nEXEMPT AN FOR PHILLIP SECURITIES PTE LTD (CLIENT ACCOUNT)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.35,
+      "shareholderName": "MAYBANK NOMINEES (TEMPATAN) SDN BHD\nNATIONAL TRUST FUND (IFM MAYBANK) (412183)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.35,
+      "shareholderName": "MAYBANK NOMINEES (TEMPATAN) SDN BHD\nPLEDGED SECURITIES ACCOUNT FOR ABDUL WAHID BIN OMAR"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.34,
+      "shareholderName": "OOI CHIN HOCK"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.31,
+      "shareholderName": "LEE CHEE BENG"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.31,
+      "shareholderName": "JOHAN ENTERPRISE SDN. BHD."
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.29,
+      "shareholderName": "PROMSERV ENGINEERING SDN BHD"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.26,
+      "shareholderName": "GAN HONG HU"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.26,
+      "shareholderName": "KONG GOON SIONG"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.26,
+      "shareholderName": "HLB NOMINEES (TEMPATAN) SDN BHD\nPLEDGED SECURITIES ACCOUNT FOR LIM PAY KAON"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.26,
+      "shareholderName": "ONG HUNG HOCK"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.25,
+      "shareholderName": "CIMSEC NOMINEES (TEMPATAN) SDN BHD\nCIMB FOR KOO KOW KIANG @ KO KECK TING (PB)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 381,
+      "percentageHeld": 0.24,
+      "shareholderName": "HSBC NOMINEES (ASING) SDN BHD\nJ.P. MORGAN SECURITIES PLC"
+    }
+  ]
+}
