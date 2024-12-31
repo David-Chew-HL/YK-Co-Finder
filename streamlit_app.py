@@ -249,6 +249,7 @@ def verify_page():
             st.error(f"Error processing file: {str(e)}")
 
     if st.button("Approve Verification", key="approve_verification"):
+        st.write("Approve Verification button clicked")  # Debugging line
         for file, shareholders, data in modified_files:
             try:
                 success = True
@@ -259,6 +260,7 @@ def verify_page():
                     for s in shareholders
                     if s['glicAssociation'] in GLIC_LIST
                 )
+                st.write(f"GLIC total calculated: {glic_total}")  # Debugging line
                 
                 # Update data with complete shareholders list
                 data['topShareholders'] = shareholders
@@ -266,6 +268,7 @@ def verify_page():
                 # Create new verified filename with GLIC total
                 new_file_name = f"{file['name']}_v_{glic_total:.1f}.json"
                 new_file_path = f"reports/{new_file_name}"
+                st.write(f"New file path: {new_file_path}")  # Debugging line
                 
                 try:
                     # Create the new verified file
@@ -275,6 +278,7 @@ def verify_page():
                         json.dumps(data, indent=2),
                         branch=GITHUB_BRANCH
                     )
+                    st.write(f"Verified file created: {new_file_name}")  # Debugging line
                     
                     # After creating verified JSON, update verified_shareholders.csv with all shareholders
                     shareholders_for_csv = [
@@ -295,6 +299,7 @@ def verify_page():
                         file['sha'],
                         branch=GITHUB_BRANCH
                     )
+                    st.write(f"Unverified file deleted: {file['name']}")  # Debugging line
                     
                     st.success(f"Successfully verified {data['companyName']} and updated files")
                     verification_completed = True
@@ -307,7 +312,8 @@ def verify_page():
     
     if verification_completed:
         st.success("Verification completed!")
-
+        time.sleep(2)  # Wait for 2 seconds before refreshing
+        st.experimental_rerun()  # Refresh the page
 
 def get_verified_shareholders(repo):
     # Check for existence of verified_shareholders.csv
