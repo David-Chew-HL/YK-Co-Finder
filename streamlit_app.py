@@ -832,21 +832,16 @@ def dashboard_page():
     with col3:
         st.metric("Total Industries", len(glic_distribution[">= 20"]) + len(glic_distribution["< 20"]))
 
-    # Search functionality
+    # Basic search functionality
     st.subheader("Search Companies")
-    search_query = st.text_input("Search for a company or industry:")
+    search_query = st.text_input("Search for a company:")
 
     search_results = file_df
     if search_query:
-        # Perform fuzzy search
-        company_names = file_df["Company"].tolist()
-        matched_companies = process.extract(search_query, company_names, limit=5)
-        matched_companies = [name for name, score in matched_companies if score > 50]
-
-        # Filter DataFrame
+        # Filter DataFrame based on basic substring match
         search_results = file_df[
-            file_df["Company"].isin(matched_companies) |
-            file_df["Industry"].str.contains(search_query, case=False, na=False)
+            file_df["Company"].str.contains(search_query, case=False, na=False)
+    
         ]
 
         if search_results.empty:
@@ -869,6 +864,7 @@ def dashboard_page():
 
     # Display filtered and sorted results
     st.dataframe(sorted_df.reset_index(drop=True), use_container_width=True)
+
 
 
 
