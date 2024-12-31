@@ -1,0 +1,20 @@
+{
+  "companyDescription": "Sime Darby Property is a real estate company with over 50 years of experience in building sustainable communities. They are involved in property development, investment and asset management, and leisure.",
+  "companyName": "Sime Darby Property Berhad",
+  "industry": "Real Estate",
+  "reportYear": 2023,
+  "topShareholders": [
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 21,
+      "percentageHeld": 0,
+      "shareholderName": "Permodalan Nasional Berhad"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Malaysian Employee Provident Fund"
+    }
+  ]
+}
