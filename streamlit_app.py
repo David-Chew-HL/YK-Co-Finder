@@ -30,6 +30,8 @@ correct_password = st.secrets["VERIFY_PASSWORD"]
 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
+st.set_page_config(page_title="YK Co Finder", page_icon="🔍")
+
 generation_config = {
   "temperature": 1,
   "top_p": 0.95,
