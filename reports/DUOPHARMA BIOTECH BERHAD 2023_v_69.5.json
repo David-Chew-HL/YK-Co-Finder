@@ -1,0 +1,188 @@
+{
+  "companyDescription": "Duopharma Biotech is a pharmaceutical company committed to making a difference in the environment and nurturing healthier lives by providing affordable and accessible treatments, and uplifting marginalised communities.",
+  "companyName": "DUOPHARMA BIOTECH BERHAD",
+  "industry": "Pharmaceuticals",
+  "reportYear": 2023,
+  "topShareholders": [
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 21,
+      "percentageHeld": 44.106,
+      "shareholderName": "Permodalan Nasional Berhad"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 247,
+      "percentageHeld": 8.577,
+      "shareholderName": "Employees Provident Fund Board"
+    },
+    {
+      "glicAssociation": "Tabung Haji",
+      "pageNumber": 247,
+      "percentageHeld": 3.644,
+      "shareholderName": "Lembaga Tabung Haji"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 247,
+      "percentageHeld": 4.44,
+      "shareholderName": "AMANAHRAYA TRUSTEES BERHAD Amanah Saham Bumiputera"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 247,
+      "percentageHeld": 2.317,
+      "shareholderName": "AMANAHRAYA TRUSTEES BERHAD Amanah Saham Malaysia"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 247,
+      "percentageHeld": 4.421,
+      "shareholderName": "CITIGROUP NOMINEES (TEMPATAN) SDN BHD Employees Provident Fund Board"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 1.566,
+      "shareholderName": "PUBLIC NOMINEES (ASING) SDN BHD Pledged Securities Account For Billion Victory Sdn Bhd (KLC)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 1.063,
+      "shareholderName": "AMANAHRAYA TRUSTEES BERHAD Public Islamic Treasures Growth Fund"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 0.993,
+      "shareholderName": "CITIGROUP NOMINEES (ASING) SDN BHD CBNY For Norges Bank (FI 17)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 0.801,
+      "shareholderName": "CARTABAN NOMINEES (TEMPATAN) SDN BHD PAMB For Prulink Equity Fund"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 0.768,
+      "shareholderName": "DB (MALAYSIA) NOMINEE (TEMPATAN) SENDIRIAN BERHAD Deutsche Trustees Malaysia Berhad For Eastspring Investments Small-Cap Fund"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 0.611,
+      "shareholderName": "CARTABAN NOMINEES (TEMPATAN) SDN BHD PAMB For Participating Fund"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 0.609,
+      "shareholderName": "HONG LEONG ASSURANCE BERHAD As Beneficial Owner (LIFE PAR)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 0.601,
+      "shareholderName": "CARTABAN NOMINEES (TEMPATAN) SDN BHD Prudential Assurance Malaysia Berhad For Prulink Strategic Fund"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 0.549,
+      "shareholderName": "MAYBANK NOMINEES (TEMPATAN) SDN BHD National Trust Fund (IFM EASTSPRING) (410140)"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 247,
+      "percentageHeld": 0.522,
+      "shareholderName": "CITIGROUP NOMINEES (TEMPATAN) SDN BHD Employees Provident Fund Board (F TEMPLETON)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 0.515,
+      "shareholderName": "AMANAH RAYA BERHAD Kumpulan Wang Bersama"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 247,
+      "percentageHeld": 0.431,
+      "shareholderName": "CITIGROUP NOMINEES (TEMPATAN) SDN BHD Employees Provident Fund Board (PHEIM)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 0.401,
+      "shareholderName": "MAYBANK NOMINEES (TEMPATAN) SDN BHD Syarikat Takaful Malaysia Keluarga Berhad (ORDPA)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 0.364,
+      "shareholderName": "CITIGROUP NOMINEES (TEMPATAN) SDN BHD Employees Provident Fund Board (AM INV)"
+    },
+    {
+      "glicAssociation": "Tabung Haji",
+      "pageNumber": 247,
+      "percentageHeld": 0.358,
+      "shareholderName": "DB (MALAYSIA) NOMINEE (TEMPATAN) SENDIRIAN BERHAD Lembaga Tabung Haji (AL-WARA\u2019)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 0.356,
+      "shareholderName": "HSBC NOMINEES (TEMPATAN) SDN BHD HSBC (M) Trustee Bhd For Manulife Investment Al-Fauzan (5170)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 0.301,
+      "shareholderName": "OOI KENG TAN"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 0.293,
+      "shareholderName": "HONG LEONG MSIG TAKAFUL BERHAD As Beneficial Owner (Family Fund)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 0.277,
+      "shareholderName": "HSBC NOMINEES (TEMPATAN) SDN BHD HSBC (M) Trustee Bhd For Manulife Investment Progress Fund (4082)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 0.274,
+      "shareholderName": "HONG LEONG ASSURANCE BERHAD As Beneficial Owner (UNITLINKED OP)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 247,
+      "percentageHeld": 0.253,
+      "shareholderName": "CIMB GROUP NOMINEES (TEMPATAN) SDN BHD CIMB Commerce Trustee Berhad For Kenanga Shariah Growth Opportunities Fund (50156 TR01)"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 247,
+      "percentageHeld": 0.249,
+      "shareholderName": "CITIGROUP NOMINEES (TEMPATAN) SDN BHD Employees Provident Fund Board (CGS CIMB)"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 247,
+      "percentageHeld": 0.205,
+      "shareholderName": "CITIGROUP NOMINEES (TEMPATAN) SDN BHD Employees Provident Fund Board (ARIM)"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 247,
+      "percentageHeld": 0.205,
+      "shareholderName": "CITIGROUP NOMINEES (TEMPATAN) SDN BHD Employees Provident Fund Board (NIAM EQ)"
+    }
+  ]
+}
