@@ -267,6 +267,7 @@ def verify_page():
     if st.button("Approve Verification", key="approve_verification"):
         st.write("Approve Verification button clicked.")  # Debugging line
         for file, shareholders, data in modified_files:
+            st.write(f"Processing loop")  # Debugging line
             try:
                 st.write(f"Processing updates for {file['name']}...")  # Debugging line
                 glic_total = sum(
@@ -318,11 +319,11 @@ def verify_page():
                     
             except Exception as e:
                 st.error(f"Error finalizing file {file['name']}: {str(e)}")
-    
+        st.write("end of loop")  # Debugging line
     if verification_completed:
         st.success("Verification completed!")
         time.sleep(2)  # Wait for 2 seconds before refreshing
-        st.experimental_rerun()  # Refresh the page
+        st.rerun()  # Refresh the page
 
 def get_verified_shareholders(repo):
     # Check for existence of verified_shareholders.csv
