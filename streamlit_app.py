@@ -822,9 +822,6 @@ def dashboard_page():
 
     file_df = pd.DataFrame(file_data)
 
-    # Preprocess for optimized searching
-    file_df["Company_Lower"] = file_df["Company"].str.lower()
-
     # Display statistics
     st.subheader("Statistics")
     col1, col2, col3 = st.columns(3)
@@ -835,16 +832,22 @@ def dashboard_page():
     with col3:
         st.metric("Total Industries", len(glic_distribution[">= 20"]) + len(glic_distribution["< 20"]))
 
-    # Basic search functionality
+    # Search functionality
     st.subheader("Search Companies")
-    search_query = st.text_input("Search for a company:")
+    search_query = st.text_input("Search for a company or industry:")
 
     search_results = file_df
     if search_query:
-        # Lowercase search query for case-insensitive match
-        search_query_lower = search_query.lower()
+        # Perform fuzzy search
+        company_names = file_df["Company"].tolist()
+        matched_companies = process.extract(search_query, company_names, limit=5)
+        matched_companies = [name for name, score in matched_companies if score > 50]
 
-        search_results = file_df[file_df["Company_Lower"].str.contains(search_query_lower, na=False)]
+        # Filter DataFrame
+        search_results = file_df[
+            file_df["Company"].isin(matched_companies) |
+            file_df["Industry"].str.contains(search_query, case=False, na=False)
+        ]
 
         if search_results.empty:
             st.warning("No matches found. Try a different query.")
@@ -866,6 +869,8 @@ def dashboard_page():
 
     # Display filtered and sorted results
     st.dataframe(sorted_df.reset_index(drop=True), use_container_width=True)
+
+
 
 
 def get_not_yet_companies(repo):
