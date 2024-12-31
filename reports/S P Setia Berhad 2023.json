@@ -1,0 +1,188 @@
+{
+  "companyDescription": "S P Setia is a pioneering force in property development, with projects in Malaysia, Australia, Vietnam, the UK, Singapore, Japan and China. The company's portfolio includes townships, integrated developments, eco-sanctuaries, luxury enclaves and high-rise residences, as well as commercial, retail and industrial spaces.",
+  "companyName": "S P Setia Berhad",
+  "industry": "Real Estate",
+  "reportYear": 2023,
+  "topShareholders": [
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 373,
+      "percentageHeld": 23.82,
+      "shareholderName": "Permodalan Nasional Berhad"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 373,
+      "percentageHeld": 22.64,
+      "shareholderName": "Amanahraya Trustees Berhad\nAmanah Saham Bumiputera"
+    },
+    {
+      "glicAssociation": "KWAP",
+      "pageNumber": 373,
+      "percentageHeld": 7.7,
+      "shareholderName": "Kumpulan Wang Persaraan (Diperbadankan)"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 373,
+      "percentageHeld": 4.54,
+      "shareholderName": "Amanahraya Trustees Berhad\nAmanah Saham Malaysia"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 373,
+      "percentageHeld": 3.62,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd\nExempt AN for AIA Bhd"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 373,
+      "percentageHeld": 2.71,
+      "shareholderName": "Amanahraya Trustees Berhad\nAmanah Saham Malaysia 3"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 373,
+      "percentageHeld": 1.68,
+      "shareholderName": "Amanahraya Trustees Berhad\nAmanah Saham Malaysia 2 \u2013 Wawasan"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 373,
+      "percentageHeld": 1.35,
+      "shareholderName": "Amanahraya Trustees Berhad\nAmanah Saham Bumiputera 3 \u2013 Didik"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 373,
+      "percentageHeld": 1.1,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd\nEmployees Provident Fund Board (Nomura)"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 373,
+      "percentageHeld": 1.01,
+      "shareholderName": "Amanahraya Trustees Berhad\nAmanah Saham Bumiputera 2"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 373,
+      "percentageHeld": 0.8,
+      "shareholderName": "Cartaban Nominees (Tempatan) Sdn Bhd\nPAMB for Prulink Equity Fund"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 373,
+      "percentageHeld": 0.66,
+      "shareholderName": "Amanahraya Trustees Berhad\nPublic Ittikal Sequel Fund"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 373,
+      "percentageHeld": 0.51,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd\nEmployees Provident Fund Board (RHB Inv)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 373,
+      "percentageHeld": 0.5,
+      "shareholderName": "HSBC Nominees (Asing) Sdn Bhd\nJPMCB NA for Vanguard Total International Stock Index Fund"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 373,
+      "percentageHeld": 0.49,
+      "shareholderName": "Cartaban Nominees (Tempatan) Sdn Bhd\nPrudential Assurance Malaysia Berhad for Prulink Strategic Fund"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 373,
+      "percentageHeld": 0.46,
+      "shareholderName": "CIMB Group Nominees (Tempatan) Sdn Bhd\nCIMB Bank Berhad (EDP 2)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 373,
+      "percentageHeld": 0.43,
+      "shareholderName": "HSBC Nominees (Asing) Sdn Bhd\nJPMCB NA for Vanguard Emerging Markets Stock Index Fund"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 373,
+      "percentageHeld": 0.43,
+      "shareholderName": "Cartaban Nominees (Asing) Sdn Bhd\nExempt AN for State Street Bank & Trust Company (WEST CLT OD67)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 373,
+      "percentageHeld": 0.42,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd\nGreat Eastern Life Assurance (Malaysia) Berhad (PAR 1)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 373,
+      "percentageHeld": 0.38,
+      "shareholderName": "HSBC Nominees (Tempatan) Sdn Bhd\nHSBC (M) Trustee Bhd For Allianz Life Insurance Malaysia Berhad (MEF)"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 373,
+      "percentageHeld": 0.36,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd\nKumpulan Wang Persaraan (Diperbadankan) (AHAM AM EQ)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 373,
+      "percentageHeld": 0.33,
+      "shareholderName": "HSBC Nominees (Tempatan) Sdn Bhd\nHSBC (M) Trustee Bhd For Manulife Insurance Berhad (Equity Fund)"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 373,
+      "percentageHeld": 0.32,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd\nEmployees Provident Fund Board (AsianIslamic)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 373,
+      "percentageHeld": 0.32,
+      "shareholderName": "HSBC Nominees (Tempatan) Sdn Bhd\nHSBC (M) Trustee Bhd For Manulife Investment Al-Fauzan (5170)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 373,
+      "percentageHeld": 0.31,
+      "shareholderName": "Citigroup Group Nominees (Tempatan) Sdn Bhd\nGreat Eastern Life Assurance (Malaysia) Berhad (LSF)"
+    },
+    {
+      "glicAssociation": "KWAP",
+      "pageNumber": 373,
+      "percentageHeld": 0.3,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd\nKumpulan Wang Persaraan (Diperbadankan) (Principal Eqits)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 373,
+      "percentageHeld": 0.3,
+      "shareholderName": "CIMB Group Nominees (Tempatan) Sdn Bhd\nCIMB Commerce Trustee Berhad for Kenanga Shariah Growth Opportunities Fund (50156 TR01)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 373,
+      "percentageHeld": 0.28,
+      "shareholderName": "Guoline (Singapore) Pte Ltd"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 373,
+      "percentageHeld": 0.28,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd\nExempt AN for AIA Public Takaful Bhd"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 373,
+      "percentageHeld": 0.26,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd\nGreat Eastern Life Assurance (Malaysia) Berhad (LBF)"
+    }
+  ]
+}
