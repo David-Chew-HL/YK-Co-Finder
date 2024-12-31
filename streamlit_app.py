@@ -291,6 +291,8 @@ def verify_page():
                     if not add_verified_shareholders(repo, shareholders_for_csv):
                         st.error("Failed to update verified shareholders CSV")
                         success = False
+                    else:
+                        st.write("Verified shareholders CSV updated")  # Debugging line
                     
                     # Delete the old unverified file
                     repo.delete_file(
