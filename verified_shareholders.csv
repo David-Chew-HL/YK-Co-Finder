@@ -26,6 +26,24 @@ AXIATA GROUP BERHAD,Khazanah
 Active Equity Sdn Bhd,
 Affin Hwang Nominees (Asing) Sdn Bhd Phillip Securities Pte Ltd For Rakuten Securities Inc,
 Alliancegroup Nominees (Tempatan) Sdn Bhd Pledged Securities Account For Tan Kiang Ann (7005892),
+"AmanahRaya Trustees Berhad
+Amanah Saham Bumiputera 2",PNB
+"AmanahRaya Trustees Berhad
+Amanah Saham Bumiputera 3 – Didik",PNB
+"AmanahRaya Trustees Berhad
+Amanah Saham Malaysia",PNB
+"AmanahRaya Trustees Berhad
+Amanah Saham Malaysia 2 - Wawasan",PNB
+"AmanahRaya Trustees Berhad
+Amanah Saham Malaysia 3",PNB
+"AmanahRaya Trustees Berhad
+Public Islamic Dividend Fund",None
+"AmanahRaya Trustees Berhad
+Public Islamic Equity Fund",None
+"AmanahRaya Trustees Berhad
+Public Ittikal Sequel Fund",None
+"AmanahRaya Trustees Berhad 
+- Amanah Saham Bumiputera",PNB
 AmanahRaya Trustees Berhad Amanah Saham Bumiputera,PNB
 AmanahRaya Trustees Berhad Amanah Saham Bumiputera 2,PNB
 AmanahRaya Trustees Berhad Amanah Saham Bumiputera 3 – Didik,PNB
@@ -97,9 +115,9 @@ CGS International Nominees Malaysia (Tempatan) Sdn. Bhd. Pledged Securities Acco
 "CGS-CIMB Nominees (Asing) Sdn Bhd
 – Exempt An for CGS-CIMB Securities (Singapore) Pte Ltd 
 (RETAIL CLIENTS)",
-CHAI KIN LOONG,None
-CHIENG HOCK LAY,None
-CHOONG KEAN LEANG,None
+CHAI KIN LOONG,
+CHIENG HOCK LAY,
+CHOONG KEAN LEANG,
 "CIMB Group Nominees (Tempatan) Sdn Bhd
 – CIMB Bank Berhad (EDP 2)",
 "CIMB Group Nominees (Tempatan) Sdn Bhd
@@ -113,11 +131,11 @@ CIMB Group Nominees (Tempatan) Sdn Bhd Pledged Securities Account for Berjaya Re
 CIMB Group Nominees (Tempatan) Sdn Bhd Pledged Securities Account for Vincent Tan Chee Yioun (EDG&CBD),
 "CIMSEC NOMINEES (TEMPATAN) SDN BHD
 CIMB FOR RAINFOREST CAPITAL SDN BHD",
-CIMSEC NOMINEES (TEMPATAN) SDN BHD CIMB FOR JURUDATA SDN BHD (PB),None
-CIMSEC NOMINEES (TEMPATAN) SDN BHD CIMB FOR SAPURA CAPITAL SDN BHD (PB),None
+CIMSEC NOMINEES (TEMPATAN) SDN BHD CIMB FOR JURUDATA SDN BHD (PB),
+CIMSEC NOMINEES (TEMPATAN) SDN BHD CIMB FOR SAPURA CAPITAL SDN BHD (PB),
 CIMSEC Nominees (Tempatan) Sdn Bhd CIMB For Lim Chee Hwa (PB),
-CITIGROUP NOMINEES (ASING) SDN BHD CBNY FOR DIMENSIONAL EMERGING MARKETS VALUE FUND,None
-CITIGROUP NOMINEES (ASING) SDN BHD CBNY FOR EMERGING MARKET CORE EQUITY PORTFOLIO DFA INVESTMENT DIMENSIONS GROUP INC,None
+CITIGROUP NOMINEES (ASING) SDN BHD CBNY FOR DIMENSIONAL EMERGING MARKETS VALUE FUND,
+CITIGROUP NOMINEES (ASING) SDN BHD CBNY FOR EMERGING MARKET CORE EQUITY PORTFOLIO DFA INVESTMENT DIMENSIONS GROUP INC,
 CITIGROUP NOMINEES (ASING) SDN BHDCB SPORE GW FOR GOVERNMENT OF SINGAPORE (GIC C),
 CITIGROUP NOMINEES (ASING) SDN BHDTELENOR MALAYSIA INVESTMENTS PTE LTD,
 "CITIGROUP NOMINEES (TEMPATAN) SDN BHD
@@ -157,6 +175,9 @@ BNYM SA/NV For People’s Bank Of China (SICL Asia EM)",
 "Cartaban Nominees (Asing) Sdn Bhd
 Exempt AN For State Street Bank & Trust Company (West CLT OD67)",
 "Cartaban Nominees (Asing) Sdn Bhd
+Exempt AN for State Street Bank & Trust Company
+(WEST CLT OD67)",None
+"Cartaban Nominees (Asing) Sdn Bhd
 State Street London Fund OQ78 For Ishares IV Public Limited Company",
 "Cartaban Nominees (Asing) Sdn Bhd
 – Exempt An for State Street Bank & Trust Company (WEST CLT OD67)",
@@ -171,9 +192,15 @@ Cartaban Nominees (Asing) Sdn Bhd The Bank Of New York Mellon For First Trust Em
 "Cartaban Nominees (Tempatan) Sdn Bhd
 PAMB For Prulink Equity Fund",
 "Cartaban Nominees (Tempatan) Sdn Bhd
+PAMB for Prulink Equity Fund",None
+"Cartaban Nominees (Tempatan) Sdn Bhd
 PBTB For Takafulink Dana Ekuiti",
 "Cartaban Nominees (Tempatan) Sdn Bhd
+PBTB for Takafulink Dana Ekuiti",None
+"Cartaban Nominees (Tempatan) Sdn Bhd
 Prudential Assurance Malaysia Berhad For Prulink Strategic Fund",
+"Cartaban Nominees (Tempatan) Sdn Bhd
+Prudential Assurance Malaysia Berhad for Prulink Strategic Fund",None
 Cartaban Nominees (Tempatan) Sdn Bhd - PAMB for Prulink Equity Fund,
 Cartaban Nominees (Tempatan) Sdn Bhd Icapital.biz Berhad,
 Cartaban Nominees (Tempatan) Sdn Bhd PAMB for Prulink Equity Fund,
@@ -185,6 +212,8 @@ Cimsec Nominees (Tempatan) Sdn Bhd CIMB For Lim Wee Chai (PB),
 Cimsec Nominees (Tempatan) Sdn Bhd CIMB for Vincent Tan Chee Yioun (PB),
 "Citigroup Nominees (Asing) Sdn Bhd
 CB Spore GW For Government Of Singapore (GIC C)",
+"Citigroup Nominees (Asing) Sdn Bhd
+CB Spore GW for Government of Singapore (GIC C)",None
 "Citigroup Nominees (Asing) Sdn Bhd
 – Exempt An for Citibank New York (NORGES BANK 19)",
 "Citigroup Nominees (Asing) Sdn Bhd
@@ -207,11 +236,21 @@ Employees Provident Fund Board (CGS CIMB)",EPF
 "Citigroup Nominees (Tempatan) Sdn Bhd
 Employees Provident Fund Board (Islamic)",EPF
 "Citigroup Nominees (Tempatan) Sdn Bhd
+Employees Provident Fund Board (Nomura)",EPF
+"Citigroup Nominees (Tempatan) Sdn Bhd
+Exempt AN for AIA Bhd",None
+"Citigroup Nominees (Tempatan) Sdn Bhd
+Great Eastern Life Assurance (Malaysia) Berhad (PAR 1)",None
+"Citigroup Nominees (Tempatan) Sdn Bhd
+Great Eastern Life Assurance (Malaysia) Berhad (PAR 3)",None
+"Citigroup Nominees (Tempatan) Sdn Bhd
 Great Eastern Life Assurance (Malaysia) Berhad (Par 1)",
 "Citigroup Nominees (Tempatan) Sdn Bhd
 Great Eastern Life Assurance (Malaysia) Berhad (Par 3)",
 "Citigroup Nominees (Tempatan) Sdn Bhd
 Urusharta Jamaah Sdn. Bhd. ",Ministry of Finance
+"Citigroup Nominees (Tempatan) Sdn Bhd
+Urusharta Jamaah Sdn. Bhd. (1)",None
 "Citigroup Nominees (Tempatan) Sdn Bhd
 – Employees Provident Fund Board",EPF
 "Citigroup Nominees (Tempatan) Sdn Bhd
@@ -276,6 +315,8 @@ HSBC NOMINEES (ASING) SDN BHDJPMCB NA FOR VANGUARD TOTAL INTERNATIONAL STOCK IND
 Exempt AN For The Hongkong And Shanghai Banking Corporation Limited
 (Global Markets)",
 "HSBC Nominees (Asing) Sdn Bhd
+HSBC BK PLC for Kuwait Investment Office (KIO)",None
+"HSBC Nominees (Asing) Sdn Bhd
 JPMCB NA For Blackrock Institutional Trust Company, N.A. Investment Funds For
 Employee Benefit Trusts",
 "HSBC Nominees (Asing) Sdn Bhd
@@ -285,6 +326,13 @@ JPMCB NA For Vanguard Fiduciary Trust Company Institutional Total International
 Stock Market Index Trust II",
 "HSBC Nominees (Asing) Sdn Bhd
 JPMCB NA For Vanguard Total International Stock Index Fund",
+"HSBC Nominees (Asing) Sdn Bhd
+JPMCB NA for Vanguard Emerging Markets Stock Index Fund",None
+"HSBC Nominees (Asing) Sdn Bhd
+JPMCB NA for Vanguard Fiduciary Trust Company Institutional 
+Total International Stock Market Index Trust II",None
+"HSBC Nominees (Asing) Sdn Bhd
+JPMCB NA for Vanguard Total International Stock Index Fund",None
 "HSBC Nominees (Asing) Sdn Bhd
 – Credit Suisse (Hong Kong) Limited",
 "HSBC Nominees (Asing) Sdn Bhd
@@ -337,37 +385,37 @@ HSBC Nominees (Tempatan) Sdn Bhd Exempt An For BNP Paribas Singapore Branch (Loc
 HSBC Nominees (Tempatan) Sdn Bhd HSBC (M) Trustee Bhd for Principal Dali Equity Growth Fund,
 "HSBC Nominees (Tempatan) Sdn Bhd Pledged Securities Account - Credit Suisse AG, Singapore For Tune Air Sdn. Bhd.",
 "HSBC Nominees (Tempatan) Sdn Bhd Pledged Securities Account - Credit Suisse AG, Singapore For Tune Live Sdn. Bhd.",
-IOANNIS KOROMILAS,None
+IOANNIS KOROMILAS,
 Inter-Pacific Equity Nominees (Asing) Sdn Bhd Berjaya Philippines Inc,
 Inter-Pacific Equity Nominees (Tempatan) Sdn Bhd Fabulous Channel Sdn Bhd (IPM),
 Inter-Pacific Equity Nominees (Tempatan) Sdn Bhd Inter-Pacific Asset Management Sdn Bhd For Koperasi Angkatan Tentera Malaysia Berhad,LTAT
 Inter-Pacific Securities Sdn Bhd IVT (9C55),
 Jef-San Enterprise Sdn Bhd,
-KENANGA NOMINEES (TEMPATAN) SDN BHD RAKUTEN TRADE SDN BHD FOR KONG LIH CHING,None
+KENANGA NOMINEES (TEMPATAN) SDN BHD RAKUTEN TRADE SDN BHD FOR KONG LIH CHING,
 KUMPULAN WANG PERSARAAN (DIPERBADANKAN),KWAP
 Kenanga Nominees (Asing) Sdn Bhd Exempt An For Guotai Junan Securities (Hong Kong) Limited (Client Account),
 Khazanah Nasional Berhad,Khazanah
 Kong Goon Khing,
 Kumpulan Wang Persaraan (Diperbadankan),KWAP
 Kumpulan Wang Persaraan (KWAP),KWAP
-LEE BENG SENG,None
+LEE BENG SENG,
 LEMBAGA TABUNG HAJI,Tabung Haji
-LIEW JUN KUAN,None
-LIM FONG PENG @ LIM FUNG FENG,None
-LIM SIANG HEE,None
+LIEW JUN KUAN,
+LIM FONG PENG @ LIM FUNG FENG,
+LIM SIANG HEE,
 Lembaga Tabung Haji,Tabung Haji
 Local Corporations & Retail,
 Loke Wan Yat Realty Sdn Bhd,
-MAYBANK NOMINEES (TEMPATAN) SDN BHD MAYBANK PRIVATE WEALTH MANAGEMENT FOR SHAHRIL BIN SHAMSUDDIN (12020671) (430412),None
-MAYBANK NOMINEES (TEMPATAN) SDN BHD PLEDGED SECURITIES ACCOUNT FOR JURUDATA SDN BHD (443462),None
-MAYBANK NOMINEES (TEMPATAN) SDN BHD PLEDGED SECURITIES ACCOUNT FOR SAPURA TECHNOLOGY SDN BHD (420284),None
+MAYBANK NOMINEES (TEMPATAN) SDN BHD MAYBANK PRIVATE WEALTH MANAGEMENT FOR SHAHRIL BIN SHAMSUDDIN (12020671) (430412),
+MAYBANK NOMINEES (TEMPATAN) SDN BHD PLEDGED SECURITIES ACCOUNT FOR JURUDATA SDN BHD (443462),
+MAYBANK NOMINEES (TEMPATAN) SDN BHD PLEDGED SECURITIES ACCOUNT FOR SAPURA TECHNOLOGY SDN BHD (420284),
 MAYBANK NOMINEES (TEMPATAN) SDN BHDMAYBANK TRUSTEES BERHAD FOR PUBLIC ITTIKAL FUND (N14011970240),
 MAYBANK NOMINEES (TEMPATAN) SDN BHDMAYBANK TRUSTEES BERHAD FOR PUBLIC REGULAR SAVINGS FUND (N14011940100),
 "MAYBANK SECURITIES NOMINEES (ASING) SDN BHD
 PLEDGED SECURITIES ACCOUNT FOR CAHAYA BINTANG LTD",
 MIDF Amanah Investment Nominees (Tempatan) Sdn Bhd Pledged Securities Account for U Telemedia Sdn Bhd (MGN-UTS0001M),
 MIDF Amanah Investment Nominees (Tempatan) Sdn Bhd Pledged Securities Account for Vincent Tan Chee Yioun (MGN-UTS0001M),
-MUTHUKUMAR A/L AYARPADDE,None
+MUTHUKUMAR A/L AYARPADDE,
 Magna Mahsuri Sdn Bhd,
 "Malaysia Nominees (Tempatan) Sendirian Berhad
 – Lee Foundation, States of Malaya (00-00197-000)",
@@ -375,6 +423,12 @@ Magna Mahsuri Sdn Bhd,
 Maybank Trustees Berhad For Public Ittikal Fund (N14011970240)",
 "Maybank Nominees (Tempatan) Sdn Bhd
 Maybank Trustees Berhad For Public Regular Savings Fund (N14011940100)",
+"Maybank Nominees (Tempatan) Sdn Bhd
+Maybank Trustees Berhad for Public Ittikal Fund  
+(N14011970240)",None
+"Maybank Nominees (Tempatan) Sdn Bhd
+Maybank Trustees Berhad for Public Regular Savings Fund
+(N14011940100)",None
 "Maybank Nominees (Tempatan) Sdn Bhd
 – Etiqa Family Takaful Berhad (FAMILY)",
 "Maybank Nominees (Tempatan) Sdn Bhd
@@ -395,7 +449,7 @@ Maybank Trustees Berhad For Public Regular Savings Fund (N14011940100)",
 – Pledged Securities Account for YTL Cement Berhad",
 Maybank Nominees (Tempatan) Sdn Bhd - Maybank Trustees Berhad for Public Ittikal Fund (N14011970240),
 Maybank Nominees (Tempatan) Sdn Bhd Maybank Trustees Berhad for Public Ittikal Fund (N14011970240),
-NG CHOON KIAT,None
+NG CHOON KIAT,
 Ng Kee Leen,
 Other Government Agencies,
 Other Malaysian Shareholders,
@@ -409,7 +463,7 @@ Phillip Nominees (Tempatan) Sdn Bhd Pledged Securities Account for Berjaya Land 
 Positive Boom Limited,
 Puan Sri Datin Seri Tan Kai Yong @ Tan Kay Neong,
 Public Nominees (Tempatan) Sdn Bhd - Pledged securities account for Sungei Way Corporation Sdn Bhd (BSY),
-QUECK HAN TIONG,None
+QUECK HAN TIONG,
 RAINFOREST CAPITAL SDN BHD,
 RHB Capital Nominees (Asing) Sdn Bhd Aimia Inc.,
 RHB Capital Nominees (Tempatan) Sdn Bhd - Pledged securities account for Sungei Way Corporation Sendirian Berhad,
@@ -419,12 +473,12 @@ RHB Nominees (Tempatan) Sdn Bhd - RHB Asset Management Sdn Bhd for Sungei Way Co
 RHB Nominees (Tempatan) Sdn Bhd Bank Of China (Malaysia) Berhad Pledged Securities Account for Inter-Pacific Securities Sdn Bhd,
 RHB Nominees (Tempatan) Sdn Bhd Bank of China (Malaysia) Berhad Pledged Securities Account for Inter-Pacific Capital Sdn Bhd,
 RHB Nominees (Tempatan) Sdn Bhd Lim Wee Chai,
-SAPURA TECHNOLOGY SDN BHD,None
+SAPURA TECHNOLOGY SDN BHD,
 SJ Sec Nominees (Tempatan) Sdn Bhd Pledged Securities Account for Al Rajhi Bank for Nural Enterprise Sdn Bhd,
-SOUTHERN REALTY RESOURCE SDN BHD,None
+SOUTHERN REALTY RESOURCE SDN BHD,
 Seri Yakin Sdn Bhd,
 Sungei Way Corporation Sendirian Berhad,
-TAY HOCK SOON,None
+TAY HOCK SOON,
 Tabung Warisan Negeri Selangor,
 Tan Sri Sir Dr. Jeffrey Cheah Fook Ling KBE AO,
 Tasek Property Holdings Sdn Bhd,
@@ -434,4 +488,4 @@ YTL Cement Berhad,
 YTL Corporation Berhad,
 Yeoh Tiong Lay & Sons Holdings Sdn Bhd,
 Yeoh Yew Choo,
-ZAINAL ABIDIN BIN MOHD KASSIM,None
+ZAINAL ABIDIN BIN MOHD KASSIM,
