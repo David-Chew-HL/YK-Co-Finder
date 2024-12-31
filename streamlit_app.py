@@ -528,8 +528,7 @@ def process_pdf_content(pdf_content, company_name=None, status_callback=None):
     Company full name.
     Year of the report.
     Industry of the company (choose one from the following: Automobiles, Banks, Capital Goods, Commercial Services, 
-    Consumer Durables, Consumer Retailing, Consumer Services, Diversified Financials, Energy, Food, Beverage, 
-    Tobacco, Healthcare, Household, Insurance, Materials, Media, Pharmaceuticals, Biotech, Real Estate, 
+    Consumer Durables, Consumer Retailing, Consumer Services, Diversified Financials, Energy, Food, Beverage, Healthcare, Household, Insurance, Materials, Media, Pharmaceuticals, Biotech, Real Estate, 
     Real Estate Management and Development, Retail, Semiconductors, Software, Tech, Telecom, Transportation, Utilities).
     A brief description of the company's business.
     Top Shareholders:
