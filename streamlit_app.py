@@ -162,38 +162,34 @@ def extract_glic_total(filename): #extract from filename
 
 def verify_page():
     st.title("Verify Extracted Information")
-      
+
     password_input = st.text_input("Enter password to access verification page:", type="password")
-    st.write("Password input received.")  # Debugging line
-    
+
     if not password_input:
         st.warning("Please enter the password to continue.")
         return
-    
+
     if password_input != correct_password:
         st.error("Incorrect password. Please try again.")
         return
-    
+
     st.write("Please verify the info scraped.")
 
     try:
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
-        st.write("Connected to GitHub repository.")  # Debugging line
     except Exception as e:
         st.error(f"Error connecting to GitHub: {str(e)}")
         return
 
     try:
         verified_shareholders = get_verified_shareholders(repo)
-        st.write("Verified shareholders data retrieved.")  # Debugging line
     except Exception as e:
         st.error(f"Error fetching verified shareholders: {str(e)}")
         return
-    
+
     try:
         json_files = get_json_files_from_github(exclude_verified=True)
-        st.write(f"Found {len(json_files)} JSON files for verification.")  # Debugging line
         if not json_files:
             st.info("No JSON files found in the repository")
             return
@@ -202,97 +198,76 @@ def verify_page():
         return
 
     verification_completed = False
-    modified_files = []
 
     for file_index, file in enumerate(json_files):
         try:
-            st.write(f"Processing file {file['name']}...")  # Debugging line
             file_content = repo.get_contents(file['path'], ref=GITHUB_BRANCH)
             json_content = base64.b64decode(file_content.content).decode()
             data = json.loads(json_content)
-            st.write(f"Loaded data for company: {data['companyName']}")  # Debugging line
+
+            st.subheader(f"Verifying: {data['companyName']} ({data['reportYear']})")
 
             shareholders = data['topShareholders'].copy()
             modified = False
 
-            # Auto-fill verification for known shareholders
             for shareholder in shareholders:
                 shareholder_name = shareholder['shareholderName']
                 if shareholder_name in verified_shareholders['shareholderName'].values:
                     verified_glic = verified_shareholders[
                         verified_shareholders['shareholderName'] == shareholder_name
                     ]['glicAssociation'].iloc[0]
-                    
+
                     if shareholder['glicAssociation'] != verified_glic:
                         shareholder['glicAssociation'] = verified_glic
                         modified = True
                         st.info(f"Auto-verified {shareholder_name} as {verified_glic}")
 
-            # Handle unverified shareholders
             unverified_shareholders = [
                 s for s in shareholders 
                 if s['shareholderName'] not in verified_shareholders['shareholderName'].values
             ]
-            
+
             if unverified_shareholders:
                 st.write("Please verify the following shareholders:")
                 for idx, shareholder in enumerate(unverified_shareholders):
                     shareholder_name = shareholder['shareholderName']
                     unique_key = f"file_{file_index}_shareholder_{idx}_{shareholder_name}"
-                    
+
                     current_glic = shareholder.get('glicAssociation', "None")
                     glic_options = ["None", "Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT", "Ministry of Finance"]
-                    
+
                     default_index = glic_options.index(current_glic) if current_glic in glic_options else 0
-                    
+
                     glic_selection = st.selectbox(
                         f"{shareholder_name}",
                         glic_options,
                         key=unique_key,
                         index=default_index
                     )
-                    
+
                     if shareholder['glicAssociation'] != glic_selection:
                         shareholder['glicAssociation'] = glic_selection
                         modified = True
 
-            if modified:
-                modified_files.append((file, shareholders, data))
-                st.write(f"Appended to modified_files. Current length: {len(modified_files)}") 
-                st.write(f"File {file['name']} marked as modified.")  # Debugging line
-
-        except Exception as e:
-            st.error(f"Error processing file {file['name']}: {str(e)}")
-            
-    st.write(f"Modified files before button click: {modified_files}")  # Debugging line
-
-    if st.button("Approve Verification", key="approve_verification"):
-        st.write("Approve Verification button clicked.")  # Debugging line
-        for file, shareholders, data in modified_files:
-            st.write(f"Processing loop")  # Debugging line
-            try:
-                st.write(f"Processing updates for {file['name']}...")  # Debugging line
-                glic_total = sum(
-                    s['percentageHeld']
-                    for s in shareholders
-                    if s['glicAssociation'] in GLIC_LIST
-                )
-                st.write(f"GLIC total calculated: {glic_total}")  # Debugging line
-
-                data['topShareholders'] = shareholders
-                new_file_name = f"{file['name']}_v_{glic_total:.1f}.json"
-                new_file_path = f"reports/{new_file_name}"
-                st.write(f"New file path: {new_file_path}")  # Debugging line
-
+            if st.button("Approve Verification", key=f"approve_{file_index}"):
                 try:
+                    glic_total = sum(
+                        s['percentageHeld']
+                        for s in shareholders
+                        if s['glicAssociation'] in GLIC_LIST
+                    )
+
+                    data['topShareholders'] = shareholders
+                    new_file_name = f"{file['name']}_v_{glic_total:.1f}.json"
+                    new_file_path = f"reports/{new_file_name}"
+
                     repo.create_file(
                         new_file_path,
                         f"Add verified file {new_file_name}",
                         json.dumps(data, indent=2),
                         branch=GITHUB_BRANCH
                     )
-                    st.write(f"Verified file created: {new_file_name}")  # Debugging line
-                    
+
                     shareholders_for_csv = [
                         {
                             "shareholderName": s['shareholderName'],
@@ -300,10 +275,9 @@ def verify_page():
                         }
                         for s in shareholders
                     ]
+                    
                     if not add_verified_shareholders(repo, shareholders_for_csv):
                         st.error("Failed to update verified shareholders CSV")
-                    else:
-                        st.write("Verified shareholders CSV updated.")  # Debugging line
                     
                     repo.delete_file(
                         file['path'],
@@ -311,19 +285,19 @@ def verify_page():
                         file['sha'],
                         branch=GITHUB_BRANCH
                     )
-                    st.write(f"Unverified file deleted: {file['name']}")  # Debugging line
 
                     st.success(f"Successfully verified {data['companyName']} and updated files")
                     verification_completed = True
 
                 except Exception as e:
-                    st.error(f"Error updating files for {file['name']}: {str(e)}")
-                    
-            except Exception as e:
-                st.error(f"Error finalizing file {file['name']}: {str(e)}")
-        st.write("end of loop")  # Debugging line
+                    st.error(f"Error updating files: {str(e)}")
+
+        except Exception as e:
+            st.error(f"Error processing file: {str(e)}")
+
     if verification_completed:
         st.success("Verification completed!")
+
         time.sleep(2)  # Wait for 2 seconds before refreshing
         st.rerun()  # Refresh the page
 
