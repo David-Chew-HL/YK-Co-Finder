@@ -163,6 +163,7 @@ def extract_glic_total(filename): #extract from filename
 def verify_page():
     st.title("Verify Extracted Information")
 
+    st.write("Note: Verification requires special access. (Information will be verified daily)")
     password_input = st.text_input("Enter password to access verification page:", type="password")
 
     if not password_input:
