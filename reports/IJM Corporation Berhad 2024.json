@@ -11,22 +11,22 @@
       "shareholderName": "Kumpulan Wang Persaraan (Diperbadankan)"
     },
     {
-      "glicAssociation": "None",
+      "glicAssociation": "EPF",
       "pageNumber": 49,
       "percentageHeld": 7.85,
-      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd"
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd Employees Provident Fund Board"
     },
     {
-      "glicAssociation": "EPF",
+      "glicAssociation": "PNB",
       "pageNumber": 49,
       "percentageHeld": 6.46,
       "shareholderName": "AmanahRaya Trustees Berhad Amanah Saham Bumiputera"
     },
     {
-      "glicAssociation": "None",
+      "glicAssociation": "Ministry of Finance",
       "pageNumber": 49,
       "percentageHeld": 3.71,
-      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd"
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd Urusharta Jamaah Sdn. Bhd. (1)"
     },
     {
       "glicAssociation": "EPF",
@@ -35,13 +35,13 @@
       "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd Employees Provident Fund Board (Islamic)"
     },
     {
-      "glicAssociation": "None",
+      "glicAssociation": "PNB",
       "pageNumber": 49,
       "percentageHeld": 3.09,
       "shareholderName": "AmanahRaya Trustees Berhad Amanah Saham Malaysia 2 - Wawasan"
     },
     {
-      "glicAssociation": "None",
+      "glicAssociation": "PNB",
       "pageNumber": 49,
       "percentageHeld": 2.94,
       "shareholderName": "AmanahRaya Trustees Berhad Amanah Saham Malaysia"
@@ -59,7 +59,7 @@
       "shareholderName": "Maybank Nominees (Tempatan) Sdn Bhd Maybank Trustees Berhad for Public Ittikal Fund (N14011970240)"
     },
     {
-      "glicAssociation": "None",
+      "glicAssociation": "PNB",
       "pageNumber": 50,
       "percentageHeld": 1.97,
       "shareholderName": "AmanahRaya Trustees Berhad Amanah Saham Malaysia 3"
@@ -119,7 +119,7 @@
       "shareholderName": "Permodalan Nasional Berhad"
     },
     {
-      "glicAssociation": "None",
+      "glicAssociation": "PNB",
       "pageNumber": 50,
       "percentageHeld": 0.9,
       "shareholderName": "AmanahRaya Trustees Berhad Amanah Saham Bumiputera 3 \u2013 Didik"
@@ -167,7 +167,7 @@
       "shareholderName": "Citigroup Nominees (Asing) Sdn Bhd Exempt AN for Citibank New York (Norges Bank 14)"
     },
     {
-      "glicAssociation": "None",
+      "glicAssociation": "PNB",
       "pageNumber": 50,
       "percentageHeld": 0.6,
       "shareholderName": "AmanahRaya Trustees Berhad Amanah Saham Bumiputera 2"
