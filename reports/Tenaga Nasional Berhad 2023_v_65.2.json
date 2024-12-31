@@ -1,0 +1,50 @@
+{
+  "companyDescription": "Tenaga Nasional Berhad (TNB) is the main electricity utility company in Malaysia, involved in the generation, transmission, distribution and sales of electricity, as well as providing related services.",
+  "companyName": "Tenaga Nasional Berhad",
+  "industry": "Utilities",
+  "reportYear": 2023,
+  "topShareholders": [
+    {
+      "glicAssociation": "Khazanah",
+      "pageNumber": 18,
+      "percentageHeld": 22.6,
+      "shareholderName": "Khazanah Nasional Berhad"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 18,
+      "percentageHeld": 18.3,
+      "shareholderName": "Permodalan Nasional Berhad (PNB)*"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 18,
+      "percentageHeld": 16.8,
+      "shareholderName": "Employees Provident Fund Board (EPF)"
+    },
+    {
+      "glicAssociation": "KWAP",
+      "pageNumber": 18,
+      "percentageHeld": 7.5,
+      "shareholderName": "Kumpulan Wang Persaraan (KWAP)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 18,
+      "percentageHeld": 1.7,
+      "shareholderName": "Other Government Agencies"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 18,
+      "percentageHeld": 20.6,
+      "shareholderName": "Local Corporations & Retail"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 18,
+      "percentageHeld": 12.5,
+      "shareholderName": "Foreign Shareholding"
+    }
+  ]
+}
