@@ -161,8 +161,7 @@ def extract_glic_total(filename): #extract from filename
         return 0.0
 
 def verify_page():
-    st.title("Verify Extracted Information abc")
-    st.write("Starting verification process...")  # Debugging line
+    st.title("Verify Extracted Information")
       
     password_input = st.text_input("Enter password to access verification page:", type="password")
     st.write("Password input received.")  # Debugging line
