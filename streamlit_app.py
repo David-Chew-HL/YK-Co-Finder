@@ -20,6 +20,7 @@ import ocrmypdf
 from matplotlib.ticker import MaxNLocator
 import matplotlib.pyplot as plt
 import seaborn as sns
+from thefuzz import process
 
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
@@ -366,11 +367,11 @@ def view_json_file(file_content, selected_file):
     data = json.loads(file_content)
     st.subheader(data["companyName"])
         # Extract the percentage from the file name using a regular expression
-    match = re.search(r"(\d+\.\d+)$", selected_file)  # This captures the number after the last underscore
+    match = re.search(r"(\d+\.\d+)$", selected_file)  # captures the number after the last underscore
 
     if match:
-        glic_percentage = float(match.group(1))  # Convert the extracted string to a float
-        is_glic_above_20 = glic_percentage >= 20  # Check if the percentage is >= 20
+        glic_percentage = float(match.group(1)) 
+        is_glic_above_20 = glic_percentage >= 20 
         st.write(f"✔️ _A Bond Serving Company_")
     else:
         is_glic_above_20 = False  # Default to False if no valid percentage is found
@@ -790,98 +791,85 @@ def get_file_content(file_path):
     return data
 
 
-
-def dashboard_page(): 
-    # Only show those which are verified and bond serving
+def dashboard_page():
     st.title("Dashboard")
 
-    # Fetch JSON files at the beginning
+    # Fetch JSON files
     json_files = get_json_files_from_github(exclude_verified=False)
     if not json_files:
         st.info("No JSON files found with GLIC totals.")
         return
 
     file_data = []
-    industry_counts = {}
     glic_distribution = {">= 20": {}, "< 20": {}}
 
     for file in json_files:
         glic_total = extract_glic_total(file['name'])
         file_content = get_file_content(file['path'])
         industry = file_content.get("industry", "Unknown")
-        
+        company_name = file_content.get("companyName", "Unknown")
+
         file_data.append({
             " ": "✔️" if glic_total >= 20 else "",
-            "Company": file_content.get("companyName", "Unknown"),
+            "Company": company_name,
             "Industry": industry,
             "GLIC Total %": glic_total,
-            
         })
 
-        # Update industry counts for the chart
         if industry and industry != "Unknown":
-            if glic_total >= 20:
-                glic_distribution[">= 20"][industry] = glic_distribution[">= 20"].get(industry, 0) + 1
-            else:
-                glic_distribution["< 20"][industry] = glic_distribution["< 20"].get(industry, 0) + 1
+            category = ">= 20" if glic_total >= 20 else "< 20"
+            glic_distribution[category][industry] = glic_distribution[category].get(industry, 0) + 1
 
-    # Create data frame from file data
     file_df = pd.DataFrame(file_data)
-
-    # Apply GLIC threshold to separate categories
-    high_glic_df = file_df[file_df["GLIC Total %"] >= 20]
-    low_glic_df = file_df[file_df["GLIC Total %"] < 20]
 
     # Display statistics
     st.subheader("Statistics")
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.metric("Bond Serving Companies", len(high_glic_df))
+        st.metric("Bond Serving Companies", len(file_df[file_df["GLIC Total %"] >= 20]))
     with col2:
         st.metric("Total Companies Processed", len(file_df))
     with col3:
         st.metric("Total Industries", len(glic_distribution[">= 20"]) + len(glic_distribution["< 20"]))
 
-    # Industry distribution chart
-    industry_df = pd.DataFrame({
-        "Industry": list(set(glic_distribution[">= 20"].keys()) | set(glic_distribution["< 20"].keys())),
-        "Bond Serving": [glic_distribution[">= 20"].get(ind, 0) for ind in set(glic_distribution[">= 20"].keys()) | set(glic_distribution["< 20"].keys())],
-        "Non" : [glic_distribution["< 20"].get(ind, 0) for ind in set(glic_distribution[">= 20"].keys()) | set(glic_distribution["< 20"].keys())],
-    })
+    # Search functionality
+    st.subheader("Search Companies")
+    search_query = st.text_input("Search for a company or industry:")
 
-    # Plot with Matplotlib
-    plt.figure(figsize=(10, 4))
-    industry_df = industry_df.set_index("Industry")
-    ax = industry_df.plot(kind="bar", stacked=True, color=["#46B4A6", "#FFA07A"], edgecolor="black")
-    plt.ylabel("Count", fontsize=12)
-    plt.xlabel("Industry", fontsize=12)
-    plt.xticks(rotation=45, ha="right", fontsize=10, color="black")
-    plt.yticks(fontsize=10)
-    ax.yaxis.set_major_locator(MaxNLocator(integer=True))
-    plt.title("Industry Distribution", fontsize=14, fontweight="bold")
-    plt.tight_layout()
-    st.pyplot(plt)
+    search_results = file_df
+    if search_query:
+        # Perform fuzzy search
+        company_names = file_df["Company"].tolist()
+        matched_companies = process.extract(search_query, company_names, limit=5)
+        matched_companies = [name for name, score in matched_companies if score > 50]
+
+        # Filter DataFrame
+        search_results = file_df[
+            file_df["Company"].isin(matched_companies) |
+            file_df["Industry"].str.contains(search_query, case=False, na=False)
+        ]
+
+        if search_results.empty:
+            st.warning("No matches found. Try a different query.")
+        else:
+            st.info(f"Showing results for '{search_query}'")
 
     # Sorting and filtering
-    st.subheader("Company Details")
     sort_col, filter_col = st.columns(2)
     with sort_col:
         sort_by = st.selectbox("Sort by:", ["GLIC Total %", "Company", "Industry"])
     with filter_col:
-        all_industries = ["All"] + sorted(list(set(file_df["Industry"])))
+        all_industries = ["All"] + sorted(file_df["Industry"].unique())
         selected_industry = st.selectbox("Filter by industry:", all_industries)
 
-    # Apply filters and sorting
     if selected_industry != "All":
-        file_df = file_df[file_df["Industry"] == selected_industry]
+        search_results = search_results[search_results["Industry"] == selected_industry]
 
-    # Separate into categories and sort
-    high_glic_df = file_df[file_df["GLIC Total %"] >= 20].sort_values(by=sort_by, ascending=False)
-    low_glic_df = file_df[file_df["GLIC Total %"] < 20].sort_values(by=sort_by, ascending=False)
-    sorted_df = pd.concat([high_glic_df, low_glic_df])
+    sorted_df = search_results.sort_values(by=sort_by, ascending=False)
 
-    # Display table
+    # Display filtered and sorted results
     st.dataframe(sorted_df.reset_index(drop=True), use_container_width=True)
+
 
 
 

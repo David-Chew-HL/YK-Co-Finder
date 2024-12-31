@@ -12,3 +12,4 @@ nest-asyncio
 ocrmypdf
 matplotlib
 seaborn
+thefuzz
