@@ -822,6 +822,9 @@ def dashboard_page():
 
     file_df = pd.DataFrame(file_data)
 
+    # Preprocess for optimized searching
+    file_df["Company_Lower"] = file_df["Company"].str.lower()
+
     # Display statistics
     st.subheader("Statistics")
     col1, col2, col3 = st.columns(3)
@@ -838,11 +841,10 @@ def dashboard_page():
 
     search_results = file_df
     if search_query:
-        # Filter DataFrame based on basic substring match
-        search_results = file_df[
-            file_df["Company"].str.contains(search_query, case=False, na=False)
-    
-        ]
+        # Lowercase search query for case-insensitive match
+        search_query_lower = search_query.lower()
+
+        search_results = file_df[file_df["Company_Lower"].str.contains(search_query_lower, na=False)]
 
         if search_results.empty:
             st.warning("No matches found. Try a different query.")
@@ -864,9 +866,6 @@ def dashboard_page():
 
     # Display filtered and sorted results
     st.dataframe(sorted_df.reset_index(drop=True), use_container_width=True)
-
-
-
 
 
 def get_not_yet_companies(repo):
