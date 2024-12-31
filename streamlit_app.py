@@ -258,10 +258,13 @@ def verify_page():
 
             if modified:
                 modified_files.append((file, shareholders, data))
+                st.write(f"Appended to modified_files. Current length: {len(modified_files)}") 
                 st.write(f"File {file['name']} marked as modified.")  # Debugging line
 
         except Exception as e:
             st.error(f"Error processing file {file['name']}: {str(e)}")
+            
+    st.write(f"Modified files before button click: {modified_files}")  # Debugging line
 
     if st.button("Approve Verification", key="approve_verification"):
         st.write("Approve Verification button clicked.")  # Debugging line
