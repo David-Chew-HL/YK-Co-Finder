@@ -160,11 +160,12 @@ def extract_glic_total(filename): #extract from filename
     except Exception:
         return 0.0
 
-
 def verify_page():
     st.title("Verify Extracted Information")
+    st.write("Starting verification process...")  # Debugging line
       
     password_input = st.text_input("Enter password to access verification page:", type="password")
+    st.write("Password input received.")  # Debugging line
     
     if not password_input:
         st.warning("Please enter the password to continue.")
@@ -174,16 +175,31 @@ def verify_page():
         st.error("Incorrect password. Please try again.")
         return
     
-    
     st.write("Please verify the info scraped.")
 
-    g = Github(GITHUB_TOKEN)
-    repo = g.get_repo(GITHUB_REPO)
-    verified_shareholders = get_verified_shareholders(repo)
+    try:
+        g = Github(GITHUB_TOKEN)
+        repo = g.get_repo(GITHUB_REPO)
+        st.write("Connected to GitHub repository.")  # Debugging line
+    except Exception as e:
+        st.error(f"Error connecting to GitHub: {str(e)}")
+        return
+
+    try:
+        verified_shareholders = get_verified_shareholders(repo)
+        st.write("Verified shareholders data retrieved.")  # Debugging line
+    except Exception as e:
+        st.error(f"Error fetching verified shareholders: {str(e)}")
+        return
     
-    json_files = get_json_files_from_github(exclude_verified=True)
-    if not json_files:
-        st.info("No JSON files found in the repository")
+    try:
+        json_files = get_json_files_from_github(exclude_verified=True)
+        st.write(f"Found {len(json_files)} JSON files for verification.")  # Debugging line
+        if not json_files:
+            st.info("No JSON files found in the repository")
+            return
+    except Exception as e:
+        st.error(f"Error fetching JSON files: {str(e)}")
         return
 
     verification_completed = False
@@ -191,17 +207,16 @@ def verify_page():
 
     for file_index, file in enumerate(json_files):
         try:
+            st.write(f"Processing file {file['name']}...")  # Debugging line
             file_content = repo.get_contents(file['path'], ref=GITHUB_BRANCH)
             json_content = base64.b64decode(file_content.content).decode()
             data = json.loads(json_content)
+            st.write(f"Loaded data for company: {data['companyName']}")  # Debugging line
 
-            st.subheader(f"Verifying: {data['companyName']} ({data['reportYear']})")
-
-            # Create a deep copy to ensure we don't lose any shareholders
             shareholders = data['topShareholders'].copy()
             modified = False
 
-            # First, auto-fill verification for known shareholders
+            # Auto-fill verification for known shareholders
             for shareholder in shareholders:
                 shareholder_name = shareholder['shareholderName']
                 if shareholder_name in verified_shareholders['shareholderName'].values:
@@ -214,7 +229,7 @@ def verify_page():
                         modified = True
                         st.info(f"Auto-verified {shareholder_name} as {verified_glic}")
 
-            # Then handle unverified shareholders
+            # Handle unverified shareholders
             unverified_shareholders = [
                 s for s in shareholders 
                 if s['shareholderName'] not in verified_shareholders['shareholderName'].values
@@ -227,7 +242,7 @@ def verify_page():
                     unique_key = f"file_{file_index}_shareholder_{idx}_{shareholder_name}"
                     
                     current_glic = shareholder.get('glicAssociation', "None")
-                    glic_options = ["None", "Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT","Ministry of Finance"]
+                    glic_options = ["None", "Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT", "Ministry of Finance"]
                     
                     default_index = glic_options.index(current_glic) if current_glic in glic_options else 0
                     
@@ -244,34 +259,29 @@ def verify_page():
 
             if modified:
                 modified_files.append((file, shareholders, data))
+                st.write(f"File {file['name']} marked as modified.")  # Debugging line
 
         except Exception as e:
-            st.error(f"Error processing file: {str(e)}")
+            st.error(f"Error processing file {file['name']}: {str(e)}")
 
     if st.button("Approve Verification", key="approve_verification"):
-        st.write("Approve Verification button clicked")  # Debugging line
+        st.write("Approve Verification button clicked.")  # Debugging line
         for file, shareholders, data in modified_files:
             try:
-                success = True
-                
-                # Calculate GLIC total
+                st.write(f"Processing updates for {file['name']}...")  # Debugging line
                 glic_total = sum(
                     s['percentageHeld']
                     for s in shareholders
                     if s['glicAssociation'] in GLIC_LIST
                 )
                 st.write(f"GLIC total calculated: {glic_total}")  # Debugging line
-                
-                # Update data with complete shareholders list
+
                 data['topShareholders'] = shareholders
-                
-                # Create new verified filename with GLIC total
                 new_file_name = f"{file['name']}_v_{glic_total:.1f}.json"
                 new_file_path = f"reports/{new_file_name}"
                 st.write(f"New file path: {new_file_path}")  # Debugging line
-                
+
                 try:
-                    # Create the new verified file
                     repo.create_file(
                         new_file_path,
                         f"Add verified file {new_file_name}",
@@ -280,7 +290,6 @@ def verify_page():
                     )
                     st.write(f"Verified file created: {new_file_name}")  # Debugging line
                     
-                    # After creating verified JSON, update verified_shareholders.csv with all shareholders
                     shareholders_for_csv = [
                         {
                             "shareholderName": s['shareholderName'],
@@ -290,11 +299,9 @@ def verify_page():
                     ]
                     if not add_verified_shareholders(repo, shareholders_for_csv):
                         st.error("Failed to update verified shareholders CSV")
-                        success = False
                     else:
-                        st.write("Verified shareholders CSV updated")  # Debugging line
+                        st.write("Verified shareholders CSV updated.")  # Debugging line
                     
-                    # Delete the old unverified file
                     repo.delete_file(
                         file['path'],
                         f"Delete unverified file {file['name']}",
@@ -302,15 +309,15 @@ def verify_page():
                         branch=GITHUB_BRANCH
                     )
                     st.write(f"Unverified file deleted: {file['name']}")  # Debugging line
-                    
+
                     st.success(f"Successfully verified {data['companyName']} and updated files")
                     verification_completed = True
-                     
+
                 except Exception as e:
-                    st.error(f"Error updating files: {str(e)}")
+                    st.error(f"Error updating files for {file['name']}: {str(e)}")
                     
             except Exception as e:
-                st.error(f"Error processing file: {str(e)}")
+                st.error(f"Error finalizing file {file['name']}: {str(e)}")
     
     if verification_completed:
         st.success("Verification completed!")
