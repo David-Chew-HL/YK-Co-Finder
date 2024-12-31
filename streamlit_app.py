@@ -307,8 +307,7 @@ def verify_page():
     
     if verification_completed:
         st.success("Verification completed!")
-        time.sleep(2)  # Wait for 2 seconds before refreshing
-        st.rerun()  # Refresh the page
+
 
 def get_verified_shareholders(repo):
     # Check for existence of verified_shareholders.csv
@@ -633,31 +632,32 @@ def upload_page():
         st.error(f"GitHub connection failed: {str(e)}")
         return
     
-    uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
+    uploaded_files = st.file_uploader("Choose PDF files", type="pdf", accept_multiple_files=True)
     
-    if uploaded_file:
+    if uploaded_files:
         status_container = st.empty()
         
         def update_status(status=None):
             status_container.text_area("Processing Status:", value=status, height=150)
                 
-        if st.button("Process File"):
-            try:
-                pdf_content = handle_pdf_upload(uploaded_file)
-                if pdf_content is None:
-                    return
-        
-                update_status("Processing...")
-                
-                # Use the unified processing function
-                success = process_pdf_content(pdf_content, company_name=None, status_callback=update_status)
-                
-                if success:
-                    update_status("Completed ✓")
-                else:
-                    update_status("Failed ✗")
-            except Exception as e:
-                update_status(f"Failed: {str(e)} ✗")
+        if st.button("Process Files"):
+            for uploaded_file in uploaded_files:
+                try:
+                    pdf_content = handle_pdf_upload(uploaded_file)
+                    if pdf_content is None:
+                        continue
+            
+                    update_status(f"Processing {uploaded_file.name}...")
+                    
+                    # Use the unified processing function
+                    success = process_pdf_content(pdf_content, company_name=None, status_callback=update_status)
+                    
+                    if success:
+                        update_status(f"Completed {uploaded_file.name} ✓")
+                    else:
+                        update_status(f"Failed {uploaded_file.name} ✗")
+                except Exception as e:
+                    update_status(f"Failed {uploaded_file.name}: {str(e)} ✗")
     # New section for search and company selection
     st.markdown("---")
     st.subheader("Process New Companies")
