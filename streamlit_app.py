@@ -945,6 +945,35 @@ def search_annual_report(company_name):
         st.error(f"Error searching for annual reports: {str(e)}")
         return []
 
+#footer code from https://discuss.streamlit.io/t/streamlit-footer/12181
+footer="""<style>
+a:link , a:visited{
+color: blue;
+background-color: transparent;
+text-decoration: underline;
+}
+
+a:hover,  a:active {
+color: red;
+background-color: transparent;
+text-decoration: underline;
+}
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: white;
+color: black;
+text-align: center;
+}
+</style>
+<div class="footer">
+<p>Developed with ❤ by <a style='display: block; text-align: center;' href="https://dc-portfolio.vercel.app/" target="_blank">David Chew Hong Liang</a></p>
+</div>
+"""
+st.markdown(footer,unsafe_allow_html=True)
     
 def main():
     st.sidebar.title("Navigation")
