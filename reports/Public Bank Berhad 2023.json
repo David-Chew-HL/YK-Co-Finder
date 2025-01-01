@@ -1,0 +1,188 @@
+{
+  "companyDescription": "The Public Bank Group\u2019s banking business includes the provision of a comprehensive suite of financial products and services, which comprises personal banking, commercial banking, Islamic banking, investment banking, share broking, trustee services, nominee services, sale and management of unit trust funds as well as bancassurance and general insurance products.",
+  "companyName": "Public Bank Berhad",
+  "industry": "Banks",
+  "reportYear": 2023,
+  "topShareholders": [
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 21.64,
+      "shareholderName": "Consolidated Teh Holdings Sdn Berhad"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 347,
+      "percentageHeld": 13.52,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd Employees Provident Fund Board"
+    },
+    {
+      "glicAssociation": "KWAP",
+      "pageNumber": 347,
+      "percentageHeld": 4.07,
+      "shareholderName": "Kumpulan Wang Persaraan (Diperbadankan)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 1.53,
+      "shareholderName": "Cartaban Nominees (Asing) Sdn Bhd Exempt An for State Street Bank & Trust Company (West CLT OD67)"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 347,
+      "percentageHeld": 1.34,
+      "shareholderName": "Amanahraya Trustees Berhad Amanah Saham Bumiputera"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 1.1,
+      "shareholderName": "LPI Capital Bhd"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 347,
+      "percentageHeld": 1.04,
+      "shareholderName": "Amanahraya Trustees Berhad Amanah Saham Malaysia"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 1.03,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd Exempt An for AIA Bhd"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 1.02,
+      "shareholderName": "Citigroup Nominees (Asing) Sdn Bhd CB Spore GW for Government of Singapore (GIC C)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 1.01,
+      "shareholderName": "HSBC Nominees (Asing) Sdn Bhd JPMCB NA for Vanguard Total International Stock Index Fund"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 1.0,
+      "shareholderName": "HSBC Nominees (Asing) Sdn Bhd JPMCB NA for Vanguard Emerging Markets Stock Index Fund"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 0.78,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd Great Eastern Life Assurance (Malaysia) Berhad (Par 1)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 0.78,
+      "shareholderName": "Cartaban Nominees (Tempatan) Sdn Bhd PAMB for Prulink Equity Fund"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 0.74,
+      "shareholderName": "Public Invest Nominees (Tempatan) Sdn Bhd Public Bank Group Officers\u2019 Retirement Benefits Fund"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 0.67,
+      "shareholderName": "UOB Kay Hian Nominees (Asing) Sdn Bhd Exempt An for UOB Kay Hian Pte Ltd (A/c Clients)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 0.64,
+      "shareholderName": "The Estate of the late Tan Sri Dato\u2019 Sri Dr. Teh Hong Piow"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 347,
+      "percentageHeld": 0.61,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd Employees Provident Fund Board (Nomura)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 0.56,
+      "shareholderName": "Cartaban Nominees (Asing) Sdn Bhd BNYM SA/NV for People\u2019s Bank of China (SICL Asia EM)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 0.55,
+      "shareholderName": "HSBC Nominees (Asing) Sdn Bhd JPMCB NA for Blackrock Institutional Trust Company, N.A. Investment Funds for Employee Benefit Trusts"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 0.52,
+      "shareholderName": "Cartaban Nominees (Tempatan) Sdn Bhd Prudential Assurance Malaysia Berhad for Prulink Strategic Fund"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 0.49,
+      "shareholderName": "HSBC Nominees (Asing) Sdn Bhd JPMCB NA for Vanguard Fiduciary Trust Company Institutional Total International Stock Market Index Trust II"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 0.47,
+      "shareholderName": "Citigroup Nominees (Asing) Sdn Bhd Exempt an for Citibank New York (Norges Bank 19)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 0.42,
+      "shareholderName": "Maybank Nominees (Tempatan) Sdn Bhd Maybank Trustees Berhad for Public Regular Savings Fund (N14011940100)"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 347,
+      "percentageHeld": 0.42,
+      "shareholderName": "Amanahraya Trustees Berhad Amanah Saham Bumiputera 2"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 0.4,
+      "shareholderName": "Cartaban Nominees (Asing) Sdn Bhd State Street London Fund OQ78 for iShares IV Public Limited Company"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 347,
+      "percentageHeld": 0.39,
+      "shareholderName": "Amanahraya Trustees Berhad Amanah Saham Malaysia 2 - Wawasan"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 0.36,
+      "shareholderName": "Citigroup Nominees (Tempatan) Sdn Bhd Great Eastern Life Assurance (Malaysia) Berhad (Par 3)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 0.34,
+      "shareholderName": "Citigroup Nominees (Asing) Sdn Bhd UBS AG"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 0.33,
+      "shareholderName": "Cartaban Nominees (Asing) Sdn Bhd SSBT Fund SWV4 for California Public Employees Retirement System"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 347,
+      "percentageHeld": 0.31,
+      "shareholderName": "Cartaban Nominees (Asing) Sdn Bhd State Street London Fund 2H26 for St. James\u2019s Place Emergingmarkets Equity Unit Trust (NW TDS LTD TST)"
+    }
+  ]
+}
