@@ -20,6 +20,8 @@ import ocrmypdf
 from matplotlib.ticker import MaxNLocator
 import matplotlib.pyplot as plt
 import seaborn as sns
+from collections import defaultdict
+
 
 GITHUB_TOKEN = st.secrets["GITHUB_TOKEN"]
 GITHUB_REPO = st.secrets["GITHUB_REPO"]
@@ -126,7 +128,7 @@ def upload_to_github(json_data, filename,year):
     except Exception as e:
         return False, f"Upload failed: {str(e)}"
     
-
+@st.cache_data
 def get_json_files_from_github(exclude_verified):
     """
     Fetches JSON files from the GitHub repo. If `exclude_verified` is True, 
@@ -154,7 +156,7 @@ def get_json_files_from_github(exclude_verified):
         st.error(f"Error fetching JSON files: {str(e)}")
         return []
 
-
+@st.cache_data
 def extract_glic_total(filename): #extract from filename
     try:
         match = re.search(r"_v_(\d+\.\d+)", filename)
@@ -304,6 +306,7 @@ def verify_page():
         time.sleep(2)  # Wait for 2 seconds before refreshing
         st.rerun()  # Refresh the page
 
+@st.cache_data
 def get_verified_shareholders(repo):
     # Check for existence of verified_shareholders.csv
     try:
@@ -407,7 +410,6 @@ def view_json_file(file_content, selected_file):
         df.to_html(index=False, escape=False, justify="left"),
         unsafe_allow_html=True
     )
-
 
 
 def save_extracted_text_to_github(repo, company_name, extracted_text, year):
@@ -784,6 +786,7 @@ def view_page():
         except Exception as e:
             st.error(f"Error loading JSON: {str(e)}")
 
+@st.cache_data
 def get_file_content(file_path):
     g = Github(GITHUB_TOKEN)
     repo = g.get_repo(GITHUB_REPO)
@@ -797,6 +800,7 @@ def dashboard_page():
     # Only show those which are verified and bond serving
     st.title("Dashboard")
 
+def analyze_glic_data():
     # Fetch JSON files at the beginning
     json_files = get_json_files_from_github(exclude_verified=False)
     if not json_files:
@@ -804,8 +808,7 @@ def dashboard_page():
         return
 
     file_data = []
-    industry_counts = {}
-    glic_distribution = {">= 20": {}, "< 20": {}}
+    total_industries = set()
 
     for file in json_files:
         glic_total = extract_glic_total(file['name'])
@@ -813,48 +816,41 @@ def dashboard_page():
         industry = file_content.get("industry", "Unknown")
         
         file_data.append({
-            " ": "✔️" if glic_total >= 20 else "",
             "Company": file_content.get("companyName", "Unknown"),
             "Industry": industry,
             "GLIC Total %": glic_total,
-            
         })
+        
+        if industry != "Unknown":
+            total_industries.add(industry)
 
-        # Update industry counts for the chart
-        if industry and industry != "Unknown":
-            if glic_total >= 20:
-                glic_distribution[">= 20"][industry] = glic_distribution[">= 20"].get(industry, 0) + 1
-            else:
-                glic_distribution["< 20"][industry] = glic_distribution["< 20"].get(industry, 0) + 1
-
-    # Create data frame from file data
+    # Create DataFrame and use vectorized operations
     file_df = pd.DataFrame(file_data)
+    file_df["Is Bond Serving"] = file_df["GLIC Total %"] >= 20
+    file_df[" "] = file_df["Is Bond Serving"].map({True: "✔️", False: ""})
 
-    # Apply GLIC threshold to separate categories
-    high_glic_df = file_df[file_df["GLIC Total %"] >= 20]
-    low_glic_df = file_df[file_df["GLIC Total %"] < 20]
-
+    # Calculate distribution using vectorized operations
+    industry_counts = (
+        file_df.groupby(["Industry", "Is Bond Serving"])
+        .size()
+        .unstack(fill_value=0)
+    )
+    industry_counts.columns = ["Non", "Bond Serving"]  
+    
+    # Calculate metrics using vectorized operations
+    high_glic_count = file_df["Is Bond Serving"].sum()
+    total_companies = len(file_df)
+    
     # Display statistics
     st.subheader("Statistics")
     col1, col2, col3 = st.columns(3)
-    with col1:
-        st.metric("Bond Serving Companies", len(high_glic_df))
-    with col2:
-        st.metric("Total Companies Processed", len(file_df))
-    with col3:
-        st.metric("Total Industries", len(glic_distribution[">= 20"]) + len(glic_distribution["< 20"]))
+    col1.metric("Bond Serving Companies", high_glic_count)
+    col2.metric("Total Companies Processed", total_companies)
+    col3.metric("Total Industries", len(total_industries))
 
-    # Industry distribution chart
-    industry_df = pd.DataFrame({
-        "Industry": list(set(glic_distribution[">= 20"].keys()) | set(glic_distribution["< 20"].keys())),
-        "Bond Serving": [glic_distribution[">= 20"].get(ind, 0) for ind in set(glic_distribution[">= 20"].keys()) | set(glic_distribution["< 20"].keys())],
-        "Non" : [glic_distribution["< 20"].get(ind, 0) for ind in set(glic_distribution[">= 20"].keys()) | set(glic_distribution["< 20"].keys())],
-    })
-
-    # Plot with Matplotlib
+    # Plot chart using the vectorized groupby result
     plt.figure(figsize=(10, 4))
-    industry_df = industry_df.set_index("Industry")
-    ax = industry_df.plot(kind="bar", stacked=True, color=["#46B4A6", "#FFA07A"], edgecolor="black")
+    ax = industry_counts.plot(kind="bar", stacked=True, color=["#FFA07A", "#46B4A6"], edgecolor="black")
     plt.ylabel("Count", fontsize=12)
     plt.xlabel("Industry", fontsize=12)
     plt.xticks(rotation=45, ha="right", fontsize=10, color="black")
@@ -864,28 +860,37 @@ def dashboard_page():
     plt.tight_layout()
     st.pyplot(plt)
 
-    # Sorting and filtering
+    # UI controls for sorting and filtering
     st.subheader("Company Details")
-    sort_col, filter_col = st.columns(2)
-    with sort_col:
+    col1, col2 = st.columns(2)
+    with col1:
         sort_by = st.selectbox("Sort by:", ["GLIC Total %", "Company", "Industry"])
-    with filter_col:
-        all_industries = ["All"] + sorted(list(set(file_df["Industry"])))
+    with col2:
+        all_industries = ["All"] + sorted(list(total_industries))
         selected_industry = st.selectbox("Filter by industry:", all_industries)
 
-    # Apply filters and sorting
+    # Apply filters and sorting using vectorized operations
     if selected_industry != "All":
-        file_df = file_df[file_df["Industry"] == selected_industry]
+        mask = file_df["Industry"] == selected_industry
+        filtered_df = file_df[mask]
+    else:
+        filtered_df = file_df
 
-    # Separate into categories and sort
-    high_glic_df = file_df[file_df["GLIC Total %"] >= 20].sort_values(by=sort_by, ascending=False)
-    low_glic_df = file_df[file_df["GLIC Total %"] < 20].sort_values(by=sort_by, ascending=False)
-    sorted_df = pd.concat([high_glic_df, low_glic_df])
+    # Sort using vectorized operations
+    if sort_by == "GLIC Total %":
+        sorted_df = filtered_df.sort_values(
+            by=["Is Bond Serving", "GLIC Total %"],
+            ascending=[False, False]
+        )
+    else:
+        sorted_df = filtered_df.sort_values(
+            by=[sort_by, "Is Bond Serving"],
+            ascending=[False, False]
+        )
 
-    # Display table
-    st.dataframe(sorted_df.reset_index(drop=True), use_container_width=True)
-
-
+    # Prepare final display DataFrame
+    display_df = sorted_df.drop(columns=["Is Bond Serving"])
+    st.dataframe(display_df.reset_index(drop=True), use_container_width=True)
 
 def get_not_yet_companies(repo):
     """Get list of companies that haven't been processed yet."""
