@@ -799,9 +799,7 @@ def get_file_content(file_path):
 def dashboard_page(): 
     # Only show those which are verified and bond serving
     st.title("Dashboard")
-
-def analyze_glic_data():
-    # Fetch JSON files at the beginning
+    
     json_files = get_json_files_from_github(exclude_verified=False)
     if not json_files:
         st.info("No JSON files found with GLIC totals.")
