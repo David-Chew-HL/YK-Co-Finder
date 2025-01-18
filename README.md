@@ -40,11 +40,14 @@ As users upload financial reports and verify extracted data, the database grows,
 ## 🔧 **How It Works**  
 1️⃣ **Browse or Contribute**:  
    - View the list of processed companies.  
-   - If a company isn’t listed, upload its financial report or use the built-in search engine.  
+   - If a company isn’t listed, upload its financial report or use the built-in search engine.
+     
 2️⃣ **AI-Powered Extraction**:  
-   - Gemini 2.0 Flash processes reports, extracting shareholding data and identifying GLIC associations.  
+   - Gemini 2.0 Flash processes reports, extracting shareholding data and identifying GLIC associations.
+     
 3️⃣ **Human Verification**:  
-   - Users review and verify the extracted data.  
+   - Users review and verify the extracted data.
+
 4️⃣ **Bond-Serving Calculation**:  
    - The system calculates GLIC holdings and determines bond-serving eligibility.  
 
