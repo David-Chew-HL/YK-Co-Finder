@@ -84,10 +84,24 @@ generation_config = {
 }
 
 
-def upload_to_github(json_data, filename,year):
+def upload_to_github(json_data, filename, year):
     try:
         g = Github(GITHUB_TOKEN)
         repo = g.get_repo(GITHUB_REPO)
+        
+        # First check if a verified version exists
+        try:
+            contents = repo.get_contents("reports", ref=GITHUB_BRANCH)
+            for content in contents:
+                if content.name.endswith('.json'):
+                    # Check if there's already a verified or unverified version
+                    # for this company and year
+                    existing_name = content.name.replace('.json', '')
+                    if (filename in existing_name and str(year) in existing_name):
+                        return False, f"File already exists for {filename} {year}"
+        except Exception as e:
+            if "404" not in str(e):  # If error is not "directory not found"
+                raise e
    
         try:
             repo.get_contents("reports", ref=GITHUB_BRANCH)
@@ -108,10 +122,7 @@ def upload_to_github(json_data, filename,year):
             )
             return True, "File updated successfully"
         except Exception as e:
-
-            
             if "404" in str(e):
-
                 ref = repo.get_git_ref(f"heads/{GITHUB_BRANCH}")
                 latest_commit = repo.get_git_commit(ref.object.sha)
 
