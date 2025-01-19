@@ -299,10 +299,7 @@ def verify_page():
                         file['sha'],
                         branch=GITHUB_BRANCH
                     )
-                    
-                    if not update_dashboard_statistics(repo):
-                        st.warning("Failed to update dashboard statistics")
-                        
+
                     st.success(f"Successfully verified {data['companyName']} and updated files")
                     verification_completed = True
 
@@ -804,99 +801,50 @@ def get_file_content(file_path):
     data = json.loads(base64.b64decode(content.content).decode())
     return data
 
-def update_dashboard_statistics(repo):
-    """
-    Calculate dashboard statistics from verified JSON files and store in statistics.json
-    Should be called whenever new files are verified.
-    """
+
+
+def dashboard_page(): 
+    # Only show those which are verified and bond serving
+    st.title("Dashboard")
+    
     json_files = get_json_files_from_github(exclude_verified=False)
     if not json_files:
+        st.info("No JSON files found with GLIC totals.")
         return
-    
+
     file_data = []
     total_industries = set()
-    
-    # Extract data from JSON files
+
     for file in json_files:
         glic_total = extract_glic_total(file['name'])
         file_content = get_file_content(file['path'])
         industry = file_content.get("industry", "Unknown")
         
         file_data.append({
-            "company": file_content.get("companyName", "Unknown"),
-            "industry": industry,
-            "glic_total": glic_total,
-            "is_bond_serving": glic_total >= 20
+            "Company": file_content.get("companyName", "Unknown"),
+            "Industry": industry,
+            "GLIC Total %": glic_total,
         })
         
         if industry != "Unknown":
             total_industries.add(industry)
-    
-    # Calculate statistics
-    df = pd.DataFrame(file_data)
-    industry_distribution = (
-        df.groupby(["industry", "is_bond_serving"])
+
+    # Create DataFrame and use vectorized operations
+    file_df = pd.DataFrame(file_data)
+    file_df["Is Bond Serving"] = file_df["GLIC Total %"] >= 20
+    file_df[" "] = file_df["Is Bond Serving"].map({True: "✔️", False: ""})
+
+    # Calculate distribution using vectorized operations
+    industry_counts = (
+        file_df.groupby(["Industry", "Is Bond Serving"])
         .size()
         .unstack(fill_value=0)
-        .to_dict()
     )
+    industry_counts.columns = ["Non", "Bond Serving"]  
     
-    statistics = {
-        "total_companies": len(file_data),
-        "bond_serving_companies": sum(1 for item in file_data if item["is_bond_serving"]),
-        "total_industries": len(total_industries),
-        "industries": sorted(list(total_industries)),
-        "industry_distribution": industry_distribution,
-        "company_details": file_data
-    }
-    
-    # Save to GitHub
-    try:
-        statistics_json = json.dumps(statistics, indent=2)
-        try:
-            # Try to update existing file
-            file = repo.get_contents("statistics.json", ref=GITHUB_BRANCH)
-            repo.update_file(
-                "statistics.json",
-                "Update dashboard statistics",
-                statistics_json,
-                file.sha,
-                branch=GITHUB_BRANCH
-            )
-        except:
-            # Create new file if it doesn't exist
-            repo.create_file(
-                "statistics.json",
-                "Initialize dashboard statistics",
-                statistics_json,
-                branch=GITHUB_BRANCH
-            )
-        return True
-    except Exception as e:
-        print(f"Error saving statistics: {str(e)}")
-        return False
-
-def get_dashboard_statistics():
-    """
-    Retrieve pre-calculated dashboard statistics from statistics.json
-    """
-    try:
-        g = Github(GITHUB_TOKEN)
-        repo = g.get_repo(GITHUB_REPO)
-        content = repo.get_contents("statistics.json", ref=GITHUB_BRANCH)
-        return json.loads(base64.b64decode(content.content).decode())
-    except Exception as e:
-        print(f"Error loading statistics: {str(e)}")
-        return None
-
-def dashboard_page(): 
-    # Only show those which are verified and bond serving
-    st.title("Dashboard")
-    
-    statistics = get_dashboard_statistics()
-    if not statistics:
-        st.info("No dashboard statistics available.")
-        return
+    # Calculate metrics using vectorized operations
+    high_glic_count = file_df["Is Bond Serving"].sum()
+    total_companies = len(file_df)
     
     # Display statistics
     st.subheader("Statistics")
