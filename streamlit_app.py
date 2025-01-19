@@ -139,7 +139,6 @@ def upload_to_github(json_data, filename, year):
     except Exception as e:
         return False, f"Upload failed: {str(e)}"
     
-@st.cache_data
 def get_json_files_from_github(exclude_verified):
     """
     Fetches JSON files from the GitHub repo. If `exclude_verified` is True, 
@@ -167,7 +166,6 @@ def get_json_files_from_github(exclude_verified):
         st.error(f"Error fetching JSON files: {str(e)}")
         return []
 
-@st.cache_data
 def extract_glic_total(filename): #extract from filename
     try:
         match = re.search(r"_v_(\d+\.\d+)", filename)
@@ -317,7 +315,6 @@ def verify_page():
         time.sleep(2)  # Wait for 2 seconds before refreshing
         st.rerun()  # Refresh the page
 
-@st.cache_data
 def get_verified_shareholders(repo):
     # Check for existence of verified_shareholders.csv
     try:
@@ -797,7 +794,6 @@ def view_page():
         except Exception as e:
             st.error(f"Error loading JSON: {str(e)}")
 
-@st.cache_data
 def get_file_content(file_path):
     g = Github(GITHUB_TOKEN)
     repo = g.get_repo(GITHUB_REPO)
