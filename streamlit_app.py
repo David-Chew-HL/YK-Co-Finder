@@ -889,10 +889,10 @@ def get_dashboard_statistics():
         print(f"Error loading statistics: {str(e)}")
         return None
 
-def dashboard_page(): 
-    # Only show those which are verified and bond serving
+def dashboard_page():
     st.title("Dashboard")
     
+    # Get pre-calculated statistics
     statistics = get_dashboard_statistics()
     if not statistics:
         st.info("No dashboard statistics available.")
@@ -901,13 +901,16 @@ def dashboard_page():
     # Display statistics
     st.subheader("Statistics")
     col1, col2, col3 = st.columns(3)
-    col1.metric("Bond Serving Companies", high_glic_count)
-    col2.metric("Total Companies Processed", total_companies)
-    col3.metric("Total Industries", len(total_industries))
-
-    # Plot chart using the vectorized groupby result
+    col1.metric("Bond Serving Companies", statistics["bond_serving_companies"])
+    col2.metric("Total Companies Processed", statistics["total_companies"])
+    col3.metric("Total Industries", statistics["total_industries"])
+    
+    # Plot industry distribution
+    industry_df = pd.DataFrame(statistics["industry_distribution"]).fillna(0)
+    industry_df.columns = ["Non", "Bond Serving"]
+    
     plt.figure(figsize=(10, 4))
-    ax = industry_counts.plot(kind="bar", stacked=True, color=["#FFA07A", "#46B4A6"], edgecolor="black")
+    ax = industry_df.plot(kind="bar", stacked=True, color=["#FFA07A", "#46B4A6"], edgecolor="black")
     plt.ylabel("Count", fontsize=12)
     plt.xlabel("Industry", fontsize=12)
     plt.xticks(rotation=45, ha="right", fontsize=10, color="black")
@@ -916,48 +919,49 @@ def dashboard_page():
     plt.title("Industry Distribution", fontsize=14, fontweight="bold")
     plt.tight_layout()
     st.pyplot(plt)
-
-    # UI controls for sorting and filtering
+    
+    # Company details table with sorting and filtering
     st.subheader("Company Details")
     col1, col2 = st.columns(2)
     with col1:
         sort_by = st.selectbox("Sort by:", ["GLIC Total %", "Company", "Industry"])
     with col2:
-        all_industries = ["All"] + sorted(list(total_industries))
+        all_industries = ["All"] + statistics["industries"]
         selected_industry = st.selectbox("Filter by industry:", all_industries)
-
-    # Apply filters and sorting using vectorized operations
+    
+    # Create DataFrame from stored company details
+    df = pd.DataFrame(statistics["company_details"])
+    df = df.rename(columns={
+        "company": "Company",
+        "industry": "Industry",
+        "glic_total": "GLIC Total %",
+        "is_bond_serving": "Is Bond Serving"
+    })
+    df[" "] = df["Is Bond Serving"].map({True: "✔️", False: ""})
+    
+    # Apply filters and sorting
     if selected_industry != "All":
-        mask = file_df["Industry"] == selected_industry
-        filtered_df = file_df[mask]
-    else:
-        filtered_df = file_df
-
-    # Sort using vectorized operations
+        df = df[df["Industry"] == selected_industry]
+    
     if sort_by == "GLIC Total %":
-        sorted_df = filtered_df.sort_values(
-            by=["Is Bond Serving", "GLIC Total %"],
-            ascending=[False, False]
-        )
+        df = df.sort_values(by=["Is Bond Serving", "GLIC Total %"], ascending=[False, False])
     else:
-        sorted_df = filtered_df.sort_values(
-            by=[sort_by, "Is Bond Serving"],
-            ascending=[False, False]
-        )
-
-    # Prepare final display DataFrame
-    display_df = sorted_df.drop(columns=["Is Bond Serving"])
+        df = df.sort_values(by=[sort_by, "Is Bond Serving"], ascending=[False, False])
+    
+    # Display final DataFrame
+    display_df = df.drop(columns=["Is Bond Serving"])
     st.dataframe(display_df.reset_index(drop=True), use_container_width=True)
     
     st.markdown(
-    """
-    <div style='font-size: small; color: gray;'>
-        <b> Disclaimer: </b> <i>
-This platform uses AI to process and analyze data, and while we strive for accuracy, AI-generated content may contain errors or inaccuracies. Users are encouraged to verify details independently before making any decisions. We do not assume responsibility for any decisions made based on the information provided. </i>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+        """
+        <div style='font-size: small; color: gray;'>
+            <b>Disclaimer:</b> <i>This platform uses AI to process and analyze data, and while we strive for accuracy, 
+            AI-generated content may contain errors or inaccuracies. Users are encouraged to verify details independently 
+            before making any decisions. We do not assume responsibility for any decisions made based on the information provided.</i>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 def get_not_yet_companies(repo):
     """Get list of companies that haven't been processed yet."""
