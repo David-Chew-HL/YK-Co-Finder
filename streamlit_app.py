@@ -896,6 +896,16 @@ def dashboard_page():
     # Prepare final display DataFrame
     display_df = sorted_df.drop(columns=["Is Bond Serving"])
     st.dataframe(display_df.reset_index(drop=True), use_container_width=True)
+    
+    st.markdown(
+    """
+    <div style='font-size: small; color: gray;'>
+        <b> Disclaimer: </b> <i>
+This platform uses AI to process and analyze data, and while we strive for accuracy, AI-generated content may contain errors or inaccuracies. Users are encouraged to verify details independently before making any decisions. We do not assume responsibility for any decisions made based on the information provided. </i>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 def get_not_yet_companies(repo):
     """Get list of companies that haven't been processed yet."""
