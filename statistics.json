@@ -1,0 +1,219 @@
+{
+  "total_companies": 26,
+  "bond_serving_companies": 18,
+  "total_industries": 16,
+  "industries": [
+    "Automobiles",
+    "Banks",
+    "Capital Goods",
+    "Construction",
+    "Diversified Financials",
+    "Energy",
+    "Food",
+    "Food, Beverage",
+    "Insurance",
+    "Materials",
+    "Pharmaceuticals",
+    "Real Estate",
+    "Retail",
+    "Telecom",
+    "Transportation",
+    "Utilities"
+  ],
+  "industry_distribution": {
+    "false": {
+      "Automobiles": 0,
+      "Banks": 0,
+      "Capital Goods": 0,
+      "Construction": 0,
+      "Diversified Financials": 0,
+      "Energy": 0,
+      "Food": 0,
+      "Food, Beverage": 0,
+      "Insurance": 0,
+      "Materials": 1,
+      "Pharmaceuticals": 0,
+      "Real Estate": 2,
+      "Retail": 1,
+      "Telecom": 0,
+      "Transportation": 2,
+      "Utilities": 2
+    },
+    "true": {
+      "Automobiles": 1,
+      "Banks": 3,
+      "Capital Goods": 1,
+      "Construction": 1,
+      "Diversified Financials": 1,
+      "Energy": 2,
+      "Food": 1,
+      "Food, Beverage": 1,
+      "Insurance": 1,
+      "Materials": 0,
+      "Pharmaceuticals": 1,
+      "Real Estate": 1,
+      "Retail": 0,
+      "Telecom": 3,
+      "Transportation": 0,
+      "Utilities": 1
+    }
+  },
+  "company_details": [
+    {
+      "company": "7-Eleven Malaysia Holdings Berhad",
+      "industry": "Retail",
+      "glic_total": 6.6,
+      "is_bond_serving": false
+    },
+    {
+      "company": "Axiata Group Berhad",
+      "industry": "Telecom",
+      "glic_total": 73.2,
+      "is_bond_serving": true
+    },
+    {
+      "company": "CAPITAL A BERHAD",
+      "industry": "Transportation",
+      "glic_total": 6.6,
+      "is_bond_serving": false
+    },
+    {
+      "company": "CelcomDigi Berhad",
+      "industry": "Telecom",
+      "glic_total": 52.1,
+      "is_bond_serving": true
+    },
+    {
+      "company": "CIMB Bank PLC",
+      "industry": "Banks",
+      "glic_total": 41.3,
+      "is_bond_serving": true
+    },
+    {
+      "company": "DUOPHARMA BIOTECH BERHAD",
+      "industry": "Pharmaceuticals",
+      "glic_total": 69.5,
+      "is_bond_serving": true
+    },
+    {
+      "company": "Farm Fresh Berhad",
+      "industry": "Food, Beverage",
+      "glic_total": 38.1,
+      "is_bond_serving": true
+    },
+    {
+      "company": "Gamuda Berhad",
+      "industry": "Capital Goods",
+      "glic_total": 36.0,
+      "is_bond_serving": true
+    },
+    {
+      "company": "IJM Corporation Berhad",
+      "industry": "Construction",
+      "glic_total": 43.9,
+      "is_bond_serving": true
+    },
+    {
+      "company": "Malayan Cement Berhad",
+      "industry": "Materials",
+      "glic_total": 5.6,
+      "is_bond_serving": false
+    },
+    {
+      "company": "Malaysia Building Society Berhad",
+      "industry": "Banks",
+      "glic_total": 70.23,
+      "is_bond_serving": true
+    },
+    {
+      "company": "Maxis Berhad",
+      "industry": "Telecom",
+      "glic_total": 24.4,
+      "is_bond_serving": true
+    },
+    {
+      "company": "Maybulk Berhad",
+      "industry": "Transportation",
+      "glic_total": 0.0,
+      "is_bond_serving": false
+    },
+    {
+      "company": "MNRB Holdings Berhad",
+      "industry": "Insurance",
+      "glic_total": 53.91,
+      "is_bond_serving": true
+    },
+    {
+      "company": "Payments Network Malaysia Sdn Bhd",
+      "industry": "Diversified Financials",
+      "glic_total": 35.0,
+      "is_bond_serving": true
+    },
+    {
+      "company": "Public Bank Berhad",
+      "industry": "Banks",
+      "glic_total": 21.4,
+      "is_bond_serving": true
+    },
+    {
+      "company": "S P Setia Berhad",
+      "industry": "Real Estate",
+      "glic_total": 68.0,
+      "is_bond_serving": true
+    },
+    {
+      "company": "Sapura Energy Berhad",
+      "industry": "Energy",
+      "glic_total": 42.0,
+      "is_bond_serving": true
+    },
+    {
+      "company": "SIME DARBY BERHAD",
+      "industry": "Automobiles",
+      "glic_total": 28.7,
+      "is_bond_serving": true
+    },
+    {
+      "company": "Sime Darby Plantation Berhad",
+      "industry": "Food",
+      "glic_total": 76.6,
+      "is_bond_serving": true
+    },
+    {
+      "company": "Sime Darby Property Berhad",
+      "industry": "Real Estate",
+      "glic_total": 0.0,
+      "is_bond_serving": false
+    },
+    {
+      "company": "SUNWAY BERHAD",
+      "industry": "Real Estate",
+      "glic_total": 5.5,
+      "is_bond_serving": false
+    },
+    {
+      "company": "Tenaga Nasional Berhad",
+      "industry": "Utilities",
+      "glic_total": 65.2,
+      "is_bond_serving": true
+    },
+    {
+      "company": "Velesto Energy Berhad",
+      "industry": "Energy",
+      "glic_total": 55.3,
+      "is_bond_serving": true
+    },
+    {
+      "company": "YTL Power International Berhad",
+      "industry": "Utilities",
+      "glic_total": 4.9,
+      "is_bond_serving": false
+    },
+    {
+      "company": "YTL POWER INTERNATIONAL BERHAD",
+      "industry": "Utilities",
+      "glic_total": 4.6,
+      "is_bond_serving": false
+    }
+  ]
+}

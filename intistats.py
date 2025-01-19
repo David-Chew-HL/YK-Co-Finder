@@ -1,51 +1,49 @@
 import os
 import json
-import base64
-from github import Github
+import re
 import pandas as pd
+from pathlib import Path
+
+# Constants
+GLIC_LIST = ["Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT", "Ministry of Finance"]
+LOCAL_REPORTS_DIR = "reports"  # Directory containing JSON files
+OUTPUT_FILE = "statistics.json"  # Output statistics file
+
+def extract_glic_total(filename):
+    """Extract GLIC total percentage from filename."""
+    try:
+        match = re.search(r"_v_(\d+\.\d+)", filename)
+        return float(match.group(1)) if match else 0.0
+    except Exception:
+        return 0.0
 
 def initialize_dashboard_statistics():
-    # Replace these with your actual values if running locally
-    GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
-    GITHUB_REPO = os.environ.get("GITHUB_REPO")
-    GITHUB_BRANCH = os.environ.get("GITHUB_BRANCH", "main")
-    GLIC_LIST = ["Khazanah", "EPF", "KWAP", "PNB", "Tabung Haji", "LTAT", "Ministry of Finance"]
-
-    def extract_glic_total(filename):
-        try:
-            match = re.search(r"_v_(\d+\.\d+)", filename)
-            return float(match.group(1)) if match else 0.0
-        except Exception:
-            return 0.0
-
     try:
-        # Initialize GitHub connection
-        g = Github(GITHUB_TOKEN)
-        repo = g.get_repo(GITHUB_REPO)
-        
+        # Ensure reports directory exists
+        reports_dir = Path(LOCAL_REPORTS_DIR)
+        if not reports_dir.exists():
+            print(f"Reports directory '{LOCAL_REPORTS_DIR}' not found")
+            return False
+            
         # Get all verified JSON files
-        contents = repo.get_contents("reports", ref=GITHUB_BRANCH)
-        json_files = [
-            content for content in contents 
-            if content.name.endswith('.json') and '_v_' in content.name
-        ]
+        json_files = [f for f in reports_dir.glob("*.json") if "_v_" in f.name]
         
         if not json_files:
             print("No verified JSON files found")
             return False
-        
+            
         file_data = []
         total_industries = set()
         
         # Process each JSON file
-        for file in json_files:
+        for file_path in json_files:
             try:
-                # Get file content
-                json_content = base64.b64decode(file.content).decode()
-                data = json.loads(json_content)
+                # Read JSON file
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
                 
                 # Extract GLIC total from filename
-                glic_total = extract_glic_total(file.name)
+                glic_total = extract_glic_total(file_path.name)
                 
                 # Get industry
                 industry = data.get("industry", "Unknown")
@@ -62,10 +60,10 @@ def initialize_dashboard_statistics():
                     total_industries.add(industry)
                     
             except Exception as e:
-                print(f"Error processing file {file.name}: {str(e)}")
+                print(f"Error processing file {file_path.name}: {str(e)}")
                 continue
         
-        # Calculate statistics
+        # Calculate statistics using pandas
         df = pd.DataFrame(file_data)
         
         # Calculate industry distribution
@@ -86,28 +84,19 @@ def initialize_dashboard_statistics():
             "company_details": file_data
         }
         
-        # Save to GitHub
-        statistics_json = json.dumps(statistics, indent=2)
-        try:
-            # Try to update existing file
-            file = repo.get_contents("statistics.json", ref=GITHUB_BRANCH)
-            repo.update_file(
-                "statistics.json",
-                "Update dashboard statistics",
-                statistics_json,
-                file.sha,
-                branch=GITHUB_BRANCH
-            )
-        except:
-            # Create new file if it doesn't exist
-            repo.create_file(
-                "statistics.json",
-                "Initialize dashboard statistics",
-                statistics_json,
-                branch=GITHUB_BRANCH
-            )
+        # Save statistics to local file
+        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+            json.dump(statistics, f, indent=2)
             
-        print("Successfully initialized dashboard statistics")
+        print(f"Successfully initialized dashboard statistics in {OUTPUT_FILE}")
+        
+        # Print summary
+        print("\nSummary:")
+        print(f"Total companies processed: {statistics['total_companies']}")
+        print(f"Bond serving companies: {statistics['bond_serving_companies']}")
+        print(f"Total industries: {statistics['total_industries']}")
+        print("\nIndustries found:", ", ".join(statistics['industries']))
+        
         return True
         
     except Exception as e:
