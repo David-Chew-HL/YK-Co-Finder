@@ -1,0 +1,452 @@
+{
+  "companyDescription": "Kuala Lumpur Kepong Berhad (KLK) is a plantation company with businesses in oil palm and rubber development, property development, and resource-based manufacturing.",
+  "companyName": "Kuala Lumpur Kepong Berhad",
+  "industry": "Materials",
+  "reportYear": 2024,
+  "topShareholders": [
+    {
+      "glicAssociation": "None",
+      "pageNumber": 14,
+      "percentageHeld": 0,
+      "shareholderName": "Batu Kawan Berhad"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Employees Provident Fund"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Chemical Company of Malaysia Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Synthomer plc"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Perdana Leadership Foundation"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "UTAR Education Foundation"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Yayasan Wesley"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Malaysian Palm Oil Council"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Stanford University"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Perak Chinese Maternity Association"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Yayasan KLK"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Tan Sri Lee Loy Seng Foundation"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Yayasan De La Salle"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "London School of Economics"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "University of Malaya"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "KPMG"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Public Bank Berhad Group"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "IOI Properties Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "PLUS Expressways Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "IOI Corporation Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Telekom Malaysia Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "LPI Capital Bhd"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Lonpac Insurance Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Paramount Corporation Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Malayan Flour Mills Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Public Mutual Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Public Financial Holdings Ltd"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Cambodian Public Bank Plc"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Campu Lonpac Insurance Plc"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 15,
+      "percentageHeld": 0,
+      "shareholderName": "Campu Securities Plc"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 16,
+      "percentageHeld": 0,
+      "shareholderName": "Malaysian Institute of Accountants"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 16,
+      "percentageHeld": 0,
+      "shareholderName": "Association of Chartered Certified Accountants"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 16,
+      "percentageHeld": 0,
+      "shareholderName": "University of Bath MIM"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 16,
+      "percentageHeld": 0,
+      "shareholderName": "Felda Global Ventures Holdings Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 16,
+      "percentageHeld": 0,
+      "shareholderName": "Malaysia International Shipping Corporation"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 16,
+      "percentageHeld": 0,
+      "shareholderName": "Boustead Travel Sdn Bhd"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 16,
+      "percentageHeld": 0,
+      "shareholderName": "VSTECS Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 16,
+      "percentageHeld": 0,
+      "shareholderName": "Imperial College"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 16,
+      "percentageHeld": 0,
+      "shareholderName": "Chartered Accountant and a Member of the Institute of Chartered Accountants Scotland"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 16,
+      "percentageHeld": 0,
+      "shareholderName": "University of Chicago Booth School of Business"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "University Putra Malaysia"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Institute of Corporate Directors Malaysia"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Malaysian Institute of Certified Public Accountants"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Institute of Internal Auditors Malaysia"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Ernst & Young"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Deloitte"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Hong Leong Industries Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Alliance Bank Malaysia Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Malaysia Airports Holdings Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Chubb Insurance Malaysia Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Leader Energy Holding Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "RAM Holdings Berhad"
+    },
+    {
+      "glicAssociation": "Khazanah",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Axiata Group Berhad"
+    },
+    {
+      "glicAssociation": "Khazanah",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Ekuiti Nasional Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Pengurusan Danaharta Nasional Berhad"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Employees Provident Fund of Malaysia (\u201cEPF\u201d)"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Media Prima Berhad"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Malaysia Building Society Berhad"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Malaysian Resources Corporation Berhad (\u201cMRCB\u201d)"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "IJN Holdings Sdn Bhd"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Malaysia Airlines Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 17,
+      "percentageHeld": 0,
+      "shareholderName": "Malaysia Aviation Group Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 19,
+      "percentageHeld": 0,
+      "shareholderName": "University of Malaya"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 19,
+      "percentageHeld": 0,
+      "shareholderName": "University of Bristol"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 20,
+      "percentageHeld": 0,
+      "shareholderName": "University of London"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 20,
+      "percentageHeld": 0,
+      "shareholderName": "China Europe International Business School"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 20,
+      "percentageHeld": 0,
+      "shareholderName": "Babson College"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 20,
+      "percentageHeld": 0,
+      "shareholderName": "Green Packet Berhad"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 20,
+      "percentageHeld": 0,
+      "shareholderName": "PEMANDU Associates"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 20,
+      "percentageHeld": 0,
+      "shareholderName": "FleishmanHillard"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 20,
+      "percentageHeld": 0,
+      "shareholderName": "University of Leeds"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 20,
+      "percentageHeld": 0,
+      "shareholderName": "Middle Temple, London"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 20,
+      "percentageHeld": 0,
+      "shareholderName": "Usaha Tegas Group"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 20,
+      "percentageHeld": 0,
+      "shareholderName": "Tanjong Plc."
+    }
+  ]
+}
