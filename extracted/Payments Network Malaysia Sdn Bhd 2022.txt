@@ -1,0 +1,1501 @@
+---- Page 1 ----
+Weathering
+the pandemic
+PayNet Digital Payments Insights Study 2022
+
+---- Page 2 ----
+PayNet Digital Payments Insights Study 2022
+Content
+Foreword 3
+Insights and trends 4
+Key observations 9
+Special Focus 1: SMEs adoption of digital payments 26
+Special Focus 2: Relevance of cash 33
+Conclusion 38
+About PayNet, products and services 41
+Appendix – survey questions 45
+
+---- Page 3 ----
+It gives me great pleasure to introduce the PayNet Digital Payments Insights Study 2022, 
+our inaugural publication focusing on key trends influencing and reshaping the 
+payments landscape in this country
+The recent 2 ½ years was unparalleled by any measure. 
+COVID-19 impacts are still resonating and, in many 
+respects, have completely transformed our lives. 
+Movement controls, physical distancing and heighted 
+personal hygiene concerns jolted rapid adoption of 
+digital payments by consumers and digital 
+transformation by businesses. Digital payments 
+continues to be a critical enabler for economic 
+development and growth.
+Payments Network Malaysia Sdn Bhd (‘PayNet’) 
+commissioned Nielsen IQ to conduct this Study in Q4 
+last year to gauge the extent of payment behaviour
+changes among consumers and businesses throughout 
+the country. 
+6 key trends were observed in re-shaping the Malaysian 
+retail payments landscape. Preference for mobile over 
+desktop banking in making payments, the rise of QR 
+payments, continued trust in cards (especially debit 
+cards) for in-store payments and dwindling cheques 
+usage were noted. An important trend to note from two 
+key observations is the significant erosion in cash 
+usage, although it remains the primary payment mode. 
+Two key observations from our fieldwork in Q4 2021 
+are, firstly, use of cash by consumers in making 
+payments was not as high as before the pandemic 
+and secondly, businesses’ payment behaviours across 
+the nation differ. Those in the South and East Coast 
+regions had not noticeably changed their preference 
+for cash payments. In other regions, particularly the 
+North, clear shifts to digital payments since the 
+pandemic can clearly be seen. 
+Our Study also included 2 special focus areas - the 
+extent of digital payments adoption in SMEs’ digital 
+transformation agenda and factors driving continued 
+use of cash for payments. 
+Findings from this Study indicate Malaysia is on the 
+right trajectory for mass digital payments adoption 
+and we conclude with 4 key enablers for sustained 
+adoption. We trust this Study provides useful 
+information and valuable insights as we navigate 
+through the new age of digitalisation.
+6 April 2022
+Peter Schiesser
+Group Chief Executive Officer
+Payments Network Malaysia
+Sdn Bhd
+PayNet Digital Payments Insights Study 2022 3
+Foreword
+
+---- Page 4 ----
+PayNet Digital Payments Insights Study 2022 4
+Insights and trends
+
+---- Page 5 ----
+PayNet Digital Payments Insights Study 2022 5
+Malaysian payments landscape: 6 key trends
+Mobile banking preferred 
+over desktop banking
+Cards are trusted for
+in-store e-payment
+Cash is still the main 
+payment mode
+Consumers increasingly prefer 
+‘on-the-go’ mobile banking for 
+payments compared to desktop 
+online banking, mainly due to the 
+flexibility in catering to both online 
+and in-store purchases.
+Card payments are the most 
+popular digital payment mode for 
+in-store purchases, mainly due to 
+the high degree of trust and 
+convenience (wide acceptance and 
+easy to use).
+Despite declining trend, cash 
+remains the most preferred 
+payment choice. 78% of Malaysians 
+still prefer cash, 11% lesser since 
+the pandemic (89%). 48.4% still pay 
+by cash on a daily basis, more so in 
+non-urban areas (nearly 2/3) than 
+in urban areas (36.2%).
+Rapid rise in 
+QR payments 
+Lower usage of 
+cash payments 
+Cheque usage continues 
+to dwindle
+QR payments grew the fastest 
+during the pandemic, with 13% 
+higher usage. Factors include 
+convenience (increased merchants’ 
+acceptance), usage promotions by 
+providers and merchants as well as 
+its use for disbursing government 
+payouts.
+Malaysians generally use 2-10% 
+lesser cash compared to before the 
+pandemic. Age, gender, location 
+and income levels influence 
+preference. Businesses in Southern 
+& East Coast regions remain 
+staunch users of cash.
+Cheques are the least preferred 
+payment option with only 4% of 
+Malaysians still using this payment 
+mode, down 5% from 9% before 
+the pandemic.
+1
+2
+3
+4
+5
+6
+Note: ‘Before pandemic’ or ‘pre-pandemic’ refers to prior to 18 March 2020, ‘currently’ refers to Q4-2021 (when the field study was conducted) 
+and ‘e-payment services’ refer to JomPAY, FPX, DuitNow, DirectDebit and IBG
+
+---- Page 6 ----
+PayNet Digital Payments Insights Study 2022 6
+Businesses noted their customers
+no longer prefer to pay by cash
+From companies' perspective, e-payments services are now the most 
+preferred payment mode, followed by e-wallets. A deep dive on the rise of  e-
+wallets is on pages 19-22.
+E-payment services overtook 
+Cash as the most preferred 
+payment option since the 
+pandemicBefore Pandemic Currently
+1  Cash 1 E-payments services
+2 Credit Card 2 E-wallets
+3 E-payments services 3 Cash
+4 Debit Card 4 Credit Card
+5 E-wallets 5 Debit Card
+Source:
+Q17. Could you rank the top 5 payment methods (used by customers) in your company before COVID-19 pandemic?
+Q20. Could you rank the top 5 payment methods (used by customers) in your company currently?
+
+---- Page 7 ----
+PayNet Digital Payments Insights Study 2022 7
+Overall use of cash is still high
+although this declined since the pandemic
+78%
+Malaysians use cash to pay
+Down -11% since the pandemic
+Consumers’ use of digital payments depends on their age, 
+gender, ethnicity and their location (i.e. urban vs non-urban)
+Businesses’ digital payments usage tend to be influenced by 
+their customers and supply chain’s preferences, geographical 
+location, type and size of business.
+Urban and single females who are 18-25 years
+tend to prefer digital payments
+• Businesses in Northern, Central and East Malaysia 
+are moving to digital payments as the preferred mode
+Non-urban and married males who are 61-65 years
+tend to still prefer cash
+• Businesses in East Coast and Southern regions 
+tend to still prefer cash
+Source:
+Q18. What kind of payment methods have you used before the COVID-19 pandemic?
+Q20. What kind of payment methods are you using currently?
+
+---- Page 8 ----
+36.2%
+urban areas
+63.5%
+non-urban areas
+PayNet Digital Payments Insights Study 2022 8
+On average 48.4% of Malaysians still use cash for daily expenses, 
+even more so in non-urban areas 
+The preference for cash is lesser for payment of daily expenses, with 48.4% daily 
+expenses in Malaysia still paid in cash.
+In this context, the ‘urban-rural divide’ is obvious – only 36.2% living in urban areas and 
+nearly 2/3 living in non-urban areas are sticking to cash payments. Convenience 
+(accepted everywhere) is the main reason cited for paying with cash and for not 
+wanting to switch to cashless. Refusal to adopt cashless is also due to the perceptions 
+of technology failure and the notion that it is easier to keep track of personal budget.
+Top 3 reasons for pay with cash Top 3 reasons for not wanting to 
+switch to digital payments
+1  Cash is accepted everywhere (80%) 1 Cash is accepted everywhere (78%)
+2 Personal preference (50%) 2 Fear of technology failure (53%)
+3 Feels more secure (37%) 3 Easier to stay within budget (38%)
+Source:
+Q21d. Why do you use cash currently?
+Q21e. The % of your payments made in cash remain unchanged before COVID-19 pandemic and currently, could you tell us why?
+
+
+---- Page 9 ----
+PayNet Digital Payments Insights Study 2022 9
+Key observations
+
+---- Page 10 ----
+PayNet Digital Payments Insights Study 2022 10
+Malaysia retail payments landscape:
+the big picture
+When movement controls were first imposed in March 2020, 
+economic activities were deeply impacted. 
+Many businesses quickly pivoted to digital and remote working 
+with home delivery options for survival. These changes have since 
+remained as many transitioned to a hybrid setting as the country 
+transitions into an endemic phase. 
+The accelerated consumer adoption of digital payments has yet to 
+fully offset the dominance of cash, but our study suggests cash 
+usage has slowed. The observed behavioural changes since the 
+pandemic are also expected to be largely permanent.
+
+---- Page 11 ----
+Age, gender, ethnicity and geographic locations influence payment behaviours. Early adopters tend to be among 18-25 year old 
+single females living in urban areas, whereas 61-65 year old married males living in non-urban areas tend to be among the last to adopt 
+or use digital payments. Mainstream users tend to be 18-40 year old males and females living in urban areas.
+61-65 year old married males
+living in non-urban areas
+18-40 year old
+living in urban areas
+18-25 year old single females
+living in urban areas
+Later adopters Mainstream consumers Early adopters
+Based on highest user age group monthly
+PayNet Digital Payments Insights Study 2022 11
+The Malaysian digital payment
+consumers persona
+
+---- Page 12 ----
+Credit cards Debit cards E-wallets
+“Allow consumers to borrow funds           
+to pay for goods and services.”
+“Deduction of bank balance upon 
+payment of goods and services.”
+“A pre-paid account where user’s top-
+up periodically.”
+Main user groups:
+26 – 30 year old
+Main user groups:
+36 – 40 year old
+Main user groups:
+31 – 35 year old
+PayNet Digital Payments Insights Study 2022 12
+Adoption and usage drivers
+Based on highest user age group monthly
+We observed age also influences the choice of digital payment mode.
+
+
+---- Page 13 ----
+Gen Y & Z 
+(“I want to”)
+Technology barrier – Low
+Digital natives. Technology is 
+second nature, ingrained in almost 
+every aspect of daily lifestyle.  
+Motivation – Perks and rewards 
+(for Gen Y), gamification and 
+instant gratification (for Gen Y & Z).
+Influence – Typically relies on 
+social media & netizens’ 
+comments, tweets, reviews and 
+feedbacks in decisions to adopt 
+and/or continue usage. More 
+inclined to what is trendy.
+Generation X 
+(“I don’t mind”)
+Technology barrier – Moderate 
+Digital adopters/adapters. Uses 
+technology more for necessity in some 
+parts of their daily lifestyles.
+Motivation – More substantive 
+rewards (e.g. cashback, rebates 
+and discounts) are key attractions for 
+this Generation. 
+Influence – Typically relies on ‘word of 
+mouth' positive experience from own 
+social and family circles. Adopts and 
+uses only when digital payment is 
+already mainstream, popular and 
+proven convenient, easy to use with no 
+security or trust issues.
+Boomers
+(“I have to”)
+Technology barrier – High
+Trust issues with technology, adopting 
+and using with help or support of tech-
+savvy family members or friends.
+Motivation – Not motivated by perks or 
+rewards. Will adopt digital payments 
+when there is no other choice and 
+extremely simple to use (e.g. contactless 
+cards, not requiring PIN or TAC). 
+Influence – Typically relies on decisions 
+made by family members who are also 
+willing to assist in adoption and usage.
+Consumer articulation in qualitative focus groups
+PayNet Digital Payments Insights Study 2022 13
+Choice of digital payment mode is also influenced 
+by generational attitudes towards technology
+
+---- Page 14 ----
+Orange font refers to above average changed cash usage 
+Red   denotes lowest change in cash usage
+25.47
+24.18
+25.89
+23.12
+24.59
+23.11
+23.31
+27.01
+25.56
+24.04
+23.66
+24.48
+25.29
+25.99
+24.94
+25.49
+26.00
+Male
+Female
+Malay
+Chinese
+Indian
+Others
+Urban
+Suburban/ Rural
+18 - 25 years old
+26 - 30 years old
+31 - 35 years old
+36 - 40 years old
+41 - 45 years old
+46 - 50 years old
+51 - 55 years old
+56 - 60 years old
+61 - 65 years old
+Before pandemic Before vs After
+-5.74
+-7.02
+-5.83
+-8.69
+-2.98
+-4.62
+-9.18
+-2.27
+-8.30
+-8.08
+-8.11
+-6.23
+-6.18
+-4.09
+-3.82
+-4.25
+-2.22
+PayNet Digital Payments Insights Study 2022 14
+Consumers perspectives of cash usage
+19.72
+17.16
+20.06
+14.42
+21.62
+18.49
+14.12
+24.74
+17.26
+15.96
+15.55
+18.25
+19.11
+21.90
+21.13
+21.24
+23.78
+CurrentlyAcross all demographics, cash usage 
+decreased since the pandemic.
+Leading the change are 18-25 year old 
+single females living in urban areas. 18-
+35 year old (Gen Y & Z) are the highest 
+adopters of digital payments. 
+At the other end of the spectrum, 61-65 
+year old married males in non-urban 
+areas (a sliver of the Boomer 
+Generation) are the slowest to adopt 
+digital payments.
+Source:
+Q19a. How frequently in a month do you use [cash] before COVID-19 pandemic?
+Q21a. How frequently in a month do you use [cash] currently?
+
+---- Page 15 ----
+1 Dept of Statistics Malaysia, extracted 16 Feb 2022
+Source:
+Q23. Which mode of payments do you use for making the following types of payment currently? 
+Mainstream
+and familiar
+Essential needs and services 
+consumed online and 
+represents mass digital 
+payments adopters
+• Shopping
+• Food & dining
+• Travel/holidays
+• Other general services 
+(e.g. beauty, health)
+• Money transfer
+Modern
+and trendy 
+Early majority, among the 
+first to try what’s new and ‘in’, 
+motivated by FOMO (fear of 
+missing out)
+• E-hailing/transportation
+• Entertainment
+• On-demand services
+• Other payments (e.g. loans, 
+insurances, rent, utilities)
+New and 
+emerging 
+Innovative e-payments users 
+in new untested areas, 
+increasingly gaining traction 
+as new activities and needs 
+shape adoption and usage
+• Knowledge/e-learning
+• Gaming
+• Health & fitness
+• Home privacy & security
+Malaysia has a relatively young population 
+with a median age of 29.6 years. 69.6% are 
+aged 15-64 year old1.
+This means that Malaysia has a sizeable 
+population, who are more likely to opt for 
+digital payments. Online lifestyles and 
+needs of the mass digital payment user 
+segment (i.e. 18–40 year old) can largely 
+be categorised into 3 main groups.
+PayNet Digital Payments Insights Study 2022 15
+Consumers’ digital habits drives
+digital payments adoption and growth
+
+---- Page 16 ----
+Source:
+Q22. Which mode of payments do you use for making the following types of payment before COVID-19 pandemic?
+Q23. Which mode of payments do you use for making the following types of payment currently?
+PayNet Digital Payments Insights Study 2022 16
+Different digital payment modes are preferred,
+depending on context
+Debit cards and e-wallets are used more 
+for out-of-home consumption (e.g. eating 
+out, retail & groceries spend in-store).
+E-payment services are used for utilities 
+and bills payments, mainly out of necessity 
+(i.e. counter closures due to movement 
+controls). The habit largely continued even 
+after counters re-opened. All types of digital 
+payments increased in this space, except for 
+credit cards payments.
+Credit card usage behaviours remained 
+stable, probably due to its relative maturity 
+(mainstream usage).
+65%
+30%
+24%
+17%
+17%
+82%
+37%
+30%
+23%
+21%
+Eating out
+Groceries
+Health & personal care
+Petrol
+Online shopping
+41%
+37%
+25%
+16%
+17%
+76%
+60%
+36%
+29%
+29%
+Eating out
+Utilities bills
+Food delivery service
+Health & personal care
+Groceries
+Before pandemic Currently
+E-wallet
+Debit Card Credit Card
+E-payment services
+82%
+18%
+18%
+18%
+15%
+34%
+18%
+18%
+18%
+16%
+Eating out
+Groceries
+Petrol
+Consumer electronics
+purchase
+Health & personal care
+34%
+82%
+11%
+7%
+6%
+6%
+45%
+13%
+10%
+9%
+9%
+Utilities bill
+Online shopping
+Money transfer
+Electronics purchase
+Road tax
+34%
+
+---- Page 17 ----
+The higher inclination toward digital payments suggest Malaysia is nearing an ‘inflection point’ of consumer mindset transformation. 
+Behavioural shifts were noted, with preferred digital payment modes depending on the payment contexts.
+Before Pandemic Currently
+Cash or cheques for over-the-counter payments 
+of utility and bills payments >
+E-wallets, JomPAY, DuitNow and FPX, especially 
+since the movement controls. For over-the-
+counter bill payments, debit cards and QR 
+payments are replacing cash
+Cash for purchases of F&B, retail or groceries at 
+hawkers, food trucks, stalls and other micro sellers >
+E-wallets, DuitNow and debit cards, as micro 
+sellers turned to food delivery apps, online 
+marketplaces and social media as physical 
+operations were stopped
+QR payments were ‘niche’ (only to those familiar 
+with QR technology), despite increased awareness 
+& adoption campaigns
+>
+QR payments reaching mainstream acceptance 
+as major e-wallets become inter-operable and 
+DuitNow QR available in mobile banking apps
+PayNet Digital Payments Insights Study 2022 17
+Consumer attitudes toward digital payments
+Source:
+Qualitative Focus Group Discussion with digital payment users aged 18-65 years old living in Klang Valley
+
+---- Page 18 ----
+Source:
+Q29. Why do you use Debit or Credit Card for your transactions?
+Debit and credit cards are among the earliest forms of digital payments and remained the digital 
+payment of choice for 3 main reasons.
+Convenience (accepted at many businesses and easy to use), able to handle large payments and track 
+expenses are main reasons for using cards. Rewards and cashbacks (more for credit cards and recently, 
+debit cards) reinforced continued usage.
+65%
+51% 50%
+39% 31%
+22%
+Convenience Large payments Easier to track expenses Merchants acceptance &
+reward points
+Control on spending Cash is unsafe
+PayNet Digital Payments Insights Study 2022 18
+Trust in card payments remains high
+Cards continue to be a trusted digital payment mode.
+
+---- Page 19 ----
+64%
+Malaysians* are e-wallets users
+BP: 51% 
+96%
+Use e-wallets monthly 
+BP: 92%
+Average monthly usage: 
+16.8x
+BP: 10.5x
+Average transaction value:   
+RM175
+BP: RM152
+PayNet Digital Payments Insights Study 2022 19
+E-wallets strong growth
+Our study confirmed increasing acceptance of e-wallets.
+Out of 64% Malaysians* who use e-wallet apps, all except 4% 
+are monthly users. Monthly usage frequency on average rose 
+60% since the pandemic from 10.5 times to 16.8 times. Non-
+urban users also grew, thanks to government incentives 
+disbursements via major e-wallets and continuous incentives for 
+usage by e-wallet providers and merchants. 
+The average per transaction value increased 15% to RM175, 
+compared to RM152 before the pandemic, mainly due to 
+expanded features (e.g. bill payments, investments, insurance 
+and other in-app financial products purchases and 
+subscriptions) and expanded user groups of 31-60 year old (BP: 
+below 30s).
+*18-65 year old Malaysians, BP – Before pandemic (prior to 18 March 2020)
+Source:
+Q17. Which of the following statement applies to you?
+Q18. What kind of payment methods have you used before COVID-19 pandemic?
+Q19a. How frequently in a month do you use [e-wallets] before COVID-19 pandemic?
+Q19b. You have mentioned that you spent on [e-wallets] before COVID-19 pandemic, how 
+much on average you spend per transaction?
+Q20. What kind of payment methods are you using currently? Please select all that applies
+Q21a. How frequently in a month do you use [e-wallets] currently?
+Q21b. You have mentioned that you spent on [e-wallets] currently, how much on average you
+spend per transaction?
+
+---- Page 20 ----
+78% of Malaysians have more than 1 e-wallet but this ecosystem of more than 50 bank and non-bank e-wallets1 is 
+witnessing users gravitating toward the following top 5 e-wallets:
+Top 5 e-wallets downloaded by Malaysians Top 4 driving factors for e-wallet downloads
+Fast and smooth top up 
+process
+50%
+Merchant availability
+49%
+Reward points/cashback
+43%
+Easy to use interface
+43%
+83%
+58%
+49%
+45%
+36%
+PayNet Digital Payments Insights Study 2022 20
+The e-wallet market is crowded, but consolidating
+Source:
+1 https://www.bnm.gov.my/list-of-regulates, e-money issuers, extracted 30 March 2022
+Q35. You mentioned that you have a e-wallets installed in your phone. Can you please tell us which of the following e-wallets do you have installed in your phone?
+Q39. What are the reasons for using [brand] the most?
+
+---- Page 21 ----
+6 common sentiments observed among Malaysian e-wallet users:
+Synonymous with 
+cashless payments
+Top-of-mind association for cashless payments
+Attractive rewards Synonymous with rewards and other benefits including 
+cashback, vouchers, points collections and prize 
+redemption
+Wide acceptance
+at many businesses
+Wide acceptance across many payment contexts and 
+locations, regardless of merchant size, especially in 
+urban areas
+Convenient User-friendly, easy to download, set-up, use and top-up
+Inter-operable
+DuitNow QR
+Convenient to have more than 1 e-wallet, as most support 
+inter-operable acceptance
+Too many 
+providers
+Despite inter-operability, there are too many e-wallets 
+with little differentiation among the brands
+The highest feedback received was for Malaysia to have a national consolidated 
+e-wallet. This indicates consumers’ desire to maintain a single source of fund to 
+make any QR payments.
+PayNet Digital Payments Insights Study 2022 21
+Consumer sentiments infer need for
+consolidation of e-wallets
+The rising popularity and 
+adoption of e-wallets are 
+driven by rewards, flexibility 
+and convenience but overall 
+user sentiment is that e-
+wallet is a saturated space 
+with too many e-wallet 
+players
+Source:
+Qualitative Focus Group Discussion with digital payment users aged 18-65 years old living in Klang Valley
+
+---- Page 22 ----
+Identity of respondents, marketplace platforms and e-wallets anonymised
+Source:
+Qualitative Focus Group Discussion with digital payment users aged 18-65 years old living in Klang Valley
+PayNet Digital Payments Insights Study 2022 22
+Drivers of e-wallet adoption and usage
+“I think it is about 2 or 3 years ago. It is an 
+incentive under the previous government.”
+- Male, Engineering student, 24, 
+B40, living in Cheras, Kuala Lumpur
+“Everyone installed the app to get the RM30.”
+- Male, Tech follower & Business Analyst, 
+26, B40, living in OUG, Kuala Lumpur
+“Maybe people start to be aware of all these. 
+Some don’t know, but because they want to 
+get the money, then only they start to 
+download the app, and get used to the app.”
+- Female, Insurance agent, 36, 
+M40, living in Semenyih, Selangor
+“I first used it to redeem the RM30 incentive, 
+and from that I started to use it. I then top up 
+the wallet and link my bank account there.”
+- Female, Admin Operation Assistant & 
+Tech Savvy, 28, B40, living in Bukit Jalil 
+Kuala Lumpur
+“I use A (marketplace platform) because they 
+come with free delivery and coins. I used the 
+coins to offset my purchase amount. That is 
+why I prefer using APay1.”
+- Female, Housewife, 58, 
+B40, living in Sri Petaling, Kuala Lumpur
+“I like to use e-wallet because I like to collect 
+the cashback and voucher for my next 
+purchase. That's it. It is easy.”
+- Female, Admin, 23, 
+B40, living in Melawati, Selangor
+“Shop X does not have e-wallet A, I prefer this 
+more than my bank’s e-wallet because I 
+realised that they will give me a rewards 
+through the game in their app.” 
+- Male, Part-time Hardware Sales-Person, 
+24, B40, living in Kepong, Kuala Lumpur
+Incentives have spurred 
+adoption and usage
+Government-driven incentives
+Our study revealed novelty and incentives 
+tend to drive adoption and usage. After the 
+upfront reward/incentive is exhausted, 
+some got into the habit, but some also 
+returned to cash usage.
+Commercially-driven incentives
+Payers’ choice of e-wallets are driven by 
+rewards based on their lifestyle needs and 
+usage. Gamification-based rewards tend to 
+appeal to Gen-Y and Gen-Z.
+
+---- Page 23 ----
+Businesses report changed customer payment behaviours since the pandemic (cash dropped 
+from most used to 3rd place). However, the East Coast and Southern regions did not 
+experience any change in cash preferences. Other regions moved away from cash as the most 
+preferred payment mode, with the Northern region showing the most pronounced change.
+East Malaysia
+Cash
+Debit card
+E-payment
+Credit card
+E-wallet
+Northern region Central region East coast Southern region
+Before pandemic Currently
+PayNet Digital Payments Insights Study 2022 23
+Businesses experienced significant customer 
+payment behaviour shifts
+Source:
+Q17. Could you rank the top 5 payment methods (used by customers) in your company before COVID-19 pandemic? 
+Q20. Could you rank the top 5 payment methods (used by customers) in your company currently? 
+Nationwide
+Before pandemic
+1  Cash
+2  Credit Card
+3  E-payments services
+4  Debit Card
+5  E-wallets
+Currently
+1  E-payments services
+2  E-wallets
+3  Cash
+4  Credit Card
+5  Debit Card
+
+---- Page 24 ----
+PayNet Digital Payments Insights Study 2022 24
+Paradigm shifting among businesses
+“Acceptance among the consumers are great and 
+encouraging. In major cities, growth has been 
+exponential. Now it is spreading everywhere, no 
+longer urban focused.”
+- Senior banking industry professional
+“COVID-19 catapulted into everyone doing 
+things they never did. It expedited the adoption 
+(of digital payments) from the individual 
+(customers) and among retailers. Worries on 
+trust issues dissipated.” 
+- Senior banking industry professional
+“Even my parents who are in their seventies 
+started to use e-wallets last year. So surprising, I 
+think COVID-19 expedited it. If there is no 
+pandemic, no MySejahtera, I don’t think my 
+parents will ever think of using e-wallets. 
+Because they are so familiar with QR scanning, 
+there is very little need to educate on how to 
+make QR payments.”
+- Senior payment gateway professional
+Our study revealed among the challenge to 
+digitally transform is partly mindset change (i.e. 
+business owners’ own perception that their 
+customers doubt safety & security of e-payments) 
+and partly operating environment (i.e. workers and 
+supply chains requirements for cash).
+Cash or post-dated cheques were reported as being more efficient 
+in businesses that rely mainly on manual migrant workers (daily 
+wages paid in cash as they do not have bank accounts) as well as 
+those with cash intensive supply chains. Businesses without these 
+impediments are steadily shifting to digital payments, to keep up 
+with customer demands 
+Source:
+Qualitative Focus Group Discussion with digital payment users aged 18-65 years old living in Klang Valley
+
+---- Page 25 ----
+PayNet Digital Payments Insights Study 2022 25
+Online presence helped B2C companies 
+survive during the pandemic
+Our study revealed that businesses that survived and thrived 
+during the pandemic have the following characteristics. 
+Omni-channel presence
+Products and services sold online (own website and/or 
+marketplaces) and in-store (shops, stalls or kiosks)
+E-payments enabled
+Able to accept cash and e-payments both in-store & online
+Always-on
+Open 24hrs/7 days a week (at least online)
+Beyond local market
+Serves beyond their own locality or area (ships nationwide, 
+regionally and/or internationally)
+Source:
+Qualitative Focus Group Discussion with e-wallet users aged 18-65 years old living in Klang Valley
+Qualitative In-Depth Interview with Business Owners from Education Sector, F&B Sector and Retail Sector
+
+---- Page 26 ----
+PayNet Digital Payments Insights Study 2022 26
+Special Focus 1:
+SMEs adoption of digital payments
+
+
+---- Page 27 ----
+54%
+49%
+69%
+58%
+53%
+42%
+66%
+61%
+54%
+53%
+51%
+38%
+E-payment services
+E-wallets
+Cash
+Credit Card
+Debit Card
+Cheque
++12%
+-15%
++12%
+PayNet Digital Payments Insights Study 2022 27
+B2C SMEs are rapidly expanding
+digital payment options
+Source:
+Q16. What kind of payment methods did you offer before COVID-19 pandemic? 
+Q19. What kind of payment methods are you offering currently? Please select all that applies
+Before pandemic Currently
+15% lesser merchants are
+accepting cash compared 
+to before the pandemic 
+(shifting to e
+-
+wallets and other types 
+of  e
+-
+payment services)
+Segments accepting cash payments:
+F&B (i.e. restaurants, stalls) 78%
+Groceries (i.e. mini markets) 78%
+Retail (i.e. clothing stores) 75%
+Education (i.e. tuition centre) 59%
+E-commerce 45%
+Note: Profile of SMEs surveyed included online-only sellers and e-
+commerce only providers which stopped accepting cash since 18 
+March 2020 and still do not accept cash at the time of the field 
+work
+
+---- Page 28 ----
+Business expansion, maintaining growth momentum, staying ahead of competition and brand building are among the main reasons 
+cited by SMEs (especially among those who are more mature) for digitally transforming, including in adopting and offering a range of 
+digital payments options. Advanced SMEs recognise the role of digital payments in facilitating business growth for survival. Apart from 
+these, SMEs see the following role of digital payments in driving their business goals:
+Role of digital payments in driving SMEs’ business goals Other specific reasons include:
+1   Assists in delivering quality service
+2   Increases efficiency and saves time – eliminates 
+administrative and finance work (reconciliation, easily 
+monitor and track inflow and outflow of funds)
+3   Safety and security – reduces risk of robbery, thefts, cash 
+shortage and losses from counterfeit notes
+4   Expands customer base – cater to payment needs of 
+omnichannel shoppers, across multiple platforms
+Business expansion
+Facilitates entry into different districts and subsequently scale 
+to nationwide presence by attending to more customers’ 
+digital payments preferences.
+SME (Education), SME (F&B), SME (Retail)
+Sustain business momentum
+Obtain information on consumers’ satisfaction with digital 
+payment mode for continuous improvement.
+SME (F&B), SME (Retail), SME (e-Commerce)
+Curb competition
+Secure competitive advantage with various digital payment 
+options across platforms, enables regular tracking and 
+benchmarking of performance.
+SME (F&B), SME (Retail)
+Brand building
+Drive traffic as digital transformation elevates the brand 
+through social media marketing and search engine 
+optimisation and easier conversion to sales.
+SME (F&B), SME (e-Commerce) 
+Source:
+Qualitative In-Depth Interview with Business Owners from Education, F&B, e-Commerce & 
+Retail sectors
+PayNet Digital Payments Insights Study 2022 28
+Motivation for digital transformation among SMEs
+
+---- Page 29 ----
+“I believe that most of my customers want 
+many kinds of cashless options to pay in 
+our café. Not long after e-wallets 
+introduction, people started to ask, when 
+are we making them available.”
+- SME in F&B
+“I get people who say that they don’t want 
+to see my website and don’t want to go to 
+online marketplaces. 
+They just want to transfer funds to me via 
+internet banking, WhatsApp me the 
+confirmation and order so that I just deliver 
+them what they bought.”
+- SME in e-commerce
+“My customers will come to the nearest 
+store that does home deliveries. They are 
+scared to shop in-store due to the 
+pandemic. They are also afraid to handle 
+currency notes to make payments due to 
+the risk of contracting the virus.”
+- SME in Retail
+PayNet Digital Payments Insights Study 2022 29
+Motivation for multiple digital payment modes
+among SMEs
+1  Shopping behavior where consumers visit physical stores to touch and feel the products but opt to purchase them online
+2 The opposite of showrooming
+Businesses confirmed consumer behaviors and demands have been changed by 
+‘showrooming’1 and ‘webrooming’2, particularly since the pandemic. Forward-
+looking SMEs pivoted into omnichannel presence with multiple digital payment 
+options online and in-store to remain competitive. These became the catalyst for 
+end-to-end SMEs’ digital transformation.
+Showrooming & webrooming fuel 
+need for omnichannel presence and 
+multiple digital payment modes
+
+---- Page 30 ----
+56% 53% 51% 50% 49%
+45% 44%
+41%
+Expand business to
+digital platform
+Speed up digital
+business
+transformation
+Quick business
+recovery
+Increase customer
+base
+Focus on digital
+marketing for
+improved
+awareness
+Cost reduction Prepare employees
+(digitalisation, incl
+financial
+management tools)
+Recover deficit from
+the previous
+months/year
+Top 2 priorities are on
+digital transformation!
+Source:
+Q32. What are your plans for your business in 2022?
+PayNet Digital Payments Insights Study 2022 30
+SMEs priorities in 2022
+SMEs cite expanding to a digital platform and speeding up digital transformation as their top 2 priorities this year.
+
+---- Page 31 ----
+SMEs do not find fees & charges as top reason for not adopting digital payments. 
+Our study revealed the following:
+Top 5 ‘pain points’:
+Too many technical jargons 43%
+Too many documentations/paperwork 38%
+Lengthy application processes and long time for approvals 33%
+Low awareness and education 33%
+Confusing digital payment options to choose from 27%
+Top 5 ‘wish list’:
+Simpler onboarding (plain language & shorter forms)
+Shorter processes and time to approve applications
+On-the-ground support by banks/non-banks 
+Proper explanation, more awareness and education by banks/non-banks 
+Recommend digital payments to suit SMEs’ specific needs
+Source:
+Q41.  What are the key pain points with the digital payments as compared to the cash/cheque? 
+Please select all that apply
+PayNet Digital Payments Insights Study 2022 31
+SMEs barriers to adopting digital payments
+
+---- Page 32 ----
+Source:
+Q27. Why do you accept Debit or Credit Card for your business transactions? 
+Q30. Why do you Accept Mobile Wallet Apps (e.g. GrabPay, Boost, TouchnGo e-wallets) for your business transactions? 
+PayNet Digital Payments Insights Study 2022 32
+SMEs reasons for accepting both cards and e-wallets
+58% 54% 50% 49% 48%
+Convenient Instant payment
+receipt
+Suit customer
+needs
+Secure (avoids
+cash thefts)
+Catered to tech-
+savvy and
+digitally
+connected
+customers
+E-wallets
+Security is cited as the main reason for accepting cards whereas convenience is cited as the main reason for accepting e-wallets.
+E-wallets, debit and credit cards’ abilities to issue instant receipts and meet customer needs are cited as the 2nd and 3rd reasons for 
+accepting these payment forms.
+56% 55% 53% 53%
+46%
+Secure (avoids
+cash thefts)
+Instant payment
+receipt
+Suit customer
+needs
+Convenient Easy to monitor
+and reconcile
+Debit/Credit Card
+
+---- Page 33 ----
+PayNet Digital Payments Insights Study 2022 33
+Special Focus 2:
+Relevance of cash
+
+
+---- Page 34 ----
+Average Monthly Usage:
+Before Pandemic Current
+Cash 24.78x 18.36x            
+E-wallets 10.47x 16.82x            
+E-payments services 7.61x 10.99x            
+Debit Card 8.99x 10.31x            
+Credit Card 8.39x 8.29x              
+The pandemic did not replace cash as the main 
+payment mode, but usage has been less frequent
+PayNet Digital Payments Insights Study 2022 34
+Source:
+Q19a. How frequently in a month do you use [cash/e-wallets/e-payments services/debit card/credit card] before 
+COVID-19 pandemic?
+Q21a. How frequently in a month do you use [cash/e-wallets/e-payments services/debit card/credit card] currently?
+
+---- Page 35 ----
+E-wallet
+Debit & Credit Card
+49%
+33%
+30%
+26%
+22%
+It’s easier to pay by cash
+I do not understand how e-wallets work
+To prevent overspending
+Security concerns on e-wallets
+Merchant acceptance
+46%
+39%
+30%
+25%
+24%
+Fear of overspending
+Used to cash
+Do not want to incur any debts
+Concerns on fraudulent usage
+Security concerns
+PayNet Digital Payments Insights Study 2022 35
+Barriers to cashless adoption
+from customers perspective
+Source:
+Q27. Why do you not use e-wallet for your transactions?
+Q24. Why do you not use Debit or Credit Card for your transactions?
+Our study confirmed businesses and 
+customers do not face any barriers in 
+accessing Online or Mobile banking. 
+However, in using e-wallets, Debit and 
+Credit Cards, cited the following: 
+1 Habit and fear of overspending is 
+one of the common main reasons why 
+cash is still preferred over e-wallet, 
+Debit or Credit Cards
+2   Perceived security or fraud concerns 
+is also cited as a usage barrier 
+3 Lack of merchant acceptance for not 
+using e-wallets (from slightly more 
+than 1 in every 5 consumers)
+
+---- Page 36 ----
+E-wallet
+Debit & Credit Card
+41%
+32%
+32%
+27%
+26%
+25%
+High transaction fees
+Concerned about my company security
+Maintenance cost of the machine
+Stringent requirements for small industries
+Poor connectivity/access to machine
+Tedious paperwork and documentation
+37%
+34%
+25%
+24%
+23%
+23%
+Unsure if customers will have mobile wallet
+Concerned about the security of mobile wallet
+Concern on commission rate
+It’s easier to get paid by cash
+Don't have the knowledge to use mobile wallet
+Unsure if it is directly linked to my business bank a/c
+PayNet Digital Payments Insights Study 2022 36
+Barriers to cashless adoption
+from SMEs perspective
+Source:
+Q22. Why do you not accept Debit or Credit Card for your business transactions?
+Q23. Why do you not accept e-wallet for your business transactions?
+SMEs believe their customers
+still preferred cash because  they 
+believe their customers do not 
+have e-wallets, and perceptions 
+of high card transaction fees and 
+concerns over security
+
+---- Page 37 ----
+Top 8 payment contexts where cash is still widely used are in 
+everyday spend, but cash usage is lesser since the pandemic. 
+Some payers remained staunch cash users mainly due to 
+habit, lack of familiarity, reluctance and bad experience 
+when paying with other methods: 
+1 Used to pay in cash
+2 Cash is preferred payment method, always
+3 Feels secure with cash
+4 Not familiar with other payment methods
+5 Reluctant to learn/adopt new payment methods
+6 Bad experience when paying with other methods
+71%
+BP: 82%
+68%
+BP: 80%
+Roadside food stall Eating out at budget place
+(i.e. food court, mamak)
+51%
+BP: 61%
+50%
+BP: 66%
+Groceries Eating out at fast food
+50%
+BP: 59%
+49%
+BP: 59%
+Sharing cash with
+friends and family
+Paying for petrol
+46%
+BP: 57%
+33%
+BP: 45%
+Health and personal care
+(i.e. pharmacies)
+Eating out at mid range 
+restaurants
+PayNet Digital Payments Insights Study 2022 37
+What is cash being used for?
+BP – Before Pandemic (prior to 18 March 2020)
+Source:
+Q22.  Which mode of payments do you use for making the following type of payment BP?
+Q23.  Which mode of payments do you use for making the following types of payment 
+currently?
+
+---- Page 38 ----
+PayNet Digital Payments Insights Study 2022 38
+Conclusion
+
+
+---- Page 39 ----
+PayNet Digital Payments Insights Study 2022 39
+The future of digital payments in Malaysia:
+a promising outlook
+Malaysia is on the right digital payments growth trajectory.
+The awareness among businesses, including SMEs, of the need to undergo 
+digital transformation for survival and to remain competitive is fueling 
+adoption of digital payments. Businesses we spoke to generally do not 
+face difficulty in accessing desktop online banking or mobile banking for 
+payments. However, they did cite several process-related pain points which 
+can be overcome. At the consumers’ end of the spectrum, their demands 
+for specific forms of digital payments are driving businesses to offer more 
+than one payment mode. Neither businesses nor customers cited lack of 
+suitable digital payment products as the reason for still using cash or not 
+wanting to use digital payments – the top reasons cited are habit (used to 
+paying with cash) and convenience (accepted everywhere). 
+However, there are clear ‘urban-rural’ and generational divides observed. 
+In urban areas where infrastructure limitations are minimal, cash usage 
+will reduce if the mindset and habits for digital payments are inculcated by 
+increasing familiarity through awareness. Some city areas (e.g. lower 
+income areas) still have low merchant acceptance. In non-urban areas, 
+apart from basic digital payments infrastructure and expanding acceptance 
+points,  digital financial literacy is key to reducing cash usage. Different 
+engagement modes should be used to effectively reach different 
+generations. For younger generations, social media advocacy is more 
+effective but for the older generations (Gen X and older), face-to-face 
+interactions yield better results. Adoption of digital payments has 
+accelerated significantly since the pandemic and the increased familiarity is 
+expected to sustain the growth momentum. 
+The adoption curve will shorten with focus on 4 key drivers (next page).
+
+---- Page 40 ----
+Acceptance points
+Enabling businesses (including SMEs and micro-SMEs) and 
+public amenities (mass transport, bill payment kiosks, public 
+hospitals and mass parking facilities) where there is high 
+payment frequency (regardless of value) would increase 
+accessibility to digital payments. 
+PayNet Digital Payments Insights Study 2022 40
+4 key drivers for sustained
+digital payments adoption
+Education and awareness
+Continuing awareness programs on the benefits of digital 
+payments as well as education on safety and security, 
+including prevention of fraud and scams are needed for 
+consumers and businesses.
+Central payments infrastructure and ecosystem
+Central payments infrastructure that is accessible, reliable, 
+secure and inclusive is essential for the nation’s 
+competitiveness and efficiency and to build trust and 
+confidence in digital payments.
+Having an ecosystem of diverse participants ensures all 
+business and customer segments are served, including 
+those in the underserved segments.
+Public sector and regulator support
+Continued support from the following are critical:
+• Bank Negara Malaysia, in ensuring a conducive and 
+facilitative environment for digital payments to prosper     
+as laid out in the Financial Sector Blueprint 2022-2026.
+• Government, to set in place essential infrastructure 
+needed to embrace digital payments as planned under 
+the MyDigital Economic Blueprint.
+
+---- Page 41 ----
+PayNet Digital Payments Insights Study 2022 41
+About PayNet
+
+
+---- Page 42 ----
+Payments Network Malaysia Sdn Bhd is the national payments network and 
+shared central infrastructure for Malaysia’s financial markets.
+As the national provider of financial market utilities, PayNet aims to build 
+inclusive, accessible and efficient payments and financial eco-systems for 
+Malaysia.
+In line with this developmental objective, PayNet’s shareholders do not receive 
+dividends, and surplus profits are instead re-invested to ensure that the nation’s 
+financial market infrastructures and payment eco-systems are resilient, 
+competitive and accessible to all.
+Bank Negara Malaysia is PayNet’s single largest shareholder, with eleven 
+Malaysian’s financial institutions namely, Malayan Banking Berhad, RHB Bank 
+Berhad, Public Bank Berhad, CIMB Bank Berhad, AmBank (M) Berhad, Hong Leong 
+Bank Berhad, Affin Bank Berhad, Alliance Bank Malaysia Berhad, Bank Islam 
+Malaysia Berhad, Bank Muamalat Malaysia Berhad and Bank Kerjasama Rakyat 
+Malaysia Berhad, as joint shareholders.
+PayNet Digital Payments Insights Study 2022 42
+Payment Network Malaysia
+Vision:
+Empowering Malaysia’s digital economy
+Mission:
+Trusted enabler of inclusive and
+collaborative financial ecosystems
+
+
+---- Page 43 ----
+PayNet Digital Payments Insights Study 2022 43
+Product and services
+• Sistem Penjelasan Informasi Cek Kebangsaan secara
+Elektronik (eSPICK) – Malaysia's national cheque clearing 
+system.
+• Interbank GIRO (IBG) – A funds transfer system that allows 
+account-to-account credit transfers between 43 participating 
+banks in Malaysia.
+• JomPAY – Malaysia’s national bill payment scheme where 
+customers can pay any registered biller from Internet or 
+Mobile banking. Billers need only sign up with one bank to 
+collect payments via 42 banks.
+• MyDebit – Malaysia’s domestic debit card scheme, which 
+allows point-of-sale payments using ATM cards issued by 
+banks in Malaysia.
+• FPX – Direct-to-bank Internet payment gateway, which 
+facilitates Internet payments and e-commerce purchases.
+• Direct Debit – Allows billers and merchants to debit a 
+consumer’s bank accounts on a periodic basis to collect 
+recurring payments.
+• DuitNow Transfer – Pay instantly to any account or to a 
+DuitNow ID such as mobile number or NRIC number.
+• DuitNow QR – Malaysia’s National QR Standard where any 
+compliant QR Code can take payments from any participating 
+Banks and e-wallets mobile apps.
+• Shared ATM Network and MEPS ATM – Enables bank 
+customers to conveniently access their funds anywhere from 
+more than 10,000 ATMs of participating banks.
+• Cross-Border Cash Withdrawal – This service offers 
+participating banks’ customers the convenience of making 
+cash withdrawals via ATMs in participating countries.
+• Smart Card and Certification Services – Provides functional 
+and security testing as well as certification of chip cards, 
+acceptance terminals, mobile payment products and payment 
+systems.
+• Currency Notes Processing – Banknotes processing where 
+used banknotes are collected for sorting and redistribution.
+
+---- Page 44 ----
+PayNet Digital Payments Insights Study 2022 44
+NielsenIQ
+Arthur C. Nielsen, who founded Nielsen in 1923, is the original 
+name in consumer intelligence. After decades of helping 
+companies look to the future, we are setting the foundation for 
+our future by becoming NielsenIQ. We continue to be the 
+undisputed industry leaders as evidenced by our experience and 
+unmatched integrity. As we move forward, we are focused on 
+providing the best retail and consumer data platform, enabling 
+better innovation, faster delivery, and bolder decision-making. 
+We are unwavering in our commitment to these ideals and 
+passionate about helping clients achieve success. For more 
+information, visit niq.com.
+
+---- Page 45 ----
+PayNet Digital Payments Insights Study 2022 45
+Appendix:
+survey questions answered by consumers 
+Demographic/Screener
+Q2c Decision-making on financial related matters
+Q3 State
+Q4 Region
+Q6 Urbanization
+Q7 Age
+Q7a Age group
+Q8 Gender
+Q9 Ethnicity
+Q10a Monthly Personal Income (MPI)
+Q10b Monthly Household Income (MHI)
+Q11 Occupation
+Q12 Relationship Status
+Q13 Highest attained education level
+Q14 Currently use banks
+Q15 Bank/ Non-bank user
+Main Questionnaire
+Q16 Products/ services currently use/ owned
+Q17 Statement applies
+Q18 Payment methods used (Before COVID-19 pandemic)
+Q19a Frequency (Before COVID-19 pandemic)
+Q19b Spent (Before COVID-19 pandemic)
+Q19c % of payments made using cash (Before COVID-19 pandemic)
+Q19d Reasons to use Cash (Before COVID-19 pandemic)
+Q20 Payment methods used by customer (Currently)
+Q21a Frequency (Currently)
+Q21b Spent (Currently)
+Q21c % of payments made using cash (Currently)
+Q21d Reasons to use Cash (Currently)
+Q21e Reasons of same cash usage
+Q22 Mode of payments (Before COVID-19 pandemic)
+Q23 Mode of payments (Currently)
+Q24 Barrier to Use (Debit/ Credit Card)
+Q25 Barrier to Use (Online Banking)
+Main Questionnaire (Continue)
+Q26 Barrier to Use (Mobile Banking)
+Q27 Barrier to Use (e-Wallet)
+Q28 Barrier to Use (e-payment services)
+Q29 Reason to Use (Debit/ Credit Card)
+Q30  Reason to Use (Online Banking)
+Q31 Reason to Use (Mobile Banking)
+Q32 Reason to Use (e-wallet )
+Q33 Reason to Use (e-payment services)
+Q34 Concerns about security of e-payment services
+Q35 e-wallets (Aware of)
+Q36 e-wallets (Used before)
+Q37 e-wallets (P1M)
+Q38 e-wallets(MOUB)
+Q35 - Q38 e-wallets (Funnels)
+Q39 Reasons to Use as MOUB
+Q40 e-payments services (Aware of)
+Q41 e-payments services (Offered before)
+Q42 e-payments services (Past 1 month)
+Q40 - Q42 e-payments (Funnels)
+Q43 NPS (e-payments)
+Q44 Reasons for NPS score
+Q45 Improvements to get 10 out of 10
+Q46 Source of awareness
+Q47 Frequency of using e-payments (Before COVID-19 pandemic)
+Q48 Frequency of using e-payments (Currently)
+Q49 Biggest obstacles (Aware but not use)
+Q50 Aware of making cashless payments in daily transactions
+Q51 Source of awareness for cashless payments
+Q52 Aware that Debit Card is ATM card
+Q53 Statements on cashless payment
+Q54 Reasons (Satisfied with cashless payment)
+Q55 Reasons (Not satisfied with cashless payment)
+Q56 Circumstances to pay with cash
+Q57 Parties who should initiate the change in payment system
+Q58 Approaches to encourage the adoption of cashless payments
+
+---- Page 46 ----
+PayNet Digital Payments Insights Study 2022 46
+Appendix:
+survey questions answered by businesses and SMEs
+Demographic/Screener
+Q3 Industries
+Q4 Operating years
+Q5 Involvement in company
+Q6 Annual sales turnover
+Q7 Size of company
+Q8 Level of seniority in company
+Q9 State
+Q9a Region
+Q10 Age    
+Q10a Age group
+Q11 Gender
+Q12 Ethnicity
+Q13 Highest attained education level
+Q14 Currently use banks
+Q15 Bank/ Non-bank user
+Main Questionnaire
+Q16 Payment methods offered (Before COVID-19 pandemic)
+Q17 Payment methods used by customer (Before COVID-19 pandemic)
+Q18 Amount received (Before COVID-19 pandemic)
+Q19 Payment methods offer (Currently)
+Q20 Payment methods used by customer (Currently)
+Q21 Amount received (Currently)
+Q22 Barrier to Accept (Debit/ Credit Card)
+Q23 Barrier to Accept (Online Banking)
+Q24 Barrier to Accept (Mobile Banking)
+Q25 Barrier to Accept (Mobile Wallet)
+Q26 Barrier to Accept (e-payment services)
+Q27 Reason to Accept (Debit/ Credit Card)
+Q28 Reason to Accept (Online Banking)
+Q29 Reason to Accept (Mobile Banking)
+Q30  Reason to Accept (Mobile Wallet )
+Q31 Reason to Accept (e-payment services)
+Q32 Plans for business in following year
+Q33 Top 3 challenges in managing payment related issues
+Q34 e-payments services (Aware of)
+Q35 e-payments services (Offered before)
+Q36 e-payments services (Past 1 month)
+Q37 NPS
+Q38 Reasons for NPS score
+Q39 Improvements to get 10 out of 10
+Q40 Source of awareness
+Q41 Key pain points with digital payments/e-payments as compared to cash/ 
+cheque
+Q42 Statements on cashless payment
+Q43 Reasons (Satisfied with cashless payment)
+Q44 Reasons (Not satisfied with cashless payment)
+Q45 Satisfaction towards financial service providers
+Q46 Reasons (Satisfied with financial service providers)
+Q47 Reasons (Not satisfied with financial service providers)
+Q48 Parties who should initiate the change in payment system
+Q49 Approaches to encourage the adoption of cashless payments
+Q50 Rating towards current digitalisation in Malaysia
+
+---- Page 47 ----
+PayNet Digital Payments Insights Study 2022
+Payment Network Malaysia Sdn Bhd
+200801035403 (836743-D)
+Tower 2A, Avenue 5
+No.8 Jalan Kerinchi, Bangsar South
+59200 Kuala Lumpur www.paynet.my
