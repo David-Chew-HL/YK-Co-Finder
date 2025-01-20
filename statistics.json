@@ -1,12 +1,13 @@
 {
-  "total_companies": 28,
+  "total_companies": 29,
   "bond_serving_companies": 19,
-  "total_industries": 16,
+  "total_industries": 17,
   "industries": [
     "Automobiles",
     "Banks",
     "Capital Goods",
     "Construction",
+    "Consumer Services",
     "Diversified Financials",
     "Energy",
     "Food",
@@ -26,6 +27,7 @@
       "Banks": 0,
       "Capital Goods": 0,
       "Construction": 0,
+      "Consumer Services": 1,
       "Diversified Financials": 0,
       "Energy": 0,
       "Food": 0,
@@ -44,6 +46,7 @@
       "Banks": 4,
       "Capital Goods": 1,
       "Construction": 1,
+      "Consumer Services": 0,
       "Diversified Financials": 1,
       "Energy": 2,
       "Food": 1,
@@ -106,6 +109,12 @@
       "industry": "Food, Beverage",
       "glic_total": 38.1,
       "is_bond_serving": true
+    },
+    {
+      "company": "GENTING MALAYSIA BERHAD",
+      "industry": "Consumer Services",
+      "glic_total": 0.3,
+      "is_bond_serving": false
     },
     {
       "company": "Gamuda Berhad",
