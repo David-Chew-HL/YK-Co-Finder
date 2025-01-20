@@ -905,8 +905,8 @@ def dashboard_page():
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("Bond Serving Companies", statistics["bond_serving_companies"])
     col2.metric("Total Companies Processed", statistics["total_companies"])
-    col3.metric("Total Industries", statistics["total_industries"])
-    col4.metric("Pending Verification", pending_verification)
+    col3.metric("Pending Verification", pending_verification)
+    col4.metric("Total Industries", statistics["total_industries"])
     
     # Plot industry distribution
     industry_df = pd.DataFrame(statistics["industry_distribution"]).fillna(0)
