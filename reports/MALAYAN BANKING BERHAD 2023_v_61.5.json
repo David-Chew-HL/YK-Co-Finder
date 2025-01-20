@@ -1,0 +1,188 @@
+{
+  "companyDescription": "Maybank is a financial services group providing an array of financial products and services through three key business pillars, supported by shared corporate functions across its global network.",
+  "companyName": "MALAYAN BANKING BERHAD",
+  "industry": "Banks",
+  "reportYear": 2023,
+  "topShareholders": [
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 155,
+      "percentageHeld": 30.17,
+      "shareholderName": "AMANAHRAYA TRUSTEES BERHAD B/O: AMANAH SAHAM BUMIPUTERA"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 155,
+      "percentageHeld": 12.05,
+      "shareholderName": "CITIGROUP NOMINEES (TEMPATAN) SDN BHD B/O: EMPLOYEES PROVIDENT FUND BOARD"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 155,
+      "percentageHeld": 6.6,
+      "shareholderName": "PERMODALAN NASIONAL BERHAD"
+    },
+    {
+      "glicAssociation": "KWAP",
+      "pageNumber": 156,
+      "percentageHeld": 4.63,
+      "shareholderName": "KUMPULAN WANG PERSARAAN (DIPERBADANKAN)"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 156,
+      "percentageHeld": 2.82,
+      "shareholderName": "AMANAHRAYA TRUSTEES BERHAD AMANAH SAHAM MALAYSIA"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 156,
+      "percentageHeld": 2.69,
+      "shareholderName": "AMANAHRAYA TRUSTEES BERHAD AMANAH SAHAM MALAYSIA 2 \u2013 WAWASAN"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 156,
+      "percentageHeld": 1.12,
+      "shareholderName": "AMANAHRAYA TRUSTEES BERHAD AMANAH SAHAM MALAYSIA 3"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 156,
+      "percentageHeld": 1.08,
+      "shareholderName": "CARTABAN NOMINEES (ASING) SDN BHD EXEMPT AN FOR STATE STREET BANK & TRUST COMPANY (WEST CLT OD67)"
+    },
+    {
+      "glicAssociation": NaN,
+      "pageNumber": 156,
+      "percentageHeld": 0.94,
+      "shareholderName": "CITIGROUP NOMINEES (TEMPATAN) SDN BHD EXEMPT AN FOR AIA BHD."
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 156,
+      "percentageHeld": 0.89,
+      "shareholderName": "AMANAHRAYA TRUSTEES BERHAD AMANAH SAHAM BUMIPUTERA 2"
+    },
+    {
+      "glicAssociation": NaN,
+      "pageNumber": 156,
+      "percentageHeld": 0.84,
+      "shareholderName": "HSBC NOMINEES (ASING) SDN BHD JPMCB NA FOR VANGUARD TOTAL INTERNATIONAL STOCK INDEX FUND"
+    },
+    {
+      "glicAssociation": NaN,
+      "pageNumber": 156,
+      "percentageHeld": 0.84,
+      "shareholderName": "HSBC NOMINEES (ASING) SDN BHD JPMCB NA FOR VANGUARD EMERGING MARKETS STOCK INDEX FUND"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 156,
+      "percentageHeld": 0.83,
+      "shareholderName": "CITIGROUP NOMINEES (ASING) SDN BHD CB SPORE GW FOR GOVERNMENT OF SINGAPORE (GIC C)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 156,
+      "percentageHeld": 0.65,
+      "shareholderName": "CITIGROUP NOMINEES (TEMPATAN) SDN BHD GREAT EASTERN LIFE ASSURANCE (MALAYSIA) BERHAD (PAR 1)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 156,
+      "percentageHeld": 0.62,
+      "shareholderName": "CARTABAN NOMINEES (TEMPATAN) SDN BHD PAMB FOR PRULINK EQUITY FUND"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 156,
+      "percentageHeld": 0.5,
+      "shareholderName": "CITIGROUP NOMINEES (TEMPATAN) SDN BHD EMPLOYEES PROVIDENT FUND BOARD (NOMURA)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 156,
+      "percentageHeld": 0.45,
+      "shareholderName": "CARTABAN NOMINEES (TEMPATAN) SDN BHD PRUDENTIAL ASSURANCE MALAYSIA BERHAD FOR PRULINK STRATEGIC FUND"
+    },
+    {
+      "glicAssociation": NaN,
+      "pageNumber": 156,
+      "percentageHeld": 0.41,
+      "shareholderName": "HSBC NOMINEES (ASING) SDN BHD JPMCB NA FOR VANGUARD FIDUCIARY TRUST COMPANY INSTITUTIONAL TOTAL INTERNATIONAL STOCK MARKET INDEX TRUST II"
+    },
+    {
+      "glicAssociation": NaN,
+      "pageNumber": 156,
+      "percentageHeld": 0.33,
+      "shareholderName": "CITIGROUP NOMINEES (ASING) SDN BHD UBS AG"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 156,
+      "percentageHeld": 0.33,
+      "shareholderName": "CARTABAN NOMINEES (ASING) SDN BHD BNYM SA/NV FOR PEOPLE\u2019S BANK OF CHINA (SICL ASIA EM)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 156,
+      "percentageHeld": 0.32,
+      "shareholderName": "HSBC NOMINEES (ASING) SDN BHD JPMCB NA FOR BLACKROCK INSTITUTIONAL TRUST COMPANY, N.A. INVESTMENT FUNDS FOR EMPLOYEE BENEFIT TRUSTS"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 156,
+      "percentageHeld": 0.31,
+      "shareholderName": "MAYBANK NOMINEES (TEMPATAN) SDN BHD MAYBANK TRUSTEES BERHAD FOR PUBLIC REGULAR SAVINGS FUND (N14011940100)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 156,
+      "percentageHeld": 0.3,
+      "shareholderName": "CITIGROUP NOMINEES (ASING) SDN BHD EXEMPT AN FOR CITIBANK NEW YORK (NORGES BANK 14)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 156,
+      "percentageHeld": 0.29,
+      "shareholderName": "CITIGROUP NOMINEES (TEMPATAN) SDN BHD GREAT EASTERN LIFE ASSURANCE (MALAYSIA) BERHAD (PAR 3)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 156,
+      "percentageHeld": 0.29,
+      "shareholderName": "UOB KAY HIAN NOMINEES (ASING) SDN BHD EXEMPT AN FOR UOB KAY HIAN PTE LTD (A/C CLIENTS)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 157,
+      "percentageHeld": 0.27,
+      "shareholderName": "CARTABAN NOMINEES (ASING) SDN BHD SSBT FUND SWV4 FOR CALIFORNIA PUBLIC EMPLOYEES RETIREMENT SYSTEM"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 157,
+      "percentageHeld": 0.26,
+      "shareholderName": "CARTABAN NOMINEES (ASING) SDN BHD STATE STREET LONDON FUND OQ78 FOR ISHARES IV PUBLIC LIMITED COMPANY"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 157,
+      "percentageHeld": 0.25,
+      "shareholderName": "HSBC NOMINEES (ASING) SDN BHD HSBC BK PLC FOR KUWAIT INVESTMENT OFFICE (KIO)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 157,
+      "percentageHeld": 0.23,
+      "shareholderName": "CITIGROUP NOMINEES (ASING) SDN BHD EXEMPT AN FOR CITIBANK NEW YORK (NORGES BANK 19)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 157,
+      "percentageHeld": 0.21,
+      "shareholderName": "HSBC NOMINEES (ASING) SDN BHD JPMSE LUX FOR ROBECO CAPITAL GROWTH FUNDS"
+    }
+  ]
+}
