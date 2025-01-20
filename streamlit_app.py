@@ -898,12 +898,15 @@ def dashboard_page():
         st.info("No dashboard statistics available.")
         return
     
+    pending_verification = len(get_json_files_from_github(exclude_verified=True))
+      
     # Display statistics
     st.subheader("Statistics")
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
     col1.metric("Bond Serving Companies", statistics["bond_serving_companies"])
     col2.metric("Total Companies Processed", statistics["total_companies"])
     col3.metric("Total Industries", statistics["total_industries"])
+    col4.metric("Pending Verification", pending_verification)
     
     # Plot industry distribution
     industry_df = pd.DataFrame(statistics["industry_distribution"]).fillna(0)
