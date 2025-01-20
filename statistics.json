@@ -1,5 +1,5 @@
 {
-  "total_companies": 27,
+  "total_companies": 28,
   "bond_serving_companies": 19,
   "total_industries": 16,
   "industries": [
@@ -33,7 +33,7 @@
       "Insurance": 0,
       "Materials": 1,
       "Pharmaceuticals": 0,
-      "Real Estate": 2,
+      "Real Estate": 3,
       "Retail": 1,
       "Telecom": 0,
       "Transportation": 2,
@@ -94,6 +94,12 @@
       "industry": "Pharmaceuticals",
       "glic_total": 69.5,
       "is_bond_serving": true
+    },
+    {
+      "company": "Eco World Development Group Berhad",
+      "industry": "Real Estate",
+      "glic_total": 4.7,
+      "is_bond_serving": false
     },
     {
       "company": "Farm Fresh Berhad",
