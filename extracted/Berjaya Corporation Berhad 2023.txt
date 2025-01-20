@@ -1,0 +1,1214 @@
+---- Page 1 ----
+Berjaya Corporation Berhad 
+Registration Number: 200101019033 (554790-X) 
+Date: 28 February 2024 
+ 
+Subject: UNAUDITED QUARTERLY (Q2) FINANCIAL REPORT FOR 
+THE PERIOD ENDED 31 DECEMBER 2023 
+Table of contents Page 
+Condensed Consolidated Statement of Profit or Loss 1
+Condensed Consolidated Statement of Comprehensive Income 2
+Condensed Consolidated Statement of Financial Position 3
+Condensed Consolidated Statement of Changes in Equity 4 - 5 
+Condensed Consolidated Statement of Cash Flows 6
+Notes to the Unaudited Interim Financial Report 7 - 10 
+Additional Information Required by the Listing Requirements 
+  of Bursa Malaysia Securities Berhad ("Bursa Securities LR") 11 - 27 
+
+---- Page 2 ----
+    Page 1 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+CONDENSED CONSOLIDATED STATEMENT OF PROFIT OR LOSS 
+ 3 months ended Year to date ended 
+31/12/2023 31/12/2022 31/12/2023 31/12/2022 
+ RM'000  RM'000  RM'000  RM'000 
+ 
+GROUP REVENUE   2,231,935   2,335,157    4,799,255  4,578,347 
+PROFIT FROM OPERATIONS          1,700      139,764       178,681     293,278 
+Investment related income        22,615        37,781         69,842       70,846 
+Investment related expenses       (10,804)            (594)        (26,092)        (6,595) 
+Finance costs     (150,246)     (102,999)      (288,736)    (193,014) 
+Share of results of associates        18,249        10,930         42,448       21,941 
+Share of results of joint ventures          3,642          7,199         11,002       13,212 
+(LOSS)/PROFIT BEFORE TAX     (114,844)        92,081        (12,855)     199,668 
+INCOME TAX EXPENSE       (45,782)       (49,804)      (106,653)    (119,394) 
+(LOSS)/PROFIT AFTER TAX     (160,626)        42,277      (119,508)       80,274 
+ATTRIBUTABLE TO: 
+- Equity holders of the parent     (116,316)       (24,805)      (100,549)      (41,220) 
+- Non-controlling interests       (44,310)        67,082        (18,959)     121,494 
+    (160,626)        42,277      (119,508)       80,274 
+LOSS PER SHARE (SEN) 
+  - Basic, for the period           (2.09)           (0.44)            (1.80)          (0.73) 
+ 
+ 
+The annexed notes form an integral part of this interim financial report. 
+
+---- Page 3 ----
+    Page 2 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+CONDENSED CONSOLIDATED STATEMENT OF COMPREHENSIVE INCOME 
+ 3 months ended Year to date ended 
+31/12/2023 31/12/2022 31/12/2023 31/12/2022 
+ RM'000  RM'000  RM'000  RM'000 
+  
+(LOSS)/PROFIT AFTER TAX     (160,626)        42,277      (119,508)       80,274 
+OTHER COMPREHENSIVE ITEMS 
+Items that may be reclassified subsequently to profit or loss 
+Foreign currency translation        14,140          3,210         13,414         2,615 
+Share of associated companies' currency translation 
+ differences          1,346          1,738           1,672         1,616 
+Items that will not be reclassified subsequently to profit or loss 
+ Net changes in fair value of investments at fair value   
+  through other comprehensive income ("FVTOCI")        11,135        13,724         21,983       47,437 
+Share of associated companies' changes in fair values 
+ of FVTOCI investments         (7,690)          6,913        (10,638)         8,687 
+Actuarial gain recognised in defined 
+ benefit pension schemes                  -             162                   -            162 
+TOTAL COMPREHENSIVE INCOME 
+  FOR THE PERIOD     (141,695)        68,024        (93,077)     140,791 
+ATTRIBUTABLE TO: 
+- Equity holders of the parent     (100,532)       (14,332)        (67,260)         4,052 
+- Non-controlling interests       (41,163)        82,356        (25,817)     136,739 
+    (141,695)        68,024        (93,077)     140,791 
+ 
+The annexed notes form an integral part of this interim financial report. 
+
+---- Page 4 ----
+ 
+    Page 3 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+CONDENSED CONSOLIDATED STATEMENT OF FINANCIAL POSITION 
+ As at As at 
+31/12/2023 30/06/2023 
+RM'000 RM'000 
+(Audited) 
+ASSETS 
+Non-Current assets  
+Property, plant and equipment     3,433,927     3,529,433 
+Right-of-use assets     2,335,442     2,327,962 
+Investment properties        869,121        869,363 
+Inventories - land held for property development     2,179,509     2,173,933 
+Associated companies     1,073,700     1,055,772 
+Joint ventures        189,757        176,316 
+Other investments        681,971        538,047 
+Receivables        438,753        419,215 
+Retirement benefit assets          37,682          38,082 
+Intangible assets     4,671,610     4,710,773 
+Deferred tax assets          93,389        107,100 
+  16,004,861   15,945,996 
+Current Assets 
+Inventories - property development costs        176,327        175,455 
+Inventories - others     1,651,758     1,748,343 
+Contract cost assets               589            9,600 
+Trade and other receivables     1,924,476     1,712,179 
+Contract assets        203,076        135,285 
+Short term investments        143,712          84,424 
+Tax recoverable        109,762          86,732 
+Deposits with financial institutions        661,326        642,103 
+Cash and bank balances        698,592     1,040,734 
+    5,569,618     5,634,855 
+Disposal group/Non-current assets classified as held for sale        638,270        609,885 
+    6,207,888     6,244,740 
+TOTAL ASSETS   22,212,749   22,190,736 
+EQUITY AND LIABILITIES 
+Share capital     5,347,774     5,347,774 
+Irredeemable Convertible Unsecured Loan Stocks ("ICULS") - Equity component               110               110 
+Reserves        599,730        897,423 
+    5,947,614     6,245,307 
+Less: Treasury shares       (112,575)         (91,677) 
+    5,835,039     6,153,630 
+Non-controlling interests     2,905,263     2,693,561 
+Equity funds     8,740,302     8,847,191 
+Non-Current liabilities 
+Liability component of ICULS                    4                    6
+Long term borrowings     3,020,575     2,856,436 
+Payables        271,077        272,676 
+Lease liabilities     2,296,072     2,308,553 
+Contract liabilities        160,395        171,908 
+Provisions          41,989          40,298 
+Deferred tax liabilities     1,199,537     1,205,323 
+Derivative liabilities                    -          12,160 
+    6,989,649     6,867,360 
+Current Liabilities 
+Liability component of ICULS                    4                    4
+Payables     2,376,329     2,275,926 
+Contract liabilities        518,552        581,680 
+Derivative liabilities          68,086          54,703 
+Provisions          54,540          66,596 
+Short term borrowings     2,890,851     2,964,159 
+Lease liabilities        254,272        260,000 
+Taxation          55,720          46,826 
+    6,218,354     6,249,894 
+Liabilities directly associated with disposal group classified as held for sale        264,444        226,291 
+    6,482,798     6,476,185 
+Total Liabilities   13,472,447   13,343,545 
+TOTAL EQUITY AND LIABILITIES   22,212,749   22,190,736 
+Basic net assets per share (sen) 105.87 110.21 
+Dilutive net assets per share (sen) 105.20 109.06 
+The net assets per share is calculated based on the following : 
+Basic : Equity funds less non-controlling interests and ICULS - equity component divided by the number of 
+              outstanding shares in issue with voting rights. 
+Dilutive : Equity funds less non-controlling interests divided by the number of outstanding shares in issue 
+                 with voting rights and the potential conversion of the Company's outstanding ICULS to shares 
+                 and exercise of Warrants. 
+The annexed notes form an integral part of this interim financial report. 
+
+---- Page 5 ----
+Page 4 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+CONDENSED CONSOLIDATED STATEMENT OF CHANGES IN EQUITY 
+Attributable to the equity holders of the Parent 
+Non-distributable Distributable 
+ 
+ Foreign 
+ICULS -  currency Total net Non- 
+Share equity FVTOCI Warrants Fair value Capital Consolidation translation Retained Treasury equity controlling Total 
+capital component reserves reserve ^ reserves reserves reserve reserves earnings shares funds interests equity 
+RM'000 RM'000 RM'000 RM'000 RM'000 RM'000 RM'000 RM'000 RM'000 RM'000 RM'000 RM'000 RM'000 
+At 1 July 2023  5,347,774               110        (60,755)        113,039          (7,972)        210,922         (367,440)           92,233          917,396        (91,677)     6,153,630     2,693,561      8,847,191 
+Profit for the year                 -                   -                   -                   -                   -                   -                      -                     -         (100,549)                   -      (100,549)        (18,959)       (119,508) 
+Other comprehensive income                 -                   -           7,197                   -                   -                   -                      -           26,092                      -                   -          33,289          (6,858)           26,431 
+Total comprehensive income                 -                   -           7,197                   -                   -                   -                      -           26,092         (100,549)                   -        (67,260)        (25,817)         (93,077) 
+Effects arising from the disposals of 
+  FVTOCI investments                 -                   -          (7,295)                   -                   -                   -                      -                     -              7,295                   -                   -                   -                    -
+Transactions with owners: 
+Transfer of reserves                 -                   -        (19,038)                   -        (58,843)          (7,142)             (5,394)          (37,385)          127,802                   -                   -                   -                    -
+Treasury shares acquired                 -                   -                   -                   -                   -                   -                      -                     -                      -        (20,898)        (20,898)                   -         (20,898) 
+Adjustment due to increase in 
+  equity in subsidiary companies                 -                   -                   -                   -                   -                   -           (33,348)                     -                      -                   -        (33,348)        (90,887)       (124,235) 
+Adjustment in relation to dilution 
+  of equity interest in subsidiary companies                 -                   -                   -                   -                   -          (2,838)         (194,247)                     -                      -                   -      (197,085)        380,331         183,246 
+Acquisition of a subsidiary company                 -                   -                   -                   -                   -                   -                      -                     -                      -                   -                   -            1,337             1,337 
+Disposal of a subsidiary company                 -                   -                   -                   -                   -                   -                      -                     -                      -                   -                   -               540                540 
+Share based payment                 -                   -                   -                   -                   -                   -                      -                     -                      -                   -                   -               199                199 
+Dividends paid to non-controlling interests                 -                   -                   -                   -                   -                   -                      -                     -                      -                   -                   -        (54,001)         (54,001) 
+                -                   -        (19,038)                   -        (58,843)          (9,980)         (232,989)          (37,385)          127,802        (20,898)      (251,331)        237,519         (13,812) 
+At 31 December 2023  5,347,774               110        (79,891)        113,039        (66,815)        200,942         (600,429)           80,940          951,944      (112,575)     5,835,039     2,905,263      8,740,302 
+Note: 
+^ This represents the fair values of warrants. 
+
+---- Page 6 ----
+Page 5 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+CONDENSED CONSOLIDATED STATEMENT OF CHANGES IN EQUITY 
+Attributable to the equity holders of the Parent 
+Non-distributable Distributable 
+Foreign 
+ICULS -  currency Total net Non- 
+Share equity FVTOCI Warrants Fair value Capital Consolidation translation Retained Treasury equity controlling Total 
+capital component reserves reserve ^ reserves reserves reserve reserves earnings shares funds interests equity 
+ RM'000 RM'000 RM'000 RM'000 RM'000 RM'000 RM'000 RM'000 RM'000 RM'000 RM'000 RM'000 RM'000 
+At 1 July 2022  5,286,202          53,231        (89,592)        113,039            2,198        213,735         (475,267)           61,113          981,043        (74,982)     6,070,720     2,808,371      8,879,091 
+Profit for the year                 -                   -                   -                   -                   -                   -                      -                     -           (41,220)                   -        (41,220)        121,494           80,274 
+Other comprehensive income                 -                   -         39,659                   -                   -                   -                      -             5,484                 129                   -          45,272          15,245           60,517 
+Total comprehensive income                 -                   -         39,659                   -                   -                   -                      -             5,484           (41,091)                   -            4,052        136,739         140,791 
+Share of an associated company's effect arising 
+  on changes in interesr in its subsidiary company                 -                   -                   -                   -                   -                   -              1,736                     -                      -                   -            1,736                   -             1,736 
+Transactions with owners: 
+Transfer of reserves                 -                   -          (6,729)                   -        (11,945)          (3,466)             (4,295)           18,346              8,089                   -                   -                   -                    -
+Treasury shares acquired                 -                   -                   -                   -                   -                   -                      -                     -                      -        (16,695)        (16,695)                   -         (16,695) 
+Reversal of deferred tax liability on 
+  conversion of BCorp ICULS                 -               501                   -                   -                   -                   -                      -                     -                      -                   -               501                   -                501 
+Arising from conversion of BCorp ICULS       61,572        (53,622)                   -                   -                   -                   -                      -                     -                      -                   -            7,950                   -             7,950 
+Adjustment due to increase in 
+  equity interest in subsidiary companies                 -                   -                   -                   -                   -                   -           (12,034)                     -                      -                   -        (12,034)      (358,491)       (370,525) 
+Adjustment in relation to dilution  
+  of equity interest in subsidiary companies                 -                   -                   -                   -                   -                   -          167,828                     -                      -                   -        167,828          61,666         229,494 
+Acquisition of a subsidiary company                 -                   -                   -                   -                   -                   -                      -                     -                      -                   -                   -               403                403 
+Capital repayment by a subsidiary company                 -                   -                   -                   -                   -                   -                      -                     -                      -                   -                   -          (3,132)           (3,132) 
+Share based payment                 -                   -                   -                   -                   -                   -                      -                     -                      -                   -                   -            1,257             1,257 
+Dividends paid to non-controlling interests                 -                   -                   -                   -                   -                   -                      -                     -                      -                   -                   -        (47,128)         (47,128) 
+      61,572        (53,121)          (6,729)                   -        (11,945)          (3,466)          151,499           18,346              8,089        (16,695)        147,550      (345,425)       (197,875) 
+At 31 December 2022  5,347,774               110        (56,662)        113,039          (9,747)        210,269         (322,032)           84,943          948,041        (91,677)     6,224,058     2,599,685      8,823,743 
+Note: 
+^ This represents the fair values of warrants . 
+  
+The annexed notes form an integral part of this interim financial report. 
+
+---- Page 7 ----
+    Page 6 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+CONDENSED CONSOLIDATED STATEMENT OF CASH FLOWS 
+6 months ended 
+31/12/2023 31/12/2022 
+RM'000  RM'000 
+CASH FLOW FROM OPERATING ACTIVITIES  
+Receipts from operations       4,980,115         4,836,549 
+Payments for operating expenses     (4,723,671)       (4,334,422) 
+Payment of taxes        (125,191)          (126,674) 
+Other (payments)/receipts (including tax refunds)          (10,755)            113,423 
+Net cash generated from operating activities          120,498            488,876 
+CASH FLOW FROM INVESTING ACTIVITIES 
+Disposal of property, plant and equipment and non-current assets              4,110              19,020 
+Disposal of investments in subsidiary companies          191,359              49,767 
+Disposal of investments in associated companies and joint venture              7,345              22,630 
+Disposal of other investments and short term investments            89,318              61,924 
+Disposal of a foreign hotel business operations            65,160                        -
+Acquisition of property, plant and equipment and non-current assets        (148,131)          (307,553) 
+Acquisition of investments in subsidiary companies          (99,166)          (222,053) 
+Acquisition of investments in associated companies and joint venture            (7,244)            (60,724) 
+Acquisition of other investments and short term investments        (239,382)            (83,887) 
+Acquisition of treasury shares by subsidiary company          (30,691)            (41,866) 
+Interest received            24,018              24,812 
+Dividend received            16,417              42,082 
+Net advances to joint ventures and associated companies          (52,454)               (1,261) 
+Other receipts            44,685              15,162 
+Net cash used in investing activities        (134,656)          (481,947) 
+CASH FLOW FROM FINANCING ACTIVITIES 
+Acquisition of treasury shares by the Company          (20,898)            (16,694) 
+Issuance of share capital to non-controlling interests of a subsidiary company              1,337                        -
+Issuance of Redeemable Convertible Loan by subsidiary company                      -              20,159 
+Issuance of medium term notes by subsidiary companies          168,860              82,930 
+Redemption of medium term notes by subsidiary companies        (282,930)          (103,180) 
+Dividends paid to non-controlling interests of subsidiary companies          (44,468)            (48,729) 
+Interest paid        (235,688)          (172,656) 
+Drawdown of bank and other borrowings          760,719            987,717 
+Repayment of bank and other borrowings        (556,752)          (539,149) 
+Payment of lease liabilities        (120,128)          (127,487) 
+Net placement with banks as security pledged for borrowings          (12,599)            (39,105) 
+Net cash (used in)/generated from financing activities        (342,547)              43,806 
+NET CHANGE IN CASH AND CASH EQUIVALENTS        (356,705)              50,735 
+OPENING CASH AND CASH EQUIVALENTS       1,548,515         1,085,172 
+Effect of exchange rate changes              7,219              38,280 
+CLOSING CASH AND CASH EQUIVALENTS       1,199,029         1,174,187 
+Cash and cash equivalents carried forward comprise: RM'000 RM'000 
+ Deposits with financial institutions          661,326            720,841 
+ Cash and bank balances          698,592            763,856 
+ Bank overdraft (included under short term borrowings)          (67,723)            (58,496) 
+      1,292,195         1,426,201 
+Less : 
+Remisiers' deposit held in trust          (13,749)            (12,754) 
+Cash and cash equivalents restricted in use        (103,259)          (239,260) 
+      1,175,187         1,174,187 
+Including: Cash and cash equivalents classified as held for sale            23,842                        -
+      1,199,029         1,174,187 
+The annexed notes form an integral part of this interim financial report. 
+
+---- Page 8 ----
+    Page 7 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+NOTES TO THE INTERIM FINANCIAL REPORT 
+A1 The interim financial report is not audited and has been prepared in compliance with Malaysian Financial 
+Reporting Standards ("MFRS") 134 - Interim Financial Reporting, requirements of the Companies Act 2016 
+("CA 2016") and paragraph 9.22 of the Main Market Listing Requirements of Bursa Malaysia Securities 
+Berhad ("Bursa Securities LR"). 
+The condensed consolidated  interim financial report should be read in conjunction with the audited 
+financial statements of the Company for the financial year ended 30 June 2023. The explanatory notes 
+attached to the interim financial statements provide an explanation of events and transactions that are 
+significant for understanding the changes in the financial position and performance of the Company since 
+the financial year ended 30 June 2023. 
+The Group has not early adopted new or revised standards and amendments to standards that have been 
+issued but not yet effective for the Group's accounting period beginning 1 July 2023. 
+The initial application of the MFRSs, Amendments to MFRSs and IC Interpretations, which will be applied 
+prospectively or which requires extended disclosures, is not expected to have any significant financial impact 
+to the financial statements of the Group upon their first adoption. 
+A2 The following business operations of the Group are affected by seasonal or cyclical factors: 
+(a) the property segment is affected by the prevailing cyclical economic conditions. 
+(b) the stock and futures broking businesses are influenced by the performance of the stock market. 
+(c) the local island beach resorts situated at the East Coast of Peninsular Malaysia which are affected 
+by the North-East monsoon season during the second and third quarters of the financial year, while 
+the hotels in Iceland are affected by winter season during the second and third quarters of the financial 
+year; and 
+(d) the gaming business may be positively impacted by the festive seasons. 
+A3 (a) The following are the unusual items that occurred during the current quarter under review: 
+Recognised directly in statement of profit or loss 
+(i) Included under investment related income and (expenses): Current Financial 
+Quarter Year to date 
+RM'000 RM'000 
+Gain on disposal of a foreign hotel business operations                558            13,000 
+Gain on disposal of a subsidiary company                     -                 427 
+Gain on disposal of an associated company                     -              7,345 
+Loss on disposal of a subsidiary company          (10,499)          (10,499) 
+Reversal of impairment on amount owing 
+     by an associated company                     -              9,502 
+Net fair value changes of fair value through 
+     profit or loss ("FVTPL") investments             5,997              1,282 
+Net impairment on investment in associated companies            (1,699)          (10,863) 
+           (5,643)            10,194 
+(b) There were no material changes in estimates reported in the prior financial year that had a material 
+effect in the current quarter ended 31 December 2023. 
+
+---- Page 9 ----
+    Page 8 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+NOTES TO THE INTERIM FINANCIAL REPORT 
+A4 There were no issuances and repayment of equity securities, share buy-backs, share cancellation, shares 
+held as treasury shares and resale of treasury shares for the financial period ended 31 December 2023 
+except for the following: 
+Treasury shares 
+72,228,000 units of ordinary share were bought back and held as treasury shares with none of these shares 
+being cancelled or sold. 
+The details of the share buyback during the financial period ended 31 December 2023 were as follows: 
+Average 
+price per Total 
+share Number of consideration 
+Month Lowest Highest RM shares RM'000 
+November 2023 0.29 0.305 0.300    15,710,000              4,709 
+December 2023 0.28 0.300 0.286    56,518,000            16,189 
+0.289    72,228,000            20,898 
+The number of treasury shares held in hand as at 31 December 2023 were as follows: 
+Average 
+price per 
+share Number Amount 
+RM of shares RM'000 
+Balance as at 1 July 2023 0.242  379,059,527            91,677 
+Increase in treasury shares 0.289    72,228,000            20,898 
+Total treasury shares as at 31 December 2023 0.249  451,287,527          112,575 
+As at 31 December 2023, the number of outstanding shares in issue with voting rights (rounded to nearest 
+thousand) was 5,511,263,000 ordinary shares (31 December 2022: 5,583,491,000). 
+The number and carrying amounts of treasury shares subsequent to the current quarter end and up to the date 
+of this announcement: 
+Average 
+price per 
+share Number Amount 
+RM of shares RM'000 
+Total treasury shares as at 31 December 2023 0.249  451,287,527          112,575 
+Increase in treasury shares 0.281      1,300,000                 365 
+Distribution of treasury shares as share dividend 
+(first interim dividend for the financial 
+year ending 30 June 2024) 0.249 (330,646,993)          (82,496) 
+Total treasury shares as at 27 February 2024 0.250  121,940,534            30,444 
+As at 27 February 2024, the number of outstanding shares in issue with voting rights (rounded to nearest 
+thousand) was 5,840,610,000 ordinary shares. 
+ 
+Subsequent to the financial period ended 31 December 2023 and up to the date of this announcement, there 
+were no issuance of ordinary shares pursuant to the conversion of BCorp ICULS and exercise of warrants. 
+A5 There were no payment of dividend during the financial period ended 31 December 2023. 
+
+---- Page 10 ----
+    Page 9 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+NOTES TO THE INTERIM FINANCIAL REPORT 
+A6 Segment information for the financial period ended 31 December 2023:- 
+ 
+REVENUE 
+Inter- 
+External segment Total 
+ RM'000  RM'000  RM'000 
+Retail      2,116,539             1,561       2,118,100 
+Property         191,781           78,053          269,834 
+Hospitality         662,327           23,602          685,929 
+Services      1,828,608           81,962       1,910,570 
+Elimination: Inter-segment Revenue                     -        (185,178)        (185,178) 
+Total revenue      4,799,255                     -       4,799,255 
+RESULTS  RM'000 
+Retail            14,301 
+Property            42,174 
+Hospitality            45,445 
+Services          151,620 
+         253,540 
+Unallocated corporate items          (74,859) 
+Profit from operations          178,681 
+Investment related income 
+-Interest income            33,120 
+-Gain on disposal of a subsidiary company                 427 
+-Gain on disposal of an associated company              7,345 
+-Fair value gain on FVTPL investments              5,969 
+-Gain on disposal of a foreign hotel business operations            13,000 
+-Reversal of impairment on investment in an associated company                   43 
+-Reversal of impairment on amount owing by an associated company              9,502 
+-Dividend income                 416 
+-Other investment income                   20 
+           69,842 
+Investment related expenses 
+-Fair value loss on FVTPL investments            (4,687) 
+-Loss on disposal of a subsidiary company          (10,499) 
+-Impairment on investment in associated companies          (10,906) 
+         (26,092) 
+Finance costs        (288,736) 
+Share of results of associates            42,448 
+Share of results of joint ventures            11,002 
+Loss before tax          (12,855) 
+Income tax expense        (106,653) 
+Loss after tax        (119,508) 
+
+---- Page 11 ----
+    Page 10 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+NOTES TO THE INTERIM FINANCIAL REPORT 
+A7 There were no significant events since the end of this current period under review that have not been reflected 
+in the financial statements for this current financial period under review. 
+A8 There were no changes in the composition of the Group for the current financial period ended 31 December 
+2023, including business combinations, acquisition or disposal of subsidiary companies, restructuring and 
+discontinuing operations except for the following:-
+(i) On 17 July 2023, Sports Toto Apparel Sdn Bhd and Sports Toto Products Sdn Bhd, both wholly-owned 
+subsidiaries of the Group, have completed the voluntary winding-up and ceased as subsidiaries of the 
+Group. 
+(ii) On 1 August 2023, Berjaya Food (International) Sdn Bhd ("BFI"), a wholly-owned subsidiary of the 
+Group, entered into a joint venture cum shareholders agreement with Middle Trade Inc. to incorporate 
+a 60%-owned subsidiary company namely Berjaya Paris Baguette Philippines Inc. ("BPBPI"). The 
+subscribed capital in BPBPI is PHP150,000,000 comprising 1,500,000 shares and the initial paid-up 
+capital is PHP37,875,000. BFI had paid for the 60% paid-up capital amounting to about PHP22.42 
+million (equivalent to RM1.94 million) during the first quarter of the current financial year. The principal 
+activities of BPBPI are producing, packaging and dealing with baked goods under the Paris Baguette 
+brand and establishing and launching the Paris Baguette stores selling baked goods in the Philippines.
+(iii) On 10 August 2023, The Tropical Veneer Company Berhad, a wholly-owned subsidiary of the Group, 
+was struck off from the Registrar of Companies, Companies Commission of Malaysia and dissolved 
+accordingly. 
+(iv) On 18 August 2023, Natural Gain Investments Limited, a wholly-owned subsidiary of the Group, 
+was struck off from the Registrar of Companies of Hong Kong and dissolved accordingly. 
+(v) On 18 August 2023, Noble Circle Management Sdn Bhd, a wholly-owned subsidiary of the Group, 
+has completed the voluntary winding-up and ceased as a subsidiary of the Group. 
+(vi) On 25 August 2023, the Company disposed of 224,501 ordinary shares of Cekap Urus Sdn Bhd 
+("CUSB"), representing 11% equity interest in CUSB, for a consideration of RM224,501. 
+Consequently, the Company's equity interest in CUSB was reduced from 51.00% to 40.00% and 
+hence, it ceased to be a subsidiary and became an associated company of the Group. 
+(vii) On 29 August 2023, Berjaya Vacation Club Berhad, a wholly-owned subsidiary company of the Group, 
+had incorporated a wholly-owned subsidiary, Kaite Property Management Sdn Bhd ("KPMSB") with 
+a share capital of RM2. The intended principal activities of KPMSB are providing short-term or 
+long-term accommodation services and real estate activities with own or leased property. 
+(viii) On 29 August 2023, Heathrow Limited, H.R. Owen Investments Limited and Malaya Dealerships 
+Limited, all wholly-owned subsidiaries of the Group, were struck off from the Registrar of 
+Companies of the United Kingdom and dissolved accordingly. 
+(ix) On 18 October 2023, Berjaya Enamelware Sdn Bhd, a wholly-owned subsidiary of the Group, 
+had completed the voluntary liquidation and ceased as a subsidiary of the Group. 
+(x) On 31 October 2023, Berjaya Vacation Club Berhad, a wholly-owned subsidiary company of the Group, 
+had incorporated a 51%-owned subsidiary, Greendot Lotus Sdn Bhd ("GLSB") with a share 
+capital of RM100. The intended principal activities of GLSB are providing food and beverage 
+services activities. 
+(xi) On 1 November 2023, BFI had completed the disposal of its 65%-owned subsidiary, Jollibean Foods 
+Pte. Ltd., for a total consideration of SGD637,000 (equivalent to approximately RM2,210,000). 
+A9 There were no material changes in contingent liabilities or contingent asset since the last annual reporting 
+date. 
+A10 There were no material changes in capital commitment since the last audited statement of financial position 
+as at 30 June 2023. 
+
+---- Page 12 ----
+    Page 11 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+ADDITIONAL INFORMATION REQUIRED BY THE BURSA SECURITIES LR 
+B1 The main operating businesses of the Group are marketing of consumer products and services, restaurant s 
+and cafes, property investment and development, hotels and resorts and gaming operations. The key factors 
+(other than the general economic conditions) affect ing the performance of the main operating businesse s 
+in the Group are as follows: 
+Retail 
+Retail - non-food: 
+Effectiveness of marketing initiatives, new product launches, sales productivity, consumer preferences and  
+spending trends, the fluctuation of foreign exchang e rates impacting product costs and competitive  
+pricing and promotions offered by competitors and the disposable income of the consumers. 
+Retail - food: 
+Festive season, tourism, eating out culture, raw material costs, staff costs and affluent lifestyle as well as 
+consumer perception and preference. 
+Property 
+Demography of population, location of the properties, costs of building materials and related services ,  
+lending guidelines and interest rates of the financ ial institutions, rental rates, age and condition o f investment  
+properties and the quality of property management services. 
+Hospitality 
+Room rates, seasonal festive periods and school hol idays, location of the hotels and resorts, tourism and  
+currency exchange trends, energy/other supplies costs, quality of rooms/amenities/service. 
+Services 
+Disposable income of the general public, Jackpot cycles, luck factor, illegal gaming activities and the number  
+of draws in the financial period. 
+The performance of the Group's operating businesses  may be affected should the imposition of restrictive 
+measures be introduced in response to any future pandemic. 
+The summarised results of the Group are as follows:
+3-Month Ended 6-Month Ended 
+31/12/2023 31/12/2022 +/(-) 31/12/2023 31/12/2022 +/(-) 
+RM'000 RM'000 % RM'000 RM'000 %
+ 
+Revenue   2,231,935     2,335,157                   (4)    4,799,255      4,578,347      5
+Profit from operations          1,700        139,764                 (99)       178,681         293,278   (39) 
+(Loss)/Profit before tax     (114,844)          92,081 N/A       (12,855)         199,668 N/A 
+Review of results for the quarter 
+The Group registered a revenue of RM2.23 billion and pre-tax loss of RM114.84 million in the current q uarter 
+ended 31 December 2023 as compared to a revenue of RM2.34 billion and pre-tax profit of RM92.08 millio n 
+reported in the previous year corresponding quarter. 
+
+---- Page 13 ----
+    Page 12 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+ADDITIONAL INFORMATION REQUIRED BY THE BURSA SECURITIES LR 
+Commentary on revenue 
+The lower Group revenue in the current quarter was mainly due to lower contributions from the food retail, 
+property and services segments. 
+ Retail 
+The lower revenue within the retail segment was mainly due to the drop in revenue in the food retail 
+business, primarily stemming from the boycott of Starbucks' cafes arising from the Middle East conflict. 
+The non-food retail business reported an increase i n revenue in the current quarter under review. 
+Despite a revenue decline in its reporting currency, Sterling Pound, H.R. Owen Plc ("HR Owen") 
+reported an increase in revenue due to the favourable foreign exchange impact when converted into 
+Ringgit Malaysia. 
+Property 
+The property segment reported lower revenue in the current quarter, mainly due to lower sales of 
+overseas residence units comparing to the previous year corresponding quarter. 
+ 
+ Hospitality 
+The hospitality segment reported higher revenue mainly due to the higher overall average room rates 
+and the full three months' revenue from the Iceland Parliament Hotel, which commenced its 
+operations in December 2022, when compared to the corresponding quarter of last year. 
+Services 
+The services segment reported a lower revenue in the current quarter. This was mainly due to the 
+lower revenue reported by the gaming business, which is operated by STM Lottery Sdn Bhd ("STM 
+Lottery"). The drop in revenue was mainly due to lesser number of draws conducted (42 draws versus 
+48 draws in last year corresponding quarter). However, this was mitigated by the higher revenue 
+recorded by the managed telecommunication network service business, attributed to the higher 
+project activities under the Universal Service Provision project. 
+
+---- Page 14 ----
+    Page 13 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+ADDITIONAL INFORMATION REQUIRED BY THE BURSA SECURITIES LR 
+Commentary on results 
+The Group reported a pre-tax loss in the current quarter under review as opposed to a pre-tax profit in the 
+previous year corresponding quarter. This was mainly due to lower results from food retail, property and 
+services segments, as well as higher finance costs. 
+ 
+ Retail 
+ The retail segment reported a pre-tax loss as opposed to a pre-tax profit in the corresponding quarter of 
+the previous year. This shift can be attributed primarily to the pre-tax loss reported by the food retail 
+ business, along with the higher pre-tax loss incurred by the non-food retail business. 
+ 
+The pre-tax loss for the food retail business was primarily due to the lower revenue registered, as 
+mentioned earlier under commentary on revenue. 
+ 
+The higher pre-tax loss for the non-food retail business was mainly attributed to HR Owen's higher 
+pre-tax loss. This was primarily due to lower revenue coupled with higher operating expenses resulting
+from inflationary pressures. Additionally, higher depreciation charge following the completion and ful l 
+operation of the Hatfield Centre contributed to the  loss. Furthermore, HR Owen's results were 
+negatively impacted by higher finance costs arising from interest rate hike and higher stocking loans 
+in the current quarter under review. 
+Property 
+The property segment reported a lower pre-tax profit mainly due to lower sales of overseas residence 
+units. 
+Hospitality 
+The improved results reported by the hospitality segment was mainly due to the reasons mentioned 
+above in the current quarter under review of the commentary on revenue. 
+Services 
+The services segment reported lower pre-tax profit in the current quarter was mainly due to lower 
+sales achieved, higher prize payout coupled with higher operating expenses incurred in the current 
+quarter under review. 
+
+---- Page 15 ----
+    Page 14 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+ADDITIONAL INFORMATION REQUIRED BY THE BURSA SECURITIES LR 
+Review of results for the financial period 
+The Group registered a revenue of RM4.80 billion and pre-tax loss of RM12.86 million for the financial
+period ended 31 December 2023 as compared to a revenue of RM4.58 billion and pre-tax profit of RM199.67  
+million reported in the previous year corresponding period. 
+Commentary on revenue 
+The Group registered higher revenue in the current period mainly due to the higher revenue recorded from 
+hospitality, services and non-food retail segments.  
+Retail 
+The higher revenue for the non-food retail business  was primarily contributed by HR Owen. Although 
+HR Owen's revenue in the current period was on par with the previous year's corresponding period, the 
+favourable foreign exchange effect resulted in a revenue increase of 10.1% when converted to Ringgit 
+Malaysia. 
+The lower revenue from food retail business was mainly due to the reason mentioned in the review 
+of results for the current quarter. 
+Property 
+The property segment reported slightly lower revenue in the current quarter, primarily due to lower 
+sales of overseas residence units. However, this decline was mitigated by the increased sales of local
+residence units. 
+Hospitality 
+The hospitality segment reported higher revenue mainly due to the higher overall average room rates 
+and the revenue from the Iceland Parliament Hotel which operated for the whole six months in the 
+current quarter under review. 
+Services 
+The higher revenue was mainly contributed by the higher project activities reported by the managed 
+telecommunication network service business as menti oned in the review of results for current quarter. 
+Additionally, STM Lottery reported a marginal increase in revenue despite conducting fewer draws 
+during the current period under review. This growth was attributed to higher sales per draw, driven by
+the increased sales from the higher accumulated jackpot prizes. 
+
+---- Page 16 ----
+    Page 15 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+ADDITIONAL INFORMATION REQUIRED BY THE BURSA SECURITIES LR 
+Commentary on results 
+The Group reported a pre-tax loss in the current period under review mainly due to lower results from retail, 
+property and services segments, as well as high finance costs. 
+ 
+Retail 
+The lower results reported by the non-food retail business were mainly due to HR Owen. HR Owen 
+reported a pre-tax loss of RM15.5 million, as opposed to a pre-tax profit of RM10.9 million in the same 
+period of last year. This was mainly attributed to higher operating costs resulting from inflationary 
+pressures, coupled with higher depreciation charge following the completion and full operation of the 
+Hatfield Centre. Additionally, the impact of the UK interest rate hike on the higher stocking loans 
+drawdown in the current period under review contributed to the pre-tax loss. 
+The lower pre-tax profit reported by the food retail business was mainly due to the reason mentioned 
+above in the quarterly review section. 
+Property 
+The property segment reported a lower pre-tax profit mainly due to lower sales of overseas residence 
+units in the current period under review. 
+Hospitality 
+The pre-tax profit from the hospitality segment was in tandem with the higher revenue reported in the 
+current period under review. 
+Services 
+The lower pre-tax profit from the services segment was mainly due to the higher prize payout coupled 
+with higher operating expenses incurred in the current period under review. 
+
+---- Page 17 ----
+    Page 16 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+ADDITIONAL INFORMATION REQUIRED BY THE BURSA SECURITIES LR 
+B2 Review of results of current quarter vs preceding quarter 
+3-Month Ended 
+31/12/2023 30/09/2023 +/(-) 
+RM'000 RM'000 %
+Revenue      2,231,935    2,567,320                (13) 
+Profit from operations              1,700       176,981                (99) 
+(Loss)/Profit before tax        (114,844)       101,989 N/A 
+For the current quarter under review, the Group recorded a revenue of RM2.23 billion and pre-tax loss of  
+RM114.84 million as compared to a revenue of RM2.57 billion and pre-tax profit of RM101.99 million rep orted in  
+the preceding quarter. 
+Commentary on revenue 
+ The Group registered a lower revenue in the current quarter mainly contributed by the retail, hospitality and 
+services segments. 
+Retail 
+ The non-food retail business reported lower revenue  as HR Owen's sales soften in the current quarter 
+as compared to the preceding quarter. HR Owen's revenue declined mainly due to lower number of 
+units of car sold from both new and used car sector s, partly caused by reduced luxury spending against
+the backdrop of challenging economic conditions in the United Kingdom. 
+ 
+The food retail business reported a lower revenue i n the current quarter under review. The lower 
+revenue registered was mainly due to the boycott of Starbucks' cafes arising from the conflict in the 
+Middle East. 
+Property 
+The property segment reported higher revenue in the current quarter as compared to the preceding 
+quarter mainly due to higher progress billings. 
+Hospitality 
+The lower revenue registered from the hospitality segment due to the lower overall occupancy rates 
+and average room rates in the current quarter under review. This was due to the onset of monsoon 
+season in East Coast of Peninsular Malaysia and the winter season in Iceland. 
+ 
+Services 
+The services segment reported a lower revenue mainly due to lower revenue reported by STM Lottery. 
+The higher sales in the preceding quarter benefitte d from the higher accumulated jackpot prizes. 
+ 
+ 
+ 
+
+---- Page 18 ----
+    Page 17 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+ADDITIONAL INFORMATION REQUIRED BY THE BURSA SECURITIES LR 
+Commentary on results 
+The Group reported a pre-tax loss of RM114.84 million in the current quarter under review, as opposed to 
+the pre-tax profit of RM101.99 million in the preceding quarter. This was mainly due to the incurrence of losses 
+from the retail and hospitality segments, lower results from services segment, as well as high finance cost 
+incurred. 
+Retail 
+The non-food retail business reported a pre-tax los s as HR Owen's sales soften in the current quarter 
+mainly due to lower number of units of car sold from both new and used car sectors, partly caused by 
+reduced luxury spending against the backdrop of challenging economic conditions in the United 
+Kingdom with higher financing cost and also the pre ceding quarter benefitted from the number plate 
+change month. 
+The food retail business reported a pre-tax loss was mainly due to the reason mentioned under 
+commentary on revenue. 
+Property 
+The lower pre-tax profit reported by the property segment was mainly due to higher sales of overseas 
+residence units reported in the preceding quarter. 
+ 
+Hospitality 
+The pre-tax loss reported by the hospitality segment was mainly due to the lower overall occupancy 
+rates and average room rates in the current quarter under review as mentioned in Note B1. 
+ 
+Services 
+The services segment reported a lower pre-tax profit in the current quarter as compared to the 
+preceding quarter. This was mainly due to the drop in revenue coupled with higher prize payout and 
+higher operating expenses incurred in the current quarter under review. 
+ 
+ 
+
+---- Page 19 ----
+    Page 18 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+ADDITIONAL INFORMATION REQUIRED BY THE BURSA SECURITIES LR 
+B3 Future prospects 
+Malaysia's economic growth is expected to be driven by moderate domestic demand and the moderation of 
+average inflation rate despite the uncertainties ar ising from geo-political tensions. 
+The management of NFO business segment of the Group is of the view that the NFO business in Malaysia will 
+continue its upward trajectory of per draw sales growth driven by favourable consumer spending during the 
+festive period and continued consumer interest in t he jackpot games. With the complete closure of the Group's 
+NFO outlets in Kedah and Perlis, the management of NFO business segment of the Group is disheartened b y the 
+encroachment of illegal operators in these underser ved areas due to the absence of legal NFO operators. 
+The performance of the business segments of the Group is expected to improve on the back of moderate 
+consumer spending, rebound of tourism activities an d better-than-expected labour market conditions. The 
+Group will monitor the prevailing global and local political development in the countries where the Gr oup has 
+business operations. 
+Taking into account of the aforesaid and barring any unforeseen circumstances, the Directors are 
+cautiously optimistic that the performance of the b usiness operations of the Group for the remaining q uarters 
+of the financial year ending 30 June 2024 to be satisfactory. 
+B4 There is no profit forecast or profit guarantee for the financial period ended 31 December 2023. 
+B5 The taxation charge for the current quarter ended 31 December 2023 are detailed as follows: 
+Current Financial 
+Quarter Period to date 
+RM'000 RM'000 
+Based on the results for the period:- 
+Current period provision 
+- In Malaysia         38,277           98,611 
+- Outside Malaysia         (1,327)             2,829 
+Deferred tax         10,469             7,203 
+Over provision in prior years         (1,637)           (1,990) 
+        45,782         106,653 
+The disproportionate tax charge of the Group for th e current quarter ended 31December 2023 was mainly due 
+to certain expenses or losses being disallowed for tax purposes, certain gains which are not taxable and 
+non-availability of Group tax relief in respect of losses incurred by certain subsidiary companies. 
+ 
+
+---- Page 20 ----
+    Page 19 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+ADDITIONAL INFORMATION REQUIRED BY THE BURSA SECURITIES LR 
+B6 Loss before tax is stated after charging/(crediting): 
+Current Financial 
+Quarter Period to date 
+RM'000 RM'000 
+Interest income       (17,151)         (33,120) 
+Dividend income            (303)              (416) 
+Gain on disposal of a subsidiary company                   -              (427) 
+Gain on disposal of an associated company                   -           (7,345) 
+Depreciation of property, plant and equipment         63,909         136,027 
+Depreciation of right-of-use assets         58,770         113,058 
+Amortisation of intangible assets         21,206           42,181 
+Gain on disposal of a foreign hotel business operat ions            (558)         (13,000) 
+Loss on disposal of a subsidiary company         10,499           10,499 
+Impairment on receivables (net)            (204)             1,191 
+Impairment on investment in associated companies (n et)           1,699           10,863 
+Impairment on amount owing by associated companies (net)         10,906             1,404 
+Provision for write down of inventories (net)           4,731             5,863 
+Bad debts recovered              (10)                (25) 
+Foreign exchange loss (net)           6,226           31,691 
+Fair value changes of FVTPL investments (net)         (5,997)           (1,282) 
+B7 (A) There has been no further development for those cor porate proposals disclosed in Notes 43 and 44 to 
+the audited financial statements of the Company for the financial year ended 30 June 2023. 
+(i) Note 43(3) in relation to the proposed listing of S ingapore Institute of Advanced Medicine Holdings 
+Pte Ltd ("SIAMH") on the Catalist Board of Singapore Stock Exchange Securities Trading Limited 
+("SGX-ST") 
+On 16 February 2024, the Company announced that the proposed listing has been completed following 
+the admission of the entire issued share capital of  SIAMH on the SGX-ST. As such, the Group now 
+holds a total of 39.39% equity interest in SIAMH. 
+(ii) Note 44(1) in relation to the proposed disposal of Berjaya Enviro Holdings Sdn Bhd ("BEnviro") 
+On 10 November 2023, the Company announced that there will be an Extraordinary General 
+Meeting ("EGM") to be held on 30 November 2023 at 10.00am to approve the proposed disposal. 
+On 30 November 2023, the proposed disposal was appr oved by the shareholders in the said EGM. 
+On 29 December 2023, the Company announced that it had sought an extention of time from Public 
+Private Partnership Unit ("PPPU") and the Prime Min ister's Department and Sustainable Energy 
+Development Authority Malaysia ("SEDA") to complete the transfer of BEnviro shares, ie from 31 
+December 2023 (deadline imposed by both PPPU and SEDA) to a later date and/or after obtaining 
+approval from the Energy Commission, Malaysia. 
+On 10 January 2024, the Company announced that Berjaya Group Berhad, a wholly-owned subsidiary 
+of the Company and Naza Corporation Holdings Sdn Bhd ("Naza") mutually agreed to extend the 
+cut-off date to satisfy the conditions precedent of the share sale agreement in relation to the propos ed 
+disposal from 16 January 2024 to 16 March 2024. 
+On 18 January 2024, the Company announced that PPPU, the Prime Minister's Department had agreed 
+to extend the deadline for the completion of the tr ansfer of the shares in BEnviro to Naza to 30 June 
+2024. 
+On 2 February 2024, the Company announced that SEDA has granted Berjaya Energies Sdn Bhd, a 
+wholly-owned subsidiary of BEnviro an extension of time until 31 March 2024 for the completion of the 
+transfer of shares in BEnviro to Naza. 
+
+---- Page 21 ----
+    Page 20 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+ADDITIONAL INFORMATION REQUIRED BY THE BURSA SECURITIES LR 
+B8 Group borrowings and debt securities as at 31 December 2023 were as follows: 
+At end of 
+current quarter 
+Short term borrowings RM'000 
+Secured Foreign currency amount 
+Denominated in '000 
+Ringgit Malaysia #      2,178,748 
+USD          16,622 *           76,397 
+SGD          31,817 *         110,804 
+GBP          77,846 *         455,204 
+PHP        107,292 *             8,867 
+EUR            4,298 *           21,875 
+     2,851,895 
+Unsecured 
+Denominated in 
+Ringgit Malaysia           38,956 
+     2,890,851 
+Long term borrowings 
+Secured 
+Denominated in '000 
+Ringgit Malaysia #      2,355,141 
+SGD          13,585 *           47,310 
+GBP          26,937 *         157,510 
+JPY     5,346,809 *         173,260 
+EUR          49,712 *         252,983 
+ISK     1,009,910 *           34,371 
+     3,020,575 
+Total bank borrowings      5,911,426 
+* Converted at the respective exchange rates prevailing as at 31 December 2023 
+# Includes medium term notes 
+- short term (Conventional)         119,979 
+- short term (Islamic)         109,380 
+        229,359 
+- long term (Conventional)         679,164 
+- long term (Islamic)         145,000 
+        824,164 
+     1,053,523 
+
+---- Page 22 ----
+    Page 21 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+ADDITIONAL INFORMATION REQUIRED BY THE BURSA SECURITIES LR 
+B9 There is no change in material litigation since the  last annual reporting date up to the date of this 
+announcement, other than as disclosed in Note A9, e xcept for the following:- 
+(a) Note 38.2.1 regarding the STC Proposals Proceedings
+With reference to the conditional sale and purchase  agreement ("SPA") entered into by Berjaya 
+Tagar Sdn Bhd ("BTSB") with Selangor Turf Club ("STC") for the acquisition of 3 parcels of 
+leasehold land measuring a total area of approximately 244.79 acres located in Sungai Besi 
+together with all existing buildings and fixtures e rected thereon ("Sungai Besi Land") for a total 
+consideration of RM640.0 million  to be settled by way of cash of RM35.0 million payable to STC 
+and the balance of RM605.0 million to be satisfied by a transfer to STC of 750 acres of land located 
+in Sungai Tinggi ("Sungai Tinggi Land") with a newly built turf club ("NewSTC") thereon ("STC 
+Proposals"), for which BTSB had proposed to acquire  the Sungai Tinggi Land from BerjayaCity Sdn 
+Bhd, ("BCity"), a subsidiary company of Berjaya Corporation Berhad and to appoint BCity as the 
+turnkey contractor of the new turf club ("BCity Project"), BTSB subsequently entered into 
+supplemental agreement for an extension of time unt il 18 January 2025 to fulfil certain 
+conditions precedent. The conditions precedent that  have not been fulfilled are as follows: 
+1) renewal of the consent by Land and Mines Department (Federal) for the transfer to BTSB of 
+the portion of the Sungai Besi Land (held under H.S.(D) 61790 No. P.T. 2872 in the Mukim of 
+Petaling, District and State of Wilayah Persekutuan) that is situated in Wilayah Persekutuan, 
+Kuala Lumpur which had expired on 11 January 2006; and 
+2) the approvals, permits or consents of any other relevant authorities as may be required by 
+applicable laws including inter-alia the following:
+(i) approval from the Town and Country Planning Department of the State of Selangor on the 
+re-tabling of the amended master layout plan which was re-submitted on 19 August 2008; 
+(ii) approval from the Majlis Daerah Hulu Selangor ("MDHS") for the Development Order 
+and building plan pertaining to the construction of  the new turf club after approval under 
+item 2(i) above is obtained; and 
+(iii) approval from the State Exco of Selangor for the conversion and sub-division of Sungai 
+Tinggi Land after approvals under items 2 (i) and (ii) above are obtained. 
+On 10 November 2017, BLand announced that further to the legal proceedings instituted by 
+BLand, BTSB and BCity (the "Applicants") in March 2016 against the (1) Selangor State 
+Government, (2) MDHS, (3) Majlis Daerah Kuala Selangor, (4) Pengarah Pejabat Tanah & Galian 
+Negeri Selangor, (5) Pengarah Jabatan Perancangan Bandar dan Desa Negeri Selangor, (6) 
+Pengarah Jabatan Kerja Raya Negeri Selangor, (7) Pengarah Jabatan Alam Sekitar Negeri Selangor 
+and (8) Pengarah Jabatan Geosains Negeri Selangor (the "Respondents") by way of an application 
+for judicial review in the Shah Alam High Court, the High Court had on 9 November 2017 decided 
+on the judicial review in favour of the Applicants.
+
+---- Page 23 ----
+    Page 22 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+ADDITIONAL INFORMATION REQUIRED BY THE BURSA SECURITIES LR 
+(a) Note 38.2.1 regarding the STC Proposals Proceedings  (continued) 
+ 
+ The judgment rendered on 9 November 2017 was as follows: 
+1) The Applicants' applications against the 2nd, 3rd, 4th, 6th, 7th and 8th Respondents were 
+dismissed with costs of RM2,000.00 awarded to the 2 nd, 3rd, 4th, 6th, 7th and 8th 
+Respondents respectively. 
+2) The Applicants were allowed to proceed with the development. 
+3) The Applicants were required to submit the relevant  documents to the relevant technical 
+departments for comments. 
+4) The technical departments were directed to respond within 3 months from the receipt of 
+these documents, and failing which it is deemed tha t they have no objection to these 
+documents. 
+5) Pursuant to an order in the nature of mandamus, the  1st and 5th Respondents were directed to 
+re-table the Applicants' proposal papers to relocat e and construct the Selangor Turf Club 
+before the National Physical Planning Council withi n 3 months after the receipt of the 
+proposal papers from the Applicants. 
+6) The Applicants were directed to submit the said pro posal papers within 1 month upon receipt 
+of the fair order, failing which the Applicants shall forfeit the benefit of the order of 
+mandamus pursuant to paragraph (5) above. 
+7) The 1st and 5th Respondents were ordered to pay the Applicants compensation for any loss 
+suffered by the Applicants. The amount of such compensation would be assessed in 
+subsequent proceedings. 
+On 14 December 2017, BLand announced that the Selangor State Government and several 
+other respondents ("the Appellants") had filed a No tice of Appeal to the Court of Appeal to appeal 
+against the above decision of the Shah Alam High Court ("Main Appeal"). The hearing at the Court of 
+Appeal had been fixed on 8 October 2018. The 1st and 5th Respondents had also applied to stay 
+the ongoing proceedings in the Shah Alam High Court and the execution of the Shah Alam High Court 
+judgment in the judicial review proceedings ("Stay of Proceedings Application"). The Applicants had 
+applied to the Shah Alam High Court for an extension of time to submit the proposal papers to the 
+1st and 5th Respondents ("Extension of Time Applica tion"). In addition, the Applicants had also filed 
+an application for assessment of compensation pursu ant to the aforesaid Shah Alam High Court 
+judgment ("Assessment Proceedings"). 
+ 
+The Court of Appeal had granted a stay of execution of the Shah Alam High Court judgment and the 
+Assessment Proceedings pending the disposal of the Main Appeal at the Court of Appeal. 
+The hearing of the Selangor State Government's appeal at the Court of Appeal, which was previously 
+fixed on 24 October 2019 had been vacated by the Court of Appeal. The Court of Appeal would instead 
+hear a motion by the Appellants to adduce further evidence in this matter. The Court of Appeal had 
+fixed 22 November 2019 as case management date to fix the hearing date of the Main Appeal. 
+Subsequently, the Court of Appeal fixed the hearing date of the Main Appeal on 27 March 2020. 
+
+---- Page 24 ----
+    Page 23 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+ADDITIONAL INFORMATION REQUIRED BY THE BURSA SECURITIES LR 
+(a) Note 38.2.1 regarding the STC Proposals Proceedings  (continued) 
+The hearing of the Appellants' motion to adduce fur ther evidence in the matter was dismissed by the 
+Court of Appeal on 24 October 2019. The Appellants subsequently filed a motion for leave to appeal to 
+the Federal Court against the decision of the Court  of Appeal in dismissing the Appellants' motion to 
+adduce further evidence (the "FC Leave Motion"). The Federal Court had fixed the hearing of the FC 
+Leave Motion on 13 April 2020. 
+The Appellants had also filed a stay application to  stay the hearing of the Main Appeal pending 
+disposal of the FC Leave Motion. This stay application was fixed for hearing on the same day as the 
+hearing of the Main Appeal, that was on 27 March 2020. In the event that the stay was refused by the 
+Court of Appeal, the hearing of the Main Appeal would proceed. 
+Due to the MCO coming into effect on 18 March 2020, the hearings of the FC Leave Motion and 
+the application for stay as well as the main appeal were postponed to 6 July 2020 and 2 July 2020 
+respectively. A case management date for the main appeal was also fixed for 9 July 2020 by the 
+Court of Appeal. 
+Subsequently, the State Government had withdrawn both FC Leave Motion and the stay application at 
+the Court of Appeal on 19 June 2020 and 2 July 2020  respectively. The hearing of the Main Appeal by 
+the Court of Appeal was initially fixed on 14 December 2020. However, the Court of Appeal had 
+postponed the hearing date of the Main Appeal to 29  June 2021. The implementation of FMCO 
+beginning 1 June 2021 further postponed the hearing  date to 27 September 2021. On 27 September 
+2021, the Court of Appeal postponed the hearing dat e to 3 November 2021. 
+The Main Appeal was heard by the Court of Appeal on 3 November 2021. The Court of Appeal allowed 
+the appeal of the Appellants and set aside the deci sion of the Shah Alam High Court rendered on 
+9 November 2017. 
+The Applicants did not agree with the decision of t he Court of Appeal and filed a motion for leave to 
+appeal to the Federal Court to set aside the decisi on of the Court of Appeal and restored the decision
+of the Shah Alam High Court of 9 November 2017 ("Motion for Leave"). With respect to the Assessment 
+Proceedings and Extension of Time Application, the Shah Alam High Court had fixed a further case 
+management date on 25 November 2021 for the Applicants to update the Shah Alam High Court as to 
+their next course of action following the Court of Appeal's decision on 3 November 2021. 
+The case management date at the Shah Alam High Court was subsequently rescheduled to 8 December 
+2021 at which the Shah Alam High Court directed that in light of the Court of Appeal's decision, there
+were no further proceedings on both the Assessment Proceedings and the Extension of Time 
+Application at the Shah Alam High Court. Hence, there was no basis for the applications to be kept in 
+abeyance at the Shah Alam High Court. The Court then struck out both the Assessment Proceedings 
+and the Extension of Time Application with no order  as to costs. 
+Subsequently, the initial hearing date to hear the Motion for Leave at the Federal Court was fixed for 2 
+August 2022 which was postponed to a later date to be fixed by the Federal Court. At the case 
+management on 3 October 2022, the Federal Court had fixed 12 January 2023 to hear the Motion for 
+Leave. On 12 January 2023, the Federal Court postponed the hearing to 12 April 2023. 
+At the hearing on 12 April 2023, the Federal Court has granted the Applicants leave for appeal at 
+the Federal Court. The e-hearing date to hear the Applicants' appeal before the Federal Court 
+("Federal Court Appeal") has been fixed on 30 Octob er 2023. 
+On 30 October 2023, at the hearing of the Applicants leave for appeal at the Federal Court, the Federal 
+Court decided the appeal in favour of the Company, BTSB and BCity (collectively referred to as the 
+"FC Appellants"). 
+
+---- Page 25 ----
+    Page 24 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+ADDITIONAL INFORMATION REQUIRED BY THE BURSA SECURITIES LR 
+(a) Note 38.2.1 regarding the STC Proposals Proceedings  (continued) 
+In a unanimous decision, the Federal Court allowed the FC Appellants’ appeal against Selangor State 
+Government and Pengarah Jabatan Perancangan Bandar Dan Desa Negeri Selangor (collectively 
+referred to as the "FC Respondents") with costs of RM80,000 and set aside the Court of Appeal order 
+dated 3 November 2021 and reinstated certain orders  made by the Shah Alam High Court in its 
+decision of 9 November 2017, including the followin g: 
+  1 an order of mandamus directing the FC Respondents t o re-table before the National Physical 
+Planning Council, within 3 months after the receipt  of the proposal papers from the FC Appellants 
+to relocate and construct the new Turf Club; 
+  2 the FC Respondents to pay the FC Appellants compensation for any loss suffered by the FC 
+Appellants in consequence of the FC Respondents’ fa ilure to perform their public duty from 2008 
+until the date of assessment; 
+  3 an inquiry into such compensation as aforesaid to b e conducted by the High Court Judge in 
+Chambers; 
+  4 the Appellants within 1 month of the date of the Fe deral Court’s order to apply for the High 
+Court’s directions as to the assessment of such com pensation; and the costs of RM80,000 payable 
+by the FC 
+  5 Respondents to the Appellants be reserved until aft er the hearing and determination of the 
+quantum of compensation. 
+As such, BCity Project Legal Proceedings is deemed concluded, save for the assessment of compensation 
+by the High Court Judge in Chambers to be awarded to the FC Appellants as mentioned above.   
+(b) Note 38.2.2 regarding the GMOC Project Arbitration Proceedings 
+ 
+On 16 December 2015, BLand announced that Berjaya (China) Great Mall Co. Ltd ("GMOC"), 
+a 51%-owned subsidiary of Berjaya Leisure (Cayman) Limited, which in turn is a wholly-owned 
+subsidiary of BLand had entered into a Construction  Project Transfer Agreement ("Contract") 
+with Beijing SkyOcean International Holdings Limited ("Beijing SkyOcean"), for the proposed 
+disposal of the Berjaya (China) Great Mall Recreation Centre which is under construction and 
+located in Sanhe City, Hebei Province, the People's Republic of China ("Great Mall Project"), 
+for a cash consideration of RMB2.08 billion (or abo ut RM1.39 billion) ("Proposed Disposal"). 
+Beijing SkyOcean had paid: 
+(i) RMB50.0 million (or about RM33.4 million) to GM OC on the signing of the Contract; and 
+(ii) RMB1.015 billion (or about RM677.92 million) p aid into an escrow bank account ("1st 
+Instalment"). This amount shall be released to GMOC  within 5 working days after all condition 
+precedents ("CP") have been fulfilled. 
+On 16 December 2016, BLand announced that the Propo sed Disposal had been completed with 
+the receipt of RMB1.015 billion or 1st Instalment b y GMOC from the escrow bank account 
+ following the fulfilment of all CP. The balance of cash consideration of RMB1.015 billion was to be 
+received by November 2017 ("Final Instalment"). 
+Subsequently, on 28 April 2017, BLand announced that following the completion of the Proposed 
+Disposal, GMOC had entered into a supplementary agreement with Beijing SkyOcean to adjust the 
+total cash consideration pursuant to the Proposed D isposal from RMB2.08 billion to RMB2.039 billion, 
+and accordingly revised the Final Instalment to RMB974.07 million as a result of part of the land 
+being regained by Sanhe Land and Resource Bureau, reimbursement of theme park equipment and 
+shared expenses relating to certain electrical works. 
+SkyOcean Holdings Group Limited which holds 100% stake in Beijing SkyOcean, and its major 
+shareholder, Mr. Zhou Zheng ("the Guarantors") shall guarantee the performance of the 
+obligations by Beijing SkyOcean pursuant to the Contract. 
+
+---- Page 26 ----
+    Page 25 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+ADDITIONAL INFORMATION REQUIRED BY THE BURSA SECURITIES LR 
+(b) Note 38.2.2 regarding the GMOC Project Arbitration Proceedings (continued) 
+On 8 December 2017, BLand announced Beijing SkyOcean had not remitted the Final Instalment 
+to GMOC by the appointed time. Hence, GMOC after seeking legal advice, had on 7 December 2017, 
+issued a notice of demand to Beijing SkyOcean and the Guarantors to pay to GMOC the Final 
+Instalment and accrued late payment interest within 3 days upon receipt of the said notice, failing 
+which GMOC would take all relevant legal measures, including commencing legal proceeding in 
+Hong Kong against Beijing SkyOcean and the Guarantors to protect and enforce GMOC's 
+legitimate rights. 
+On 19 January 2018, BLand announced that GMOC submitted a Notice of Arbitration to the Hong Kong 
+International Arbitration Centre against Beijing Sk yOcean and the Guarantors ("Respondents") to seek 
+recovery of the Final Instalment and accrued late payment interest as well as other reliefs. 
+The arbitral hearing was held and concluded in the week of 16 December 2019. 
+On 27 May 2020, BLand announced that GMOC had on 21 May 2020 obtained a favourable arbitration 
+award from the HKIAC ("Final Award"), details of which are as follows:- 
+(i) Beijing SkyOcean shall pay to GMOC the outstanding balance amount of RMB974.07 million; 
+(ii) Beijing SkyOcean shall pay liquidated damages on the outstanding balance amount calculated at 
+the People’s Bank of China’s lending rate of 4.75% per annum from the payment due date of 28 
+November 2017 until the date full payment is made; 
+(iii) The Guarantors shall be jointly and severally liable for the amounts payable by Beijing SkyOcean 
+under the Final Award; and 
+(iv) The Respondents shall jointly pay legal costs of about RMB15.9 million (or about RM9.72 million) 
+and arbitration costs of about HKD3.96 million (or about RM2.23 million) within 30 days after 
+issuance of the Final Award, failing which late payment interest at 8% per annum shall be charged 
+from the due date until the date of actual payment.
+On 18 December 2020, Beijing Fourth Intermediate People's Court ordered the recognition and 
+enforcement of GMOC's Final Award under the Supplemental Arrangement Concerning Mutual 
+Enforcement of Arbitral Awards between the Mainland and the Hong Kong Special Administrative 
+Region ("HKSAR"), which was entered between the Chinese Supreme People's Court and HKSAR. 
+On 2 June 2021, the Hong Kong Court ordered a bankruptcy order against Zhou Zheng. Subsequently, 
+GMOC appointed Grant Thornton Recovery & Reorganisation Limited as joint and several trustees of 
+the property of Zhou Zheng, to investigate and recover the Final Award. 
+The courts in the People's Republic of China and Ho ng Kong have ordered that various assets of Beijing
+SkyOcean and its Guarantors to be frozen and will be appraised for auction to eventually recover the 
+Final Award. 
+The abovementioned enforcement proceedings are stil l ongoing. 
+(c) Note 38.3.1 regarding the Amat Muhibah Tax Dispute 
+On 16 June 2021, the Inland Revenue Board of Malaysia ("IRB") issued Notice of Assessment ("Form J") 
+(in accordance with Sections 4(c) and 4(f) of the Income Tax Act 1967 ("ITA 1967") to Amat Muhibah 
+Sdn Bhd ("AMSB"), a 52.6% subsidiary company of the Group, on gains from the surrender of certain 
+assets to authorities for the Year of Assessment (YA) 2017. The amount of additional tax assessed, 
+inclusive of tax penalties amounted to RM66.44 mill ion ("Tax in Dispute"). Previously, the gains were 
+brought to tax under Section 4(a) of the ITA 1967 by AMSB. 
+
+---- Page 27 ----
+    Page 26 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+ADDITIONAL INFORMATION REQUIRED BY THE BURSA SECURITIES LR 
+(c) Note 38.3.1 regarding the Amat Muhibah Tax Dispute (continued) 
+AMSB did not agree with the basis applied by the IRB and had filed an official appeal against the 
+additional assessment for YA2017 through submission  of the prescribed Form Q to the Special 
+Commissioners of Income Tax ("SCIT"). SCIT had fixed the trial on 25 March 2024 and 26 March 2024. 
+On 1 July 2021, AMSB wrote to the Ministry of Finance Malaysia ("MOF"), requesting MOF: 
+(a) to give a general character direction to Director General of Inland Revenue ("DGIR") as to the exercise 
+of the functions of the DGIR under Section 135 of t he ITA 1967 and for the DGIR to give effect to the 
+direction so given; or 
+(b) to grant an exemption under Section 127(3A) of the ITA 1967 with regards to Tax in Dispute, within 
+the week. 
+As MOF did not respond to AMSB's request, AMSB had filed an application to the High Court of Kuala 
+Lumpur ("High Court") for judicial review against MOF on 8 July 2021 ("MOF Judicial Review"). The High 
+Court fixed 15 September 2021 for the first hearing of the MOF Judicial Review. AMSB had also been granted 
+an interim stay on the payment of the Tax in Dispute until 15 September 2021. Subsequently, the hearing date 
+had been rescheduled to 25 July 2022 and an interim  stay had been granted till then. At the hearing on 
+25 July 2022, the High Court granted leave for AMSB's application of judicial review and a stay until the 
+full and final determination of the judicial review  application. 
+On 8 August 2022, IRB informed the High Court that it had filed an application to intervene ("IRB 
+Application to Intervene"). At the hearing on 2 February 2023, the High Court had allowed IRB Application 
+to Intervene. 
+On 11 October 2022, the Attorney General Chambers informed the High Court that it had filed an appeal 
+at the Court of Appeal against the High Court's decision to grant leave for the MOF Judicial Review ("AGC 
+Appeal"). 
+At 26 July 2023, the Court of Appeal allowed MOF's request to consolidate the AGC Leave Appeal with 
+22 other appeals. 
+At the most recent case management held on 5 February 2024, the Court of Appeal fixed the hearing for 
+AGC Leave Appeal to be on 21 May 2024 and 23 May 2024. 
+As for the MOF Judicial Review, the High Court was informed of the hearing dates of the AGC Leave Appeal. 
+The High Court then instructed both parties to atte nd case management on 27 May 2024 to update the High 
+Court on the outcome of the AGC Leave Appeal. 
+Based on the opinion obtained from its legal adviso rs, AMSB has an arguable case that the IRB has no 
+legal and factual basis to raise the Tax in Dispute. 
+
+---- Page 28 ----
+    Page 27 
+BERJAYA CORPORATION BERHAD 
+Registration Number: 200101019033 (554790-X) 
+UNAUDITED INTERIM FINANCIAL REPORT FOR THE PERIOD ENDED 31 DECEMBER 2023 
+ADDITIONAL INFORMATION REQUIRED BY THE BURSA SECURITIES LR 
+B10 The Board does not recommend any dividend for the current quarter under review (previous year corresponding 
+quarter ended 31 December 2022: Nil). 
+B11 The basic loss per share are calculated as follows:
+Group (3-month period) 
+31/12/2023 31/12/2022 31/12/2023 31/12/2022 
+RM'000 RM'000 sen sen 
+  
+Net loss for the quarter       (116,316)          (24,805) 
+  
+Impact on statement of profit or loss upon 
+ conversion of ICULS 
+ - BCorp ICULS 2016/2026                    -                   14 
+Adjusted net loss for the quarter       (116,316)          (24,791) 
+Weighted average number of ordinary 
+  shares in issue with voting rights ('000)     5,565,340      5,615,514 
+Weighted average number of shares to be 
+   issued upon conversion of mandatorily 
+   convertible ICULS ('000)               209            13,595 
+Number of shares used in the calculation 
+  of basic loss per share ('000)     5,565,549      5,629,109 
+Basic loss per share           (2.09)             (0.44) 
+ 
+Group (6-month period) 
+31/12/2023 31/12/2022 31/12/2023 31/12/2022 
+RM'000 RM'000 sen sen 
+Net loss for the year       (100,549)          (41,220) 
+Impact on statement of profit or loss upon 
+ conversion of ICULS 
+ - BCorp ICULS 2016/2026                    -                 117 
+Adjusted net loss for the year       (100,549)          (41,103) 
+Weighted average number of ordinary 
+  shares in issue with voting rights ('000)     5,574,415      5,578,724 
+Weighted average number of shares to be 
+   issued upon conversion of mandatorily 
+   convertible ICULS  ('000)               209            58,216 
+Number of shares used in the calculation 
+  of basic loss per share ('000)     5,574,624      5,636,940 
+Basic loss per share           (1.80)             (0.73) 
+There are no potential ordinary shares outstanding as at 31 December 2023. As such, the fully diluted earnings 
+per share of the Group is equivalent to the basic earnings per share.
