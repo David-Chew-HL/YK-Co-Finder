@@ -1,6 +1,6 @@
 {
-  "total_companies": 26,
-  "bond_serving_companies": 18,
+  "total_companies": 27,
+  "bond_serving_companies": 19,
   "total_industries": 16,
   "industries": [
     "Automobiles",
@@ -41,7 +41,7 @@
     },
     "true": {
       "Automobiles": 1,
-      "Banks": 3,
+      "Banks": 4,
       "Capital Goods": 1,
       "Construction": 1,
       "Diversified Financials": 1,
@@ -78,15 +78,15 @@
       "is_bond_serving": false
     },
     {
-      "company": "CelcomDigi Berhad",
-      "industry": "Telecom",
-      "glic_total": 52.1,
-      "is_bond_serving": true
-    },
-    {
       "company": "CIMB Bank PLC",
       "industry": "Banks",
       "glic_total": 41.3,
+      "is_bond_serving": true
+    },
+    {
+      "company": "CelcomDigi Berhad",
+      "industry": "Telecom",
+      "glic_total": 52.1,
       "is_bond_serving": true
     },
     {
@@ -114,6 +114,18 @@
       "is_bond_serving": true
     },
     {
+      "company": "MALAYAN BANKING BERHAD",
+      "industry": "Banks",
+      "glic_total": 61.5,
+      "is_bond_serving": true
+    },
+    {
+      "company": "MNRB Holdings Berhad",
+      "industry": "Insurance",
+      "glic_total": 53.91,
+      "is_bond_serving": true
+    },
+    {
       "company": "Malayan Cement Berhad",
       "industry": "Materials",
       "glic_total": 5.6,
@@ -138,12 +150,6 @@
       "is_bond_serving": false
     },
     {
-      "company": "MNRB Holdings Berhad",
-      "industry": "Insurance",
-      "glic_total": 53.91,
-      "is_bond_serving": true
-    },
-    {
       "company": "Payments Network Malaysia Sdn Bhd",
       "industry": "Diversified Financials",
       "glic_total": 35.0,
@@ -162,15 +168,21 @@
       "is_bond_serving": true
     },
     {
-      "company": "Sapura Energy Berhad",
-      "industry": "Energy",
-      "glic_total": 42.0,
-      "is_bond_serving": true
-    },
-    {
       "company": "SIME DARBY BERHAD",
       "industry": "Automobiles",
       "glic_total": 28.7,
+      "is_bond_serving": true
+    },
+    {
+      "company": "SUNWAY BERHAD",
+      "industry": "Real Estate",
+      "glic_total": 5.5,
+      "is_bond_serving": false
+    },
+    {
+      "company": "Sapura Energy Berhad",
+      "industry": "Energy",
+      "glic_total": 42.0,
       "is_bond_serving": true
     },
     {
@@ -186,12 +198,6 @@
       "is_bond_serving": false
     },
     {
-      "company": "SUNWAY BERHAD",
-      "industry": "Real Estate",
-      "glic_total": 5.5,
-      "is_bond_serving": false
-    },
-    {
       "company": "Tenaga Nasional Berhad",
       "industry": "Utilities",
       "glic_total": 65.2,
@@ -204,15 +210,15 @@
       "is_bond_serving": true
     },
     {
-      "company": "YTL Power International Berhad",
-      "industry": "Utilities",
-      "glic_total": 4.9,
-      "is_bond_serving": false
-    },
-    {
       "company": "YTL POWER INTERNATIONAL BERHAD",
       "industry": "Utilities",
       "glic_total": 4.6,
+      "is_bond_serving": false
+    },
+    {
+      "company": "YTL Power International Berhad",
+      "industry": "Utilities",
+      "glic_total": 4.9,
       "is_bond_serving": false
     }
   ]
