@@ -1,0 +1,519 @@
+---- Page 1 ----
+CURRENT YEAR 
+QUARTER
+PRECEDING YEAR 
+CORRESPONDING 
+QUARTER
+CURRENT YEAR TO 
+DATE
+PRECEDING YEAR 
+CORRESPONDING 
+PERIOD
+30/09/2022 30/09/2021 30/09/2022 30/09/2021
+Note RM('000) RM('000) RM('000) RM('000)
+Revenue A9 1,792                         -                             4,849                         -                             
+Operating expenses (1,444)                        -                             (4,590)                        -                             
+Other operating income 1                                -                             88                              -                             
+Profit from operations 349                            -                             347                            -                             
+Finance cost (8)                               -                             (26)                             -                             
+ 
+Share of results of associate -                             -                             -                             -                             
+Profit before taxation A9 341                            -                             321                            -                             
+Taxation B5 (286)                           -                             (577)                           -                             
+Profit/(Loss) for the period 55                              -                             (256)                           -                             
+Attributable to:
+Equity holders of the parent 55                              -                             (256)                           -                             
+Non-controlling interests -                             -                             -                             -                             
+55                              -                             (256)                           -                             
+Profit/(Loss) per share attributable to
+  equity holders of the parent (Sen)
+(a) Basic B13 0.01                           -                             (0.02)                          -                             
+(b) Fully diluted B13 N/A -                             N/A -                             
+Notes:
+ALDRICH RESOURCES BERHAD
+ [Company No: 200101019222 (554979-T)]
+(Incorporated in Malaysia)
+CONDENSED CONSOLIDATED INCOME STATEMENTS
+(Formerly known as Orion IXL Berhad)
+(ii) The financial year end has been changed from 30 June to 31 December. The previous audited financial statements were for the period of
+Eighteen (18) months from 1 July 2020 to 31 December 2021 and thereafter, the financial year end shall be 31 December for each subsequent
+year. As such, there will be no comparative financial information available for the preceding year corresponding periods.  
+(i) The Condensed Consolidated Income Statements should be read in conjunction with the Annual Financial Report for the Eighteen-month period
+ended 31 December 2021 and the accompanying notes to the quarterly report.
+Unaudited Interim Financial Report for the 3rd Quarter ended 30 September 2022 
+INDIVIDUAL QUARTER CUMULATIVE QUARTER
+1
+
+---- Page 2 ----
+CURRENT YEAR 
+QUARTER
+PRECEDING YEAR 
+CORRESPONDING 
+QUARTER
+CURRENT YEAR 
+TO DATE
+PRECEDING YEAR 
+CORRESPONDING 
+PERIOD
+30/09/2022 30/09/2021 30/09/2022 30/09/2021
+RM('000) RM('000) RM('000) RM('000)
+Profit/(Loss) for the period 55                             -                           (256)                        -                             
+Other comprehensive income/(loss),
+  net of tax:
+Fair value adjustment -                            -                           2                             -                             
+Translation of foreign subsidiary (36)                            -                           (75)                          -                             
+Reversal of fair value reserve on
+disposal of other investment -                            -                           33                           
+ 
+Total comprehensive income/(loss) 19                             -                           (296)                        -                             
+Total comprehensive income/(loss)
+ attributable to:
+Equity holders of the parent 19                             -                           (296)                        -                             
+Non-controlling interests -                            -                           -                          -                             
+19                             -                           (296)                        -                             
+Note:
+(ii) The financial year end has been changed from 30 June to 31 December. The previous audited financial statements were for the
+period of Eighteen (18) months from 1 July 2020 to 31 December 2021 and thereafter, the financial year end shall be 31 December
+for each subsequent year. As such, there will be no comparative financial information available for the preceding year corresponding
+periods.  
+(i) The Condensed Consolidated Statements of Comprehensive Income should be read in conjunction with the Annual Financial
+Report for the Eighteen-month period ended 31 December 2021 and the accompanying notes to the quarterly report.
+ALDRICH RESOURCES BERHAD
+[Company No: 200101019222 (554979-T)]
+(Incorporated in Malaysia)
+Unaudited Interim Financial Report for the 3rd Quarter ended 30 September 2022 
+CONDENSED CONSOLIDATED STATEMENTS OF COMPREHENSIVE INCOME
+INDIVIDUAL QUARTER CUMULATIVE QUARTER
+(Formerly known as Orion IXL Berhad)
+2
+
+---- Page 3 ----
+(UNAUDITED) (AUDITED)
+AS AT 30 SEPT 2022 AS AT 31 DEC 2021
+RM('000) RM('000)
+ASSETS
+Non-Current Assets
+Property, plant and equipment 1,009                           1,171                              
+Right-of-use assets 344                              478                                
+Other investment 3,000                           5,076                              
+Goodwill on consolidation 3,941                           3,941                              
+Total Non-Current Assets 8,294                           10,666                           
+Current Assets
+Trade receivables 3,304                           3,778                              
+Amount owing by contract customers 102                              105                                
+Other receivables and prepaid expenses 13,339                         6,753                             
+Tax recoverable -                                   5                                    
+Cash and bank balances 1,449                           2,004                             
+Total Current Assets 18,194                         12,645                           
+Total Assets 26,488                         23,311                           
+EQUITY AND LIABILITIES
+Capital and Reserves
+Share capital 25,308                         22,165                           
+Reserves
+Accumulated Loss (22,780)                       (22,491)                          
+Warrant reserve 21,569                         21,569                           
+Exchange Adjustment (430)                            (355)                               
+Fair value reserve -                                   (35)                                 
+Equity Attributable to Owners of the Company 23,667                         20,853                           
+Non-controlling interests (484)                            (484)                               
+TOTAL EQUITY 23,183                         20,369                           
+ 
+Non-Current Liabilities
+Deferred tax liabilities 4                                  4                                    
+Lease liabilities 221                              355                                
+Total Non-Current Liabilities 225                              359                                
+Current Liabilities
+Trade payables 1,233                           956                                
+Other payables and accrued expenses 1,393                           1,459                             
+Lease liabilities 165                              168                                
+Tax liabilities 289                              -                                 
+Total Current Liabilities 3,080                           2,583                             
+Total Liabilities 3,305                           2,942                             
+Total Equity and Liabilities 26,488                         23,311                           
+Net assets per share attributable to ordinary equity holders
+ of the parent (sen) 2.22                             2.16                               
+ 
+Note:
+(ii) The financial year end has been changed from 30 June to 31 December. The previous audited financial statements
+were for the period of Eighteen (18) months from 1 July 2020 to 31 December 2021 and thereafter, the financial year end
+shall be 31 December for each subsequent year. As such, there will be no comparative financial information available for
+the preceding year corresponding periods.  
+(i) The Condensed Consolidated Statements of Financial Position should be read in conjunction with the Annual Financial
+Report for the Eighteen-month period ended 31 December 2021 and the accompanying notes to the quarterly report.
+  [Company No: 200101019222 (554979-T)]
+ALDRICH RESOURCES BERHAD
+(Incorporated in Malaysia)
+Unaudited Interim Financial Report for the 3rd Quarter ended 30 September 2022 
+CONDENSED CONSOLIDATED STATEMENTS OF FINANCIAL POSITION
+(Formerly known as Orion IXL Berhad)
+3
+
+---- Page 4 ----
+Non-
+controlling 
+Interests
+Total Equity
+Share Capital
+Non-
+Distributable - 
+Warrant 
+Reserve
+Non-
+Distributable - 
+Exchange 
+Adjustment
+Non-
+Distributable - 
+Fair Value 
+Reserve
+Accumulated 
+Loss Total
+RM('000) RM('000) RM('000) RM('000) RM('000) RM('000) RM('000) RM('000)
+9 months ended 30 September 2022
+Balance as at 1 January 2022 22,165             21,569             (355)                 (35)                  (22,491)           20,853            (484)                20,369           
+Issuance shares by way of private placement
+net of share issuance expenses 3,143               -                   -                   -                  -                  3,143              -                  3,143             
+Reversal of fair value reserve on
+disposal of other investment -                   -                   -                   33                   (33)                  -                  -                  -                 
+Total comprehensive income/(loss)
+for the period -                   -                   (75)                   2                     (256)                (329)                -                  (329)               
+Balance as at 30 September 2022 25,308             21,569             (430)                 -                  (22,780)           23,667            (484)                23,183           
+Note:         
+(ii) The financial year end has been changed from 30 June to 31 December. The previous audited financial statements were for the period of Eighteen (18) months from 1 July 2020 to 31
+December 2021 and thereafter, the financial year end shall be 31 December for each subsequent year. As such, there will be no comparative financial information available for the preceding
+year corresponding periods.  
+ALDRICH RESOURCES BERHAD
+  [Company No: 200101019222 (554979-T)]
+(Incorporated in Malaysia)
+Unaudited Interim Financial Report for the 3rd Quarter ended 30 September 2022 
+<-------------------------Attributable to Equity Holders of the Company----------------------->
+CONDENSED CONSOLIDATED STATEMENTS OF CHANGES IN EQUITY
+(Formerly known as Orion IXL Berhad)
+(i) The Condensed Consolidated Statements of Changes in Equity should be read in conjunction with the Annual Financial Report for the Eighteen-month period ended 31 December 2021 and
+the accompanying notes to the quarterly report.
+4
+
+---- Page 5 ----
+9 months ended 
+30.09.2022
+9 months ended 
+30.09.2021
+RM('000) RM('000)
+CASH FLOWS FROM OPERATING ACTIVITIES
+Profit before taxation 321                         -                       
+Adjustments for:
+Depreciation of property, plant and equipment 436                         -                       
+Depreciation of right-of-use assets 134                         -                       
+Finance cost 26                           -                       
+Interest received (65)                          -                       
+Operating profit before working capital changes 852                         -                       
+Changes in working capital:
+Net change in current assets (6,109)                     -                       
+Net change in current liabilities 156                         -                       
+Cash used in operations (5,101)                     -                       
+Interest received 65                           -                       
+Interest paid (26)                          -                       
+Tax paid (283)                        -                       
+Net cash used in operating activities (5,345)                     -                       
+CASH FLOWS FROM INVESTING ACTIVITIES
+Proceeds from disposal of other investment 2,079                      -                       
+Purchase of property, plant and equipment (275)                        -                       
+Net cash from investing activities 1,804                      -                       
+CASH FLOWS FROM FINANCING ACTIVITIES
+Proceeds from issuance of shares by way of private placement 3,143                      -                       
+Repayment of lease obligations (138)                        -                       
+Net cash from financing activities 3,005                      -                       
+ALDRICH RESOURCES BERHAD
+  [Company No: 200101019222 (554979-T)]
+(Incorporated in Malaysia)
+Unaudited Interim Financial Report for the 3rd Quarter ended 30 September 2022 
+CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS
+(Formerly known as Orion IXL Berhad)
+5
+
+---- Page 6 ----
+9 months ended 
+30.09.2022
+9 months ended 
+30.09.2021
+RM('000) RM('000)
+ALDRICH RESOURCES BERHAD
+  [Company No: 200101019222 (554979-T)]
+(Incorporated in Malaysia)
+Unaudited Interim Financial Report for the 3rd Quarter ended 30 September 2022 
+CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS
+(Formerly known as Orion IXL Berhad)
+NET DECREASE IN CASH AND CASH EQUIVALENTS (536)                        -                       
+EFFECTS OF EXCHANGE RATE CHANGES (19)                          -                       
+CASH AND CASH EQUIVALENTS AT BEGINNING OF THE PERIOD 2,004                      -                       
+CASH AND CASH EQUIVALENTS AT END OF THE PERIOD (Note A16) 1,449                      -                       
+Note:
+(ii) The financial year end has been changed from 30 June to 31 December. The previous audited financial statements were for
+the period of Eighteen (18) months from 1 July 2020 to 31 December 2021 and thereafter, the financial year end shall be 31
+December for each subsequent year. As such, there will be no comparative financial information available for the preceding year
+corresponding periods.  
+(i) The Condensed Consolidated Statements of Cash Flows should be read in conjunction with the Annual Financial Report for the
+Eighteen-month period ended 31 December 2021 and the accompanying notes to the quarterly report.
+6
+
+---- Page 7 ----
+A EXPLANATORY NOTES PURSUANT TO MFRS 134 INTERIM FINANCIAL REPORTING
+A1 Basis of preparation
+A2 Significant accounting policies
+MFRSs and/or IC Interpretations (Including The Consequential Amendments) 
+MFRS 17 Insurance Contracts
+Amendments to MFRS 3: Reference to the Conceptual Framework
+Amendments to MFRS 10 and MFRS 128: Sale or Contribution of Assets between an Investor and its Associate or Joint Venture
+Amendments to MFRS 16: COVID-19-Related Rent Concessions beyond 30 June 2021
+Amendments to MFRS 17: Insurance Contracts
+Amendments to MFRS 101: Classification of Liabilities as Current or Non-current
+Amendments to MFRS 101: Disclosure of Accounting Policies
+Amendments to MFRS 108: Definition of Accounting Estimates
+Amendments to MFRS 112: Deferred Tax related to Assets and Liabilities arising from a Single Transaction
+Amendments to MFRS 116: Property, Plant and Equipment - Proceeds before Intended Use
+Amendments to MFRS 137: Onerous Contracts - Cost of Fulfilling a Contract
+Annual Improvements to MFRS Standards 2018 -2020
+A3 Auditors' report of preceding annual financial statements
+The auditors' report on the preceding period's annual audited financial statements was not subject to any qualification.
+A4 Seasonal or cyclical factors
+The Group's operations were not subject to any seasonal or cyclical changes.
+A5 Unusual items affecting assets, liabilities, equity, net income or cash flows
+A6 Material changes in estimates
+The Group will adopt the above pronouncements when they become effective in the respective financial periods. These
+pronouncements are not expected to have any material effect to the financial statements of the Group upon their initial application.
+(Formerly known as Orion IXL Berhad)
+The accounting policies and methods of computation adopted by the Group in the preparation of this interim financial report are
+consistent with those adopted in the audited financial statements for the Eighteen-month period ended 31 December 2021.
+There were no changes in estimates of amounts reported in prior financial years, which may have a material effect in the current
+financial quarter.
+There were no unusual items affecting assets, liabilities, equity, net income or cash flows of the Group since the last annual audited
+financial statements.
+The following are accounting standards, amendments and IC interpretations of the MFRS that have been issued by the MASB but
+are not yet effective and have not been adopted by the Group:
+ALDRICH RESOURCES BERHAD
+  [Company No: 200101019222 (554979-T)]
+(Incorporated in Malaysia)
+Unaudited Interim Financial Report for the 3rd Quarter ended 30 September 2022 
+The interim financial report has been prepared in compliance with MFRS 134, Interim Financial Reporting and Appendix 9B of the
+Listing Requirements of Bursa Malaysia Securities Berhad ("Bursa Securities") for the ACE Market.
+The interim financial report should be read in conjunction with the audited financial statements of the Group for the Eighteen-month
+period ended 31 December 2021.
+NOTES
+7
+
+---- Page 8 ----
+A7 Debt and equity securities
+A8 Dividend paid
+There were no dividends paid during the current financial quarter
+A9 Segment information
+The Group's segmental information for the financial period ended 30 September 2022 is as follows:
+(a) Analysis by business segments
+CURRENT 
+YEAR 
+QUARTER
+PRECEDING YEAR 
+CORRESPONDING 
+QUARTER
+CURRENT YEAR 
+TO DATE
+PRECEDING YEAR 
+CORRESPONDING 
+PERIOD
+30/09/2022 30/09/2021 30/09/2022 30/09/2021
+RM('000) RM('000) RM('000) RM('000)
+REVENUE
+Software development 149                    -                           157                          -                             
+Corporate secretarial and share 
+registration services 1,643                 -                           4,692                       -                             
+Mining business -                     -                           -                           -                             
+1,792                 -                           4,849                       -                             
+PROFIT/(LOSS) BEFORE TAXATION
+Software development (221)                   -                           (1,453)                      -                             
+Corporate secretarial and share 
+registration services 563                    -                           1,778                       -                             
+Mining business (1)                       (4)                             
+341                    -                           321                          -                             
+(b) Analysis by geographical location
+No analysis by geographical location as all the business activities of the Group are predominately carried out in Malaysia.
+A10 Valuation of property, plant and equipment
+The Group has not carried out any valuation on its property, plant and equipment.
+A11 Material events subsequent to the end of the quarter
+A12 Changes in the composition of the Group
+A13 Contingent liabilities
+There were no contingent liabilities as at the date of this announcement.
+A14 Capital commitments
+There were no capital commitments as at the date of this announcement.
+A15 Significant related party transactions
+There were no significant related party transactions as at the date of this announcement.
+CUMULATIVE QUARTER
+ 
+INDIVIDUAL QUARTER
+There were no issuance, cancellation, repurchase, resale and repayment of debt and equity securities for the current financial
+quarter.
+There were no changes in the composition of the Group for the current financial quarter.
+There were no material events subsequent to the current financial quarter ended 30 September 2022 up to the date of this report
+which, is likely to substantially affect the results of the operations of the Group.
+8
+
+---- Page 9 ----
+A16 Cash and cash equivalents
+30.09.2022
+RM('000)
+Cash and bank balances 1,449                         
+A17 Notes to the Statements of Comprehensive Income
+INDIVIDUAL CUMULATIVE 
+ QUARTER QUARTER
+30 September 30 September
+2022 2022
+RM('000) RM('000)
+Profit before taxation is arrived at after charging/(crediting):
+Depreciation of property, plant and equipment  151                          436                            
+Depreciation of right-of-use assets 45                            134                            
+Directors' remuneration -Other emoluments  60                            170                            
+Finance cost 8                              26                              
+(Gain)/Loss on foreign exchange -                               (4)                               
+Rental of office equipment 3                              8                                
+Rental of office premises 10                            10                              
+Interest income -                               (65)                             
+B
+B1 Analysis of performance
+B2 Variation of results against preceding quarter
+Current Preceding
+quarter quarter
+30 September 30 June
+2022 2022
+RM'000 RM'000
+Revenue 1,792 1,761 
+Profit before tax 341 262 
+B3 Prospects
+The Group recorded a turnover of approximately RM1.79 million for the current financial quarter ended 30 September 2022 as
+compared to a turnover of RM1.76 million recorded in preceding quarter. This represents an improvement of approximately 2% as
+compared to the preceding quarter, mainly due to improvement in its software development segment.
+EXPLANATORY NOTES PURSUANT TO APPENDIX 9B OF THE LISTING REQUIREMENTS OF BURSA MALAYSIA
+SECURITIES BERHAD FOR THE ACE MARKET
+The financial year end has been changed from 30 June to 31 December. The previous audited financial statements were for the
+period of Eighteen (18) months from 1 July 2020 to 31 December 2021 and thereafter, the financial year end shall be 31 December
+for each subsequent year. As such, there will be no comparative financial information available for the same quarter last year.
+The Group initiated multiple corporate proposals to turnaround the Group’s financial performance, which was initially implemented
+during December 2020 following the acquisition of Boardroom.com Sdn Bhd and will be continued to be implemented subsequent to
+the period ended 30 September 2022. 
+The Group recorded a profit before taxation of approximately RM0.34 million for the current financial quarter ended 30 September
+2022 as compared to a profit before taxation of RM0.26 million recorded in preceding quarter. The better performance in current
+quarter was mainly due to lower loss before taxation recorded by its software development segment, recorded a lost before taxation
+of RM0.22 million against RM0.56 million recorded in preceding quarter.
+9
+
+---- Page 10 ----
+B4 Profit forecast and profit guarantee
+The Group did not announce any profit forecast nor profit guarantee during the financial quarter.
+B5 Taxation
+CURRENT 
+YEAR 
+QUARTER
+PRECEDING YEAR 
+CORRESPONDING 
+QUARTER
+CURRENT YEAR 
+TO DATE
+PRECEDING YEAR 
+CORRESPONDING 
+PERIOD
+30/09/2022 30/09/2021 30/09/2022 30/09/2021
+RM('000) RM('000) RM('000) RM('000)
+Current tax
+Current year 286                    -                           577                          -                             
+No provision for income tax has been made for the Company and its other subsidiaries which incurred losses for the current quarter.
+B6 Unquoted investments and properties
+B7 Quoted securities
+B8 Status of corporate proposals
+(i) Private placement of up to 30% of the issued ordinary shares in the Company
+As announced on 29 January 2021, the Company proposed to undertake a private placement of up to 256,952,300 ordinary shares
+in the Company (“Placement Shares”), representing approximately 30% of the total number of issued shares of the Company
+(“Private Placement”). The Private Placement was completed on 14 January 2022. 
+There were no acquisitions or disposals of quoted securities for the financial quarter under review.
+These business ventures will be funded by the proceeds of a private placement exercise which was completed in January 2022.
+When successfully implemented, these business ventures are expected to diversify the risk of the Group from being involved in one
+single industry segment, have synergistic benefits to the Company through the sharing and consolidation of resources, and are also
+expected to ultimately improve the financial performance of the enlarged group in the long run.
+CUMULATIVE QUARTER
+The above income tax provision arose from profit before tax generated by its wholly-owned subsidiary Boardroom.com Sdn Bhd and
+Aldpro Corporate Services Sdn Bhd.
+There were no acquisitions or disposals of unquoted investments and properties for the financial quarter under review.
+INDIVIDUAL QUARTER
+The plan comprises multiple corporate proposals that involve the Group undertaking fundraising, venturing into various new
+businesses such as corporate and share registration services, development of mobile health technology services platform and
+development of microcredit platform.
+10
+
+---- Page 11 ----
+Initial Actual Balance
+Proposed Revised Utilisation Unutilised
+Utilisation Utilisation as at 30.09.2022 as at 30.09.2022
+Details of Utilisation RM('000) RM('000) RM('000) RM('000)
+Software development                  5,000                        4,280                              -   4,280                         
+Development of mobile health technology
+services platform                  1,000                           850                              -   850                            
+Development of microcredit platform                  5,000                        4,290                        4,000 290                            
+Future investments                  7,001                              -                                -   -                             
+Exstimated expenses for the
+Private Placement                     500                           180                           177  3                                
+               18,501                        9,600                        4,177                          5,423 
+(ii) Memorandum of Understanding ("MOU") with Enrich Mining Sdn Bhd ("Enrich")
+(iii) Collaboration Agreement with Johnson Medical International Sdn Bhd ("JMI")
+B9 Group's borrowings and debt securities
+There were no borrowings and debt securities for the financial quarter under review.
+B10 Off balance sheet financial instruments
+There were no financial instruments with off-balance sheet risk as at the date of this announcement applicable to the Group.
+B11 Material litigations
+The above court case is still on-going as at the date of this announcement.
+B12 Dividends
+No dividend has been declared in respect of the financial period under review.
+ASAP Sdn Bhd had on 20 July 2017 informed the Company that they have been served with the writ of summons and statement of
+claims filed by Sporty Beans Sdn Bhd ("Plantiff") against ASAP Sdn Bhd ("Summon"). Based on the legal opinion obtained by ASAP
+Sdn Bhd, the plaintiff's allegations are frivolous and unsubstantiated and as such ASAP Sdn Bhd does not expect any potential
+liability arising from the Summon. 
+On 22 May 2020, the Group entered into MOU with Enrich to commence exclusive discussion with Enrich in relation to a proposed
+collaboration to jointly (i) explore mining targets and develop mining operation at Gossan Hill area, District of Jeli, Kelantan and (ii)
+manage the Senior Alluvia Gold Mining operation at District of Jeli, Kelantan. The Company and Enrich had mutually agreed to
+extend the MOU period for a further period of 6 months to 22 May 2023.
+The status of the gross proceeds from the Private Placement completed on 14 January 2022 which amounted to approximately
+RM9.60 million are as follows:
+The Company had on 19 March 2021 entered into a Collaboration Agreement with JMI to tender for the Project and formalise the
+collaboration relationship thereafter. The Project’s principal aim is to provide regular basic health services as well as collection of
+data with the intention of providing long term improvement in rural communities’ access to healthcare. The Project will envisage
+heavy reliance on mobile transport and access to the internet, where the Company and JMI will combine their resources and
+experience for this Project. Please refer to the Company's announcement on 19 March 2021 for further details.
+11
+
+---- Page 12 ----
+B13 Earning/(Loss) per share
+a. Basic earnings/(loss) per share
+CURRENT 
+YEAR 
+QUARTER
+PRECEDING YEAR 
+CORRESPONDING 
+QUARTER
+CURRENT YEAR 
+TO DATE
+PRECEDING YEAR 
+CORRESPONDING 
+PERIOD
+30/09/2022 30/09/2021 30/09/2022 30/09/2021
+RM('000) RM('000) RM('000) RM('000)
+Profit/(Loss) attributable to ordinary 
+equity holders of the parent 55                      -                           (256)                         -                             
+Weighted average number of ordinary    
+  shares in issue ('000) 1,063,893          -                           1,059,886                -                             
+Basic earnings/(loss) per share (sen) 0.01                   -                           (0.02)                        -                             
+b. Diluted earnings/(loss) per share
+By Order of the Board
+Tan Tong Lang (MAICSA 7045482)
+SSM PC NO. 202208000250
+Secretary
+Selangor
+Date: 22 November 2022
+ 
+The fully diluted earnings/(loss) per share have not been presented as there is anti dilutive effect for the shares of the Group.
+INDIVIDUAL QUARTER CUMULATIVE QUARTER
+12
