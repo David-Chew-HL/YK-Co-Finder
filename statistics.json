@@ -1,5 +1,5 @@
 {
-  "total_companies": 30,
+  "total_companies": 31,
   "bond_serving_companies": 19,
   "total_industries": 17,
   "industries": [
@@ -31,7 +31,7 @@
       "Consumer Services": 1,
       "Diversified Financials": 1,
       "Energy": 0,
-      "Food, Beverage": 0,
+      "Food, Beverage": 1,
       "Insurance": 0,
       "Materials": 1,
       "Pharmaceuticals": 0,
@@ -167,6 +167,12 @@
     {
       "company": "Maybulk Berhad",
       "industry": "Transportation",
+      "glic_total": 0.0,
+      "is_bond_serving": false
+    },
+    {
+      "company": "Oriental Kopi Holdings Berhad",
+      "industry": "Food, Beverage",
       "glic_total": 0.0,
       "is_bond_serving": false
     },
