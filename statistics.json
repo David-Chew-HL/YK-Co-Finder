@@ -1,5 +1,5 @@
 {
-  "total_companies": 31,
+  "total_companies": 32,
   "bond_serving_companies": 19,
   "total_industries": 17,
   "industries": [
@@ -37,7 +37,7 @@
       "Pharmaceuticals": 0,
       "Real Estate": 3,
       "Retail": 1,
-      "Telecom": 0,
+      "Telecom": 1,
       "Transportation": 2,
       "Utilities": 2
     },
@@ -87,7 +87,7 @@
       "is_bond_serving": false
     },
     {
-      "company": "CIMB Bank PLC",
+      "company": "CIMB Group Holdings Berhad",
       "industry": "Banks",
       "glic_total": 41.3,
       "is_bond_serving": true
@@ -187,6 +187,12 @@
       "industry": "Banks",
       "glic_total": 21.4,
       "is_bond_serving": true
+    },
+    {
+      "company": "REDTONE DIGITAL BERHAD",
+      "industry": "Telecom",
+      "glic_total": 0.0,
+      "is_bond_serving": false
     },
     {
       "company": "S P Setia Berhad",
