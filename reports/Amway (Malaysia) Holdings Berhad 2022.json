@@ -1,0 +1,62 @@
+{
+  "companyDescription": "Amway is a health and wellness company for entrepreneurial business owners in Malaysia.",
+  "companyName": "Amway (Malaysia) Holdings Berhad",
+  "industry": "Retail",
+  "reportYear": 2022,
+  "topShareholders": [
+    {
+      "glicAssociation": "None",
+      "pageNumber": 186.0,
+      "percentageHeld": 51.7,
+      "shareholderName": "GDA B.V. (\u201cGDA\u201d)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 186.0,
+      "percentageHeld": 51.7,
+      "shareholderName": "Amway Nederland Ltd. (\u201cAmway Nederland\u201d)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 186.0,
+      "percentageHeld": 51.7,
+      "shareholderName": "Amway International Inc. (\u201cAmway International\u201d)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 186.0,
+      "percentageHeld": 51.7,
+      "shareholderName": "Alticor Inc. (\u201cAlticor\u201d)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 186.0,
+      "percentageHeld": 51.7,
+      "shareholderName": "Solstice Holdings Inc. (\u201cSHI\u201d)"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 186.0,
+      "percentageHeld": 51.7,
+      "shareholderName": "Alticor Global Holdings Inc. (\u201cAGH\u201d)"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 186.0,
+      "percentageHeld": 13.18,
+      "shareholderName": "AmanahRaya Trustees Berhad\n\u2013 Skim Amanah Saham Bumiputera"
+    },
+    {
+      "glicAssociation": "KWAP",
+      "pageNumber": 186.0,
+      "percentageHeld": 8.81,
+      "shareholderName": "Kumpulan Wang Persaraan (Diperbadankan)"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 186.0,
+      "percentageHeld": 6.71,
+      "shareholderName": "Employees Provident Fund Board"
+    }
+  ]
+}
