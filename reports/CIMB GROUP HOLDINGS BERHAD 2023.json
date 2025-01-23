@@ -1,0 +1,26 @@
+{
+  "companyDescription": "CIMB Group is a leading focused ASEAN bank offering Consumer Banking, Commercial Banking, Wholesale Banking, Islamic Banking, Wealth Management and Digital Payment Products and Services.",
+  "companyName": "CIMB GROUP HOLDINGS BERHAD",
+  "industry": "Banks",
+  "reportYear": 2023,
+  "topShareholders": [
+    {
+      "glicAssociation": "Khazanah Nasional Berhad (Khazanah)",
+      "pageNumber": 30,
+      "percentageHeld": 23.0,
+      "shareholderName": "Khazanah Nasional Berhad"
+    },
+    {
+      "glicAssociation": "Employees Provident Fund (EPF)",
+      "pageNumber": 30,
+      "percentageHeld": 12.3,
+      "shareholderName": "Employees Provident Fund"
+    },
+    {
+      "glicAssociation": "Kumpulan Wang Persaraan (KWAP)",
+      "pageNumber": 30,
+      "percentageHeld": 6.0,
+      "shareholderName": "Kumpulan Wang Persaraan (Diperbadankan)"
+    }
+  ]
+}
