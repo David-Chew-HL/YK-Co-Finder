@@ -1,0 +1,434 @@
+---- Page 1 ----
+2019
+
+---- Page 2 ----
+vincent Fong, chief editor
+FOREWORD
+The Malaysian fintech ecosytem has grown considerably since we 
+started Fintech News Malaysia 2 years ago and we are optimistic that it’s 
+poised to grow even further.
+The annual fintech report is our attempt at providing handy guide to 
+anyone who’s interested to learn more about Malaysia’s fintech scene.
+This year we’re fortunate enough to receive the support of generous sponsors like Touch ‘n Go eWallet, 
+GHL, Jirnexu, pitchIN, MoneyMatch and DAX Ventures.
+The sponsorship does not influence our editorial direction but it does enable us to spend more time to 
+deep dive into our research. So if you enjoy this report, please show these lovely companies some 
+support when the opportunity presents itself.
+THE 2019  TOUCH ‘n GO eWallet Malaysian fintech report
+is made possible thanks to  the support 
+of our genereous sponsors below
+THANK YOU!
+
+---- Page 3 ----
+DANNY LEONG, GROUP CEO
+FOREWORD
+The traditional /f_inancial institutions have always prioritized to serve the 
+/f_irst tier customers, preventing more than a billion Asians to be part of 
+the main /f_inancial stream and accessing the most basic /f_inancial 
+services such as savings account and credit lines. These /f_inancial 
+institutions have a certain cost structure to keep up with, thus 
+understandably impose higher /f_inancial fees – unaﬀordable to the 
+many less aﬄuent. 
+Thus, the emergence of Fintech makes it the most exciting 
+development of today and will very well be the solution to broaden the 
+/f_inancial inclusion. Although rather at a relatively nascent stage in 
+Malaysia, Fintech has nonetheless gained some serious traction and 
+penetrated signi/f_icantly into the /f_inancial ecosystem over the years. 
+Fintech stands at an advantage with their appealing combo; low cost 
+high tech /f_inancial services and strong grasp of consumer habits to tap 
+into the unbanked segment. 
+Financial institutions see this development as a possible threat to the existing formal /f_inancial ecosystem, 
+thus their businesses. Despite that, regulators continue to push for Fintech to be an indispensable part of the 
+ecosystem, in order to generate a competitive landscape. The regulatory sandboxes conceived for example, is 
+aspired to catalyze innovative Fintech developments, involving all players of the industry. Platforms such as 
+this should be bene/f_ited to create more of a symbiotic relationship rather than of a competitive one, between 
+/f_inancial institutions and Fintech companies, to co-exist and complement each other. At the end of the day, 
+inadvertently this reassuring development will no doubt bene/f_it consumers the most.
+At GHL, we are ecstatic to be an essential part of this ecosystem, bringing to the table of our strongest value 
+proposition - that our product oﬀerings cater for all, especially to the /f_inancially underserved. We aim to 
+maneuver main problems faced by SMEs and the unbanked households – that is to bridge the payment and 
+credit gap. While the urban population is thrilled to ride on this Fintech wave, we perceive that the bigger 
+challenge lays in upgrading the /f_inancial literacy among the suburban and rural crowds. We embrace that 
+challenge and poise to play an important role in changing that stigma.
+
+---- Page 4 ----
+41%HAVE SAVINGS
+50.4%
+Mobile banking
+4.6 ATMSper 10,000ADUL TS
+1.6
+BRANCHES
+per 10,000
+ADUL TS
+86%75.9%
+32.6 mILLIONPOPULATION
+52%InSured
+76%URBAN95%BANKED
+Smartphone INTERNETPenetration
+Penetration
+95.2%
+Online banking
+Penetration
+Penetration
+74%DEBIT CARDOWNERSHIP
+21%Credit CARDOWNERSHIP
+Source:Individual Household Survey Report on ICT Usage and Access, Global Findex Report, World Bank , Bank Negara Malaysia
+at a glanceMALAYSIA 
+
+---- Page 5 ----
+
+
+---- Page 6 ----
+BREAKDOWN
+fintech players IN malaysia
+PAYMENTS
+19%
+WALLETS
+19%
+
+---- Page 7 ----
+MARKETPLACE (6)
+ AI/DATA (8)
+KYC/REGTECH (11)
+LENDING (15)
+INSURTECH (16)
+WEALTHTECH (15)
+BLOCKCHAIN/CRYPTO (15)
+REMITTANCE/FX(17)
+PROPTECH (6)
+ISLAMIC FINTECH(6)
+PAYMENTS (40) CROWDFUNDING (12)
+WALLETS (38)
+FINTECH MAP 2019 total: 198
+*Some companies may appear in more than 1 category to better reflect the nature of their business but they still count as one towards the total
+
+
+---- Page 8 ----
+Source: Bank Negara Malaysia
+E Money
+Volume
+Internet 
+Banking
+Volume
+Mobile Banking
+Volume
+Credit
+Card
+Volume
+Debit
+Card
+Volume
+ATM
+Withdrawal
+Volume
+790.7 MILLION
+Transactions
+447.1 MILLION
+Transactions
+1.9 Billion
+Transactions
+245.7 Million
+Transactions
+920.9 Million
+Transactions2.1 Billion
+Transactions
+RM 100.1 Billion
+ATM
+Withdrawal
+Value
+Mobile
+Banking
+Value
+Debit
+Card
+Value
+Credit
+Card
+Value
+Internet 
+Banking
+Value
+RM 411.8 Billion
+RM 135.2 Million
+E-MONEY VALUE
+RM 11 Billion
+RM 40.3 Billion
+RM  734.3 
+Billion
+PAYMENTSSTATISTICS MALAYSIA
+TRANSACTION VOLUME
+TRANSACTION VALUE
+•Mobile banking transactions
+surpasses e-money as the 
+highest transaction volume 
+compared to the previous year
+•Internet banking remains No.1 
+when it comes to transaction 
+value with a large bulk of the 
+transaction value coming from 
+businesses
+2018
+2018
+
+---- Page 9 ----
+PAYMENTSSTATISTICS MALAYSIA
+MObile BAnking TRANSACTION VALUE
+Mobile banking transaction value has grown more than sevenfold in this past 5 years while e-Money 
+transaction value has doubled in the same period indicating a Malaysian population that are 
+increasingly comfortable with using adopting technology in financial services.
+0
+RM 20 Billion
+RM 40 Billion
+RM 60 Billion
+RM 80 Billion
+RM 100 BILLION
+RM 120 Billion
+20182017 2016 2015 2014
+0
+RM 2 Billion
+RM 4 Billion
+RM 6 Billion
+RM 8 Billion
+RM 10 Billion
+RM12 Billion
+ 2019 2017 20162015 2014
+2014-2018
+e-MONEY TRANSACTION VALUE
+2014-2018
+Source: Bank Negara Malaysia
+
+
+---- Page 10 ----
+
+
+---- Page 11 ----
+RESPONDING TO FINTECH in 2019
+HOW ARE BANKS
+“We no longer view digitalization as initiatives; across retail and business banking as 
+well as in human resource, talent and sustainability areas, raising our customers, 
+employees and stakeholders’ digital engagement has simply become 
+“business-as-usual” for the Bank. “
+“RHB has always viewed the Fintech world as an opportunity to collaborate.  
+As such, we have always worked closely with various fintechs ranging from P2P 
+financing, aggregators, accounting solution providers and various others. “ 
+DOMENIC FUDA, CEO & GROUP MD
+Jambugesvarar, ACTING CHIEF DIGITAL OFFICER
+MICHAEL FOONG,  Group Chief Strategy Officer
+Dato’ Chang Kat Kiam, DEPUTY CEO
+Effendy , CEO, Group Ventures & Partnerships
+Major Initiatives in 2019
+•Introduction of e-Token eToken with Biometric Recognition for Businesses
+•Piloting a Collaboration with WeChat to launch WeEat
+Major Initiatives in 2019
+•Launched Dynamic Credit Card CVV Code 
+•Launched New Mobile Banking App
+Major Initiatives in 2019
+•Launched Dynamic Credit Card CVV Code 
+•Launched New Mobile Banking App
+Major Initiatives in 2019
+•First to Adopt DuitNow's Universal Payments QR
+•Launched New Mobile Banking App
+Major Initiatives in 2019
+•Securing 500k customers in Philippines in 6 months with their digital only bank
+•Teaming up with Axiata to offer financing solutions 70,000 SMEs
+“As we continuously embrace new technologies in today’s digitalised environment, it 
+is crucial that banks and fintech players continuously find ways to collaborate in 
+championing sustainable growth.”
+“Clearly there is now going to be new competitors in town. It’s happening in Hong Kong, 
+soon in Singapore and I’m sure Malaysia is next. I think these new players are not just 
+new competitors in banking as we know it, but I do believe they will bring added 
+capabilities to off-takers of financial services.”
+“We can expect digitalisation will continue to be top on the agenda of the banking 
+industry. Banks are expected to continue leverage on financial technology to 
+reinvigorate financial services to create greater value for the stakeholders, and to 
+promote a more inclusive financial system to reach allsegments of the community.”
+
+---- Page 12 ----
+BANK BRANCHES
+STATISTICS MALAYSIA
+NUMBER OF BANK BRANCHES
+2008- 2018
+Despite Malaysian’s increased level of comfort with mobile financial services, Malaysia’s top banks still has 
+more bank branches today than they do 10 years ago. However, we are seeing signs of branch 
+rationalisation with all the top banks with the exception of Public Bank.
+Public Bank remains to be the only bank that has be actively adding to its branch network.
+*Data extracted from annual reports of each bank. CIMB is excluded from the chart due to incomplete data sets
+
+---- Page 13 ----
+
+
+---- Page 14 ----
+REMITTANCESTATISTICS MALAYSIA
+0
+RM 5 Billion
+RM 10 Billion
+RM 15 Billion
+RM 20 Billion
+RM 25 Billion
+BanksNon-Banks
+0
+RM 2 Billion
+RM 4 Billion
+RM 6 Billion
+RM 8 Billion
+RM 10 Billion
+BanksNon Banks
+REMITTANCE 
+REmiTtance contribution to GDP
+OUTWARDS & INWARDS 2018
+The money services business segment within Malaysia is a very well-served space with non-banks significantly 
+outpacing banks as the preferred method of sending money internationally. With the introduction of eKYC 
+guidelines it is anticipated that there will be an increase in remittance using non-bank channels.
+Though not as significant as some of its ASEAN neighbours, inward remittance still represents a sizeable 
+contribution to Malaysia’s GDP .
+Source: Bank Negara Malaysia
+Source: Knomad
+RM 23 Bil
+RM 2.7 BIL RM 9 Bil
+RM 17.5 Bil
+OUTWARD REMITTANCE INWARD REMITTANCE
+
+---- Page 15 ----
+E-WALLETRANKING BY MONTHL Y ACTIVE USERS
+This chart is extracted from a study that was conducted by iPrice and AppAnnie.
+While the study points to GrabPay as the leader in this space, it’s worth noting that the data includes 
+users who may be using the app without necessarily using GrabPay as a payment option, which will 
+likely skew the ranking in Grab‘s favour.
+Boost had a headstart in the e-wallet race, securing a sizeable amount of customers with attractive 
+cashback deals. While Touch n’ Go eWallet quickly rose through the ranks despite having a rocky start.
+Fave though techically not an e-wallet, remains a popular option for Malaysians.
+Image Credit: iPrice Group: https:/ /iprice.my/trends/insights/best-ewallet-malaysia/
+
+---- Page 16 ----
+UNDER MANAGEMENT STATISTICS
+ASSETS
+Others
+Private Equity/ Unquoted Stocks
+Unit Trust Funds
+Money Market Placements
+Fixed Income Securities
+Equities
+Others
+Private Equity/ Unquoted Stocks
+Unit Trust Funds
+Money Market Placements
+Fixed Income Securities
+Equities
+47%
+RM 351B
+37%
+RM59B
+22%
+RM 34.38B
+34%
+RM 53.26B
+21%
+RM 158B
+23%
+RM 168B
+4%
+RM 27B
+2%
+RM11B
+3%
+RM 25B
+1%
+RM 1.9B
+0.1%
+RM 0.1B
+6%
+RM 9.9B
+CONVENTIONAL AUM
+ISLAMIC AUM
+2018
+2018
+Source: Securities Commission Malaysia
+
+---- Page 17 ----
+Data compiled by Fintech News Malaysia in 2018 indicates that PitchIN leads the market with 75% 
+market share of total funds raised through Equity Crowdfunding
+Data compiled by Fintech News Malaysia in 2018 indicates that Funding Societies leads the market 
+with 51% market share of total funds raised through P2P Lending
+Source: Securities Commission Malaysia
+STATISTICS
+ALTERNATIVE FINANCING
+equity crowdfunding
+regulated OPERATORS
+Regulated OPERATORS
+P2p Financing
+AS OF SEPT 2019
+AS OF SEPT 2019
+
+
+---- Page 18 ----
+
+
+---- Page 19 ----
+Shaping malaysia’s fintech in 2019
+KEY HAPPENINGS
+SOFT SPACE POWERS THE WORLD’s FIRST
+TAP-ON PHone Payment Solution
+MONEYMATCH BECOMES THE 
+FIRST TO GRADUATE bnm’S fINTECH sANDBOX
+SECURITIES COMMISSION APPROVES LUNO AS THE FIRST 
+CRYPTO EXCHANGE IN MALAYSIA
+HSBC Succesfull y Pilots Malaysia’s First 
+Letter of Credit Transaction on the Blockchain
+PUbLIC Bank & GRABPAY Signs on to be the first
+to adopt malaysia unified payments QR
+
+
+---- Page 20 ----
+ENTERING MALAYSIA FINTECH ARENA in 2019
+GLOBAL PLAYERS
+STRIPE LAUNCHES in MALAYSIA (oct)
+WAHED INVEST LAUNCHES MALAYSIA
+FIRST ISLAMIC ROBO-ADVISOR (oct)
+transferwise launches IN malaysia (nov)
+RAIZ INVEST opens up waitlist for malaysians 
+SET TO LAUNCH SOON in 2019
+
+
+---- Page 21 ----
+MILESTONE IN 2019
+KEY REGULATORY
+OPEN API
+CRypto EXCHANGE
+PROPERTY Crowfunding
+Bank Negara Malaysia Issues Policy Document 
+for Open API
+ICO/DIGITAl ASSETS
+VIRTUAL BANKING
+E-KYC
+Securities Commission and Bank Negara 
+Working to Bring ICOs Under Securities Law
+Bank Negara Governor Nor Shamsiah announces 
+that Malaysia will be issuing virtual banking 
+licenses. Exposure draft to be issued by 2019 
+and full framework expected early 2020
+Bank Negara introduces e-KYC guidelines 
+for money changers, following similar 
+guidelines for remittance business. No 
+official annoucement on industry wide 
+eKYC guidelines 
+Securities Commission Malaysia issues 
+guidelines for crypto exchanges. 22 
+Companies applied, 20 opted to cease 
+operation.
+Luno was the first be granted full approval, 
+while Sinegy and Tokenize received 
+conditional approval.
+Securities Commission Malaysia issued 
+guidelines for property crowdfunding.
+FundMyHome was the first and the only one 
+to be approved for the time being.
+
+---- Page 22 ----
+E-KYC Christian Koenig
+FOUNDER
+FINTECH NEWS NETWORK
+CHIEF EDITOR
+FINTECH NEWS MALAYSIA
+VINCENT FONG
+vincent.fong@fintechnews.mychris@fintechnews.sg
+If we’ve missed you out in our fintech map of if you’d like to speak to us for media enquiries/advertising kindly reach out to:
