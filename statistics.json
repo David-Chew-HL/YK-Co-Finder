@@ -1,6 +1,6 @@
 {
-  "total_companies": 32,
-  "bond_serving_companies": 19,
+  "total_companies": 33,
+  "bond_serving_companies": 20,
   "total_industries": 17,
   "industries": [
     "Agriculture",
@@ -44,7 +44,7 @@
     "true": {
       "Agriculture": 1,
       "Automobiles": 1,
-      "Banks": 4,
+      "Banks": 5,
       "Capital Goods": 1,
       "Construction": 1,
       "Consumer Services": 0,
@@ -88,6 +88,12 @@
     },
     {
       "company": "CIMB Group Holdings Berhad",
+      "industry": "Banks",
+      "glic_total": 41.3,
+      "is_bond_serving": true
+    },
+    {
+      "company": "CIMB GROUP HOLDINGS BERHAD",
       "industry": "Banks",
       "glic_total": 41.3,
       "is_bond_serving": true
