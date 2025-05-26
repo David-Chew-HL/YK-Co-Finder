@@ -1,0 +1,743 @@
+---- Page 1 ----
+   
+ 
+1 
+ 
+ 
+ 
+Sea Limited Reports Third Quarter 2024 Results 
+ 
+Singapore, November 12, 2024 – Sea Limited (NYSE:  SE) (“Sea” or the “Company”)  today 
+announced its financial results for the third quarter ended September 30, 2024. 
+ 
+“I’m happy to report that it has been another solid quarter. We are seeing high growth across all 
+our three businesses,” said Forrest Li, Sea’s Chairman and Chief Executive Officer.  
+ 
+Referring to the growth of our three businesses, he said, “Shopee is on track to deliver our full 
+year guidance of mid-twenties year-on-year GMV growth. SeaMoney’s loan book grew by over 70% 
+year-on-year this quarter, while maintaining a stable NPL ratio. And for Garena, we now expect 
+Free Fire’s full year bookings to grow over 30% year-on-year.” 
+ 
+On profitability, Mr. Li said, “I am very proud that we also improved our profitability while getting 
+back to high growth. This quarter, Shopee achieved positive adjusted EBITDA, in both Asia and 
+Brazil. As we continue to focus on delivering growth, we expect Shopee to remain profitable going 
+forward.” 
+ 
+Third Quarter 2024 Highlights  
+ 
+▪ Group  
+o Total GAAP revenue was US$4.3 billion, up 30.8% year-on-year. 
+o Total gross profit was US$1.9 billion, up 29.1% year-on-year. 
+o Total net income was US$153.3 million, as compared to total net loss of 
+US$(144.0) million for the third quarter of 2023.  
+o Total adjusted EBITDA1 was US$521.3 million, as compared to US$35.3 million 
+for the third quarter of 2023. 
+o As of September 30, 2024, cash , cash equivalents, short -term investments, and 
+other treasury investments 2 were US$9.9 billion, representing a net increase of 
+US$929.2 million from June 30 , 2024. This included US$429.0 million of cash 
+proceeds received in the third quarter upon settlement of capped calls for the 
+1.00% convertible senior notes due 2024. 
+ 
+▪ E-commerce 
+o Gross orders totaled 2.8 billion for the quarter, increasing by 24.2% year-on-year. 
+o GMV was US$25.1 billion for the quarter, increasing by 25.2% year-on-year. 
+o GAAP revenue was US$3.2 billion, up 42.6% year-on-year.  
+o GAAP revenue included US$ 2.8 billion of GAAP marketplace revenue, which 
+consists of core marketplace revenue and value -added services revenue and 
+increased by 43.2% year-on-year. 
+• Core marketplace revenue, mainly consisting of transaction-based fees and 
+advertising revenues, was up 49.3% year-on-year to US$2.0 billion. 
+• Value-added services revenue, mainly consisting of revenues related to 
+logistics services, was up 29.4% year-on-year to US$767.2 million. 
+
+
+---- Page 2 ----
+   
+ 
+2 
+ 
+o Adjusted EBITDA1 was US$34.4 million, as compared to  US$(346.5) million for 
+the third quarter of 2023.  
+• Asia markets recorded adjusted EBITDA of US$ 30.9 million, as 
+compared to US$(306.2) million for the third quarter of 2023. 
+• Other markets achieved positive adjusted EBITDA of US$3.5 million, as 
+compared to a loss of US$(40.3) million for the third quarter of 2023. 
+ 
+▪ Digital Financial Services 
+o GAAP revenue was US$615.7 million, up 38.0% year-on-year. 
+o Adjusted EBITDA1 was US$187.9 million, up 13.4% year-on-year. 
+o Digital financial services revenue and operating income are primarily attributed to 
+the consumer and SME credit business. As of September 30, 2024, consumer and 
+SME loans principal outstanding was US$4.6 billion, up 73.2% year-on-year. This 
+consists of US$ 3.8 billion on-book and US$ 0.8 billion off-book loans principal 
+outstanding3. 
+o Non-performing loans past due by more than 90 days as a percentage of consumer 
+and SME loans principal outstanding, which includes both on-book and off-book 
+loans principal outstanding3, was 1.2%, a slight improvement quarter-on-quarter.  
+ 
+▪ Digital Entertainment 
+o Bookings4 were US$556.5 million, up 24.3% year-on-year. 
+o GAAP revenue was US$ 497.8 million, as compared to US$ 592.2 million for the 
+third quarter of 2023. 
+o Adjusted EBITDA1 was US$314.4 million, up 34.4% year-on-year. 
+o Adjusted EBITDA represented 56.5% of bookings for the third quarter of 2024, 
+as compared to 52.2% for the third quarter of 2023. 
+o Quarterly active users were 628.5 million, up 15.5% year-on-year. 
+o Quarterly paying users were 50.2 million, up 23.9% year-on-year. Paying user ratio 
+was 8.0%, as compared to 7.5% for the third quarter of 2023.  
+o Average bookings per user were US$ 0.89, as compared to US$0. 82 for the third 
+quarter of 2023. 
+ 
+ 
+ 
+ 
+ 
+ 
+1 For a discussion of the use of non-GAAP financial measures, see “Non-GAAP Financial Measures”. 
+2 Other treasury investments currently consist of group treasury related investments, such as available -for-sale 
+sovereign bonds and corporate bonds, classified as part of long -term investments and securities purchased under 
+agreements to resell relating to our banking operations. 
+3 Off-book loans principal outstanding mainly refers to channeling arrangements, which is lending by other financial 
+institutions on our platform. 
+4 GAAP revenue for the digital entertainment segment plus change in digital entertainment deferred revenue. This 
+operating metric is used as an approximation of cash spent by our users in the applicable period that is attributable to 
+our digital entertainment segment. 
+ 
+
+---- Page 3 ----
+   
+ 
+3 
+ 
+Unaudited Summary of Financial Results 
+(Amounts are expressed in thousands of US dollars “$” except for per share data) 
+ 
+ For the Three Months 
+ended September 30, 
+ 
+ 2023 2024  
+ $ $ YOY% 
+Revenue    
+Service revenue    
+  Digital Entertainment 592,153 497,847 (15.9%) 
+  E-commerce and other services 2,417,036 3,412,362 41.2% 
+Sales of goods 300,979 418,024 38.9% 
+ 3,310,168 4,328,233 30.8% 
+    Cost of revenue    
+Cost of service    
+  Digital Entertainment (177,086) (156,043)  (11.9%) 
+  E-commerce and other services (1,403,975) (1,927,288)  37.3% 
+Cost of goods sold (287,815) (383,841) 33.4% 
+ (1,868,876) (2,467,172) 32.0% 
+Gross profit 1,441,292 1,861,061 29.1% 
+Other operating income 46,614 40,647 (12.8%) 
+Sales and marketing expenses (918,046) (878,557)  (4.3%) 
+General and administrative expenses (273,575) (306,755) 12.1% 
+Provision for credit losses (143,514) (211,991) 47.7% 
+Research and development expenses (280,511) (301,990)  7.7% 
+Total operating expenses (1,569,032) (1,658,646) 5.7% 
+Operating (loss) income (127,740) 202,415 (258.5%) 
+Non-operating income, net 45,875 49,536 8.0% 
+Income tax expense (61,676) (92,598) 50.1% 
+Share of results of equity investees (437) (6,029) 1,279.6% 
+Net (loss) income (143,978) 153,324 (206.5%) 
+(Loss) Earnings per share  
+  attributable to Sea Limited’s ordinary shareholders:    
+   Basic (0.26) 0.26  (200.0%)  
+      Diluted (0.26) 0.24 (192.3%) 
+Change in deferred revenue of Digital Entertainment (144,253) 58,670 (140.7%) 
+Adjusted EBITDA for Digital Entertainment (1) 233,998 314,428 34.4% 
+Adjusted EBITDA for E-commerce (1) (346,495) 34,446 (109.9%) 
+Adjusted EBITDA for Digital Financial Services (1) 165,731 187,927 13.4% 
+Adjusted EBITDA for Other Services (1) (8,771) (8,555) (2.5%) 
+Unallocated expenses (2) (9,179) (6,909) (24.7%) 
+Total adjusted EBITDA (1) 35,284 521,337 1,377.5% 
+ 
+(1) For a discussion of the use of non-GAAP financial measures, see “Non-GAAP Financial Measures”. 
+(2) Unallocated expenses within total adjusted EBITDA are mainly related to general and corporate administrative 
+costs such as professional fees and other miscellaneous items that are not allocated to segments. These expenses are 
+excluded from segment results as they are not reviewed by the Chief Operating Decision Maker (“CODM”) as part 
+of segment performance. 
+ 
+  
+
+---- Page 4 ----
+   
+ 
+4 
+ 
+Three Months Ended September 30, 2024 Compared to Three Months Ended September 
+30, 2023  
+ 
+Revenue 
+ 
+Our total GAAP revenue increased by 30.8% to US$4.3 billion in the third quarter of 2024 from 
+US$3.3 billion in the third quarter of 2023. 
+ 
+• Digital Entertainment: GAAP revenue was US$ 497.8 million in the third quarter of 2024 
+compared to US$ 592.2 million in the third quarter of 2023 . Despite the increase in 
+bookings during the third quarter of 2024, the decrease in GAAP revenue was primarily 
+due to a bigger portion of the revenue being deferred into future period  as users’ average 
+lifespan increased from our efforts in user engagement. 
+ 
+• E-commerce and other services: GAAP revenue increased by 41.2% to US$3.4 billion in the 
+third quarter of 2024 from US$2.4 billion in the third quarter of 2023, primarily driven by 
+the GMV growth of our e-commerce business and the growth of our credit business. 
+ 
+• Sales of goods: GAAP revenue increased by 38.9% to US$418.0 million in the third quarter 
+of 2024 from US$301.0 million in the third quarter of 2023. 
+ 
+Cost of Revenue  
+ 
+Our total cost of revenue was US$2.5 billion in the third quarter of 2024, as compared to US$1.9 
+billion in the third quarter of 2023. 
+ 
+• Digital Entertainment: Cost of revenue decreased by 11.9% to US$156.0 million in the third 
+quarter of 2024 from US$177.1 million in the third quarter of 2023.   
+ 
+• E-commerce and other services: Cost of revenue for our e-commerce and other services segment 
+combined was US$1.9 billion in the third quarter of 2024, as compared to US$1.4 billion 
+in the third quarter of 2023 , primarily driven by an increase in logistics costs as orders 
+volume grew. 
+ 
+• Cost of goods sold: Cost of goods sold increased by 33.4% to US$383.8 million in the third 
+quarter of 2024 from US$287.8 million in the third quarter of 2023.  
+ 
+Other Operating Income 
+ 
+Our other operating income was US$40.6 million and US$46.6 million in the third quarter of 2024 
+and 202 3, respectively . Other operating income mainly consists of rebates from e -commerce 
+related logistics services providers. 
+ 
+  
+
+---- Page 5 ----
+   
+ 
+5 
+ 
+Sales and Marketing Expenses 
+ 
+Our total sales and marketing expenses decreased by 4.3% to US$878.6 million in the third quarter 
+of 2024 from US$918.0 million in the third quarter of 2023. The table below sets forth breakdown 
+of the sales and marketing expenses of our major reporting segments. Amounts are expressed in 
+thousands of US dollars (“$”). 
+ 
+ For the Three Months 
+ended September 30,  
+ 2023  2024 YOY% 
+Sales and Marketing Expenses  $  $  
+E-commerce 861,540  763,340 (11.4%) 
+Digital Financial Services 25,152  65,632 160.9% 
+Digital Entertainment 24,712  26,583  7.6% 
+ 
+General and Administrative Expenses  
+ 
+Our general and administrative expenses increased by 12.1% to US$306.8 million in the third 
+quarter of 2024 from US$273.6 million in the third quarter of 2023. 
+ 
+Provision for Credit Losses  
+ 
+Our provision for credit losses increased by 47.7% to US$ 212.0 million in the third quarter of 
+2024 from US$143.5 million in the third quarter of 2023. 
+ 
+Research and Development Expenses  
+ 
+Our research and development expenses increased by 7.7% to US$ 302.0 million in the third 
+quarter of 2024 from US$280.5 million in the third quarter of 2023. 
+ 
+Non-operating Income or Losses, Net  
+ 
+Non-operating income or losses mainly consist of interest income, interest expense, investment 
+gain (loss), foreign exchange gain (loss) and gain (loss) on debt extinguishment. We recorded a net 
+non-operating income of US$49.5 million in the third quarter of 2024, as compared to a net non-
+operating income of US$ 45.9 million in the third quarter of 2023. The non-operating income in 
+the third quarter of 2024 was primarily due to interest income of US$ 93.3 million and foreign 
+exchange gain of US$ 27.6 million, partially  offset by investment losses of US$64.2 million 
+recognized. 
+ 
+Income Tax Expense  
+ 
+We had a net income tax expense of US$92.6 million and US$61.7 million in the third quarter of 
+2024 and 2023, respectively.  
+ 
+Net Income or Loss 
+ 
+As a result of the foregoing, we had net income of US$153.3 million in the third quarter of 2024, 
+as compared to net loss of US$144.0 million in the third quarter of 2023.  
+ 
+  
+
+---- Page 6 ----
+   
+ 
+6 
+ 
+Basic and Diluted  Earnings or Loss Per Share Attributable to Sea Limited’s Ordinary 
+Shareholders 
+ 
+Basic earnings per share attributable to Sea Limited’s ordinary shareholders was US$ 0.26 in the 
+third quarter of 2024, compared to basic loss per share attributable to Sea Limited’s ordinary 
+shareholders of US$(0.26) in the third quarter of 2023.  
+Diluted earnings per share attributable to Sea Limited’s ordinary shareholders was US$0.24 in the 
+third quarter of 2024, compared to diluted loss per share attributable to Sea Limited’s ordinary 
+shareholders of US$(0.26) in the third quarter of 2023.  
+
+---- Page 7 ----
+   
+ 
+7 
+ 
+Webcast and Conference Call Information 
+ 
+The Company’s management will host a conference call today to review Sea’s business and 
+financial performance. 
+ 
+Details of the conference call and webcast are as follows: 
+ 
+Date and time: 7:30 AM U.S. Eastern Time on November 12, 2024 
+8:30 PM Singapore / Hong Kong Time on November 12, 2024 
+ 
+Webcast link: https://events.q4inc.com/attendee/114734356 
+ 
+ 
+A replay of the conference call will be available at the Company’s investor relations website 
+(www.sea.com/investor/home). An archived webcast will be available at the same link above. 
+ 
+For enquiries, please contact: 
+ 
+Investors / analysts: ir@sea.com 
+Media: media@sea.com 
+ 
+About Sea Limited 
+ 
+Sea Limited (NYSE: SE) is a leading global consumer internet company founded in Singapore in 
+2009. Its mission is to better the lives of consumers and small businesses with technology. Sea 
+operates three core businesses across digital entertainment, e-commerce, as well as digital financial 
+services, known as Garena, Shopee and SeaMoney, respectively. Garena is a leading global online 
+games developer and publisher. Shopee is the largest pan -regional e -commerce platform in 
+Southeast Asia and Taiwan and has a significant presence in Latin America. SeaMoney is a leading 
+digital financial services provider in Southeast Asia and is growing its presence in Brazil. 
+ 
+  
+
+---- Page 8 ----
+   
+ 
+8 
+ 
+Forward-Looking Statements 
+ 
+This announcement contains forward -looking statements. These statements are made under the 
+“safe harbor” provisions of the U.S. Private Securities Litigation Reform Act of 1995. These 
+forward-looking statements can be identified by terminology such as “may,” “could,” “will,” 
+“expect,” “anticipate,” “aim,” “future,” “intend,” “plan,” “believe,” “estimate,” “likely to,” 
+“potential,” “confident,” “guidance,” and similar statements. Among other things, statements that 
+are not historical facts, including statements about Sea’s beliefs and expectations, the business, 
+financial and market outlook, and projections from its management in this announcement, as well 
+as Sea’s strategic and operational plans, contain forward -looking statements. Sea may also make 
+written or oral forward -looking statements in its periodic reports to  the U.S. Securities and 
+Exchange Commission (the “SEC”), in its annual report to shareholders, in press releases, and 
+other written materials, and in oral statements made by its officers, directors, or employees to third 
+parties. Forward-looking statements involve inherent risks and uncertainties. A number of factors 
+could cause actual results to differ materially from those contained in any forward -looking 
+statement, including but not limited to the following: Sea’s goals and strategies; its future business 
+development, financial condition, financial results, and results of operations; the expected growth 
+in, and market size of, the digital entertainment, e -commerce and digital financial services 
+industries in the markets where it operates, including segme nts within those industries; expected 
+changes or guidance in its revenue, costs or expenditures; its ability to continue to source, develop 
+and offer new and attractive online games and to offer other engaging digital entertainment 
+content; the expected growth of its digital entertainment, e-commerce and digital financial services 
+businesses; its expectations regarding growth in its user base, level of engagement, and 
+monetization; its ability to continue to develop new technologies and/or upgrade its exist ing 
+technologies; growth and trends of its markets and competition in its industries; government 
+policies and regulations relating to its industries, including the effects of any government orders 
+or actions on its businesses; general economic, political, social and business conditions in its 
+markets; and the impact of widespread health developments. Further information regarding these 
+and other risks is included in Sea’s filings with the SEC. All information provided in this press 
+release and in the attach ments is as of the date of this press release, and Sea undertakes no 
+obligation to update any forward-looking statement, except as required under applicable law. 
+  
+
+---- Page 9 ----
+   
+ 
+9 
+ 
+Non-GAAP Financial Measures 
+ 
+To supplement our consolidated financial statements, which are prepared and presented in 
+accordance with U.S. GAAP, we use the following non-GAAP financial measures to help evaluate 
+our operating performance: 
+ 
+• “Adjusted EBITDA” for our digital entertainment segment represents operating income (loss) 
+plus (a) depreciation and amortization expenses, and (b) the net effect of changes in deferred 
+revenue and its related cost for our digital entertainment segment. We believe that the segment 
+adjusted EBITDA helps to identify underlying trends in our operating results, enhancing their 
+understanding of the past performance and future prospects. 
+ 
+• “Adjusted EBITDA” for our e -commerce segment, digital financial services segment and 
+other services segment represents operating income (loss) plus depreciation and amortization 
+expenses. We believe that the segment adjusted EBITDA helps to identify underlying trends 
+in our operating results, enhancing their understanding of the past performance and future 
+prospects. 
+ 
+• “Total adjusted EBITDA” represents the sum of adjusted EBITDA of all our segments 
+combined, plus unallocated expenses. We believe that the total adjusted EBITDA helps to 
+identify underlying trends in our operating results, enhancing their understanding of the past 
+performance and future prospects. 
+ 
+These non -GAAP financial measures have limitations as analytical tools. None of the above 
+financial measures should be considered in isolation or construed as an alternative to revenue, net 
+loss/income, or any other measure of performance or as an indicato r of our operating 
+performance. These non -GAAP financial measures presented here may not be comparable to 
+similarly titled measures presented by other companies. Other companies may calculate similarly 
+titled measures differently, limiting their usefulness  as comparative measures to Sea’s data. We 
+compensate for these limitations by reconciling the non-GAAP financial measures to their nearest 
+U.S. GAAP financial measures, all of which should be considered when evaluating our 
+performance. We encourage you to review our financial information in its entirety and not rely on 
+any single financial measure. 
+ 
+ 
+  
+
+---- Page 10 ----
+   
+ 
+10 
+ 
+The tables below present selected financial information of our reporting segments, the non-GAAP 
+financial measures that are most directly comparable to GAAP financial measures, and the related 
+reconciliations between the financial measures. Amounts are expressed in thousands of US dollars 
+(“$”) except for number of shares & per share data. 
+ 
+ For the Three Months ended September 30, 2024 
+ E-
+commerce 
+Digital 
+Financial 
+Services 
+Digital 
+Entertainment 
+Other 
+Services(1) 
+Unallocated 
+expenses(2) 
+Consolidated 
+ $ $ $ $ $ $ 
+Operating (loss) income (36,818) 173,942 262,402 (11,001) (186,110) 202,415 
+Net effect of changes in deferred 
+revenue and its related cost - - 46,712 - - 46,712 
+Depreciation and Amortization 71,264 13,985 5,314 2,446 - 93,009 
+Share-based compensation - - - - 179,201 179,201 
+Adjusted EBITDA 34,446 187,927 314,428 (8,555) (6,909) 521,337 
+ 
+ For the Three Months ended September 30, 2023 
+ 
+E-
+commerce 
+Digital 
+Financial 
+Services 
+Digital 
+Entertainment 
+Other 
+Services(1) 
+Unallocated 
+expenses(2) 
+Consolidated 
+ $ $ $ $ $ $ 
+Operating (loss) income (428,183) 150,470 345,760 (11,704) (184,083) (127,740) 
+Net effect of changes in deferred 
+revenue and its related cost - - (119,058) - - (119,058) 
+Depreciation and Amortization 81,688 15,261 7,296 2,933 - 107,178 
+Share-based compensation - - - - 174,904 174,904 
+Adjusted EBITDA (346,495) 165,731 233,998 (8,771) (9,179) 35,284 
+ 
+(1) A combination of multiple business activities that do not meet the quantitative thresholds to qualify as reportable 
+segments are grouped together as “Other Services”. 
+(2) Unallocated expenses are mainly related to share-based compensation and general and corporate administrative costs 
+such as professional fees and other miscellaneous items that are not allocated to segments. These expenses are excluded 
+from segment results as they are not reviewed by the CODM as part of segment performance. 
+ 
+ 
+     
+
+---- Page 11 ----
+   
+ 
+11 
+ 
+UNAUDITED INTERIM CONDENSED CONSOLIDATED STATEMENT OF OPERATIONS 
+Amounts expressed in thousands of US dollars (“$”) except for number of shares & per share data 
+ 
+ 
+For the Nine Months  
+ended September 30, 
+ 2023 2024 
+ $  
+Revenue   
+Service revenue   
+  Digital Entertainment 1,661,236 1,391,525 
+  E-commerce and other services 6,999,109 9,391,099 
+Sales of goods 786,587 1,086,806 
+      Total revenue 9,446,932 11,869,430 
+   
+Cost of revenue   
+Cost of service   
+  Digital Entertainment (511,121) (451,521)  
+  E-commerce and other services (3,908,825) (5,407,157)  
+Cost of goods sold (718,126) (1,011,124) 
+      Total cost of revenue (5,138,072) (6,869,802) 
+      Gross profit 4,308,860 4,999,628 
+      
+Operating income (expenses)   
+Other operating income 162,497 127,187 
+Sales and marketing expenses (1,811,790) (2,422,960)  
+General and administrative expenses (902,121) (901,447) 
+Provision for credit losses (473,954) (541,173) 
+Research and development expenses (884,320) (904,834)  
+Impairment of goodwill (117,875) - 
+      Total operating expenses  (4,027,563) (4,643,227) 
+      Operating income 281,297 356,401 
+Interest income 240,361 271,847 
+Interest expense  (30,946) (29,060) 
+Investment loss, net (45,377) (189,543) 
+Net gain on debt extinguishment - 34,415 
+Foreign exchange gain  11,924 750 
+   
+Income before income tax and share of results of equity investees 
+ 
+457,259 
+ 
+444,810 
+Income tax expense (185,786) (231,970) 
+Share of results of equity investees 2,824 (2,605) 
+   Net income 274,297 210,235 
+   
+Net income attributable to non-controlling interests (13,831) (3,222) 
+   Net income attributable to Sea Limited’s ordinary shareholders 260,466 207,013 
+   
+Earnings per share:   
+    Basic  0.46 0.36  
+    Diluted 0.44 0.34 
+   
+Weighted average shares used in earnings per share computation:   
+    Basic  565,630,521 573,260,590 
+    Diluted 597,718,238 602,720,046 
+  
+
+---- Page 12 ----
+   
+ 
+12 
+ 
+UNAUDITED INTERIM CONDENSED CONSOLIDATED BALANCE SHEETS 
+Amounts expressed in thousands of US dollars (“$”) 
+ 
+  
+As of 
+December 31, 
+As of 
+September 30, 
+  2023 2024 
+  $ $ 
+ASSETS    
+Current assets    
+Cash and cash equivalents  2,811,056  2,538,749  
+Restricted cash   1,410,365  1,700,187  
+Accounts receivable, net of allowance for credit losses of 
+$9,351 and $5,996, as of December 31, 2023 and 
+September 30, 2024 respectively  262,716  280,579  
+Prepaid expenses and other assets  1,861,842 1,512,206 
+Loans receivable, net of allowance for credit losses of 
+$319,463 and $417,258, as of December 31, 2023 and 
+September 30, 2024 respectively  2,464,662  3,640,809  
+Inventories, net  125,395 200,712 
+Short-term investments  2,547,644  5,374,539  
+Amounts due from related parties  290,254  306,414  
+Total current assets  11,773,934 15,554,195 
+    
+Non-current assets    
+Property and equipment, net  1,207,698 1,167,249 
+Operating lease right-of-use assets, net  1,015,982 1,160,416 
+Intangible assets, net  50,821 30,845 
+Long-term investments  4,262,562 2,974,637 
+Prepaid expenses and other assets  87,705 118,706 
+Loans receivable, net of allowance for credit losses of  
+$2,105 and $4,034, as of December 31, 2023 and 
+September 30, 2024 respectively  20,551 63,202 
+Restricted cash  22,236 27,316 
+Deferred tax assets  328,961 481,358 
+Goodwill  112,782 113,766 
+Total non-current assets  7,109,298 6,137,495 
+Total assets  18,883,232 21,691,690 
+     
+
+---- Page 13 ----
+   
+ 
+13 
+ 
+UNAUDITED INTERIM CONDENSED CONSOLIDATED BALANCE SHEETS 
+Amounts expressed in thousands of US dollars (“$”) 
+ 
+  
+As of 
+December 31, 
+As of 
+September 30, 
+  2023 2024 
+  $ $ 
+LIABILITIES AND SHAREHOLDERS’ EQUITY    
+Current liabilities    
+Accounts payable  342,547 274,771 
+Accrued expenses and other payables  1,834,807 2,148,427 
+Deposits payable  1,706,299 2,401,011 
+Escrow payables and advances from customers   2,199,464 2,402,361 
+Amounts due to related parties  64,081 164,910 
+Borrowings  146,661 142,742 
+Operating lease liabilities  290,788 315,512 
+Convertible notes   151,764 151,996 
+Deferred revenue  1,208,892 1,480,959 
+Income tax payable  223,638 106,730 
+Total current liabilities  8,168,941 9,589,419 
+    Non-current liabilities     
+Accrued expenses and other payables  79,257 86,822 
+Borrowings  119,323 177,424 
+Operating lease liabilities  789,514 895,710 
+Deferred revenue  72,587 98,068 
+Convertible notes   2,949,785 2,720,243 
+Deferred tax liabilities  133 268 
+Unrecognized tax benefits  6,107 95,157 
+Total non-current liabilities  4,016,706 4,073,692 
+Total liabilities  12,185,647 13,663,111 
+    
+
+---- Page 14 ----
+   
+ 
+14 
+ 
+UNAUDITED INTERIM CONDENSED CONSOLIDATED BALANCE SHEETS 
+Amounts expressed in thousands of US dollars (“$”) 
+ 
+  
+As of 
+December 31, 
+As of 
+September 30, 
+  2023 2024 
+  $ $ 
+Shareholders’ equity 
+ 
+   
+Class A Ordinary shares  262 266 
+Class B Ordinary shares  23 23 
+Additional paid-in capital   15,283,870 16,266,340 
+Accumulated other comprehensive (loss) income  (108,000) 25,090 
+Statutory reserves  16,981 17,021 
+Accumulated deficit   (8,599,306) (8,392,333) 
+    Total Sea Limited shareholders’ equity   6,593,830 7,916,407 
+Non-controlling interests  103,755 112,172 
+Total shareholders’ equity  6,697,585 8,028,579 
+Total liabilities and shareholders’ equity  18,883,232 21,691,690 
+  
+  
+
+---- Page 15 ----
+   
+ 
+15 
+ 
+UNAUDITED INTERIM CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS 
+Amounts expressed in thousands of US dollars (“$”) 
+ 
+ 
+For the Nine Months ended  
+September 30, 
+ 2023 2024 
+ $  
+Net cash generated from operating activities 1,800,855 2,256,438  
+Net cash used in investing activities (4,755,908) (3,279,780)  
+Net cash generated from financing activities 182,626 984,283 
+Effect of foreign exchange rate changes on cash, cash 
+equivalents and restricted cash (76,281) 61,654 
+Net (decrease) increase in cash, cash equivalents and restricted 
+cash (2,848,708) 22,595 
+Cash, cash equivalents and restricted cash at beginning of the 
+period 7,610,384 4,243,657 
+   Cash, cash equivalents and restricted cash at end of the period 4,761,676 4,266,252 
+    
+ 
+Net cash used in investing activities amounted to US$3,280 million for the nine months ended September 
+30, 2024. This was primarily attributable to increase in loans receivable of our credit business of US$1,598 
+million, net placement of US$1,405 million in securities purchased under agreements to resell, time deposits 
+and liquid investment products, for better cash yield management and purchase of property and equipment 
+of US$ 229 million to support the existing operations. Net cash generated from financing activities 
+amounted to US$984 million for the nine months ended September 30, 2024. This was primarily attributable 
+to an increase in bank deposits of US$692 million, settlement of capped calls of US$429 million as well as 
+net proceeds from other  funding sources related to cred it business of US$ 43 million, offset by the cash 
+used in repurchase of convertible notes of US$199 million. 
+  
+
+---- Page 16 ----
+   
+ 
+16 
+ 
+UNAUDITED SEGMENT INFORMATION 
+ 
+The Company has three reportable segments, namely e -commerce, digital financial services and 
+digital entertainment. The Chief Operating Decision Maker (“CODM”) reviews the performance 
+of each segment based on revenue and certain key operating metrics of the operations and uses 
+these results for the purposes of allocating resources to and evaluating the financial perfo rmance 
+of each segment. Amounts are expressed in thousands of US dollars (“$”). 
+ 
+ For the Three Months ended September 30, 2024 
+ E-
+commerce 
+Digital 
+Financial 
+Services 
+Digital 
+Entertainment 
+Other 
+Services(1) 
+Unallocated 
+expenses(2) 
+Consolidated 
+ $ $ $ $ $ $ 
+Revenue 3,183,558 615,711 497,847 31,117 - 4,328,233 
+Operating (loss) income (36,818) 173,942 262,402 (11,001) (186,110) 202,415 
+Non-operating income, net      49,536 
+Income tax expense       (92,598) 
+Share of results of equity investees      (6,029) 
+Net income      153,324 
+ 
+ For the Three Months ended September 30, 2023 
+ E-
+commerce 
+Digital 
+Financial 
+Services 
+Digital 
+Entertainment 
+Other 
+Services(1) 
+Unallocated 
+expenses(2) 
+Consolidated 
+ $ $ $ $ $ $ 
+Revenue 2,231,954 446,249 592,153 39,812 - 3,310,168 
+Operating (loss) income (428,183) 150,470 345,760 (11,704) (184,083) (127,740) 
+Non-operating income, net      45,875 
+Income tax expense       (61,676) 
+Share of results of equity investees      (437) 
+Net loss      (143,978) 
+ 
+(1) A combination of multiple business activities that do not meet the quantitative thresholds to qualify as reportable 
+segments are grouped together as “Other Services”. 
+(2) Unallocated expenses are mainly related to share -based compensation and general and corporate administrative 
+costs such as professional fees and other miscellaneous items that are not allocated to segments. These expenses are 
+excluded from segment results as they are not reviewed by the CODM as part of segment performance.
