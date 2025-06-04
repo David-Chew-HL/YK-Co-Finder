@@ -1,0 +1,50 @@
+{
+  "companyDescription": "Malakoff Corporation Berhad is a dynamic, sustainability-driven multinational energy generation and environmental solutions company dedicated to enhancing lives and enriching communities. As Malaysia\u2019s largest Independent Power Producer, we have a generating capacity of 6,953 MW, complemented by an expanding renewable energy (RE) portfolio of 173 MW. Beyond power generation, we are also a leader in environmental solutions through our subsidiary, Alam Flora Sdn. Bhd. which handles waste management volume of 3,397 tonnes per day with the capacity to handle close to 5,200 tonnes per day based on existing contracts, concession arrangements and available assets. With a global footprint, Malakoff has introduced innovative solutions through power generation and water desalination ventures in Saudi Arabia, Bahrain and Oman. As we navigate an era of transformation, we remain committed to advancing the nation\u2019s aspirations for carbon neutrality and a circular economy. Our pursuit of a cleaner, greener world is driven by collaboration, knowledge-sharing and the collective expertise of our people, partners and stakeholders.",
+  "companyName": "Malakoff Corporation Berhad",
+  "industry": "Utilities",
+  "reportYear": 2024,
+  "topShareholders": [
+    {
+      "glicAssociation": "None",
+      "pageNumber": 13,
+      "percentageHeld": 38.45,
+      "shareholderName": "MMC Corporation Berhad"
+    },
+    {
+      "glicAssociation": "PNB",
+      "pageNumber": 13,
+      "percentageHeld": 11.66,
+      "shareholderName": "Permodalan Nasional Berhad"
+    },
+    {
+      "glicAssociation": "EPF",
+      "pageNumber": 13,
+      "percentageHeld": 11.37,
+      "shareholderName": "Employees Provident Fund"
+    },
+    {
+      "glicAssociation": "Ministry of Finance",
+      "pageNumber": 13,
+      "percentageHeld": 9.56,
+      "shareholderName": "Urusharta Jamaah Sdn. Bhd."
+    },
+    {
+      "glicAssociation": "KWAP",
+      "pageNumber": 13,
+      "percentageHeld": 9.06,
+      "shareholderName": "Kumpulan Wang Persaraan \n(Diperbadankan)"
+    },
+    {
+      "glicAssociation": "Lembaga Tabung Haji",
+      "pageNumber": 13,
+      "percentageHeld": 3.54,
+      "shareholderName": "Lembaga Tabung Haji"
+    },
+    {
+      "glicAssociation": "None",
+      "pageNumber": 13,
+      "percentageHeld": 1.02,
+      "shareholderName": "Etiqa Insurance"
+    }
+  ]
+}
