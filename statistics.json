@@ -1,7 +1,7 @@
 {
-  "total_companies": 34,
+  "total_companies": 35,
   "bond_serving_companies": 21,
-  "total_industries": 17,
+  "total_industries": 18,
   "industries": [
     "Agriculture",
     "Automobiles",
@@ -14,6 +14,7 @@
     "Food, Beverage",
     "Insurance",
     "Materials",
+    "Media",
     "Pharmaceuticals",
     "Real Estate",
     "Retail",
@@ -34,6 +35,7 @@
       "Food, Beverage": 1,
       "Insurance": 0,
       "Materials": 1,
+      "Media": 1,
       "Pharmaceuticals": 0,
       "Real Estate": 3,
       "Retail": 1,
@@ -53,6 +55,7 @@
       "Food, Beverage": 1,
       "Insurance": 1,
       "Materials": 0,
+      "Media": 0,
       "Pharmaceuticals": 1,
       "Real Estate": 1,
       "Retail": 1,
@@ -79,6 +82,12 @@
       "industry": "Retail",
       "glic_total": 28.7,
       "is_bond_serving": true
+    },
+    {
+      "company": "Astro Malaysia Holdings Berhad",
+      "industry": "Media",
+      "glic_total": 8.4,
+      "is_bond_serving": false
     },
     {
       "company": "Axiata Group Berhad",
